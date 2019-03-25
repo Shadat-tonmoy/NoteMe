@@ -14,7 +14,7 @@ import android.view.MenuItem;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.entities.Note;
 import com.stcodesapp.noteit.fragments.ColorPallateBottomSheets;
-import com.stcodesapp.noteit.tasks.NoteUpdateTask;
+import com.stcodesapp.noteit.tasks.DatabaseTasks.NoteUpdateTask;
 import com.stcodesapp.noteit.ui.screens.NoteFieldScreen;
 
 import java.util.Calendar;

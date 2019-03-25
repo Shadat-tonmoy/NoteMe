@@ -1,5 +1,6 @@
 package com.stcodesapp.noteit.controllers;
 
+import android.os.Bundle;
 import android.util.Log;
 
 import com.stcodesapp.noteit.factory.TasksFactory;
@@ -31,7 +32,6 @@ public class NoteListController implements NoteListScreen.Listener {
 
     @Override
     public void onNoteAddFabClick() {
-        Log.e("Clicked","onNoteAddFab");
-
+        tasksFactory.getScreenNavigationTasks().toNoteFieldScreen(new Bundle());
     }
 }

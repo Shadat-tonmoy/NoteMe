@@ -1,4 +1,4 @@
-package com.stcodesapp.noteit.tasks;
+package com.stcodesapp.noteit.tasks.DatabaseTasks;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -10,13 +10,13 @@ import com.stcodesapp.noteit.dao.NotesDao;
 import com.stcodesapp.noteit.database.NoteDatabase;
 import com.stcodesapp.noteit.entities.Note;
 
-public class NoteUpdateTask extends AsyncTask<Note,Void,Note> {
+public class NoteDeleteTask extends AsyncTask<Note,Void,Void> {
 
     private NoteDatabase noteDatabase;
     private NotesDao notesDao;
     private Context context;
 
-    public NoteUpdateTask(Context context)
+    public NoteDeleteTask(Context context)
     {
         this.context = context;
         noteDatabase = NoteDatabase.getInstance(context);
@@ -29,15 +29,15 @@ public class NoteUpdateTask extends AsyncTask<Note,Void,Note> {
     }
 
     @Override
-    protected Note doInBackground(Note... notes) {
-        Log.e("Note","Inserting....");
-        notesDao.update(notes[0]);
-        return notes[0];
+    protected Void doInBackground(Note... notes) {
+        Log.e("Note","Deleting....");
+        notesDao.delete(notes[0]);
+        return null;
     }
 
     @Override
-    protected void onPostExecute(Note note) {
-        super.onPostExecute(note);
-        Toast.makeText(context, R.string.note_updated, Toast.LENGTH_SHORT).show();
+    protected void onPostExecute(Void aVoid) {
+        super.onPostExecute(aVoid);
+        Toast.makeText(context, R.string.note_deleted, Toast.LENGTH_SHORT).show();
     }
 }

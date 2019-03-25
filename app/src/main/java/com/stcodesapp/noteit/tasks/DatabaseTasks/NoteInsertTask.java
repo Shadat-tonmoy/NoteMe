@@ -1,4 +1,4 @@
-package com.stcodesapp.noteit.tasks;
+package com.stcodesapp.noteit.tasks.DatabaseTasks;
 
 import android.content.Context;
 import android.os.AsyncTask;
