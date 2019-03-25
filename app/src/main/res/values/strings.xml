@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">AndroidJetpack</string>
+    <string name="note_title">Header/Title</string>
+    <string name="note_text">Note</string>
+    <string name="note_time">26 August,2019 8:45 AM</string>
+    <string name="note_added">Note is added</string>
+    <string name="note_updated">Note is Updated</string>
+    <string name="note_deleted">Note is Deleted</string>
+    <string name="delete_note_ok">Yes! Delete The Note</string>
+    <string name="delete_note_cancel">No!! That Was an Accident</string>
+    <string name="delete_note_prompt">Are You Sure To Permanently Delete The Note?</string>
+    <string name="edit_note">Edit</string>
+    <string name="delete_note">Delete</string>
+    <string name="copy_note">Copy</string>
+    <string name="more">More</string>
+    <string name="clear">Clear</string>
+    <string name="done">Done</string>
+    <string name="add_image">Add Image</string>
+    <string name="add_phone_no">Add Phone No</string>
+    <string name="add_audio">Add Audio</string>
+    <string name="choose_color">Choose Color</string>
+    <string name="add_tag">Add Tag</string>
+    <string name="share_note">Share Note</string>
+    <string name="choose_background_color">Choose Background Color</string>
+</resources>
