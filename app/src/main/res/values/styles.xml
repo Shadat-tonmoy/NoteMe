@@ -8,6 +8,20 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.Transparent" parent="AppTheme">
+        <item name="windowActionBarOverlay">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="AppTheme.TransparentActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="windowActionBarOverlay">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
     <style name="noteHeaderStyle">
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">@color/white</item>
@@ -29,5 +43,7 @@
     <style name="noteTextStyleWhite" parent="noteTextStyle">
         <item name="android:textColor">@color/white</item>
     </style>
+
+
 
 </resources>

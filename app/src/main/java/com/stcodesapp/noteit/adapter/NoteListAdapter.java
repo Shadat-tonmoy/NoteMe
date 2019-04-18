@@ -95,7 +95,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         }
     }
 
-    private void setClickListener(View edit,View delete, View more,Note note)
+    private void setClickListener(View edit, View delete, View more, final Note note)
     {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override

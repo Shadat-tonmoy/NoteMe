@@ -1,25 +1,40 @@
 package com.stcodesapp.noteit.factory;
 
-import android.app.Activity;
-
-import com.stcodesapp.noteit.tasks.navigationTasks.ScreenNavigationTasks;
-import com.stcodesapp.noteit.tasks.screenManipulationTasks.NoteAddScreenManipulationTasks;
+import android.support.v4.app.FragmentActivity;
+import com.stcodesapp.noteit.common.FragmentFrameHelper;
+import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
+import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.NoteFieldScreenManipulationTasks;
 
 public class TasksFactory {
 
-    private Activity activity;
+    private FragmentActivity activity;
+    private FragmentFrameHelper fragmentFrameHelper;
 
-    public TasksFactory(Activity activity) {
+    public TasksFactory(FragmentActivity activity, FragmentFrameHelper fragmentFrameHelper) {
         this.activity = activity;
+        this.fragmentFrameHelper= fragmentFrameHelper;
     }
 
-    public NoteAddScreenManipulationTasks getNoteAddScreenManipulationTasks()
-    {
-        return new NoteAddScreenManipulationTasks(activity);
+    public TasksFactory(FragmentActivity activity) {
+        this.activity = activity;
+
     }
 
-    public ScreenNavigationTasks getScreenNavigationTasks()
+    public ActivityNavigationTasks getActivityNavigationTasks()
     {
-        return new ScreenNavigationTasks(activity);
+        return new ActivityNavigationTasks(activity);
     }
+
+    public FragmentNavigationTasks getFragmentNavigationTasks()
+    {
+        return new FragmentNavigationTasks(fragmentFrameHelper);
+    }
+
+    public NoteFieldScreenManipulationTasks getNoteFieldScreenManipulationTasks()
+    {
+        return new NoteFieldScreenManipulationTasks(activity);
+    }
+
+
 }

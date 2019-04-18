@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.stcodesapp.androidjetpack", appContext.getPackageName());
+        assertEquals("com.inverseai.navigationdrawer", appContext.getPackageName());
     }
 }

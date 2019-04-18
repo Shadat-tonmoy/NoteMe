@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/home_screen"
+            android:icon="@drawable/menu"
+            android:title="Home Screnn" />
+
+        <item
+            android:id="@+id/nav_menu_1"
+            android:icon="@drawable/menu"
+            android:title="Menu 1" />
+        <item
+            android:id="@+id/nav_menu_2"
+            android:icon="@drawable/menu"
+            android:title="Menu 2" />
+        <item
+            android:id="@+id/nav_menu_3"
+            android:icon="@drawable/menu"
+            android:title="Menu 3" />
+    </group>
+
+    <item android:title="@string/app_name">
+
+        <menu>
+                <item
+                    android:id="@+id/nav_pro_version"
+                    android:title="@string/pro_version"
+                    android:icon="@drawable/pro_version"/>
+
+                <item
+                    android:id="@+id/nav_privacy_policy"
+                    android:title="@string/privacy_policy"
+                    android:icon="@drawable/privacy_policy"/>
+
+                <item
+                    android:id="@+id/nav_privacy_settings"
+                    android:title="@string/settings"
+                    android:icon="@drawable/settings"/>
+
+
+                <item
+                    android:id="@+id/nav_about"
+                    android:title="@string/about_the_app"
+                    android:icon="@drawable/about"
+                    />
+
+                <item
+                    android:id="@+id/nav_share"
+                    android:title="@string/share_the_app"
+                    android:icon="@drawable/share"/>
+
+                <item
+                    android:id="@+id/nav_rate"
+                    android:title="@string/rate_the_app"
+                    android:icon="@drawable/rate" />
+
+            <item
+                    android:id="@+id/nav_more"
+                    android:title="@string/more"
+                    android:icon="@drawable/more" />
+
+        </menu>
+    </item>
+
+</menu>
