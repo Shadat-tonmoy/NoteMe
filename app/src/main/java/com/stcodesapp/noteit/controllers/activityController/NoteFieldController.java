@@ -1,8 +1,11 @@
 package com.stcodesapp.noteit.controllers.activityController;
 
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.net.Uri;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -90,6 +93,9 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
                 case RequestCode.OPEN_IMAGE_FILE:
                     handleChosenImage(data);
                     break;
+                case RequestCode.OPEN_CONTACT_LIST:
+                    handleChosenContact(data);
+                    break;
             }
 
         }
@@ -130,6 +136,11 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
 
     }
 
+    private void handleChosenContact(Intent intent)
+    {
+        fileIOTasks.readContact(intent);
+    }
+
 
     public void onPostCreate() {
         noteFieldScreenView.initUserInteractions();
@@ -154,7 +165,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     {
         if(appPermissionTrackingTasks.hasContactReadPermission())
         {
-
+            fileIOTasks.openContactPicker();
         }
     }
 }
