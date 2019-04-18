@@ -1346,6 +1346,7 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id ui_component_container
 id ui_root
 id uniform
 id unlabeled
@@ -1421,6 +1422,7 @@ layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout fragment_container_layout
 layout home_screen
+layout image_container
 layout image_holder
 layout main_activity_layout
 layout mtrl_layout_snackbar

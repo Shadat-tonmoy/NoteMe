@@ -35,7 +35,7 @@ public class TasksFactory {
 
     public NoteFieldScreenManipulationTasks getNoteFieldScreenManipulationTasks()
     {
-        return new NoteFieldScreenManipulationTasks(activity);
+        return new NoteFieldScreenManipulationTasks(activity,getListenerFactory());
     }
 
     public AppPermissionTrackingTasks getAppPermissionTrackingTasks()
@@ -46,6 +46,11 @@ public class TasksFactory {
     public FileIOTasks getFileIOTasks()
     {
         return new FileIOTasks(activity);
+    }
+
+    public ListenerFactory getListenerFactory()
+    {
+        return new ListenerFactory();
     }
 
 

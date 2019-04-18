@@ -6,10 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
+import com.google.android.flexbox.FlexboxLayout;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.BackgroundColors;
+import com.stcodesapp.noteit.factory.ListenerFactory;
+import com.stcodesapp.noteit.listeners.RemoveImageListener;
 import com.stcodesapp.noteit.ui.fragments.ColorPallateBottomSheets;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
 
@@ -18,9 +20,11 @@ public class NoteFieldScreenManipulationTasks {
     private Activity activity;
     private NoteFieldScreenView noteFieldScreenView;
     private ColorPallateBottomSheets colorPallateBottomSheets;
+    private ListenerFactory listenerFactory;
 
-    public NoteFieldScreenManipulationTasks(Activity activity) {
+    public NoteFieldScreenManipulationTasks(Activity activity, ListenerFactory listenerFactory) {
         this.activity = activity;
+        this.listenerFactory = listenerFactory;
     }
 
     public void bindView(NoteFieldScreenView noteFieldScreenView) {
@@ -64,17 +68,19 @@ public class NoteFieldScreenManipulationTasks {
 
     public void addImageToChosenImageContainer(Uri imageUri)
     {
+        FlexboxLayout imageContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_image_container);
+        if(imageContainer==null)
+        {
+            imageContainer = (activity.getLayoutInflater().inflate(R.layout.image_container,null,false)).findViewById(R.id.chosen_image_container);
+            noteFieldScreenView.getUiComponentContainer().addView(imageContainer);
+        }
         final View imageHolder = activity.getLayoutInflater().inflate(R.layout.image_holder,null,false);
         ImageView imageView = imageHolder.findViewById(R.id.image);
         ImageView removeIcon = imageHolder.findViewById(R.id.remove_image);
         imageView.setImageURI(imageUri);
-        noteFieldScreenView.getChosenImageContainer().addView(imageHolder);
-        removeIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                noteFieldScreenView.getChosenImageContainer().removeView(imageHolder);
-            }
-        });
+        imageContainer.addView(imageHolder);
+        RemoveImageListener removeImageListener = listenerFactory.getRemoveImageListener(imageContainer,imageHolder);
+        removeIcon.setOnClickListener(removeImageListener);
 
     }
 }

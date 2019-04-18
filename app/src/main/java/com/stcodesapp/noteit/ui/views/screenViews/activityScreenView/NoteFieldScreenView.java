@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.flexbox.FlexboxLayout;
@@ -23,8 +24,7 @@ public class NoteFieldScreenView extends BaseObservableScreenView<NoteFieldScree
     private EditText noteTitleField,noteTextField;
     private CoordinatorLayout uiRoot;
     private View noteTitleDivider,noteTextDivider;
-    private FlexboxLayout chosenImageContainer;
-
+    private LinearLayout uiComponentContainer;
 
     public NoteFieldScreenView(LayoutInflater inflater, @Nullable ViewGroup parent)
     {
@@ -63,7 +63,7 @@ public class NoteFieldScreenView extends BaseObservableScreenView<NoteFieldScree
         noteTextField = findViewById(R.id.note_text_field);
         noteTitleDivider = findViewById(R.id.note_title_divider);
         noteTextDivider = findViewById(R.id.note_text_divider);
-        chosenImageContainer = findViewById(R.id.chosen_image_container);
+        uiComponentContainer = findViewById(R.id.ui_component_container);
 
 
     }
@@ -96,7 +96,7 @@ public class NoteFieldScreenView extends BaseObservableScreenView<NoteFieldScree
         return toolbar;
     }
 
-    public FlexboxLayout getChosenImageContainer() {
-        return chosenImageContainer;
+    public LinearLayout getUiComponentContainer() {
+        return uiComponentContainer;
     }
 }
