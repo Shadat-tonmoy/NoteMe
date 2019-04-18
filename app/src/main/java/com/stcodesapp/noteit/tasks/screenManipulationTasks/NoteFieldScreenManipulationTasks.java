@@ -1,8 +1,12 @@
 package com.stcodesapp.noteit.tasks.screenManipulationTasks;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.BackgroundColors;
@@ -54,10 +58,23 @@ public class NoteFieldScreenManipulationTasks {
             noteFieldScreenView.getNoteTextDivider().setBackgroundColor(activity.getResources().getColor(dividerColor));
         }catch (Exception e)
         {
-            Log.e("Exeption",e.getMessage());
+            Log.e("Exception",e.getMessage());
         }
+    }
 
-
+    public void addImageToChosenImageContainer(Uri imageUri)
+    {
+        final View imageHolder = activity.getLayoutInflater().inflate(R.layout.image_holder,null,false);
+        ImageView imageView = imageHolder.findViewById(R.id.image);
+        ImageView removeIcon = imageHolder.findViewById(R.id.remove_image);
+        imageView.setImageURI(imageUri);
+        noteFieldScreenView.getChosenImageContainer().addView(imageHolder);
+        removeIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                noteFieldScreenView.getChosenImageContainer().removeView(imageHolder);
+            }
+        });
 
     }
 }

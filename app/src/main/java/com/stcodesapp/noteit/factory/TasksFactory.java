@@ -2,9 +2,11 @@ package com.stcodesapp.noteit.factory;
 
 import android.support.v4.app.FragmentActivity;
 import com.stcodesapp.noteit.common.FragmentFrameHelper;
+import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.NoteFieldScreenManipulationTasks;
+import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
 
 public class TasksFactory {
 
@@ -35,6 +37,17 @@ public class TasksFactory {
     {
         return new NoteFieldScreenManipulationTasks(activity);
     }
+
+    public AppPermissionTrackingTasks getAppPermissionTrackingTasks()
+    {
+        return new AppPermissionTrackingTasks(activity);
+    }
+
+    public FileIOTasks getFileIOTasks()
+    {
+        return new FileIOTasks(activity);
+    }
+
 
 
 }

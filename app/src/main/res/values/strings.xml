@@ -39,4 +39,5 @@
     <string name="empty_string">\"\"</string>
     <string name="title">Title</string>
     <string name="note">Note</string>
+    <string name="test">This is a test image</string>
 </resources>
