@@ -1038,6 +1038,7 @@ drawable avd_show_password
 drawable back_white
 drawable call_black
 drawable close_black
+drawable copy_black
 drawable delete_black
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
@@ -1076,6 +1077,7 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable palette
 drawable person_add_black
+drawable person_black
 drawable phone
 drawable plus
 drawable privacy_policy
@@ -1156,6 +1158,12 @@ id collapseActionView
 id color_grid
 id column
 id column_reverse
+id contact_call_btn
+id contact_copy_btn
+id contact_divider
+id contact_icon
+id contact_name
+id contact_no
 id container
 id content
 id contentPanel
@@ -1217,6 +1225,7 @@ id line1
 id line3
 id listMode
 id list_item
+id manual_phone_number_option
 id masked
 id message
 id middle
@@ -1260,6 +1269,7 @@ id parent
 id parentPanel
 id parent_matrix
 id percent
+id pick_from_contact_option
 id pin
 id popup_menu_1
 id popup_menu_2
@@ -1408,6 +1418,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout color_pallete_layout
+layout contact_container
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar
@@ -1433,6 +1444,7 @@ layout navigation_drawer_header
 layout navigation_drawer_layout
 layout navigation_menu_1_screen
 layout navigation_menu_2_screen
+layout note_contact_single_row
 layout note_field_screen
 layout note_single_row
 layout notification_action
@@ -1539,6 +1551,7 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string permission_is_required
 string pick_from_contact
 string privacy_policy
 string pro_version
@@ -1551,6 +1564,8 @@ string share_note
 string share_the_app
 string status_bar_notification_info_overflow
 string test
+string test_contact
+string test_num
 string title
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light

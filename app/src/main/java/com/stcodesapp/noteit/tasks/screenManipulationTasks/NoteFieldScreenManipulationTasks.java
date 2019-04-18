@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.flexbox.FlexboxLayout;
 import com.stcodesapp.noteit.R;
@@ -89,10 +90,20 @@ public class NoteFieldScreenManipulationTasks {
 
     }
 
-    public void showPhoneNoOptions()
+    public void showPhoneNoOptions(PhoneNoOptionsBottomSheets.Listener listener)
     {
         phoneNoOptionsBottomSheets =  uiComponentFatory.getphoneNoOptionsBottomSheets();
+        phoneNoOptionsBottomSheets.setListener(listener);
         phoneNoOptionsBottomSheets.show(((AppCompatActivity)activity).getSupportFragmentManager(),"TAG");
+    }
+    public void dismissPhoneNoOptions()
+    {
+        if(phoneNoOptionsBottomSheets!=null && phoneNoOptionsBottomSheets.isVisible())
+            phoneNoOptionsBottomSheets.dismiss();
+    }
 
+    public void showPermissionRequiredMessage()
+    {
+        Toast.makeText(activity, activity.getResources().getText(R.string.permission_is_required), Toast.LENGTH_SHORT).show();
     }
 }

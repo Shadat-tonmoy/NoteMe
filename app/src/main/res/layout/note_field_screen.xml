@@ -81,16 +81,7 @@
                     android:layout_marginTop="8dp"
                     android:background="?android:attr/listDivider" />
 
-                <com.google.android.flexbox.FlexboxLayout
-                    android:id="@+id/chosen_image_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    app:flexWrap="wrap"
-                    app:alignItems="stretch"
-                    app:alignContent="stretch">
-
-                </com.google.android.flexbox.FlexboxLayout>
+                <include layout="@layout/contact_container"/>
 
 
 

@@ -1,36 +1,43 @@
 package com.stcodesapp.noteit.controllers.activityController;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.MenuItem;
 
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.constants.EventTypes;
 import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.NoteFieldScreenManipulationTasks;
+import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
 import com.stcodesapp.noteit.ui.fragments.ColorPallateBottomSheets;
+import com.stcodesapp.noteit.ui.fragments.PhoneNoOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
 import com.stcodesapp.noteit.ui.views.screens.activityScreen.NoteFieldScreen;
 
 import static android.app.Activity.RESULT_OK;
 
-public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener {
+public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener {
 
     private TasksFactory tasksFactory;
     private ActivityNavigationTasks activityNavigationTasks;
     private NoteFieldScreenView noteFieldScreenView;
     private NoteFieldScreenManipulationTasks noteFieldScreenManipulationTasks;
     private FileIOTasks fileIOTasks;
+    private AppPermissionTrackingTasks appPermissionTrackingTasks;
 
     public NoteFieldController(TasksFactory tasksFactory) {
         this.tasksFactory = tasksFactory;
         activityNavigationTasks = tasksFactory.getActivityNavigationTasks();
         noteFieldScreenManipulationTasks = tasksFactory.getNoteFieldScreenManipulationTasks();
         fileIOTasks = tasksFactory.getFileIOTasks();
+        appPermissionTrackingTasks = tasksFactory.getAppPermissionTrackingTasks();
     }
 
     public void bindView(NoteFieldScreenView secondActivityScreenView) {
@@ -65,7 +72,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
                 fileIOTasks.openFilePickerForImage();
                 break;
             case R.id.add_phone_no_menu:
-                noteFieldScreenManipulationTasks.showPhoneNoOptions();
+                noteFieldScreenManipulationTasks.showPhoneNoOptions(this);
                 break;
 
         }
@@ -91,6 +98,23 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     }
 
     @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+       if(requestCode == RequestCode.READ_CONTACT_PERMISSION)
+       {
+           if(grantResults[0]==PackageManager.PERMISSION_GRANTED)
+           {
+               executeReadingContact();
+           }
+           else
+           {
+               Log.e("Permission","Denied");
+               noteFieldScreenManipulationTasks.showPermissionRequiredMessage();
+           }
+       }
+
+    }
+
+    @Override
     public void onColorClicked(String colorName) {
         Log.e("Clicked",colorName);
         noteFieldScreenManipulationTasks.dismissColorPalate();
@@ -112,6 +136,25 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     }
 
 
+    @Override
+    public void onPhoneNoOptionSelected(int phoneNoOption) {
+        noteFieldScreenManipulationTasks.dismissPhoneNoOptions();
+        switch (phoneNoOption)
+        {
+            case EventTypes.MANUAL_PHONE_NO_OPTION_CLICKED:
+                Log.e("Clicked","Manual");
+                break;
+            case EventTypes.PICK_FROM_CONTACT_OPTION_CLICKED:
+                executeReadingContact();
+                break;
+        }
+    }
 
+    private void executeReadingContact()
+    {
+        if(appPermissionTrackingTasks.hasContactReadPermission())
+        {
 
+        }
+    }
 }

@@ -12,6 +12,7 @@ public class AppPermissionTrackingTasks {
 
     private Activity activity;
     private final String WRITE_EXTERNAL_STORAGE = Manifest.permission.WRITE_EXTERNAL_STORAGE;
+    private final String READ_CONTACT = Manifest.permission.READ_CONTACTS;
 
 
     public AppPermissionTrackingTasks(Activity activity) {
@@ -29,6 +30,26 @@ public class AppPermissionTrackingTasks {
             else
             {
                 ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, RequestCode.WRITE_EXTERNAL_STORAGE_PERMISSION);
+                return false;
+            }
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public boolean hasContactReadPermission()
+    {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+        {
+            if (activity.checkSelfPermission(READ_CONTACT) == PackageManager.PERMISSION_GRANTED)
+            {
+                return true;
+            }
+            else
+            {
+                ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.READ_CONTACTS}, RequestCode.READ_CONTACT_PERMISSION);
                 return false;
             }
         }

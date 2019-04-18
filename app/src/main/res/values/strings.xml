@@ -43,4 +43,7 @@
     <string name="add_phone_number_manually">Add Phone Number Manually</string>
     <string name="pick_from_contact">Pick From Contact</string>
     <string name="choose_an_option_to_continue">Choose an Option to Continue</string>
+    <string name="permission_is_required">Permission is required to enable this feature. Please allow permission and try again</string>
+    <string name="test_contact">Test Contact</string>
+    <string name="test_num">+8801521445110</string>
 </resources>

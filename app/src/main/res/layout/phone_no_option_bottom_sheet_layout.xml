@@ -13,6 +13,7 @@
         />
 
     <TextView
+        android:id="@+id/manual_phone_number_option"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/add_phone_number_manually"
@@ -24,6 +25,7 @@
         />
 
     <TextView
+        android:id="@+id/pick_from_contact_option"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/pick_from_contact"
