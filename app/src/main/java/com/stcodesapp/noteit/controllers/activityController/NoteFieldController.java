@@ -64,6 +64,9 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
             case R.id.add_image_menu:
                 fileIOTasks.openFilePickerForImage();
                 break;
+            case R.id.add_phone_no_menu:
+                noteFieldScreenManipulationTasks.showPhoneNoOptions();
+                break;
 
         }
 

@@ -11,8 +11,10 @@ import com.google.android.flexbox.FlexboxLayout;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.BackgroundColors;
 import com.stcodesapp.noteit.factory.ListenerFactory;
+import com.stcodesapp.noteit.factory.UIComponentFatory;
 import com.stcodesapp.noteit.listeners.RemoveImageListener;
 import com.stcodesapp.noteit.ui.fragments.ColorPallateBottomSheets;
+import com.stcodesapp.noteit.ui.fragments.PhoneNoOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
 
 public class NoteFieldScreenManipulationTasks {
@@ -20,11 +22,14 @@ public class NoteFieldScreenManipulationTasks {
     private Activity activity;
     private NoteFieldScreenView noteFieldScreenView;
     private ColorPallateBottomSheets colorPallateBottomSheets;
+    private PhoneNoOptionsBottomSheets phoneNoOptionsBottomSheets;
     private ListenerFactory listenerFactory;
+    private UIComponentFatory uiComponentFatory;
 
-    public NoteFieldScreenManipulationTasks(Activity activity, ListenerFactory listenerFactory) {
+    public NoteFieldScreenManipulationTasks(Activity activity, ListenerFactory listenerFactory, UIComponentFatory uiComponentFatory) {
         this.activity = activity;
         this.listenerFactory = listenerFactory;
+        this.uiComponentFatory = uiComponentFatory;
     }
 
     public void bindView(NoteFieldScreenView noteFieldScreenView) {
@@ -33,7 +38,7 @@ public class NoteFieldScreenManipulationTasks {
 
     public void showColorPalate(ColorPallateBottomSheets.Listener listener)
     {
-        colorPallateBottomSheets =  new ColorPallateBottomSheets();
+        colorPallateBottomSheets =  uiComponentFatory.getColorPallateBottomSheets();
         colorPallateBottomSheets.setListener(listener);
         colorPallateBottomSheets.show(((AppCompatActivity)activity).getSupportFragmentManager(),"TAG");
     }
@@ -81,6 +86,13 @@ public class NoteFieldScreenManipulationTasks {
         imageContainer.addView(imageHolder);
         RemoveImageListener removeImageListener = listenerFactory.getRemoveImageListener(imageContainer,imageHolder);
         removeIcon.setOnClickListener(removeImageListener);
+
+    }
+
+    public void showPhoneNoOptions()
+    {
+        phoneNoOptionsBottomSheets =  uiComponentFatory.getphoneNoOptionsBottomSheets();
+        phoneNoOptionsBottomSheets.show(((AppCompatActivity)activity).getSupportFragmentManager(),"TAG");
 
     }
 }

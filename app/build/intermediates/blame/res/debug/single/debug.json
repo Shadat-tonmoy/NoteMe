@@ -340,6 +340,10 @@
         "source": "/home/shadat/android/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/0648f1b570e3ee4e0addc07f6284ca30/res/layout/abc_action_mode_close_item_material.xml"
     },
     {
+        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable_person_add_black.xml.flat",
+        "source": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/drawable/person_add_black.xml"
+    },
+    {
         "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-hdpi_round_shape_blue.xml.flat",
         "source": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/drawable-hdpi/round_shape_blue.xml"
     },
@@ -438,6 +442,10 @@
     {
         "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/layout_abc_dialog_title_material.xml.flat",
         "source": "/home/shadat/android/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/0648f1b570e3ee4e0addc07f6284ca30/res/layout/abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/layout_phone_no_option_bottom_sheet_layout.xml.flat",
+        "source": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/layout/phone_no_option_bottom_sheet_layout.xml"
     },
     {
         "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
@@ -2342,6 +2350,10 @@
     {
         "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
         "source": "/home/shadat/android/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/0648f1b570e3ee4e0addc07f6284ca30/res/drawable-xhdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable_call_black.xml.flat",
+        "source": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/drawable/call_black.xml"
     },
     {
         "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/layout_abc_alert_dialog_title_material.xml.flat",

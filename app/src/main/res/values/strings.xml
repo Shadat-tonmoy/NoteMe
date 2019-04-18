@@ -40,4 +40,7 @@
     <string name="title">Title</string>
     <string name="note">Note</string>
     <string name="test">This is a test image</string>
+    <string name="add_phone_number_manually">Add Phone Number Manually</string>
+    <string name="pick_from_contact">Pick From Contact</string>
+    <string name="choose_an_option_to_continue">Choose an Option to Continue</string>
 </resources>
