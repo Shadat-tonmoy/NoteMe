@@ -12,7 +12,7 @@ public abstract class BaseScreenView implements BaseScreen {
         return mRootView;
     }
 
-    protected void setRootView(View mRootView) {
+    public void setRootView(View mRootView) {
         this.mRootView = mRootView;
     }
 

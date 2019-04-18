@@ -38,7 +38,6 @@ public class ColorPallateBottomSheets extends BottomSheetDialogFragment {
         colorGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.e("ClickedOn", BackgroundColors.colorNames[position]);
                 listener.onColorClicked(BackgroundColors.colorNames[position]);
 
             }

@@ -615,6 +615,8 @@ color colorAccent
 color colorPrimary
 color colorPrimaryDark
 color darkAsh
+color default_divider
+color default_text
 color design_bottom_navigation_shadow_color
 color design_default_color_primary
 color design_default_color_primary_dark
@@ -636,6 +638,7 @@ color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
 color foreground_material_light
+color gray
 color green
 color highlighted_text_material_dark
 color highlighted_text_material_light
@@ -1207,7 +1210,10 @@ id note_add_button
 id note_header
 id note_header_image
 id note_text
+id note_text_divider
+id note_text_field
 id note_time
+id note_title_divider
 id note_title_field
 id notification_background
 id notification_main_column
@@ -1291,6 +1297,7 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id title_text
 id toolbar_title
 id top
 id topPanel
@@ -1300,6 +1307,7 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id ui_root
 id uniform
 id unlabeled
 id up
@@ -1380,7 +1388,8 @@ layout navigation_drawer_header
 layout navigation_drawer_layout
 layout navigation_menu_1_screen
 layout navigation_menu_2_screen
-layout note_field_screen
+layout note_field_screen_dark
+layout note_field_screen_light
 layout note_single_row
 layout notification_action
 layout notification_action_tombstone

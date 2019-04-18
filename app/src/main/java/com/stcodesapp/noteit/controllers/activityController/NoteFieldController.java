@@ -1,6 +1,5 @@
 package com.stcodesapp.noteit.controllers.activityController;
 
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -27,6 +26,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
 
     public void bindView(NoteFieldScreenView secondActivityScreenView) {
         this.noteFieldScreenView = secondActivityScreenView;
+        noteFieldScreenManipulationTasks.bindView(noteFieldScreenView);
     }
 
     public void onStart()
@@ -50,7 +50,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         switch (item.getItemId())
         {
             case R.id.choose_color_menu:
-                noteFieldScreenManipulationTasks.showColorPallate(this);
+                noteFieldScreenManipulationTasks.showColorPalate(this);
 
         }
 
@@ -64,6 +64,9 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     @Override
     public void onColorClicked(String colorName) {
         Log.e("Clicked",colorName);
-
+        noteFieldScreenManipulationTasks.dismissColorPalate();
+        noteFieldScreenManipulationTasks.applyBackgroundColor(colorName);
     }
+
+
 }

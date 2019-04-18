@@ -7,6 +7,8 @@ import java.util.Map;
 
 public class BackgroundColors {
 
+    public static final String WHITE = "White";
+
     public static final Integer[] colorIds = {
             R.drawable.round_shape_gray,R.drawable.round_shape_white,
             R.drawable.round_shape_light_red, R.drawable.round_shape_black,
@@ -22,8 +24,8 @@ public class BackgroundColors {
     public static Map<String,Integer> getColorMaps()
     {
         final Map<String,Integer> colorMaps = new HashMap<>();
-        colorMaps.put("Gray", R.drawable.round_shape_gray);
-        colorMaps.put("White", R.drawable.round_shape_white);
+        colorMaps.put("Gray", R.color.gray);
+        colorMaps.put("White", R.color.white);
         colorMaps.put("Red", R.color.lightRed);
         colorMaps.put("Black", R.color.black);
         colorMaps.put("Blue", R.color.blue);
