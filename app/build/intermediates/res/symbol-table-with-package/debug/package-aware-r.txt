@@ -1150,6 +1150,7 @@ id center_vertical
 id chains
 id checkbox
 id choose_color_menu
+id chosen_contact_container
 id chosen_image_container
 id chronometer
 id clip_horizontal
@@ -1419,6 +1420,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout color_pallete_layout
 layout contact_container
+layout contact_holder
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar
@@ -1444,7 +1446,6 @@ layout navigation_drawer_header
 layout navigation_drawer_layout
 layout navigation_menu_1_screen
 layout navigation_menu_2_screen
-layout note_contact_single_row
 layout note_field_screen
 layout note_single_row
 layout notification_action

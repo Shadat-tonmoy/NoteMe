@@ -138,7 +138,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
 
     private void handleChosenContact(Intent intent)
     {
-        fileIOTasks.readContact(intent);
+        noteFieldScreenManipulationTasks.addContactToChosenContactContainer(fileIOTasks.readContact(intent));
     }
 
 

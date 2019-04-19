@@ -1,7 +1,6 @@
 package com.stcodesapp.noteit.tasks.functionalTasks;
 
 import android.app.Activity;
-import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -9,13 +8,13 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.ContactsContract;
-import android.support.v4.content.FileProvider;
 import android.util.Log;
 
 import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.constants.Tags;
+import com.stcodesapp.noteit.models.Contact;
+
 import java.io.File;
-import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
 
@@ -48,31 +47,38 @@ public class FileIOTasks {
         activity.startActivityForResult(intent, RequestCode.OPEN_CONTACT_LIST);
     }
 
-    public void readContact(Intent intent)
+    public Contact readContact(Intent intent)
     {
         Uri contactData = intent.getData();
-        String number = "";
-        String name = "";
-        Cursor cursor = activity.getContentResolver().query(contactData, null, null, null, null);
-        Log.e("Cursor",cursor.getCount()+" is Size ");
-        cursor.moveToFirst();
-        String hasPhone = cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.Contacts.HAS_PHONE_NUMBER));
-        String contactId = cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.Contacts._ID));
-        Cursor phones = activity.getContentResolver().query
-                (ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,
-                        ContactsContract.CommonDataKinds.Phone.CONTACT_ID
-                                + " = " + contactId, null, null);
-        while (phones.moveToNext()) {
-            number = phones.getString(phones.getColumnIndex
-                    (ContactsContract.CommonDataKinds.Phone.NUMBER)).replaceAll("[-() ]", "");
-            name = phones.getString(phones.getColumnIndex
-                    (ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME)).replaceAll("[-() ]", "");
-            Log.e("Contact","Number "+number+" Name "+name);
+        String number,name;
+        Contact contact = null;
+        if(contactData!=null)
+        {
+            Cursor cursor = activity.getContentResolver().query(contactData, null, null, null, null);
+            if(cursor!=null)
+            {
+                cursor.moveToFirst();
+                String contactId = cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.Contacts._ID));
+                Cursor phones = activity.getContentResolver().query
+                        (ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,
+                                ContactsContract.CommonDataKinds.Phone.CONTACT_ID
+                                        + " = " + contactId, null, null);
+                if(phones!=null)
+                {
+                    while (phones.moveToNext())
+                    {
+                        number = phones.getString(phones.getColumnIndex
+                                (ContactsContract.CommonDataKinds.Phone.NUMBER)).replaceAll("[-() ]", "");
+                        name = phones.getString(phones.getColumnIndex
+                                (ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+                        contact = new Contact(number,name);
+                    }
+                    phones.close();
+                }
+                cursor.close();
+            }
         }
-        phones.close();
-        cursor.close();
-
-
+        return contact;
     }
 
 
