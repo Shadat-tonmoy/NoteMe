@@ -1566,7 +1566,8 @@ int string status_bar_notification_info_overflow 0x7f0e0060
 int string test 0x7f0e0061
 int string test_contact 0x7f0e0062
 int string test_num 0x7f0e0063
-int string title 0x7f0e0064
+int string text_copied 0x7f0e0064
+int string title 0x7f0e0065
 int style AlertDialog_AppCompat 0x7f0f0000
 int style AlertDialog_AppCompat_Light 0x7f0f0001
 int style Animation_AppCompat_Dialog 0x7f0f0002

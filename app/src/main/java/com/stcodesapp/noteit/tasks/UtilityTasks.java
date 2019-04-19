@@ -1,5 +1,13 @@
 package com.stcodesapp.noteit.tasks;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.widget.Toast;
+
+import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.Constants;
 
 import java.util.Calendar;
@@ -34,5 +42,20 @@ public class UtilityTasks {
         if(n<10)
             return "0"+n;
         return n+"";
+    }
+
+    public static void makeCall(Context context,String phoneNumber)
+    {
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:" + phoneNumber));
+        context.startActivity(intent);
+    }
+
+    public static void copyToClipboard(Context context,String text)
+    {
+        ClipboardManager clipboard = (ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText(context.getPackageName(), text);
+        clipboard.setPrimaryClip(clip);
+        Toast.makeText(context, context.getResources().getText(R.string.text_copied), Toast.LENGTH_SHORT).show();
     }
 }

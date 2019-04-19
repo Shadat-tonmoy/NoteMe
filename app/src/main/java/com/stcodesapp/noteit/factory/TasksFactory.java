@@ -7,6 +7,8 @@ import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.NoteFieldScreenManipulationTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
+import com.stcodesapp.noteit.tasks.utilityTasks.ClipboardTasks;
+import com.stcodesapp.noteit.tasks.utilityTasks.SharingTasks;
 
 public class TasksFactory {
 
@@ -35,7 +37,7 @@ public class TasksFactory {
 
     public NoteFieldScreenManipulationTasks getNoteFieldScreenManipulationTasks()
     {
-        return new NoteFieldScreenManipulationTasks(activity,getListenerFactory(), getUiComponentFatory());
+        return new NoteFieldScreenManipulationTasks(activity,getListenerFactory(), getUiComponentFactory());
     }
 
     public AppPermissionTrackingTasks getAppPermissionTrackingTasks()
@@ -50,12 +52,22 @@ public class TasksFactory {
 
     public ListenerFactory getListenerFactory()
     {
-        return new ListenerFactory();
+        return new ListenerFactory(activity);
     }
 
-    private UIComponentFatory getUiComponentFatory()
+    private UIComponentFatory getUiComponentFactory()
     {
         return new UIComponentFatory();
+    }
+
+    public ClipboardTasks getClipboardTasks()
+    {
+        return new ClipboardTasks(activity);
+    }
+
+    public SharingTasks getSharingTasks()
+    {
+        return new SharingTasks(activity);
     }
 
 

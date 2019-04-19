@@ -15,6 +15,7 @@ import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.BackgroundColors;
 import com.stcodesapp.noteit.factory.ListenerFactory;
 import com.stcodesapp.noteit.factory.UIComponentFatory;
+import com.stcodesapp.noteit.listeners.ContactListener;
 import com.stcodesapp.noteit.listeners.RemoveImageListener;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.ui.fragments.ColorPallateBottomSheets;
@@ -108,8 +109,9 @@ public class NoteFieldScreenManipulationTasks {
         contactNo.setText(contact.getPhoneNumber());
         displayName.setText(contact.getDisplayName());
         contactContainer.addView(contactHolder);
-//        RemoveImageListener removeImageListener = listenerFactory.getRemoveImageListener(imageContainer,imageHolder);
-//        removeIcon.setOnClickListener(removeImageListener);
+        ContactListener contactListener= listenerFactory.getContactListener(contact);
+        callButton.setOnClickListener(contactListener);
+        copyButton.setOnClickListener(contactListener);
     }
 
     public void showPhoneNoOptions(PhoneNoOptionsBottomSheets.Listener listener)

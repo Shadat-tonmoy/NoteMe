@@ -1567,6 +1567,7 @@ string status_bar_notification_info_overflow
 string test
 string test_contact
 string test_num
+string text_copied
 string title
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light

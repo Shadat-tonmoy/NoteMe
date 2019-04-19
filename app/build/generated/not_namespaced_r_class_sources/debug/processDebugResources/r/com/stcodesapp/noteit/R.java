@@ -5415,7 +5415,8 @@ public final class R {
     public static final int test=0x7f0e0061;
     public static final int test_contact=0x7f0e0062;
     public static final int test_num=0x7f0e0063;
-    public static final int title=0x7f0e0064;
+    public static final int text_copied=0x7f0e0064;
+    public static final int title=0x7f0e0065;
   }
   public static final class style {
     public static final int AlertDialog_AppCompat=0x7f0f0000;
