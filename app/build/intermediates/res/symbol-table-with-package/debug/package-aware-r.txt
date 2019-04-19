@@ -1165,10 +1165,17 @@ id contact_copy_btn
 id contact_divider
 id contact_icon
 id contact_name
+id contact_name_divider
+id contact_name_field
+id contact_name_text
 id contact_no
+id contact_no_divider
+id contact_no_field
+id contact_no_text
 id container
 id content
 id contentPanel
+id continue_button
 id coordinator
 id custom
 id customPanel
@@ -1419,7 +1426,6 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
-layout activity_manual_contact
 layout color_pallete_layout
 layout contact_container
 layout contact_holder
@@ -1442,6 +1448,7 @@ layout home_screen
 layout image_container
 layout image_holder
 layout main_activity_layout
+layout manual_contact_screen
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout navigation_drawer_header
@@ -1510,6 +1517,7 @@ string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string about_the_app
 string add_audio
+string add_contact
 string add_image
 string add_phone_no
 string add_phone_number_manually
@@ -1542,6 +1550,7 @@ string menu_2
 string menu_3
 string more
 string mtrl_chip_close_icon_content_description
+string name
 string note
 string note_added
 string note_deleted
@@ -1549,12 +1558,14 @@ string note_text
 string note_time
 string note_title
 string note_updated
+string ok_continue
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string permission_is_required
+string phone_no
 string pick_from_contact
 string privacy_policy
 string pro_version

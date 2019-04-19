@@ -5,6 +5,7 @@ import com.stcodesapp.noteit.common.FragmentFrameHelper;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.ManualContactScreenManipulationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.NoteFieldScreenManipulationTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.ClipboardTasks;
@@ -38,6 +39,12 @@ public class TasksFactory {
     public NoteFieldScreenManipulationTasks getNoteFieldScreenManipulationTasks()
     {
         return new NoteFieldScreenManipulationTasks(activity,getListenerFactory(), getUiComponentFactory());
+    }
+
+
+    public ManualContactScreenManipulationTasks getManualContactScreenManipulationTasks()
+    {
+        return new ManualContactScreenManipulationTasks(activity);
     }
 
     public AppPermissionTrackingTasks getAppPermissionTrackingTasks()

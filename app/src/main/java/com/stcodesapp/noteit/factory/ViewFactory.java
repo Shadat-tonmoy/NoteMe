@@ -5,6 +5,7 @@ import android.view.ViewGroup;
 
 import com.stcodesapp.noteit.ui.commons.NavigationDrawerView;
 import com.stcodesapp.noteit.ui.views.screenViews.HomeScreenView;
+import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.ManualContactScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.NavigationMenu1FragmentScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.NavigationMenu2FragmentScreenView;
@@ -41,5 +42,10 @@ public class ViewFactory {
     public NavigationMenu2FragmentScreenView getNavigationMenu2FragmentScreenView(ViewGroup parent)
     {
         return new NavigationMenu2FragmentScreenView(layoutInflater,parent);
+    }
+
+    public ManualContactScreenView getManualContactScreenView(ViewGroup parent)
+    {
+        return new ManualContactScreenView(layoutInflater,parent);
     }
 }

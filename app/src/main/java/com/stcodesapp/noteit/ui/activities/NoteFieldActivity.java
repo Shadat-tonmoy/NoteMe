@@ -26,7 +26,7 @@ public class NoteFieldActivity extends BaseActivity {
     private void init()
     {
         noteFieldScreenView = getCompositionRoot().getViewFactory().getSecondaryScreenView(null);
-        noteFieldController = getCompositionRoot().getActivityControllerFactory().getSecondActivityController();
+        noteFieldController = getCompositionRoot().getActivityControllerFactory().getNoteFieldController();
         noteFieldController.bindView(noteFieldScreenView);
         setContentView(noteFieldScreenView.getRootView());
     }
