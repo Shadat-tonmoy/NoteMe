@@ -1056,6 +1056,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable image_foreground
 drawable menu
+drawable mic_black
 drawable microphone
 drawable more
 drawable more_black
@@ -1418,6 +1419,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_manual_contact
 layout color_pallete_layout
 layout contact_container
 layout contact_holder

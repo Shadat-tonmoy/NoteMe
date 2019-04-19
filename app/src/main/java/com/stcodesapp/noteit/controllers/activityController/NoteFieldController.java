@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -153,7 +154,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         switch (phoneNoOption)
         {
             case EventTypes.MANUAL_PHONE_NO_OPTION_CLICKED:
-                Log.e("Clicked","Manual");
+                activityNavigationTasks.toManualContactScreen(new Bundle());
                 break;
             case EventTypes.PICK_FROM_CONTACT_OPTION_CLICKED:
                 executeReadingContact();

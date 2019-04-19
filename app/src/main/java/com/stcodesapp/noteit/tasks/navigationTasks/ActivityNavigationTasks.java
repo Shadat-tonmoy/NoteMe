@@ -3,6 +3,8 @@ package com.stcodesapp.noteit.tasks.navigationTasks;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.stcodesapp.noteit.ui.activities.ManualContactActivity;
 import com.stcodesapp.noteit.ui.activities.NoteFieldActivity;
 
 public class ActivityNavigationTasks {
@@ -23,6 +25,13 @@ public class ActivityNavigationTasks {
     public void toNoteFieldScreen(Bundle args)
     {
         Intent intent = new Intent(activity, NoteFieldActivity.class);
+        intent.putExtras(args);
+        activity.startActivity(intent);
+    }
+
+    public void toManualContactScreen(Bundle args)
+    {
+        Intent intent = new Intent(activity, ManualContactActivity.class);
         intent.putExtras(args);
         activity.startActivity(intent);
     }
