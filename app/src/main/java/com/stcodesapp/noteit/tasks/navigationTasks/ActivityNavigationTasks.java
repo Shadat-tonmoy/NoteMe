@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.ui.activities.ManualContactActivity;
 import com.stcodesapp.noteit.ui.activities.NoteFieldActivity;
 
@@ -33,7 +34,7 @@ public class ActivityNavigationTasks {
     {
         Intent intent = new Intent(activity, ManualContactActivity.class);
         intent.putExtras(args);
-        activity.startActivity(intent);
+        activity.startActivityForResult(intent, RequestCode.ADD_MANUAL_CONTACT);
     }
 
     public void closeScreen()

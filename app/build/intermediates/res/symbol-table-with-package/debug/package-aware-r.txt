@@ -1551,6 +1551,7 @@ string menu_3
 string more
 string mtrl_chip_close_icon_content_description
 string name
+string no_phone_number
 string note
 string note_added
 string note_deleted

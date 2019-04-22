@@ -5,6 +5,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.ui.views.baseScreens.BaseObservableScreenView;
@@ -15,6 +17,8 @@ public class ManualContactScreenView extends BaseObservableScreenView<ManualCont
 
 
     private Toolbar toolbar;
+    private EditText nameField, phoneNoField;
+    private Button continueButton;
 
     public ManualContactScreenView(LayoutInflater inflater, @Nullable ViewGroup parent)
     {
@@ -35,6 +39,16 @@ public class ManualContactScreenView extends BaseObservableScreenView<ManualCont
             }
         });
 
+        continueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for (Listener listener:getListeners())
+                {
+                    listener.onDoneButtonClicked();
+                }
+            }
+        });
+
     }
 
     @Override
@@ -43,9 +57,25 @@ public class ManualContactScreenView extends BaseObservableScreenView<ManualCont
         toolbar.setTitle(getContext().getResources().getString(R.string.add_contact));
         toolbar.setNavigationIcon(getContext().getResources().getDrawable(R.drawable.back_white));
 
+        nameField = findViewById(R.id.contact_name_field);
+        phoneNoField = findViewById(R.id.contact_no_field);
+        continueButton = findViewById(R.id.continue_button);
+
     }
 
     public Toolbar getToolbar() {
         return toolbar;
+    }
+
+    public EditText getNameField() {
+        return nameField;
+    }
+
+    public EditText getPhoneNoField() {
+        return phoneNoField;
+    }
+
+    public Button getContinueButton() {
+        return continueButton;
     }
 }

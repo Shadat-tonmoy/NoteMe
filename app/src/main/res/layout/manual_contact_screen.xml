@@ -38,6 +38,7 @@
                 android:id="@+id/contact_name_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/empty_string"
                 android:background="@drawable/edit_text_bg"
                 android:padding="8dp" />
 
@@ -67,6 +68,8 @@
                 android:id="@+id/contact_no_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/empty_string"
+                android:inputType="phone"
                 android:background="@drawable/edit_text_bg"
                 android:padding="8dp" />
 
@@ -85,7 +88,7 @@
         android:id="@+id/continue_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
+        android:layout_gravity="bottom|end"
         android:padding="16dp"
         android:layout_margin="8dp"
         android:text="@string/ok_continue"

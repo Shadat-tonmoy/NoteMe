@@ -36,7 +36,7 @@
     <string name="add_tag">Add Tag</string>
     <string name="share_note">Share Note</string>
     <string name="choose_background_color">Choose Background Color</string>
-    <string name="empty_string">\"\"</string>
+    <string name="empty_string">""</string>
     <string name="title">Title</string>
     <string name="note">Note</string>
     <string name="test">This is a test image</string>
@@ -51,4 +51,5 @@
     <string name="phone_no">Phone No.</string>
     <string name="ok_continue">Continue</string>
     <string name="add_contact">Add Contact</string>
+    <string name="no_phone_number">No Phone Number!! Please add a phone number and try again</string>
 </resources>

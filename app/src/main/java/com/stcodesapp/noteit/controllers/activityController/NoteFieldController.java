@@ -13,9 +13,11 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.EventTypes;
 import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.factory.TasksFactory;
+import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.NoteFieldScreenManipulationTasks;
@@ -97,6 +99,9 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
                 case RequestCode.OPEN_CONTACT_LIST:
                     handleChosenContact(data);
                     break;
+                case RequestCode.ADD_MANUAL_CONTACT:
+                    handleManualContact(data);
+                    break;
             }
 
         }
@@ -140,6 +145,13 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     private void handleChosenContact(Intent intent)
     {
         noteFieldScreenManipulationTasks.addContactToChosenContactContainer(fileIOTasks.readContact(intent));
+    }
+
+    private void handleManualContact(Intent intent)
+    {
+        Contact contact = (Contact) intent.getSerializableExtra(Constants.MANUAL_CONTACT);
+        if(contact!=null)
+            noteFieldScreenManipulationTasks.addContactToChosenContactContainer(contact);
     }
 
 

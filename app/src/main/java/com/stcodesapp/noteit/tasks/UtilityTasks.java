@@ -58,4 +58,9 @@ public class UtilityTasks {
         clipboard.setPrimaryClip(clip);
         Toast.makeText(context, context.getResources().getText(R.string.text_copied), Toast.LENGTH_SHORT).show();
     }
+
+    public static boolean isValidString(String text)
+    {
+        return text!=null && !text.isEmpty() && text.length()>Constants.ZERO && !text.equals(Constants.EMPTY_STRING);
+    }
 }
