@@ -6,10 +6,14 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.provider.ContactsContract;
+import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
 import android.util.Log;
 
+import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.models.Contact;
@@ -39,6 +43,23 @@ public class FileIOTasks {
     {
         Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         activity.startActivityForResult(intent, RequestCode.OPEN_IMAGE_FILE);
+    }
+
+    public void openFilePickerForAudio()
+    {
+        Intent intent;
+
+        if (Build.VERSION.SDK_INT < 19) {
+            intent = new Intent();
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            intent.setType(Constants.AUDIO_DATA_TYPE);
+            activity.startActivityForResult(intent, RequestCode.OPEN_AUDIO_LIST);
+        } else {
+            intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+            intent.setType(Constants.AUDIO_DATA_TYPE);
+            activity.startActivityForResult(intent, RequestCode.OPEN_AUDIO_LIST);
+        }
     }
 
     public void openContactPicker()
@@ -122,27 +143,42 @@ public class FileIOTasks {
         return null;
     }
 
-    public File getFileFromStream(String fileName, OutputStream outputStream)
+    public void getAudioFileFromURI(Uri data)
     {
-        /*if(isExternalStorageWritable())
-        {
-            File storage = activity.getExternalFilesDirs(Environment.MEDIA_MOUNTED)[0];
-            File fileDirectory = new File(Utils.getStoragePath(storage.getAbsolutePath())+Constants.FILE_DIRECTORY);
-            File directory = new File(fileDirectory.getAbsolutePath());
-            if(!directory.exists())
-                directory.mkdirs();
-
-            File file = new File(directory, fileName+ Constants.MP3_FILE_EXT);
-            if(!file.exists()) {
-                try {
-                    file.createNewFile();
-                } catch (IOException e) {
-                    e.printStackTrace();
+        try {
+            String[] filePathColumn = {"_display_name","last_modified","_size","document_id"};
+//            for(String column : filePathColumn)
+//            {
+//                Log.e("Column","II "+column);
+//            }
+            Cursor cursor = activity.getContentResolver().query(data, null, null, null, null);
+            if(cursor.moveToFirst()){
+                String[] columns = cursor.getColumnNames();
+                for(String column : columns)
+                {
+                    Log.e("Supported","Column "+column);
                 }
+                int nameIndex = cursor.getColumnIndex(filePathColumn[0]);
+                int modifiedIndex= cursor.getColumnIndex(filePathColumn[1]);
+                int sizeIndex= cursor.getColumnIndex(filePathColumn[2]);
+                int docIndex= cursor.getColumnIndex(filePathColumn[3]);
+                Log.e("Indices",nameIndex+" "+modifiedIndex+" "+sizeIndex);
+                String name = cursor.getString(nameIndex);
+                String modified = cursor.getString(modifiedIndex);
+                String size = cursor.getString(sizeIndex);
+                String document = cursor.getString(docIndex);
+                Log.e("Params",name+" "+modified+" "+size+" "+document);
+//                Log.e("FlePath","File Pah is "+yourRealPath);
+            } else {
+                //boooo, cursor doesn't have rows ...
             }
-            return file;
-        }*/
-        return null;
+            cursor.close();
+        }
+        catch (Exception e)
+        {
+            Log.e("Exception",e.getMessage());
+        }
+
     }
 
     public boolean isFileAlreadyExists(String fileName)
@@ -170,27 +206,36 @@ public class FileIOTasks {
         return fileDirectory.getAbsolutePath();*/
         return null;
     }
-    public void openAudioFile(String filePath)
+    public void openAudioFile(Uri fileURI)
     {
-        /*Intent intent = new Intent();
+
+        Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
-        File file = new File(filePath);
-        Uri fileURI = FileProvider.getUriForFile(
-            activity,
-            activity.getApplicationContext()
-                    .getPackageName() + ".provider", file);
         intent.setDataAndType(fileURI, Constants.OPEN_AUDIO_FILE_TYPE);
+        /*Uri fileURI = FileProvider.getUriForFile(
+                activity,
+                activity.getApplicationContext()
+                        .getPackageName() + ".provider", file);*/
+        File file = new File(fileURI.getPath());
+        Log.e("Authority",fileURI.getAuthority()+" is File "+file.getAbsolutePath());
         allowURIReadPermission(intent,fileURI);
-        activity.startActivity(intent);*/
+        activity.startActivity(intent);
     }
 
     private void allowURIReadPermission(Intent intent,Uri uri)
     {
-        List<ResolveInfo> resInfoList = activity.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-        for (ResolveInfo resolveInfo : resInfoList) {
-            String packageName = resolveInfo.activityInfo.packageName;
-            activity.grantUriPermission(packageName, uri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        try {
+            List<ResolveInfo> resInfoList = activity.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+            for (ResolveInfo resolveInfo : resInfoList) {
+                String packageName = resolveInfo.activityInfo.packageName;
+                activity.grantUriPermission(packageName, uri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            }
+
+        }catch (Exception e)
+        {
+            Log.e("Exceepion",e.getMessage());
         }
+
     }
 
 }

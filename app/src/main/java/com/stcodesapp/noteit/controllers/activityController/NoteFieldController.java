@@ -80,6 +80,9 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
             case R.id.add_phone_no_menu:
                 noteFieldScreenManipulationTasks.showPhoneNoOptions(this);
                 break;
+            case R.id.add_audio_menu:
+                fileIOTasks.openFilePickerForAudio();
+                break;
 
         }
 
@@ -101,6 +104,9 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
                     break;
                 case RequestCode.ADD_MANUAL_CONTACT:
                     handleManualContact(data);
+                    break;
+                case RequestCode.OPEN_AUDIO_LIST:
+                    handleChosenAudio(data);
                     break;
             }
 
@@ -128,23 +134,27 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
 
     @Override
     public void onColorClicked(String colorName) {
-        Log.e("Clicked",colorName);
         noteFieldScreenManipulationTasks.dismissColorPalate();
         noteFieldScreenManipulationTasks.applyBackgroundColor(colorName);
     }
 
     private void handleChosenImage(Intent intent)
     {
-        Log.e("Adding","image");
         Uri selectedImage = intent.getData();
         noteFieldScreenManipulationTasks.addImageToChosenImageContainer(selectedImage);
-//        imageview.setImageURI(selectedImage);
-
     }
 
     private void handleChosenContact(Intent intent)
     {
         noteFieldScreenManipulationTasks.addContactToChosenContactContainer(fileIOTasks.readContact(intent));
+    }
+
+    private void handleChosenAudio(Intent data)
+    {
+        Uri selectedAudio = data.getData();
+        noteFieldScreenManipulationTasks.addAudioToChosenContactContainer(selectedAudio);
+        fileIOTasks.getAudioFileFromURI(selectedAudio);
+        fileIOTasks.openAudioFile(selectedAudio);
     }
 
     private void handleManualContact(Intent intent)

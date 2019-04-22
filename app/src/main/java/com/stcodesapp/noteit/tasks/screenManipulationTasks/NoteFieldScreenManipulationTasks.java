@@ -108,6 +108,31 @@ public class NoteFieldScreenManipulationTasks {
         copyButton.setOnClickListener(contactListener);
     }
 
+    public void addAudioToChosenContactContainer(Uri audioUri)
+    {
+        LinearLayout audioContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_audio_container);
+        if(audioContainer==null)
+        {
+            audioContainer = (activity.getLayoutInflater().inflate(R.layout.audio_container,null,false)).findViewById(R.id.chosen_audio_container);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            params.setMargins(0, 16, 0, 0);
+            audioContainer.setLayoutParams(params);
+            noteFieldScreenView.getUiComponentContainer().addView(audioContainer);
+        }
+        Log.e("File",audioUri.getPath());
+//        final View contactHolder = activity.getLayoutInflater().inflate(R.layout.contact_holder,null,false);
+//        ImageView callButton = contactHolder.findViewById(R.id.contact_call_btn);
+//        ImageView copyButton = contactHolder.findViewById(R.id.contact_copy_btn);
+//        TextView contactNo = contactHolder.findViewById(R.id.contact_no);
+//        TextView displayName = contactHolder.findViewById(R.id.contact_name);
+//        contactNo.setText(contact.getPhoneNumber());
+//        displayName.setText(contact.getDisplayName());
+//        contactContainer.addView(contactHolder);
+//        ContactListener contactListener= listenerFactory.getContactListener(contact);
+//        callButton.setOnClickListener(contactListener);
+//        copyButton.setOnClickListener(contactListener);
+    }
+
     public void showPhoneNoOptions(PhoneNoOptionsBottomSheets.Listener listener)
     {
         phoneNoOptionsBottomSheets =  uiComponentFatory.getphoneNoOptionsBottomSheets();

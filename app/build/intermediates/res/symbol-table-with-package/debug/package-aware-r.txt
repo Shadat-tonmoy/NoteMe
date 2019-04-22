@@ -1033,6 +1033,7 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable about
+drawable audio_gray
 drawable avd_hide_password
 drawable avd_show_password
 drawable back_white
@@ -1136,6 +1137,10 @@ id all
 id always
 id app_toolbar
 id async
+id audio_creation_time
+id audio_icon
+id audio_size
+id audio_title
 id auto
 id back_button
 id barrier
@@ -1151,6 +1156,7 @@ id center_vertical
 id chains
 id checkbox
 id choose_color_menu
+id chosen_audio_container
 id chosen_contact_container
 id chosen_image_container
 id chronometer
@@ -1190,6 +1196,7 @@ id design_navigation_view
 id dimensions
 id direct
 id disableHome
+id divider
 id drawer_layout
 id edit_button
 id edit_query
@@ -1426,6 +1433,8 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout audio_container
+layout chosen_audio_single_row
 layout color_pallete_layout
 layout contact_container
 layout contact_holder
@@ -1539,6 +1548,9 @@ string delete_note_prompt
 string done
 string drawer_close
 string drawer_open
+string dummy_size
+string dummy_time
+string dummy_title
 string edit_note
 string empty_string
 string fab_transformation_scrim_behavior
@@ -2164,3 +2176,4 @@ styleable Toolbar android_gravity android_minHeight buttonGravity collapseConten
 styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewStubCompat android_id android_layout android_inflatedId
+xml provider_paths
