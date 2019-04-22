@@ -17,19 +17,19 @@
         android:icon="@drawable/phone"
         app:showAsAction="always"/>
 
+    <item android:id="@+id/add_email_menu"
+        android:title="@string/share_note"
+        android:icon="@drawable/email_white"
+        app:showAsAction="always"/>
+
     <item android:id="@+id/add_audio_menu"
         android:title="@string/add_audio"
-        android:icon="@drawable/microphone"
+        android:icon="@drawable/audio_white"
         app:showAsAction="always"/>
 
-    <item android:id="@+id/add_tag_menu"
+    <item android:id="@+id/add_list_menu"
         android:title="@string/add_tag"
-        android:icon="@drawable/tag"
-        app:showAsAction="always"/>
-
-    <item android:id="@+id/share_menu"
-        android:title="@string/share_note"
-        android:icon="@drawable/share"
+        android:icon="@drawable/list_white"
         app:showAsAction="always"/>
 
 </menu>

@@ -1034,6 +1034,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable about
 drawable audio_gray
+drawable audio_white
 drawable avd_hide_password
 drawable avd_show_password
 drawable back_white
@@ -1049,6 +1050,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable edit_black
 drawable edit_text_bg
+drawable email_white
 drawable folder_image
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -1056,6 +1058,7 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable image_foreground
+drawable list_white
 drawable menu
 drawable mic_black
 drawable microphone
@@ -1129,9 +1132,10 @@ id actions
 id activity_chooser_view_content
 id add
 id add_audio_menu
+id add_email_menu
 id add_image_menu
+id add_list_menu
 id add_phone_no_menu
-id add_tag_menu
 id alertTitle
 id all
 id always
@@ -1320,7 +1324,6 @@ id search_voice_btn
 id select_dialog_listview
 id selected
 id shape
-id share_menu
 id shortcut
 id showCustom
 id showHome
