@@ -39,6 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/empty_string"
+                android:inputType="textAutoComplete"
                 android:background="@drawable/edit_text_bg"
                 android:padding="8dp" />
 

@@ -18,6 +18,7 @@ import com.stcodesapp.noteit.factory.UIComponentFatory;
 import com.stcodesapp.noteit.listeners.ContactListener;
 import com.stcodesapp.noteit.listeners.RemoveImageListener;
 import com.stcodesapp.noteit.models.Contact;
+import com.stcodesapp.noteit.tasks.UtilityTasks;
 import com.stcodesapp.noteit.ui.fragments.ColorPallateBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.PhoneNoOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
@@ -99,6 +100,9 @@ public class NoteFieldScreenManipulationTasks {
         if(contactContainer==null)
         {
             contactContainer = (activity.getLayoutInflater().inflate(R.layout.contact_container,null,false)).findViewById(R.id.chosen_contact_container);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            params.setMargins(0, 16, 0, 0);
+            contactContainer.setLayoutParams(params);
             noteFieldScreenView.getUiComponentContainer().addView(contactContainer);
         }
         final View contactHolder = activity.getLayoutInflater().inflate(R.layout.contact_holder,null,false);

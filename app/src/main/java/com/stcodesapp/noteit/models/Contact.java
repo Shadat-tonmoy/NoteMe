@@ -1,5 +1,8 @@
 package com.stcodesapp.noteit.models;
 
+import com.stcodesapp.noteit.constants.Constants;
+import com.stcodesapp.noteit.tasks.UtilityTasks;
+
 import java.io.Serializable;
 
 public class Contact implements Serializable {
@@ -20,6 +23,8 @@ public class Contact implements Serializable {
     }
 
     public String getDisplayName() {
+        if(!UtilityTasks.isValidString(displayName))
+            displayName = Constants.UNNAMED;
         return displayName;
     }
 
