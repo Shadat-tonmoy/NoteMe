@@ -9,7 +9,7 @@ public class Constants {
     public static final String EMPTY_STRING = "";
     public static final String MANUAL_CONTACT = "manual_contact";
     public static final String OPEN = "Open?";
-    public static final int WITH_KEYBOARD_MAX_LINE= 6;
+    public static final int BACKGROUND_OPACITY= 75;
     public static final int FULL_SCREEN_MAX_LINE= 20;
     public static final int MEGABYTE_DIVISOR= 1048576;
     public static final String MEGABYTE= "MB";

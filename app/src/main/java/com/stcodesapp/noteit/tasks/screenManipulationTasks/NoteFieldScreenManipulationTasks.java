@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.google.android.flexbox.FlexboxLayout;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.BackgroundColors;
+import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.factory.ListenerFactory;
 import com.stcodesapp.noteit.factory.UIComponentFatory;
 import com.stcodesapp.noteit.listeners.ContactListener;
@@ -59,18 +60,7 @@ public class NoteFieldScreenManipulationTasks {
     {
         try {
             noteFieldScreenView.getUiRoot().setBackgroundColor(activity.getResources().getColor(BackgroundColors.getColorMaps().get(colorName)));
-            int textColor = R.color.white;
-            int dividerColor = R.color.white;
-            if(colorName.equals(BackgroundColors.WHITE))
-            {
-                textColor = R.color.default_text;
-                dividerColor = R.color.default_divider;
-            }
-            noteFieldScreenView.getNoteTitleText().setTextColor(activity.getResources().getColor(textColor));
-            noteFieldScreenView.getNoteTextField().setTextColor(activity.getResources().getColor(textColor));
-            noteFieldScreenView.getNoteTextField().setHintTextColor(activity.getResources().getColor(textColor));
-            noteFieldScreenView.getNoteTitleDivider().setBackgroundColor(activity.getResources().getColor(dividerColor));
-            noteFieldScreenView.getNoteTextDivider().setBackgroundColor(activity.getResources().getColor(dividerColor));
+            noteFieldScreenView.getUiRoot().getBackground().setAlpha(Constants.BACKGROUND_OPACITY);
         }catch (Exception e)
         {
             Log.e("Exception",e.getMessage());
