@@ -16,6 +16,7 @@ import android.util.Log;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.constants.Tags;
+import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.Contact;
 
 import java.io.File;
@@ -143,34 +144,19 @@ public class FileIOTasks {
         return null;
     }
 
-    public void getAudioFileFromURI(Uri data)
+    public Audio getAudioFileFromURI(Uri data)
     {
+        Audio audio = null;
         try {
-            String[] filePathColumn = {"_display_name","last_modified","_size","document_id"};
-//            for(String column : filePathColumn)
-//            {
-//                Log.e("Column","II "+column);
-//            }
+
+            String[] filePathColumn = {MediaStore.Audio.Media.DISPLAY_NAME, MediaStore.Audio.Media.SIZE};
             Cursor cursor = activity.getContentResolver().query(data, null, null, null, null);
             if(cursor.moveToFirst()){
-                String[] columns = cursor.getColumnNames();
-                for(String column : columns)
-                {
-                    Log.e("Supported","Column "+column);
-                }
                 int nameIndex = cursor.getColumnIndex(filePathColumn[0]);
-                int modifiedIndex= cursor.getColumnIndex(filePathColumn[1]);
-                int sizeIndex= cursor.getColumnIndex(filePathColumn[2]);
-                int docIndex= cursor.getColumnIndex(filePathColumn[3]);
-                Log.e("Indices",nameIndex+" "+modifiedIndex+" "+sizeIndex);
+                int sizeIndex= cursor.getColumnIndex(filePathColumn[1]);
                 String name = cursor.getString(nameIndex);
-                String modified = cursor.getString(modifiedIndex);
                 String size = cursor.getString(sizeIndex);
-                String document = cursor.getString(docIndex);
-                Log.e("Params",name+" "+modified+" "+size+" "+document);
-//                Log.e("FlePath","File Pah is "+yourRealPath);
-            } else {
-                //boooo, cursor doesn't have rows ...
+                audio = new Audio(name,size);
             }
             cursor.close();
         }
@@ -178,6 +164,7 @@ public class FileIOTasks {
         {
             Log.e("Exception",e.getMessage());
         }
+        return audio;
 
     }
 

@@ -30,20 +30,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/audio_creation_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/dummy_time"
-        app:layout_constraintStart_toEndOf="@+id/audio_icon"
-        app:layout_constraintTop_toBottomOf="@+id/audio_title" />
-
-    <TextView
         android:id="@+id/audio_size"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/dummy_size"
         app:layout_constraintStart_toEndOf="@+id/audio_icon"
-        app:layout_constraintTop_toBottomOf="@+id/audio_creation_time" />
+        app:layout_constraintTop_toBottomOf="@+id/audio_title" />
 
     <View
         android:id="@+id/divider"

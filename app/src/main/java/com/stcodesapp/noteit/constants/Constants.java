@@ -52,7 +52,7 @@ public class Constants {
     public static final String SLASH = "/";
     public static final String BN = "bn";
     public static final String DOTS = "...";
-    public static final int MAX_HISTORY_TEXT_LENGTH = 40;
+    public static final int MAX_AUDIO_FILE_NAME_LENGTH = 25;
     public static final int MAX_LANGUAGE_NAME_LENGTH = 8;
     public static final int FULL = 100;
     public static final int HALF = 50;

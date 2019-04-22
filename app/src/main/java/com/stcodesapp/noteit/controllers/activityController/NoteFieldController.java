@@ -152,9 +152,8 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     private void handleChosenAudio(Intent data)
     {
         Uri selectedAudio = data.getData();
-        noteFieldScreenManipulationTasks.addAudioToChosenContactContainer(selectedAudio);
-        fileIOTasks.getAudioFileFromURI(selectedAudio);
-        fileIOTasks.openAudioFile(selectedAudio);
+        noteFieldScreenManipulationTasks.addAudioToChosenContactContainer(fileIOTasks.getAudioFileFromURI(selectedAudio),selectedAudio,fileIOTasks);
+//        fileIOTasks.openAudioFile(selectedAudio);
     }
 
     private void handleManualContact(Intent intent)

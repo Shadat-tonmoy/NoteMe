@@ -15,11 +15,15 @@ import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.BackgroundColors;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.factory.ListenerFactory;
+import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.factory.UIComponentFatory;
+import com.stcodesapp.noteit.listeners.AudioListener;
 import com.stcodesapp.noteit.listeners.ContactListener;
 import com.stcodesapp.noteit.listeners.RemoveImageListener;
+import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.tasks.UtilityTasks;
+import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
 import com.stcodesapp.noteit.ui.fragments.ColorPallateBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.PhoneNoOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
@@ -108,7 +112,7 @@ public class NoteFieldScreenManipulationTasks {
         copyButton.setOnClickListener(contactListener);
     }
 
-    public void addAudioToChosenContactContainer(Uri audioUri)
+    public void addAudioToChosenContactContainer(Audio audio, Uri audioUri, FileIOTasks fileIOTasks)
     {
         LinearLayout audioContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_audio_container);
         if(audioContainer==null)
@@ -119,18 +123,15 @@ public class NoteFieldScreenManipulationTasks {
             audioContainer.setLayoutParams(params);
             noteFieldScreenView.getUiComponentContainer().addView(audioContainer);
         }
-        Log.e("File",audioUri.getPath());
-//        final View contactHolder = activity.getLayoutInflater().inflate(R.layout.contact_holder,null,false);
-//        ImageView callButton = contactHolder.findViewById(R.id.contact_call_btn);
-//        ImageView copyButton = contactHolder.findViewById(R.id.contact_copy_btn);
-//        TextView contactNo = contactHolder.findViewById(R.id.contact_no);
-//        TextView displayName = contactHolder.findViewById(R.id.contact_name);
-//        contactNo.setText(contact.getPhoneNumber());
-//        displayName.setText(contact.getDisplayName());
-//        contactContainer.addView(contactHolder);
-//        ContactListener contactListener= listenerFactory.getContactListener(contact);
-//        callButton.setOnClickListener(contactListener);
-//        copyButton.setOnClickListener(contactListener);
+        final View audioHolder = activity.getLayoutInflater().inflate(R.layout.chosen_audio_single_row,null,false);
+        TextView audioTitle = audioHolder.findViewById(R.id.audio_title);
+        TextView audioSize = audioHolder.findViewById(R.id.audio_size);
+
+        audioTitle.setText(UtilityTasks.truncateText(audio.getAudioTitle(),Constants.MAX_AUDIO_FILE_NAME_LENGTH,Constants.MP3_FILE_EXT));
+        audioSize.setText(UtilityTasks.getFileSizeString(Double.parseDouble(audio.getAudioSize())));
+        audioContainer.addView(audioHolder);
+        AudioListener audioListener = listenerFactory.getAudioListener(audio,fileIOTasks,audioUri);
+        audioHolder.setOnClickListener(audioListener);
     }
 
     public void showPhoneNoOptions(PhoneNoOptionsBottomSheets.Listener listener)
