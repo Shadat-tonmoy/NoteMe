@@ -55,4 +55,6 @@
     <string name="dummy_title">Dummy Title</string>
     <string name="dummy_time">17 Sep 2019, 8:34 AM</string>
     <string name="dummy_size">2.52 MB</string>
+    <string name="email">Email</string>
+    <string name="add_email">Add Email</string>
 </resources>

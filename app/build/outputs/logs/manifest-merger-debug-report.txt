@@ -1,55 +1,55 @@
 -- Merging decision tree log ---
 provider#android.support.v4.content.FileProvider
-INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:36:9-44:20
+INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:37:9-45:20
 	android:grantUriPermissions
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:40:13-47
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:41:13-47
 	android:authorities
 		INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:38:13-60
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:39:13-60
 	android:exported
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:39:13-37
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:40:13-37
 	android:name
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:37:13-67
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:38:13-67
 manifest
 ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-48:12
 INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-48:12
 INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-48:12
 INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-48:12
-MERGED from [com.android.support:design:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/499dae1e707e21f5b398ed22d1433935/AndroidManifest.xml:17:1-24:12
-MERGED from [com.android.support:appcompat-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/0648f1b570e3ee4e0addc07f6284ca30/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/a6cbb18ea148535359a543265feb894e/AndroidManifest.xml:2:1-11:12
-MERGED from [com.google.android:flexbox:1.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/flexbox-1.0.0.aar/17a35d12fdca22b2b18c820070238602/AndroidManifest.xml:17:1-27:12
-MERGED from [android.arch.persistence.room:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/f56db78cc0544ffcd45a5d8696c0de55/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-fragment:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/9737a69a48cb16df34795635e75a32f9/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/90747c0229633634e1dda2523e80f86a/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/c1b75c7c8333f73e856c1573938d6c6a/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/de944fda1d0e160356adc9397a740bdf/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/fbcc295fe3582dbd39481c93ac34afff/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/701d47fe1c7a29895ec803a06c87a2c3/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:transition:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/29711faa49eb8cee415b5e526f1b931c/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:loader:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/7fceb6ddc1528166acfbdb6dd01259e2/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:viewpager:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/4e6b1a7521f16425450749dc0a9520d0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/6785047505d48db1e8a018e182818cc8/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:drawerlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/64f885262770af1d3ae6a6b540033a03/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/774b8d13371e7faef6597e60c3d9cfb7/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:customview:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/ae778717f60cedf249f50e01af3f780e/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/98bd2474dae7e643e41f38a4ac8ba4fb/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/72f6e0b15a7abf3ecb163847afc25c42/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/55f47420b2ddf1b927fe9a323a04f538/AndroidManifest.xml:17:1-24:12
-MERGED from [com.android.support:versionedparcelable:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/a07fd0caed94711c32ebd29a377fb143/AndroidManifest.xml:17:1-25:12
-MERGED from [com.android.support:cursoradapter:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/65b09364b1e494cb3149c17c65fa665b/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:cardview-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/becadfd01eb7835581c8afa30cf27dab/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.persistence:db-framework:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/db-framework-1.1.1.aar/b2542d0e921ea22a3338580968d0f1e8/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.persistence:db:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/db-1.1.1.aar/fefc927ea78ce22f2150c159b2c16f7f/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/69d595a43739eaab439ac177ce2a0ddf/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/9e366e385175bfd5bc7f3469623b5d20/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.core:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/0c3b2e68d4f0f1b0afe64d2a46612103/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/2bd289546b7bd4c7249786f2f0323e54/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:documentfile:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/9f238e1b7f550ea0245f6980416b9538/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/a051e65870883538f60cc1cb7ac91931/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:print:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/06f1024540e2b5110edb757b1006a0b1/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/9a37ba5c82176d04494bf6c8a739ecac/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:interpolator:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/02486102ad0d4042ab1f3103586c6f7b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:design:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/80669ae167088f6984b1823ecbb2e4c6/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/2b6c3eaddb2a43b4643aa756f7bb8650/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/e060243e74a3e6a69951f6e5c310e14d/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android:flexbox:1.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/99bc06da83c541fae870b905054ffe71/AndroidManifest.xml:17:1-27:12
+MERGED from [android.arch.persistence.room:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b47f9c48bd782c9915c7e229be8dafee/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/73791a5f223c213ed23b45e3f08b053b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/ad9ca292697211471d669af0f12b24aa/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/da7e077cb5c8d650b4e9f49f622af507/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/88d1018efcb97ef4da79796852aa211f/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/2f26cf1ec4c6f482a4116883e35a4fca/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d58db0816317bdf4e89fc590c96e4fef/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/052deb784e712e27d104e3f95eef2a53/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6bcc7c06a011da23755591bbb10af71e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/4da027730418f3f0ad63a529267a8de7/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/ee6fd22eff1b70e1361862c6e1aea1f7/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f8ae41fde16a7295a1ebdc58b0c9995c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/61d27133097ca6f2e098a652c58d242c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f75f169ac8c84c3b03ae1238a939091c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8cd93570cdd10a42750d77bd23f16e1c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/ec5b4f1427634d6a83d63ddd7609dd14/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/5f1c3a4f14433694acf9d1b6d2411f5c/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/54850fa8c5b1b6c6db7c8f34513ca48c/AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/628e9ff63447238c5ffba41c850c1730/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c0c19349a7708cf1381ca6c6d7e96836/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence:db-framework:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/39dcec17ff9ba70ef1132b7e857aee25/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence:db:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6683c97958b6591861b6b2096adbd5c5/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3ca1f6abdaa2bf8d74a7447cb28be71c/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/73eafc5d48a77ba6e2d3aa7ad1d2562d/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/4347a412b7d4e1ff7d7cf529d49d5463/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/5ebf6d9c8ae69a27e4e0fab6f465dbbd/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/0c70f4e2c14cf9d4b58652641e0fe72d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b1e1d417520212df7ab8fd48656e86e7/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6bdcc53b03f4df42422e55d3fa82c0d6/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b49b067d21fcce28254aa2c47a9a212c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a5fd41408c704de86434b05f597372c4/AndroidManifest.xml:17:1-22:12
 INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-48:12
 INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-48:12
 INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-48:12
@@ -89,16 +89,16 @@ ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/Android
 		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:9:22-66
 application
 ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:11:5-46:19
-MERGED from [com.android.support:design:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/499dae1e707e21f5b398ed22d1433935/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:design:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/499dae1e707e21f5b398ed22d1433935/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/a6cbb18ea148535359a543265feb894e/AndroidManifest.xml:9:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/a6cbb18ea148535359a543265feb894e/AndroidManifest.xml:9:5-20
-MERGED from [com.android.support:support-compat:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/55f47420b2ddf1b927fe9a323a04f538/AndroidManifest.xml:22:5-94
-MERGED from [com.android.support:support-compat:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/55f47420b2ddf1b927fe9a323a04f538/AndroidManifest.xml:22:5-94
-MERGED from [com.android.support:versionedparcelable:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/a07fd0caed94711c32ebd29a377fb143/AndroidManifest.xml:22:5-23:19
-MERGED from [com.android.support:versionedparcelable:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/a07fd0caed94711c32ebd29a377fb143/AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:design:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/80669ae167088f6984b1823ecbb2e4c6/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/80669ae167088f6984b1823ecbb2e4c6/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/e060243e74a3e6a69951f6e5c310e14d/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/e060243e74a3e6a69951f6e5c310e14d/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:support-compat:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/5f1c3a4f14433694acf9d1b6d2411f5c/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/5f1c3a4f14433694acf9d1b6d2411f5c/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/54850fa8c5b1b6c6db7c8f34513ca48c/AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/54850fa8c5b1b6c6db7c8f34513ca48c/AndroidManifest.xml:22:5-23:19
 	android:appComponentFactory
-		ADDED from [com.android.support:support-compat:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/55f47420b2ddf1b927fe9a323a04f538/AndroidManifest.xml:22:18-91
+		ADDED from [com.android.support:support-compat:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/5f1c3a4f14433694acf9d1b6d2411f5c/AndroidManifest.xml:22:18-91
 	android:supportsRtl
 		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:17:9-35
 	android:label
@@ -113,108 +113,114 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] /home/shadat/androi
 		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:18:9-40
 	android:name
 		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:12:9-49
-activity#com.stcodesapp.noteit.ui.activities.ManualContactActivity
-ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:19:9-22:20
+activity#com.stcodesapp.noteit.ui.activities.ManualEmailActivity
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:19:9-20:67
 	android:windowSoftInputMode
 		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:20:13-55
 	android:name
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:19:19-70
-activity#com.stcodesapp.noteit.ui.activities.NoteFieldActivity
-ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:23:9-25:66
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:19:19-68
+activity#com.stcodesapp.noteit.ui.activities.ManualContactActivity
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:21:9-23:67
 	android:windowSoftInputMode
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:25:13-54
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:23:13-55
 	android:name
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:24:13-60
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:22:13-64
+activity#com.stcodesapp.noteit.ui.activities.NoteFieldActivity
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:24:9-26:57
+	android:windowSoftInputMode
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:26:13-54
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:25:13-60
 activity#com.stcodesapp.noteit.ui.activities.MainActivity
-ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:26:9-34:20
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:27:9-35:20
 	android:theme
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:28:13-65
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:29:13-65
 	android:name
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:27:13-55
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:28:13-55
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:29:13-33:29
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:30:13-34:29
 action#android.intent.action.MAIN
-ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:30:17-69
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:31:17-69
 	android:name
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:30:25-66
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:31:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:32:17-77
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:33:17-77
 	android:name
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:32:27-74
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:33:27-74
 uses-sdk
 INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
 INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
-MERGED from [com.android.support:design:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/499dae1e707e21f5b398ed22d1433935/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:design:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/499dae1e707e21f5b398ed22d1433935/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/0648f1b570e3ee4e0addc07f6284ca30/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/0648f1b570e3ee4e0addc07f6284ca30/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/a6cbb18ea148535359a543265feb894e/AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/a6cbb18ea148535359a543265feb894e/AndroidManifest.xml:5:5-7:41
-MERGED from [com.google.android:flexbox:1.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/flexbox-1.0.0.aar/17a35d12fdca22b2b18c820070238602/AndroidManifest.xml:23:5-25:41
-MERGED from [com.google.android:flexbox:1.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/flexbox-1.0.0.aar/17a35d12fdca22b2b18c820070238602/AndroidManifest.xml:23:5-25:41
-MERGED from [android.arch.persistence.room:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/f56db78cc0544ffcd45a5d8696c0de55/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.persistence.room:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/f56db78cc0544ffcd45a5d8696c0de55/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/9737a69a48cb16df34795635e75a32f9/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/9737a69a48cb16df34795635e75a32f9/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/90747c0229633634e1dda2523e80f86a/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/90747c0229633634e1dda2523e80f86a/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/c1b75c7c8333f73e856c1573938d6c6a/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/c1b75c7c8333f73e856c1573938d6c6a/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/de944fda1d0e160356adc9397a740bdf/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/de944fda1d0e160356adc9397a740bdf/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/fbcc295fe3582dbd39481c93ac34afff/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/fbcc295fe3582dbd39481c93ac34afff/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/701d47fe1c7a29895ec803a06c87a2c3/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/701d47fe1c7a29895ec803a06c87a2c3/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/29711faa49eb8cee415b5e526f1b931c/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/29711faa49eb8cee415b5e526f1b931c/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:loader:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/7fceb6ddc1528166acfbdb6dd01259e2/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:loader:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/7fceb6ddc1528166acfbdb6dd01259e2/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:viewpager:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/4e6b1a7521f16425450749dc0a9520d0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:viewpager:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/4e6b1a7521f16425450749dc0a9520d0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/6785047505d48db1e8a018e182818cc8/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/6785047505d48db1e8a018e182818cc8/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:drawerlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/64f885262770af1d3ae6a6b540033a03/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:drawerlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/64f885262770af1d3ae6a6b540033a03/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/774b8d13371e7faef6597e60c3d9cfb7/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/774b8d13371e7faef6597e60c3d9cfb7/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:customview:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/ae778717f60cedf249f50e01af3f780e/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:customview:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/ae778717f60cedf249f50e01af3f780e/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/98bd2474dae7e643e41f38a4ac8ba4fb/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/98bd2474dae7e643e41f38a4ac8ba4fb/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/72f6e0b15a7abf3ecb163847afc25c42/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/72f6e0b15a7abf3ecb163847afc25c42/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/55f47420b2ddf1b927fe9a323a04f538/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/55f47420b2ddf1b927fe9a323a04f538/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:versionedparcelable:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/a07fd0caed94711c32ebd29a377fb143/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:versionedparcelable:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/a07fd0caed94711c32ebd29a377fb143/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cursoradapter:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/65b09364b1e494cb3149c17c65fa665b/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cursoradapter:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/65b09364b1e494cb3149c17c65fa665b/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/becadfd01eb7835581c8afa30cf27dab/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/becadfd01eb7835581c8afa30cf27dab/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.persistence:db-framework:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/db-framework-1.1.1.aar/b2542d0e921ea22a3338580968d0f1e8/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.persistence:db-framework:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/db-framework-1.1.1.aar/b2542d0e921ea22a3338580968d0f1e8/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.persistence:db:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/db-1.1.1.aar/fefc927ea78ce22f2150c159b2c16f7f/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.persistence:db:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/db-1.1.1.aar/fefc927ea78ce22f2150c159b2c16f7f/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/69d595a43739eaab439ac177ce2a0ddf/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/69d595a43739eaab439ac177ce2a0ddf/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/9e366e385175bfd5bc7f3469623b5d20/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/9e366e385175bfd5bc7f3469623b5d20/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/0c3b2e68d4f0f1b0afe64d2a46612103/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/0c3b2e68d4f0f1b0afe64d2a46612103/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/2bd289546b7bd4c7249786f2f0323e54/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/2bd289546b7bd4c7249786f2f0323e54/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:documentfile:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/9f238e1b7f550ea0245f6980416b9538/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:documentfile:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/9f238e1b7f550ea0245f6980416b9538/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/a051e65870883538f60cc1cb7ac91931/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/a051e65870883538f60cc1cb7ac91931/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:print:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/06f1024540e2b5110edb757b1006a0b1/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:print:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/06f1024540e2b5110edb757b1006a0b1/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/9a37ba5c82176d04494bf6c8a739ecac/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/9a37ba5c82176d04494bf6c8a739ecac/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:interpolator:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/02486102ad0d4042ab1f3103586c6f7b/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:interpolator:28.0.0] /home/shadat/android/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/02486102ad0d4042ab1f3103586c6f7b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/80669ae167088f6984b1823ecbb2e4c6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/80669ae167088f6984b1823ecbb2e4c6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/2b6c3eaddb2a43b4643aa756f7bb8650/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/2b6c3eaddb2a43b4643aa756f7bb8650/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/e060243e74a3e6a69951f6e5c310e14d/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/e060243e74a3e6a69951f6e5c310e14d/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android:flexbox:1.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/99bc06da83c541fae870b905054ffe71/AndroidManifest.xml:23:5-25:41
+MERGED from [com.google.android:flexbox:1.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/99bc06da83c541fae870b905054ffe71/AndroidManifest.xml:23:5-25:41
+MERGED from [android.arch.persistence.room:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b47f9c48bd782c9915c7e229be8dafee/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence.room:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b47f9c48bd782c9915c7e229be8dafee/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/73791a5f223c213ed23b45e3f08b053b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/73791a5f223c213ed23b45e3f08b053b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/ad9ca292697211471d669af0f12b24aa/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/ad9ca292697211471d669af0f12b24aa/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/da7e077cb5c8d650b4e9f49f622af507/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/da7e077cb5c8d650b4e9f49f622af507/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/88d1018efcb97ef4da79796852aa211f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/88d1018efcb97ef4da79796852aa211f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/2f26cf1ec4c6f482a4116883e35a4fca/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/2f26cf1ec4c6f482a4116883e35a4fca/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d58db0816317bdf4e89fc590c96e4fef/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d58db0816317bdf4e89fc590c96e4fef/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/052deb784e712e27d104e3f95eef2a53/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/052deb784e712e27d104e3f95eef2a53/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6bcc7c06a011da23755591bbb10af71e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6bcc7c06a011da23755591bbb10af71e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/4da027730418f3f0ad63a529267a8de7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/4da027730418f3f0ad63a529267a8de7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/ee6fd22eff1b70e1361862c6e1aea1f7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/ee6fd22eff1b70e1361862c6e1aea1f7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f8ae41fde16a7295a1ebdc58b0c9995c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f8ae41fde16a7295a1ebdc58b0c9995c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/61d27133097ca6f2e098a652c58d242c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/61d27133097ca6f2e098a652c58d242c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f75f169ac8c84c3b03ae1238a939091c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f75f169ac8c84c3b03ae1238a939091c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8cd93570cdd10a42750d77bd23f16e1c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8cd93570cdd10a42750d77bd23f16e1c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/ec5b4f1427634d6a83d63ddd7609dd14/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/ec5b4f1427634d6a83d63ddd7609dd14/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/5f1c3a4f14433694acf9d1b6d2411f5c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/5f1c3a4f14433694acf9d1b6d2411f5c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/54850fa8c5b1b6c6db7c8f34513ca48c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/54850fa8c5b1b6c6db7c8f34513ca48c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/628e9ff63447238c5ffba41c850c1730/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/628e9ff63447238c5ffba41c850c1730/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c0c19349a7708cf1381ca6c6d7e96836/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c0c19349a7708cf1381ca6c6d7e96836/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db-framework:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/39dcec17ff9ba70ef1132b7e857aee25/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db-framework:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/39dcec17ff9ba70ef1132b7e857aee25/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6683c97958b6591861b6b2096adbd5c5/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6683c97958b6591861b6b2096adbd5c5/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3ca1f6abdaa2bf8d74a7447cb28be71c/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3ca1f6abdaa2bf8d74a7447cb28be71c/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/73eafc5d48a77ba6e2d3aa7ad1d2562d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/73eafc5d48a77ba6e2d3aa7ad1d2562d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/4347a412b7d4e1ff7d7cf529d49d5463/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/4347a412b7d4e1ff7d7cf529d49d5463/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/5ebf6d9c8ae69a27e4e0fab6f465dbbd/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/5ebf6d9c8ae69a27e4e0fab6f465dbbd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/0c70f4e2c14cf9d4b58652641e0fe72d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/0c70f4e2c14cf9d4b58652641e0fe72d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b1e1d417520212df7ab8fd48656e86e7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b1e1d417520212df7ab8fd48656e86e7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6bdcc53b03f4df42422e55d3fa82c0d6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6bdcc53b03f4df42422e55d3fa82c0d6/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b49b067d21fcce28254aa2c47a9a212c/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b49b067d21fcce28254aa2c47a9a212c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a5fd41408c704de86434b05f597372c4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a5fd41408c704de86434b05f597372c4/AndroidManifest.xml:20:5-44
 INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
 INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
 	android:targetSdkVersion
@@ -226,8 +232,8 @@ INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/Andr
 		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
 		INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:41:13-43:57
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:42:13-44:58
 	android:resource
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:43:17-55
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:44:17-55
 	android:name
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:42:17-67
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:43:17-67

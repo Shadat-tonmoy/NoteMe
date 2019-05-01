@@ -80,6 +80,9 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
             case R.id.add_phone_no_menu:
                 noteFieldScreenManipulationTasks.showPhoneNoOptions(this);
                 break;
+            case R.id.add_email_menu:
+                activityNavigationTasks.toManualEmailScreen(new Bundle());
+                break;
             case R.id.add_audio_menu:
                 fileIOTasks.openFilePickerForAudio();
                 break;

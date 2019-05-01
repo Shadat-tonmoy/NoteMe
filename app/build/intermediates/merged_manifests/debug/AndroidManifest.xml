@@ -26,9 +26,11 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
+            android:name="com.stcodesapp.noteit.ui.activities.ManualEmailActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
             android:name="com.stcodesapp.noteit.ui.activities.ManualContactActivity"
-            android:windowSoftInputMode="adjustResize" >
-        </activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name="com.stcodesapp.noteit.ui.activities.NoteFieldActivity"
             android:windowSoftInputMode="stateHidden" />

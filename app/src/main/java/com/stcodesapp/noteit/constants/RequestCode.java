@@ -10,4 +10,5 @@ public class RequestCode {
     public static final int OPEN_CONTACT_LIST = 4;
     public static final int ADD_MANUAL_CONTACT = 5;
     public static final int OPEN_AUDIO_LIST = 6;
+    public static final int ADD_MANUAL_EMAIL = 7;
 }

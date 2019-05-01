@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.ui.activities.ManualContactActivity;
+import com.stcodesapp.noteit.ui.activities.ManualEmailActivity;
 import com.stcodesapp.noteit.ui.activities.NoteFieldActivity;
 
 public class ActivityNavigationTasks {
@@ -35,6 +36,13 @@ public class ActivityNavigationTasks {
         Intent intent = new Intent(activity, ManualContactActivity.class);
         intent.putExtras(args);
         activity.startActivityForResult(intent, RequestCode.ADD_MANUAL_CONTACT);
+    }
+
+    public void toManualEmailScreen(Bundle args)
+    {
+        Intent intent = new Intent(activity, ManualEmailActivity.class);
+        intent.putExtras(args);
+        activity.startActivityForResult(intent, RequestCode.ADD_MANUAL_EMAIL);
     }
 
     public void closeScreen()

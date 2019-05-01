@@ -1203,6 +1203,11 @@ id divider
 id drawer_layout
 id edit_button
 id edit_query
+id email_field
+id email_name_divider
+id email_name_field
+id email_name_text
+id email_text
 id end
 id enterAlways
 id enterAlwaysCollapsed
@@ -1460,6 +1465,7 @@ layout image_container
 layout image_holder
 layout main_activity_layout
 layout manual_contact_screen
+layout manual_email_screen
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout navigation_drawer_header
@@ -1529,6 +1535,7 @@ string abc_toolbar_collapse_description
 string about_the_app
 string add_audio
 string add_contact
+string add_email
 string add_image
 string add_phone_no
 string add_phone_number_manually
@@ -1554,6 +1561,7 @@ string dummy_size
 string dummy_time
 string dummy_title
 string edit_note
+string email
 string empty_string
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
