@@ -18,6 +18,10 @@ public interface NoteFieldScreen extends BaseObservableScreen<NoteFieldScreen.Li
         void onActivityResult(int requestCode, int resultCode, @Nullable Intent data);
 
         void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults);
+
+        void onTitleMicClicked();
+
+        void onNoteMicClicked();
     }
 
 

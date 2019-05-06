@@ -1136,7 +1136,6 @@ id add
 id add_audio_menu
 id add_email_menu
 id add_image_menu
-id add_list_menu
 id add_phone_no_menu
 id alertTitle
 id all
@@ -1284,6 +1283,7 @@ id normal
 id note_add_button
 id note_header
 id note_header_image
+id note_mic
 id note_text
 id note_text_divider
 id note_text_field
@@ -1378,6 +1378,7 @@ id textinput_helper_text
 id time
 id title
 id titleDividerNoCustom
+id title_mic
 id title_template
 id title_text
 id toolbar_title
@@ -1616,6 +1617,7 @@ string test_contact
 string test_num
 string text_copied
 string title
+string voice_input_not_supported
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

@@ -51,6 +51,7 @@
     <string name="phone_no">Phone No.</string>
     <string name="ok_continue">Continue</string>
     <string name="add_contact">Add Contact</string>
+    <string name="voice_input_not_supported">Sorry! Voice input is not supported on this device</string>
     <string name="no_phone_number">No Phone Number!! Please add a phone number and try again</string>
     <string name="no_email_address">No Email Address!! Please add an email address and try again</string>
     <string name="dummy_title">Dummy Title</string>

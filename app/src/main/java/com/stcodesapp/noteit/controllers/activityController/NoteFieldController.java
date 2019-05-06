@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -20,6 +21,7 @@ import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
+import com.stcodesapp.noteit.tasks.functionalTasks.VoiceInputTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.NoteFieldScreenManipulationTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
@@ -38,6 +40,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     private NoteFieldScreenManipulationTasks noteFieldScreenManipulationTasks;
     private FileIOTasks fileIOTasks;
     private AppPermissionTrackingTasks appPermissionTrackingTasks;
+    private VoiceInputTasks voiceInputTasks;
 
     public NoteFieldController(TasksFactory tasksFactory) {
         this.tasksFactory = tasksFactory;
@@ -45,6 +48,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         noteFieldScreenManipulationTasks = tasksFactory.getNoteFieldScreenManipulationTasks();
         fileIOTasks = tasksFactory.getFileIOTasks();
         appPermissionTrackingTasks = tasksFactory.getAppPermissionTrackingTasks();
+        voiceInputTasks = tasksFactory.getVoiceInputTasks();
     }
 
     public void bindView(NoteFieldScreenView secondActivityScreenView) {
@@ -115,6 +119,12 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
                 case RequestCode.ADD_MANUAL_EMAIL:
                     handleManualEmail(data);
                     break;
+                case RequestCode.NOTE_TITLE_VOICE_INPUT:
+                    handleNoteTitleVoiceInput(data);
+                    break;
+                case RequestCode.NOTE_TEXT_VOICE_INPUT:
+                    handleNoteTextVoiceInput(data);
+                    break;
             }
 
         }
@@ -137,6 +147,16 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
            }
        }
 
+    }
+
+    @Override
+    public void onTitleMicClicked() {
+        voiceInputTasks.showVoiceInputDialog(Constants.EN,RequestCode.NOTE_TITLE_VOICE_INPUT);
+    }
+
+    @Override
+    public void onNoteMicClicked() {
+        voiceInputTasks.showVoiceInputDialog(Constants.EN,RequestCode.NOTE_TEXT_VOICE_INPUT);
     }
 
     @Override
@@ -175,6 +195,16 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         Email email= (Email) intent.getSerializableExtra(Constants.MANUAL_EMAIL);
         if(email!=null)
             noteFieldScreenManipulationTasks.addEmailToChosenEmailContainer(email);
+    }
+
+    private void handleNoteTitleVoiceInput(Intent intent)
+    {
+        noteFieldScreenManipulationTasks.updateNoteTitleFromVoiceInput(intent.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0));
+    }
+
+    private void handleNoteTextVoiceInput(Intent intent)
+    {
+        noteFieldScreenManipulationTasks.updateNoteTextFromVoiceInput(intent.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0));
     }
 
 

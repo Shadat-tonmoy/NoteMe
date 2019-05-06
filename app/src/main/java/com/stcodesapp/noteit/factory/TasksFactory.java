@@ -3,6 +3,7 @@ package com.stcodesapp.noteit.factory;
 import android.support.v4.app.FragmentActivity;
 import com.stcodesapp.noteit.common.FragmentFrameHelper;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
+import com.stcodesapp.noteit.tasks.functionalTasks.VoiceInputTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.ManualContactScreenManipulationTasks;
@@ -76,6 +77,11 @@ public class TasksFactory {
     public ClipboardTasks getClipboardTasks()
     {
         return new ClipboardTasks(activity);
+    }
+
+    public VoiceInputTasks getVoiceInputTasks()
+    {
+        return new VoiceInputTasks(activity);
     }
 
     public SharingTasks getSharingTasks()

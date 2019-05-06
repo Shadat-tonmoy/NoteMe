@@ -177,4 +177,18 @@ public class NoteFieldScreenManipulationTasks {
     {
         Toast.makeText(activity, activity.getResources().getText(R.string.permission_is_required), Toast.LENGTH_SHORT).show();
     }
+
+    public void updateNoteTitleFromVoiceInput(String text) {
+        String existingText = noteFieldScreenView.getNoteTitleField().getText().toString();
+        existingText += text+Constants.SPACE;
+        noteFieldScreenView.getNoteTitleField().setText(existingText);
+        noteFieldScreenView.getNoteTitleField().setSelection(existingText.length());
+    }
+
+    public void updateNoteTextFromVoiceInput(String text) {
+        String existingText = noteFieldScreenView.getNoteTextField().getText().toString();
+        existingText += text+Constants.SPACE;;
+        noteFieldScreenView.getNoteTextField().setText(existingText);
+        noteFieldScreenView.getNoteTextField().setSelection(existingText.length());
+    }
 }

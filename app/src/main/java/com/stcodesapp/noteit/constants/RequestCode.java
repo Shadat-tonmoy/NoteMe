@@ -11,4 +11,6 @@ public class RequestCode {
     public static final int ADD_MANUAL_CONTACT = 5;
     public static final int OPEN_AUDIO_LIST = 6;
     public static final int ADD_MANUAL_EMAIL = 7;
+    public static final int NOTE_TITLE_VOICE_INPUT = 8;
+    public static final int NOTE_TEXT_VOICE_INPUT = 9;
 }

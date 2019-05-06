@@ -47,10 +47,20 @@
 
                     <EditText
                         android:id="@+id/note_title_field"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_bg"
                         android:padding="8dp"/>
+
+                    <ImageView
+                        android:id="@+id/title_mic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/mic_black"
+                        android:layout_gravity="center"
+                        android:foreground="?attr/selectableItemBackground"
+                        />
 
                 </LinearLayout>
 
@@ -62,16 +72,34 @@
                     android:layout_marginTop="8dp"
                     android:background="?android:attr/listDivider" />
 
-                <EditText
-                    android:id="@+id/note_text_field"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/edit_text_bg"
-                    android:padding="8dp"
-                    android:hint="@string/note"
-                    android:minLines="5"
-                    android:maxLines="10"
-                    android:gravity="top|left"/>
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/note_text_field"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_text_bg"
+                        android:padding="8dp"
+                        android:hint="@string/note"
+                        android:minLines="5"
+                        android:maxLines="10"
+                        android:gravity="top|left"/>
+
+
+                    <ImageView
+                        android:id="@+id/note_mic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/mic_black"
+                        android:layout_gravity="bottom"
+                        android:foreground="?attr/selectableItemBackground"
+                        />
+
+                </LinearLayout>
+
 
                 <View
                     android:id="@+id/note_text_divider"

@@ -7,13 +7,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.flexbox.FlexboxLayout;
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.constants.EventTypes;
 import com.stcodesapp.noteit.ui.views.baseScreens.BaseObservableScreenView;
 import com.stcodesapp.noteit.ui.views.screens.activityScreen.NoteFieldScreen;
+
+import java.util.List;
 
 
 public class NoteFieldScreenView extends BaseObservableScreenView<NoteFieldScreen.Listener> implements NoteFieldScreen {
@@ -25,6 +29,7 @@ public class NoteFieldScreenView extends BaseObservableScreenView<NoteFieldScree
     private CoordinatorLayout uiRoot;
     private View noteTitleDivider,noteTextDivider;
     private LinearLayout uiComponentContainer;
+    private ImageView titleMic, noteMic;
 
     public NoteFieldScreenView(LayoutInflater inflater, @Nullable ViewGroup parent)
     {
@@ -47,6 +52,8 @@ public class NoteFieldScreenView extends BaseObservableScreenView<NoteFieldScree
                 }
             }
         });
+        setClickListener(titleMic, EventTypes.NOTE_TITLE_MIC_CLICKED);
+        setClickListener(noteMic, EventTypes.NOTE_TEXT_MIC_CLICKED);
 
 
     }
@@ -61,11 +68,34 @@ public class NoteFieldScreenView extends BaseObservableScreenView<NoteFieldScree
         noteTitleText = findViewById(R.id.title_text);
         noteTitleField = findViewById(R.id.note_title_field);
         noteTextField = findViewById(R.id.note_text_field);
+        titleMic = findViewById(R.id.title_mic);
+        noteMic = findViewById(R.id.note_mic);
         noteTitleDivider = findViewById(R.id.note_title_divider);
         noteTextDivider = findViewById(R.id.note_text_divider);
         uiComponentContainer = findViewById(R.id.ui_component_container);
 
 
+    }
+
+    private void setClickListener(View view, final int eventType)
+    {
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for (Listener listener : getListeners())
+                {
+                    switch (eventType)
+                    {
+                        case EventTypes.NOTE_TITLE_MIC_CLICKED:
+                            listener.onTitleMicClicked();
+                            break;
+                        case EventTypes.NOTE_TEXT_MIC_CLICKED:
+                            listener.onNoteMicClicked();
+                            break;
+                    }
+                }
+            }
+        });
     }
 
     public TextView getNoteTitleText() {
