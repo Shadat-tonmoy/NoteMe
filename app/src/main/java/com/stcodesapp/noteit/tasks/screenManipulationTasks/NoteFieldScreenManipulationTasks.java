@@ -19,6 +19,7 @@ import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.factory.UIComponentFatory;
 import com.stcodesapp.noteit.listeners.AudioListener;
 import com.stcodesapp.noteit.listeners.ContactListener;
+import com.stcodesapp.noteit.listeners.EmailListener;
 import com.stcodesapp.noteit.listeners.RemoveImageListener;
 import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.Contact;
@@ -115,27 +116,27 @@ public class NoteFieldScreenManipulationTasks {
 
     public void addEmailToChosenEmailContainer(Email email)
     {
-        LinearLayout contactContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_email_container);
-        if(contactContainer==null)
+        LinearLayout emailContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_email_container);
+        if(emailContainer==null)
         {
-            contactContainer = (activity.getLayoutInflater().inflate(R.layout.email_container,null,false)).findViewById(R.id.chosen_email_container);
+            emailContainer = (activity.getLayoutInflater().inflate(R.layout.email_container,null,false)).findViewById(R.id.chosen_email_container);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             params.setMargins(0, 16, 0, 0);
-            contactContainer.setLayoutParams(params);
-            noteFieldScreenView.getUiComponentContainer().addView(contactContainer);
+            emailContainer.setLayoutParams(params);
+            noteFieldScreenView.getUiComponentContainer().addView(emailContainer);
         }
-        final View contactHolder = activity.getLayoutInflater().inflate(R.layout.contact_holder,null,false);
-        ImageView callButton = contactHolder.findViewById(R.id.contact_call_btn);
-        ImageView copyButton = contactHolder.findViewById(R.id.contact_copy_btn);
-        TextView contactNo = contactHolder.findViewById(R.id.contact_no);
-        TextView displayName = contactHolder.findViewById(R.id.contact_name);
-        contactNo.setText(email.getEmailID());
-        displayName.setText(email.getEmailName());
-        contactContainer.addView(contactHolder);
+        final View emailHolder = activity.getLayoutInflater().inflate(R.layout.email_holder,null,false);
+        ImageView sendButton = emailHolder.findViewById(R.id.email_send_btn);
+        ImageView copyButton = emailHolder.findViewById(R.id.email_copy_btn);
+        TextView emailId = emailHolder.findViewById(R.id.email_id);
+        TextView emailName = emailHolder.findViewById(R.id.email_name);
+        emailId.setText(email.getEmailID());
+        emailName.setText(email.getEmailName());
+        emailContainer.addView(emailHolder);
 
-//        ContactListener contactListener= listenerFactory.getContactListener(contact);
-//        callButton.setOnClickListener(contactListener);
-//        copyButton.setOnClickListener(contactListener);
+        EmailListener emailListener = listenerFactory.getEEmailListener(email);
+        sendButton.setOnClickListener(emailListener);
+        copyButton.setOnClickListener(emailListener);
     }
 
     public void addAudioToChosenContactContainer(Audio audio, Uri audioUri, FileIOTasks fileIOTasks)

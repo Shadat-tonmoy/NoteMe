@@ -45,6 +45,7 @@ public class Constants {
     public static final String EMAIL_SUBJECT= "Email Support For ";
     public static final String INVERSE_AI_MAIL= "inverseaibd@gmail.com";
     public static final String EMAIL_ADDRESS= "mailto:"+INVERSE_AI_MAIL;
+    public static final String MAIL_TO= "mailto:";
     public static final String ENGLISH = "English";
     public static final String EN = "en";
     public static final String CHINESE = "Chinese";

@@ -1,5 +1,6 @@
 package com.stcodesapp.noteit.tasks;
 
+import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -57,6 +58,16 @@ public class UtilityTasks {
         ClipData clip = ClipData.newPlainText(context.getPackageName(), text);
         clipboard.setPrimaryClip(clip);
         Toast.makeText(context, context.getResources().getText(R.string.text_copied), Toast.LENGTH_SHORT).show();
+    }
+
+    public static void sendEmail(Activity activity,String emailId)
+    {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setType(Constants.TEXT_TYPE);
+        intent.putExtra(Intent.EXTRA_TEXT, Constants.EMPTY_STRING);
+        intent.setData(Uri.parse(Constants.MAIL_TO+emailId));
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        activity.startActivity(intent);
     }
 
     public static String getFileSizeString(double fileSize)

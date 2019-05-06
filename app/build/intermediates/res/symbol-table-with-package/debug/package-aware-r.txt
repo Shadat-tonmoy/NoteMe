@@ -1050,6 +1050,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable edit_black
 drawable edit_text_bg
+drawable email_black
 drawable email_white
 drawable folder_image
 drawable ic_launcher_background
@@ -1098,6 +1099,7 @@ drawable round_shape_light_red
 drawable round_shape_pumpkin
 drawable round_shape_purple
 drawable round_shape_white
+drawable send_black
 drawable settings
 drawable share
 drawable tag
@@ -1204,10 +1206,15 @@ id divider
 id drawer_layout
 id edit_button
 id edit_query
+id email_copy_btn
 id email_field
+id email_icon
+id email_id
+id email_name
 id email_name_divider
 id email_name_field
 id email_name_text
+id email_send_btn
 id email_text
 id end
 id enterAlways
@@ -1461,6 +1468,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout email_container
+layout email_holder
 layout fragment_container_layout
 layout home_screen
 layout image_container
