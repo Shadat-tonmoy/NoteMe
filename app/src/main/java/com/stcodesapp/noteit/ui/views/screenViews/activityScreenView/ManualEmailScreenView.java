@@ -67,14 +67,17 @@ public class ManualEmailScreenView extends BaseObservableScreenView<ManualEmailS
         return toolbar;
     }
 
+    @Override
     public EditText getNameField() {
         return nameField;
     }
 
-    public EditText getEmailField() {
+    @Override
+    public EditText getEmailAddressField() {
         return emailField;
     }
 
+    @Override
     public Button getContinueButton() {
         return continueButton;
     }

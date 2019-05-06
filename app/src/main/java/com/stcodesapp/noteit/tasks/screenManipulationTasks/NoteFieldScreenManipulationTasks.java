@@ -22,6 +22,7 @@ import com.stcodesapp.noteit.listeners.ContactListener;
 import com.stcodesapp.noteit.listeners.RemoveImageListener;
 import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.Contact;
+import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.tasks.UtilityTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
 import com.stcodesapp.noteit.ui.fragments.ColorPallateBottomSheets;
@@ -110,6 +111,31 @@ public class NoteFieldScreenManipulationTasks {
         ContactListener contactListener= listenerFactory.getContactListener(contact);
         callButton.setOnClickListener(contactListener);
         copyButton.setOnClickListener(contactListener);
+    }
+
+    public void addEmailToChosenEmailContainer(Email email)
+    {
+        LinearLayout contactContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_email_container);
+        if(contactContainer==null)
+        {
+            contactContainer = (activity.getLayoutInflater().inflate(R.layout.email_container,null,false)).findViewById(R.id.chosen_email_container);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            params.setMargins(0, 16, 0, 0);
+            contactContainer.setLayoutParams(params);
+            noteFieldScreenView.getUiComponentContainer().addView(contactContainer);
+        }
+        final View contactHolder = activity.getLayoutInflater().inflate(R.layout.contact_holder,null,false);
+        ImageView callButton = contactHolder.findViewById(R.id.contact_call_btn);
+        ImageView copyButton = contactHolder.findViewById(R.id.contact_copy_btn);
+        TextView contactNo = contactHolder.findViewById(R.id.contact_no);
+        TextView displayName = contactHolder.findViewById(R.id.contact_name);
+        contactNo.setText(email.getEmailID());
+        displayName.setText(email.getEmailName());
+        contactContainer.addView(contactHolder);
+
+//        ContactListener contactListener= listenerFactory.getContactListener(contact);
+//        callButton.setOnClickListener(contactListener);
+//        copyButton.setOnClickListener(contactListener);
     }
 
     public void addAudioToChosenContactContainer(Audio audio, Uri audioUri, FileIOTasks fileIOTasks)

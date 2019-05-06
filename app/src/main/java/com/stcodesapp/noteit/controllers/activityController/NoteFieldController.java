@@ -18,6 +18,7 @@ import com.stcodesapp.noteit.constants.EventTypes;
 import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.models.Contact;
+import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.NoteFieldScreenManipulationTasks;
@@ -111,6 +112,9 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
                 case RequestCode.OPEN_AUDIO_LIST:
                     handleChosenAudio(data);
                     break;
+                case RequestCode.ADD_MANUAL_EMAIL:
+                    handleManualEmail(data);
+                    break;
             }
 
         }
@@ -164,6 +168,13 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         Contact contact = (Contact) intent.getSerializableExtra(Constants.MANUAL_CONTACT);
         if(contact!=null)
             noteFieldScreenManipulationTasks.addContactToChosenContactContainer(contact);
+    }
+
+    private void handleManualEmail(Intent intent)
+    {
+        Email email= (Email) intent.getSerializableExtra(Constants.MANUAL_EMAIL);
+        if(email!=null)
+            noteFieldScreenManipulationTasks.addEmailToChosenEmailContainer(email);
     }
 
 

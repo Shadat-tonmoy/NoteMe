@@ -6,6 +6,7 @@ import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.ManualContactScreenManipulationTasks;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.ManualEmailScreenManipulationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.NoteFieldScreenManipulationTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.ClipboardTasks;
@@ -45,6 +46,11 @@ public class TasksFactory {
     public ManualContactScreenManipulationTasks getManualContactScreenManipulationTasks()
     {
         return new ManualContactScreenManipulationTasks(activity);
+    }
+
+    public ManualEmailScreenManipulationTasks getManualEmailScreenManipulationTasks()
+    {
+        return new ManualEmailScreenManipulationTasks(activity);
     }
 
     public AppPermissionTrackingTasks getAppPermissionTrackingTasks()
