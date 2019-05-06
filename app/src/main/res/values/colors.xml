@@ -8,6 +8,7 @@
     <color name="black">#000000</color>
     <color name="blackTrans">#99000000</color>
     <color name="ash">#CCBDC3C7</color>
+    <color name="transparent_ash">#80BDC3C7</color>
     <color name="darkAsh">#ABAEB1</color>
     <color name="purple700">#6A1B9A</color>
     <color name="green">#27ae60</color>

@@ -858,29 +858,29 @@ public final class R {
         public static final int mtrl_textinput_box_stroke_width_focused = 0x7f0600be;
         public static final int mtrl_textinput_outline_box_expanded_padding = 0x7f0600bf;
         public static final int mtrl_toolbar_default_height = 0x7f0600c0;
-        public static final int notification_action_icon_size = 0x7f0600c1;
-        public static final int notification_action_text_size = 0x7f0600c2;
-        public static final int notification_big_circle_margin = 0x7f0600c3;
-        public static final int notification_content_margin_start = 0x7f0600c4;
-        public static final int notification_large_icon_height = 0x7f0600c5;
-        public static final int notification_large_icon_width = 0x7f0600c6;
-        public static final int notification_main_column_padding_top = 0x7f0600c7;
-        public static final int notification_media_narrow_margin = 0x7f0600c8;
-        public static final int notification_right_icon_size = 0x7f0600c9;
-        public static final int notification_right_side_padding_top = 0x7f0600ca;
-        public static final int notification_small_icon_background_padding = 0x7f0600cb;
-        public static final int notification_small_icon_size_as_large = 0x7f0600cc;
-        public static final int notification_subtext_size = 0x7f0600cd;
-        public static final int notification_top_pad = 0x7f0600ce;
-        public static final int notification_top_pad_large_text = 0x7f0600cf;
-        public static final int tooltip_corner_radius = 0x7f0600d1;
-        public static final int tooltip_horizontal_padding = 0x7f0600d2;
-        public static final int tooltip_margin = 0x7f0600d3;
-        public static final int tooltip_precise_anchor_extra_offset = 0x7f0600d4;
-        public static final int tooltip_precise_anchor_threshold = 0x7f0600d5;
-        public static final int tooltip_vertical_padding = 0x7f0600d6;
-        public static final int tooltip_y_offset_non_touch = 0x7f0600d7;
-        public static final int tooltip_y_offset_touch = 0x7f0600d8;
+        public static final int notification_action_icon_size = 0x7f0600c2;
+        public static final int notification_action_text_size = 0x7f0600c3;
+        public static final int notification_big_circle_margin = 0x7f0600c4;
+        public static final int notification_content_margin_start = 0x7f0600c5;
+        public static final int notification_large_icon_height = 0x7f0600c6;
+        public static final int notification_large_icon_width = 0x7f0600c7;
+        public static final int notification_main_column_padding_top = 0x7f0600c8;
+        public static final int notification_media_narrow_margin = 0x7f0600c9;
+        public static final int notification_right_icon_size = 0x7f0600ca;
+        public static final int notification_right_side_padding_top = 0x7f0600cb;
+        public static final int notification_small_icon_background_padding = 0x7f0600cc;
+        public static final int notification_small_icon_size_as_large = 0x7f0600cd;
+        public static final int notification_subtext_size = 0x7f0600ce;
+        public static final int notification_top_pad = 0x7f0600cf;
+        public static final int notification_top_pad_large_text = 0x7f0600d0;
+        public static final int tooltip_corner_radius = 0x7f0600d2;
+        public static final int tooltip_horizontal_padding = 0x7f0600d3;
+        public static final int tooltip_margin = 0x7f0600d4;
+        public static final int tooltip_precise_anchor_extra_offset = 0x7f0600d5;
+        public static final int tooltip_precise_anchor_threshold = 0x7f0600d6;
+        public static final int tooltip_vertical_padding = 0x7f0600d7;
+        public static final int tooltip_y_offset_non_touch = 0x7f0600d8;
+        public static final int tooltip_y_offset_touch = 0x7f0600d9;
     }
     public static final class drawable {
         private drawable() {}
@@ -1282,20 +1282,20 @@ public final class R {
         public static final int abc_shareactionprovider_share_with_application = 0x7f0e0025;
         public static final int abc_toolbar_collapse_description = 0x7f0e0026;
         public static final int appbar_scrolling_view_behavior = 0x7f0e0030;
-        public static final int bottom_sheet_behavior = 0x7f0e0031;
-        public static final int character_counter_content_description = 0x7f0e0032;
-        public static final int character_counter_pattern = 0x7f0e0033;
-        public static final int fab_transformation_scrim_behavior = 0x7f0e0046;
-        public static final int fab_transformation_sheet_behavior = 0x7f0e0047;
-        public static final int hide_bottom_view_on_scroll_behavior = 0x7f0e0048;
-        public static final int mtrl_chip_close_icon_content_description = 0x7f0e004e;
-        public static final int password_toggle_content_description = 0x7f0e005a;
-        public static final int path_password_eye = 0x7f0e005b;
-        public static final int path_password_eye_mask_strike_through = 0x7f0e005c;
-        public static final int path_password_eye_mask_visible = 0x7f0e005d;
-        public static final int path_password_strike_through = 0x7f0e005e;
-        public static final int search_menu_title = 0x7f0e0065;
-        public static final int status_bar_notification_info_overflow = 0x7f0e006b;
+        public static final int bottom_sheet_behavior = 0x7f0e0032;
+        public static final int character_counter_content_description = 0x7f0e0033;
+        public static final int character_counter_pattern = 0x7f0e0034;
+        public static final int fab_transformation_scrim_behavior = 0x7f0e0049;
+        public static final int fab_transformation_sheet_behavior = 0x7f0e004a;
+        public static final int hide_bottom_view_on_scroll_behavior = 0x7f0e004b;
+        public static final int mtrl_chip_close_icon_content_description = 0x7f0e0051;
+        public static final int password_toggle_content_description = 0x7f0e005d;
+        public static final int path_password_eye = 0x7f0e005e;
+        public static final int path_password_eye_mask_strike_through = 0x7f0e005f;
+        public static final int path_password_eye_mask_visible = 0x7f0e0060;
+        public static final int path_password_strike_through = 0x7f0e0061;
+        public static final int search_menu_title = 0x7f0e0068;
+        public static final int status_bar_notification_info_overflow = 0x7f0e006e;
     }
     public static final class style {
         private style() {}
