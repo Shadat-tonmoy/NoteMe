@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import com.stcodesapp.noteit.common.FragmentFrameHelper;
 import com.stcodesapp.noteit.controllers.commons.FragmentFrameWrapper;
 import com.stcodesapp.noteit.factory.ControllerFactory;
+import com.stcodesapp.noteit.factory.ModelFactory;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.factory.ViewFactory;
 
@@ -73,6 +74,11 @@ public class ControllerCompositionRoot {
     public FragmentFrameHelper getFragmentFrameHelper()
     {
         return new FragmentFrameHelper(getActivity(),getFragmentFrameWrapper(),getFragmentManager());
+    }
+
+    public ModelFactory getModelFactory()
+    {
+        return compositionRoot.getModelFactory();
     }
 
 

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 
 import com.stcodesapp.noteit.common.FragmentFrameHelper;
 import com.stcodesapp.noteit.factory.ControllerFactory;
+import com.stcodesapp.noteit.factory.ModelFactory;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.factory.ViewFactory;
 
@@ -29,5 +30,9 @@ public class CompositionRoot {
 
     public TasksFactory getTasksFactory(FragmentActivity activity, FragmentFrameHelper fragmentFrameHelper) {
         return new TasksFactory(activity,fragmentFrameHelper);
+    }
+
+    public ModelFactory getModelFactory(){
+        return new ModelFactory();
     }
 }

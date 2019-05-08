@@ -20,6 +20,7 @@ import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
+import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.VoiceInputTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
@@ -41,6 +42,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     private FileIOTasks fileIOTasks;
     private AppPermissionTrackingTasks appPermissionTrackingTasks;
     private VoiceInputTasks voiceInputTasks;
+    private NoteComponents noteComponents;
 
     public NoteFieldController(TasksFactory tasksFactory) {
         this.tasksFactory = tasksFactory;
@@ -54,6 +56,11 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     public void bindView(NoteFieldScreenView secondActivityScreenView) {
         this.noteFieldScreenView = secondActivityScreenView;
         noteFieldScreenManipulationTasks.bindView(noteFieldScreenView);
+    }
+
+    public void bindNoteComponents(NoteComponents noteComponents)
+    {
+        this.noteComponents = noteComponents;
     }
 
     public void onStart()
@@ -186,7 +193,9 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
 
     private void handleChosenContact(Intent intent)
     {
-        noteFieldScreenManipulationTasks.addContactToChosenContactContainer(fileIOTasks.readContact(intent));
+        Contact contact = fileIOTasks.readContact(intent);
+        noteComponents.getChosenContacts().add(contact);
+        noteFieldScreenManipulationTasks.addContactToChosenContactContainer(contact);
     }
 
     private void handleChosenAudio(Intent data)
@@ -200,14 +209,20 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     {
         Contact contact = (Contact) intent.getSerializableExtra(Constants.MANUAL_CONTACT);
         if(contact!=null)
+        {
+            noteComponents.getChosenContacts().add(contact);
             noteFieldScreenManipulationTasks.addContactToChosenContactContainer(contact);
+        }
     }
 
     private void handleManualEmail(Intent intent)
     {
         Email email= (Email) intent.getSerializableExtra(Constants.MANUAL_EMAIL);
         if(email!=null)
+        {
+            noteComponents.getEmails().add(email);
             noteFieldScreenManipulationTasks.addEmailToChosenEmailContainer(email);
+        }
     }
 
     private void handleNoteTitleVoiceInput(Intent intent)

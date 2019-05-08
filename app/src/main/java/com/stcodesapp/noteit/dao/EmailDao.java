@@ -14,6 +14,9 @@ public interface EmailDao {
     @Insert
     void insertEmail(Email email);
 
+    @Insert
+    void insertEmails(Email... emails);
+
     @Query("select * from email where email_id = :id")
     Email getEmailById(long id);
 

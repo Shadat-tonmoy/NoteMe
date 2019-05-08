@@ -10,11 +10,17 @@ import com.stcodesapp.noteit.dao.NotesDao;
 import com.stcodesapp.noteit.database.NoteDatabase;
 import com.stcodesapp.noteit.models.Note;
 
-public class NoteInsertTask extends AsyncTask<Note,Void,Void> {
+public class NoteInsertTask extends AsyncTask<Note,Void,Long> {
+
+    public interface Listener{
+        void onNoteInserted(long insertedId);
+    }
 
     private NoteDatabase noteDatabase;
     private Context context;
     private NotesDao notesDao;
+    private Listener listener;
+
 
 
     public NoteInsertTask(Context context)
@@ -30,15 +36,19 @@ public class NoteInsertTask extends AsyncTask<Note,Void,Void> {
     }
 
     @Override
-    protected Void doInBackground(Note... notes) {
+    protected Long doInBackground(Note... notes) {
         Log.e("Note","Inserting....");
-        notesDao.insert(notes[0]);
-        return null;
+        return notesDao.insert(notes[0]);
     }
 
     @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
+    protected void onPostExecute(Long insertedId) {
+        super.onPostExecute(insertedId);
+        listener.onNoteInserted(insertedId);
         Toast.makeText(context, R.string.note_added, Toast.LENGTH_SHORT).show();
+    }
+
+    public void setListener(Listener listener) {
+        this.listener = listener;
     }
 }
