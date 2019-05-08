@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -30,6 +31,7 @@ public class NoteFieldScreenView extends BaseObservableScreenView<NoteFieldScree
     private View noteTitleDivider,noteTextDivider;
     private LinearLayout uiComponentContainer;
     private ImageView titleMic, noteMic;
+    private Button saveButton, exportAsButton;
 
     public NoteFieldScreenView(LayoutInflater inflater, @Nullable ViewGroup parent)
     {
@@ -54,6 +56,8 @@ public class NoteFieldScreenView extends BaseObservableScreenView<NoteFieldScree
         });
         setClickListener(titleMic, EventTypes.NOTE_TITLE_MIC_CLICKED);
         setClickListener(noteMic, EventTypes.NOTE_TEXT_MIC_CLICKED);
+        setClickListener(saveButton, EventTypes.NOTE_SAVE_BUTTON_CLICKED);
+        setClickListener(exportAsButton, EventTypes.NOTE_EXPORT_BUTTON_CLICKED);
 
 
     }
@@ -69,6 +73,8 @@ public class NoteFieldScreenView extends BaseObservableScreenView<NoteFieldScree
         noteTitleField = findViewById(R.id.note_title_field);
         noteTextField = findViewById(R.id.note_text_field);
         titleMic = findViewById(R.id.title_mic);
+        saveButton = findViewById(R.id.save_button);
+        exportAsButton = findViewById(R.id.export_as_button);
         noteMic = findViewById(R.id.note_mic);
         noteTitleDivider = findViewById(R.id.note_title_divider);
         noteTextDivider = findViewById(R.id.note_text_divider);
@@ -91,6 +97,12 @@ public class NoteFieldScreenView extends BaseObservableScreenView<NoteFieldScree
                             break;
                         case EventTypes.NOTE_TEXT_MIC_CLICKED:
                             listener.onNoteMicClicked();
+                            break;
+                        case EventTypes.NOTE_SAVE_BUTTON_CLICKED:
+                            listener.onSaveButtonClicked();
+                            break;
+                        case EventTypes.NOTE_EXPORT_BUTTON_CLICKED:
+                            listener.onExportAsButtonClicked();
                             break;
                     }
                 }

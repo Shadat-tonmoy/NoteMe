@@ -1223,6 +1223,7 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id export_as_button
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1317,6 +1318,7 @@ id right_icon
 id right_side
 id row
 id row_reverse
+id save_button
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1579,6 +1581,7 @@ string edit_note
 string email
 string email_address
 string empty_string
+string export_as
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string hide_bottom_view_on_scroll_behavior
@@ -1610,6 +1613,7 @@ string pick_from_contact
 string privacy_policy
 string pro_version
 string rate_the_app
+string save
 string search_menu_title
 string second_activity
 string secondary_fragment

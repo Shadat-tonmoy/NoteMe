@@ -22,6 +22,10 @@ public interface NoteFieldScreen extends BaseObservableScreen<NoteFieldScreen.Li
         void onTitleMicClicked();
 
         void onNoteMicClicked();
+
+        void onSaveButtonClicked();
+
+        void onExportAsButtonClicked();
     }
 
 

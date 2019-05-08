@@ -160,6 +160,19 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     }
 
     @Override
+    public void onSaveButtonClicked() {
+        Log.e("Note","Saving...");
+
+
+    }
+
+    @Override
+    public void onExportAsButtonClicked() {
+        Log.e("Note","Exporting...");
+
+    }
+
+    @Override
     public void onColorClicked(String colorName) {
         noteFieldScreenManipulationTasks.dismissColorPalate();
         noteFieldScreenManipulationTasks.applyBackgroundColor(colorName);

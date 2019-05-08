@@ -6,6 +6,7 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
 import com.stcodesapp.noteit.constants.Constants;
+import com.stcodesapp.noteit.dao.EmailDao;
 import com.stcodesapp.noteit.dao.NotesDao;
 import com.stcodesapp.noteit.models.Note;
 
@@ -13,6 +14,8 @@ import com.stcodesapp.noteit.models.Note;
 public abstract class NoteDatabase extends RoomDatabase {
 
     public abstract NotesDao notesDao();
+
+    public abstract EmailDao emailDao();
 
     private static volatile NoteDatabase noteDatabase = null;
 

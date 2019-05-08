@@ -617,6 +617,7 @@
     <string name="email">Email</string>
     <string name="email_address">Email Address</string>
     <string name="empty_string">""</string>
+    <string name="export_as">Export As...</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">android.support.design.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">android.support.design.transformation.FabTransformationSheetBehavior</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">android.support.design.behavior.HideBottomViewOnScrollBehavior</string>
@@ -648,6 +649,7 @@
     <string name="privacy_policy">Privacy Policy</string>
     <string name="pro_version">Pro Version</string>
     <string name="rate_the_app">Rate The App</string>
+    <string name="save">Save</string>
     <string name="search_menu_title">Search</string>
     <string name="second_activity">Second Activityy</string>
     <string name="secondary_fragment">Secondary Fragment</string>

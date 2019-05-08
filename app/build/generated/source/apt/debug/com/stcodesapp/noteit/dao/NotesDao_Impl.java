@@ -33,16 +33,12 @@ public class NotesDao_Impl implements NotesDao {
     this.__insertionAdapterOfNote = new EntityInsertionAdapter<Note>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `notes`(`id`,`noteTitle`,`noteText`,`backgroundColor`,`imageName`,`audioName`,`tag`,`phoneNumbers`,`creationTime`,`important`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        return "INSERT OR ABORT INTO `notes`(`note_id`,`noteTitle`,`noteText`,`backgroundColor`,`creationTime`,`isImportant`) VALUES (nullif(?, 0),?,?,?,?,?)";
       }
 
       @Override
       public void bind(SupportSQLiteStatement stmt, Note value) {
-        if (value.getId() == null) {
-          stmt.bindNull(1);
-        } else {
-          stmt.bindString(1, value.getId());
-        }
+        stmt.bindLong(1, value.getId());
         if (value.getNoteTitle() == null) {
           stmt.bindNull(2);
         } else {
@@ -58,60 +54,32 @@ public class NotesDao_Impl implements NotesDao {
         } else {
           stmt.bindString(4, value.getBackgroundColor());
         }
-        if (value.getImageName() == null) {
-          stmt.bindNull(5);
-        } else {
-          stmt.bindString(5, value.getImageName());
-        }
-        if (value.getAudioName() == null) {
-          stmt.bindNull(6);
-        } else {
-          stmt.bindString(6, value.getAudioName());
-        }
-        if (value.getTag() == null) {
-          stmt.bindNull(7);
-        } else {
-          stmt.bindString(7, value.getTag());
-        }
-        if (value.getPhoneNumbers() == null) {
-          stmt.bindNull(8);
-        } else {
-          stmt.bindString(8, value.getPhoneNumbers());
-        }
-        stmt.bindLong(9, value.getCreationTime());
+        stmt.bindLong(5, value.getCreationTime());
         final int _tmp;
         _tmp = value.isImportant() ? 1 : 0;
-        stmt.bindLong(10, _tmp);
+        stmt.bindLong(6, _tmp);
       }
     };
     this.__deletionAdapterOfNote = new EntityDeletionOrUpdateAdapter<Note>(__db) {
       @Override
       public String createQuery() {
-        return "DELETE FROM `notes` WHERE `id` = ?";
+        return "DELETE FROM `notes` WHERE `note_id` = ?";
       }
 
       @Override
       public void bind(SupportSQLiteStatement stmt, Note value) {
-        if (value.getId() == null) {
-          stmt.bindNull(1);
-        } else {
-          stmt.bindString(1, value.getId());
-        }
+        stmt.bindLong(1, value.getId());
       }
     };
     this.__updateAdapterOfNote = new EntityDeletionOrUpdateAdapter<Note>(__db) {
       @Override
       public String createQuery() {
-        return "UPDATE OR ABORT `notes` SET `id` = ?,`noteTitle` = ?,`noteText` = ?,`backgroundColor` = ?,`imageName` = ?,`audioName` = ?,`tag` = ?,`phoneNumbers` = ?,`creationTime` = ?,`important` = ? WHERE `id` = ?";
+        return "UPDATE OR ABORT `notes` SET `note_id` = ?,`noteTitle` = ?,`noteText` = ?,`backgroundColor` = ?,`creationTime` = ?,`isImportant` = ? WHERE `note_id` = ?";
       }
 
       @Override
       public void bind(SupportSQLiteStatement stmt, Note value) {
-        if (value.getId() == null) {
-          stmt.bindNull(1);
-        } else {
-          stmt.bindString(1, value.getId());
-        }
+        stmt.bindLong(1, value.getId());
         if (value.getNoteTitle() == null) {
           stmt.bindNull(2);
         } else {
@@ -127,35 +95,11 @@ public class NotesDao_Impl implements NotesDao {
         } else {
           stmt.bindString(4, value.getBackgroundColor());
         }
-        if (value.getImageName() == null) {
-          stmt.bindNull(5);
-        } else {
-          stmt.bindString(5, value.getImageName());
-        }
-        if (value.getAudioName() == null) {
-          stmt.bindNull(6);
-        } else {
-          stmt.bindString(6, value.getAudioName());
-        }
-        if (value.getTag() == null) {
-          stmt.bindNull(7);
-        } else {
-          stmt.bindString(7, value.getTag());
-        }
-        if (value.getPhoneNumbers() == null) {
-          stmt.bindNull(8);
-        } else {
-          stmt.bindString(8, value.getPhoneNumbers());
-        }
-        stmt.bindLong(9, value.getCreationTime());
+        stmt.bindLong(5, value.getCreationTime());
         final int _tmp;
         _tmp = value.isImportant() ? 1 : 0;
-        stmt.bindLong(10, _tmp);
-        if (value.getId() == null) {
-          stmt.bindNull(11);
-        } else {
-          stmt.bindString(11, value.getId());
-        }
+        stmt.bindLong(6, _tmp);
+        stmt.bindLong(7, value.getId());
       }
     };
   }
@@ -213,22 +157,18 @@ public class NotesDao_Impl implements NotesDao {
         }
         final Cursor _cursor = __db.query(_statement);
         try {
-          final int _cursorIndexOfId = _cursor.getColumnIndexOrThrow("id");
+          final int _cursorIndexOfId = _cursor.getColumnIndexOrThrow("note_id");
           final int _cursorIndexOfNoteTitle = _cursor.getColumnIndexOrThrow("noteTitle");
           final int _cursorIndexOfNoteText = _cursor.getColumnIndexOrThrow("noteText");
           final int _cursorIndexOfBackgroundColor = _cursor.getColumnIndexOrThrow("backgroundColor");
-          final int _cursorIndexOfImageName = _cursor.getColumnIndexOrThrow("imageName");
-          final int _cursorIndexOfAudioName = _cursor.getColumnIndexOrThrow("audioName");
-          final int _cursorIndexOfTag = _cursor.getColumnIndexOrThrow("tag");
-          final int _cursorIndexOfPhoneNumbers = _cursor.getColumnIndexOrThrow("phoneNumbers");
           final int _cursorIndexOfCreationTime = _cursor.getColumnIndexOrThrow("creationTime");
-          final int _cursorIndexOfImportant = _cursor.getColumnIndexOrThrow("important");
+          final int _cursorIndexOfIsImportant = _cursor.getColumnIndexOrThrow("isImportant");
           final List<Note> _result = new ArrayList<Note>(_cursor.getCount());
           while(_cursor.moveToNext()) {
             final Note _item;
             _item = new Note();
-            final String _tmpId;
-            _tmpId = _cursor.getString(_cursorIndexOfId);
+            final long _tmpId;
+            _tmpId = _cursor.getLong(_cursorIndexOfId);
             _item.setId(_tmpId);
             final String _tmpNoteTitle;
             _tmpNoteTitle = _cursor.getString(_cursorIndexOfNoteTitle);
@@ -239,26 +179,14 @@ public class NotesDao_Impl implements NotesDao {
             final String _tmpBackgroundColor;
             _tmpBackgroundColor = _cursor.getString(_cursorIndexOfBackgroundColor);
             _item.setBackgroundColor(_tmpBackgroundColor);
-            final String _tmpImageName;
-            _tmpImageName = _cursor.getString(_cursorIndexOfImageName);
-            _item.setImageName(_tmpImageName);
-            final String _tmpAudioName;
-            _tmpAudioName = _cursor.getString(_cursorIndexOfAudioName);
-            _item.setAudioName(_tmpAudioName);
-            final String _tmpTag;
-            _tmpTag = _cursor.getString(_cursorIndexOfTag);
-            _item.setTag(_tmpTag);
-            final String _tmpPhoneNumbers;
-            _tmpPhoneNumbers = _cursor.getString(_cursorIndexOfPhoneNumbers);
-            _item.setPhoneNumbers(_tmpPhoneNumbers);
             final long _tmpCreationTime;
             _tmpCreationTime = _cursor.getLong(_cursorIndexOfCreationTime);
             _item.setCreationTime(_tmpCreationTime);
-            final boolean _tmpImportant;
+            final boolean _tmpIsImportant;
             final int _tmp;
-            _tmp = _cursor.getInt(_cursorIndexOfImportant);
-            _tmpImportant = _tmp != 0;
-            _item.setImportant(_tmpImportant);
+            _tmp = _cursor.getInt(_cursorIndexOfIsImportant);
+            _tmpIsImportant = _tmp != 0;
+            _item.setImportant(_tmpIsImportant);
             _result.add(_item);
           }
           return _result;
