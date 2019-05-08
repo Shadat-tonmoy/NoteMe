@@ -9,16 +9,19 @@ import com.stcodesapp.noteit.listeners.AudioListener;
 import com.stcodesapp.noteit.listeners.ContactListener;
 import com.stcodesapp.noteit.listeners.EmailListener;
 import com.stcodesapp.noteit.listeners.RemoveImageListener;
+import com.stcodesapp.noteit.listeners.databaseTasksListener.DatabaseTasksListener;
 import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
+import com.stcodesapp.noteit.models.NoteComponents;
+import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
 
-public class ListenerFactory {
+public class ListeningTasks {
 
     private Activity activity;
 
-    public ListenerFactory(Activity activity) {
+    public ListeningTasks(Activity activity) {
         this.activity = activity;
     }
 
@@ -40,6 +43,10 @@ public class ListenerFactory {
     public AudioListener getAudioListener(Audio audio, FileIOTasks fileIOTasks, Uri audioUri)
     {
         return new AudioListener(audio, fileIOTasks, audioUri);
+    }
+
+    public DatabaseTasksListener getDatabaseTasksListener(DatabaseTasks databaseTasks, NoteComponents noteComponents){
+        return new DatabaseTasksListener(databaseTasks, noteComponents);
     }
 
 

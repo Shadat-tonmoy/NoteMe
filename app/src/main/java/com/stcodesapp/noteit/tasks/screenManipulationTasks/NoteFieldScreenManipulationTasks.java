@@ -14,8 +14,7 @@ import com.google.android.flexbox.FlexboxLayout;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.BackgroundColors;
 import com.stcodesapp.noteit.constants.Constants;
-import com.stcodesapp.noteit.factory.ListenerFactory;
-import com.stcodesapp.noteit.factory.TasksFactory;
+import com.stcodesapp.noteit.factory.ListeningTasks;
 import com.stcodesapp.noteit.factory.UIComponentFatory;
 import com.stcodesapp.noteit.listeners.AudioListener;
 import com.stcodesapp.noteit.listeners.ContactListener;
@@ -24,7 +23,9 @@ import com.stcodesapp.noteit.listeners.RemoveImageListener;
 import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
+import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.UtilityTasks;
+import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
 import com.stcodesapp.noteit.ui.fragments.ColorPallateBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.PhoneNoOptionsBottomSheets;
@@ -36,17 +37,22 @@ public class NoteFieldScreenManipulationTasks {
     private NoteFieldScreenView noteFieldScreenView;
     private ColorPallateBottomSheets colorPallateBottomSheets;
     private PhoneNoOptionsBottomSheets phoneNoOptionsBottomSheets;
-    private ListenerFactory listenerFactory;
+    private ListeningTasks listeningTasks;
     private UIComponentFatory uiComponentFatory;
+    private NoteComponents noteComponents;
 
-    public NoteFieldScreenManipulationTasks(Activity activity, ListenerFactory listenerFactory, UIComponentFatory uiComponentFatory) {
+    public NoteFieldScreenManipulationTasks(Activity activity, ListeningTasks listeningTasks, UIComponentFatory uiComponentFatory) {
         this.activity = activity;
-        this.listenerFactory = listenerFactory;
+        this.listeningTasks = listeningTasks;
         this.uiComponentFatory = uiComponentFatory;
     }
 
     public void bindView(NoteFieldScreenView noteFieldScreenView) {
         this.noteFieldScreenView = noteFieldScreenView;
+    }
+
+    public void bindNoteComponents(NoteComponents noteComponents) {
+        this.noteComponents = noteComponents;
     }
 
     public void showColorPalate(ColorPallateBottomSheets.Listener listener)
@@ -86,7 +92,7 @@ public class NoteFieldScreenManipulationTasks {
         ImageView removeIcon = imageHolder.findViewById(R.id.remove_image);
         imageView.setImageURI(imageUri);
         imageContainer.addView(imageHolder);
-        RemoveImageListener removeImageListener = listenerFactory.getRemoveImageListener(imageContainer,imageHolder);
+        RemoveImageListener removeImageListener = listeningTasks.getRemoveImageListener(imageContainer,imageHolder);
         removeIcon.setOnClickListener(removeImageListener);
     }
 
@@ -109,7 +115,7 @@ public class NoteFieldScreenManipulationTasks {
         contactNo.setText(contact.getPhoneNumber());
         displayName.setText(contact.getDisplayName());
         contactContainer.addView(contactHolder);
-        ContactListener contactListener= listenerFactory.getContactListener(contact);
+        ContactListener contactListener= listeningTasks.getContactListener(contact);
         callButton.setOnClickListener(contactListener);
         copyButton.setOnClickListener(contactListener);
     }
@@ -134,7 +140,7 @@ public class NoteFieldScreenManipulationTasks {
         emailName.setText(email.getEmailName());
         emailContainer.addView(emailHolder);
 
-        EmailListener emailListener = listenerFactory.getEEmailListener(email);
+        EmailListener emailListener = listeningTasks.getEEmailListener(email);
         sendButton.setOnClickListener(emailListener);
         copyButton.setOnClickListener(emailListener);
     }
@@ -157,7 +163,7 @@ public class NoteFieldScreenManipulationTasks {
         audioTitle.setText(UtilityTasks.truncateText(audio.getAudioTitle(),Constants.MAX_AUDIO_FILE_NAME_LENGTH,Constants.MP3_FILE_EXT));
         audioSize.setText(UtilityTasks.getFileSizeString(Double.parseDouble(audio.getAudioSize())));
         audioContainer.addView(audioHolder);
-        AudioListener audioListener = listenerFactory.getAudioListener(audio,fileIOTasks,audioUri);
+        AudioListener audioListener = listeningTasks.getAudioListener(audio,fileIOTasks,audioUri);
         audioHolder.setOnClickListener(audioListener);
     }
 
@@ -190,5 +196,15 @@ public class NoteFieldScreenManipulationTasks {
         existingText += text+Constants.SPACE;;
         noteFieldScreenView.getNoteTextField().setText(existingText);
         noteFieldScreenView.getNoteTextField().setSelection(existingText.length());
+    }
+
+    public void grabNoteValues()
+    {
+        String title = noteFieldScreenView.getNoteTitleField().getText().toString();
+        String text = noteFieldScreenView.getNoteTextField().getText().toString();
+        noteComponents.getNote().setNoteTitle(title);
+        noteComponents.getNote().setNoteText(text);
+        noteComponents.getNote().setCreationTime(UtilityTasks.getCurrentTime());
+
     }
 }

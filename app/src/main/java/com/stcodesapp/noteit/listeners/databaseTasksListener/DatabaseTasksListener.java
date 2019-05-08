@@ -1,5 +1,7 @@
 package com.stcodesapp.noteit.listeners.databaseTasksListener;
 
+import android.util.Log;
+
 import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
@@ -21,11 +23,13 @@ public class DatabaseTasksListener implements EmailInsertTask.Listener, NoteInse
 
     @Override
     public void onEmailInserted() {
+        Log.e("Email","Inserted");
 
     }
 
     @Override
     public void onNoteInserted(long insertedId) {
+        Log.e("Note","Inserted....");
         noteComponents.setNoteIdToEmails(insertedId);
         List<Email> emails = noteComponents.getEmails();
         Email[] emailArray = emails.toArray(new Email[0]);

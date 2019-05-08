@@ -7,15 +7,14 @@ import java.util.List;
 
 public class NoteComponents {
 
-    private String noteTitle, noteText;
     private List<Contact> chosenContacts;
     private List<Email> emails;
+    private Note note;
 
     public NoteComponents() {
         this.chosenContacts = new ArrayList<>();
         this.emails = new ArrayList<>();
-        this.noteTitle = Constants.EMPTY_STRING;
-        this.noteText= Constants.EMPTY_STRING;
+        this.note = new Note();
     }
 
     public void setNoteIdToEmails(long noteId)
@@ -25,23 +24,6 @@ public class NoteComponents {
             email.setNoteId(noteId);
         }
     }
-
-    public String getNoteTitle() {
-        return noteTitle;
-    }
-
-    public void setNoteTitle(String noteTitle) {
-        this.noteTitle = noteTitle;
-    }
-
-    public String getNoteText() {
-        return noteText;
-    }
-
-    public void setNoteText(String noteText) {
-        this.noteText = noteText;
-    }
-
     public List<Contact> getChosenContacts() {
         return chosenContacts;
     }
@@ -56,5 +38,13 @@ public class NoteComponents {
 
     public void setEmails(List<Email> emails) {
         this.emails = emails;
+    }
+
+    public Note getNote() {
+        return note;
+    }
+
+    public void setNote(Note note) {
+        this.note = note;
     }
 }

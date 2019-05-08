@@ -33,13 +33,15 @@ public class EmailInsertTask extends AsyncTask<Email, Void, Void> {
     @Override
     protected Void doInBackground(Email... emails) {
         noteDatabase.emailDao().insertEmails(emails);
+        Log.e("Email","Inserting....");
         return null;
     }
 
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        Log.e("Email","Inserted");
+        listener.onEmailInserted();
+
     }
 
     public void setListener(Listener listener) {

@@ -105,11 +105,12 @@ public class NotesDao_Impl implements NotesDao {
   }
 
   @Override
-  public void insert(Note note) {
+  public long insert(Note note) {
     __db.beginTransaction();
     try {
-      __insertionAdapterOfNote.insert(note);
+      long _result = __insertionAdapterOfNote.insertAndReturnId(note);
       __db.setTransactionSuccessful();
+      return _result;
     } finally {
       __db.endTransaction();
     }

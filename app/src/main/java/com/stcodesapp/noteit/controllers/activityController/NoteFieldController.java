@@ -1,12 +1,9 @@
 package com.stcodesapp.noteit.controllers.activityController;
 
-import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,10 +14,13 @@ import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.EventTypes;
 import com.stcodesapp.noteit.constants.RequestCode;
+import com.stcodesapp.noteit.factory.ListeningTasks;
 import com.stcodesapp.noteit.factory.TasksFactory;
+import com.stcodesapp.noteit.listeners.databaseTasksListener.DatabaseTasksListener;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.NoteComponents;
+import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.VoiceInputTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
@@ -36,6 +36,7 @@ import static android.app.Activity.RESULT_OK;
 public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener {
 
     private TasksFactory tasksFactory;
+    private ListeningTasks listeningTasks;
     private ActivityNavigationTasks activityNavigationTasks;
     private NoteFieldScreenView noteFieldScreenView;
     private NoteFieldScreenManipulationTasks noteFieldScreenManipulationTasks;
@@ -51,6 +52,8 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         fileIOTasks = tasksFactory.getFileIOTasks();
         appPermissionTrackingTasks = tasksFactory.getAppPermissionTrackingTasks();
         voiceInputTasks = tasksFactory.getVoiceInputTasks();
+        listeningTasks = tasksFactory.getListeningTasks();
+
     }
 
     public void bindView(NoteFieldScreenView secondActivityScreenView) {
@@ -61,6 +64,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     public void bindNoteComponents(NoteComponents noteComponents)
     {
         this.noteComponents = noteComponents;
+        noteFieldScreenManipulationTasks.bindNoteComponents(noteComponents);
     }
 
     public void onStart()
@@ -168,7 +172,12 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
 
     @Override
     public void onSaveButtonClicked() {
-        Log.e("Note","Saving...");
+        noteFieldScreenManipulationTasks.grabNoteValues();
+        DatabaseTasks databaseTasks = tasksFactory.getDatabaseTasks();
+        DatabaseTasksListener databaseTasksListener = listeningTasks.getDatabaseTasksListener(databaseTasks, noteComponents);
+        Log.e("WillInsert",noteComponents.getNote().toString());
+        databaseTasks.getNoteInsertTask(databaseTasksListener).execute(noteComponents.getNote());
+//        tasksFactory.getDatabaseTasks().getNoteInsertTask(listeningTasks.getDatabaseTasksListener(tasksFactory.getDatabaseTasks(), noteComponents)).execute();
 
 
     }

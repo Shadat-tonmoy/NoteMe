@@ -4,6 +4,8 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
+import com.stcodesapp.noteit.constants.BackgroundColors;
+
 import java.io.Serializable;
 
 
@@ -21,6 +23,8 @@ public class Note implements Serializable {
     private boolean isImportant;
 
     public Note() {
+        this.isImportant = false;
+        this.backgroundColor = BackgroundColors.WHITE;
     }
 
     public Note(long id, String noteTitle, String noteText, long creationTime, boolean isImportant) {
@@ -28,7 +32,6 @@ public class Note implements Serializable {
         this.noteTitle = noteTitle;
         this.noteText = noteText;
         this.creationTime = creationTime;
-        this.isImportant = isImportant;
     }
 
     public String getNoteTitle() {

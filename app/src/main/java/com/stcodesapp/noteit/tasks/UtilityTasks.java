@@ -31,6 +31,11 @@ public class UtilityTasks {
         return Constants.DAYS_OF_WEEK[day-1]+" , "+addLeadingZero(date)+" "+ Constants.FULL_MONTHS[month]+" "+year+"\n"+addLeadingZero(hours)+":"+addLeadingZero(minutes)+":"+addLeadingZero(seconds)+" "+Constants.AM_PM[ampm];
     }
 
+    public static long getCurrentTime()
+    {
+        return Calendar.getInstance().getTimeInMillis();
+    }
+
     public static String getRandomImage()
     {
         Random random = new Random();
