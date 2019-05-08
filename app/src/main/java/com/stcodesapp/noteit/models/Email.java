@@ -1,10 +1,19 @@
 package com.stcodesapp.noteit.models;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
 import java.io.Serializable;
 
+@Entity(tableName = "email")
 public class Email implements Serializable {
 
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "email_id")
+    private long id;
     private String emailName, emailID;
+
 
     public Email(String emailName, String emailID) {
         this.emailName = emailName;
@@ -27,10 +36,19 @@ public class Email implements Serializable {
         this.emailID = emailID;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "Email{" +
-                "emailName='" + emailName + '\'' +
+                "id=" + id +
+                ", emailName='" + emailName + '\'' +
                 ", emailID='" + emailID + '\'' +
                 '}';
     }

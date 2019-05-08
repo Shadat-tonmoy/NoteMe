@@ -8,7 +8,7 @@ import android.widget.Toast;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.dao.NotesDao;
 import com.stcodesapp.noteit.database.NoteDatabase;
-import com.stcodesapp.noteit.entities.Note;
+import com.stcodesapp.noteit.models.Note;
 
 public class NoteDeleteTask extends AsyncTask<Note,Void,Void> {
 

@@ -16,7 +16,7 @@ public class Constants {
     public static final int MEGABYTE_DIVISOR= 1048576;
     public static final String MEGABYTE= "MB";
     public static final String OPEN_AUDIO_FILE_TYPE= "audio/*";
-    public static final String TETX2SPEECH_DATABASE = "text22speech_database";
+    public static final String APP_DATABASE = "com_stcodesapp_noteit";
     public static final String API_KEY = "8d753ea99f332e99c7f50794b76bfce01910647f";
     public static final String ANDROID = "Android";
     public static final String LANGUAGE_FILE = "languages.json";

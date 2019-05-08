@@ -78,7 +78,7 @@ public class NoteDatabase_Impl extends NoteDatabase {
         final TableInfo _infoNotes = new TableInfo("notes", _columnsNotes, _foreignKeysNotes, _indicesNotes);
         final TableInfo _existingNotes = TableInfo.read(_db, "notes");
         if (! _infoNotes.equals(_existingNotes)) {
-          throw new IllegalStateException("Migration didn't properly handle notes(com.stcodesapp.noteit.entities.Note).\n"
+          throw new IllegalStateException("Migration didn't properly handle notes(com.stcodesapp.noteit.models.Note).\n"
                   + " Expected:\n" + _infoNotes + "\n"
                   + " Found:\n" + _existingNotes);
         }

@@ -7,7 +7,7 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.stcodesapp.noteit.entities.Note;
+import com.stcodesapp.noteit.models.Note;
 
 import java.util.List;
 

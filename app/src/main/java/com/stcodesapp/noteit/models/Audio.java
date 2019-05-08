@@ -1,6 +1,17 @@
 package com.stcodesapp.noteit.models;
 
-public class Audio {
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
+import java.io.Serializable;
+
+@Entity(tableName = "audio")
+public class Audio implements Serializable {
+
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "audio_id")
+    private long id;
 
     private String audioTitle,audioSize;
 
@@ -25,10 +36,19 @@ public class Audio {
         this.audioSize = audioSize;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "Audio{" +
-                "audioTitle='" + audioTitle + '\'' +
+                "id=" + id +
+                ", audioTitle='" + audioTitle + '\'' +
                 ", audioSize='" + audioSize + '\'' +
                 '}';
     }

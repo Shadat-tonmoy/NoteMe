@@ -10,7 +10,7 @@ import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.RoomSQLiteQuery;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
-import com.stcodesapp.noteit.entities.Note;
+import com.stcodesapp.noteit.models.Note;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;

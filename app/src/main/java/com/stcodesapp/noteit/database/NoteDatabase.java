@@ -5,8 +5,9 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
+import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.dao.NotesDao;
-import com.stcodesapp.noteit.entities.Note;
+import com.stcodesapp.noteit.models.Note;
 
 @Database(entities = {Note.class},version = 1,exportSchema = false )
 public abstract class NoteDatabase extends RoomDatabase {
@@ -23,7 +24,7 @@ public abstract class NoteDatabase extends RoomDatabase {
             {
                 noteDatabase = Room.databaseBuilder(context,
                         NoteDatabase.class,
-                        "noteDatabase")
+                        Constants.APP_DATABASE)
                         .fallbackToDestructiveMigration()
                         .build();
             }

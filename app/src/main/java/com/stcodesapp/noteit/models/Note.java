@@ -1,8 +1,8 @@
-package com.stcodesapp.noteit.entities;
+package com.stcodesapp.noteit.models;
 
+import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
-import android.support.annotation.NonNull;
 
 import java.io.Serializable;
 
@@ -10,25 +10,25 @@ import java.io.Serializable;
 @Entity(tableName = "notes")
 public class Note implements Serializable {
 
-    @PrimaryKey
-    @NonNull
-    private String id;
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "note_id")
+    private long id;
 
-    private String noteTitle,noteText,backgroundColor,imageName,audioName,tag,phoneNumbers;
+    private String noteTitle,noteText,backgroundColor;
 
     private long creationTime;
 
-    private boolean important;
+    private boolean isImportant;
 
     public Note() {
     }
 
-    public Note(String id, String noteTitle, String noteText, long creationTime, boolean important) {
+    public Note(long id, String noteTitle, String noteText, long creationTime, boolean isImportant) {
         this.id = id;
         this.noteTitle = noteTitle;
         this.noteText = noteText;
         this.creationTime = creationTime;
-        this.important = important;
+        this.isImportant = isImportant;
     }
 
     public String getNoteTitle() {
@@ -40,18 +40,18 @@ public class Note implements Serializable {
     }
 
     public boolean isImportant() {
-        return important;
+        return isImportant;
     }
 
     public void setImportant(boolean important) {
-        this.important = important;
+        this.isImportant = important;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -79,51 +79,15 @@ public class Note implements Serializable {
         this.backgroundColor = backgroundColor;
     }
 
-    public String getImageName() {
-        return imageName;
-    }
-
-    public void setImageName(String imageName) {
-        this.imageName = imageName;
-    }
-
-    public String getAudioName() {
-        return audioName;
-    }
-
-    public void setAudioName(String audioName) {
-        this.audioName = audioName;
-    }
-
-    public String getTag() {
-        return tag;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-
-    public String getPhoneNumbers() {
-        return phoneNumbers;
-    }
-
-    public void setPhoneNumbers(String phoneNumbers) {
-        this.phoneNumbers = phoneNumbers;
-    }
-
     @Override
     public String toString() {
         return "Note{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", noteTitle='" + noteTitle + '\'' +
                 ", noteText='" + noteText + '\'' +
                 ", backgroundColor='" + backgroundColor + '\'' +
-                ", imageName='" + imageName + '\'' +
-                ", audioName='" + audioName + '\'' +
-                ", tag='" + tag + '\'' +
-                ", phoneNumbers='" + phoneNumbers + '\'' +
                 ", creationTime=" + creationTime +
-                ", important=" + important +
+                ", isImportant=" + isImportant +
                 '}';
     }
 }

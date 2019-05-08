@@ -1,12 +1,20 @@
 package com.stcodesapp.noteit.models;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.tasks.UtilityTasks;
 
 import java.io.Serializable;
 
+@Entity(tableName = "contact")
 public class Contact implements Serializable {
 
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "contact_id")
+    private long id;
     private String phoneNumber, displayName;
 
     public Contact(String phoneNumber, String displayName) {
@@ -32,10 +40,19 @@ public class Contact implements Serializable {
         this.displayName = displayName;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "Contact{" +
-                "phoneNumber='" + phoneNumber + '\'' +
+                "id=" + id +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", displayName='" + displayName + '\'' +
                 '}';
     }
