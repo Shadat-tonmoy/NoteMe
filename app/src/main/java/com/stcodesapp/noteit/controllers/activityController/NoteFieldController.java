@@ -203,6 +203,8 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     private void handleChosenContact(Intent intent)
     {
         Contact contact = fileIOTasks.readContact(intent);
+        if(contact!=null)
+            noteComponents.getNote().updateContactPriority();
         noteComponents.getChosenContacts().add(contact);
         noteFieldScreenManipulationTasks.addContactToChosenContactContainer(contact);
     }
@@ -219,6 +221,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         Contact contact = (Contact) intent.getSerializableExtra(Constants.MANUAL_CONTACT);
         if(contact!=null)
         {
+            noteComponents.getNote().updateContactPriority();
             noteComponents.getChosenContacts().add(contact);
             noteFieldScreenManipulationTasks.addContactToChosenContactContainer(contact);
         }
@@ -229,6 +232,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         Email email= (Email) intent.getSerializableExtra(Constants.MANUAL_EMAIL);
         if(email!=null)
         {
+            noteComponents.getNote().updateEmailPriority();
             noteComponents.getEmails().add(email);
             noteFieldScreenManipulationTasks.addEmailToChosenEmailContainer(email);
         }

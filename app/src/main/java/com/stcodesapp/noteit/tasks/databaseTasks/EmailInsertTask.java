@@ -8,10 +8,10 @@ import com.stcodesapp.noteit.dao.EmailDao;
 import com.stcodesapp.noteit.database.NoteDatabase;
 import com.stcodesapp.noteit.models.Email;
 
-public class EmailInsertTask extends AsyncTask<Email, Void, Void> {
+public class EmailInsertTask extends AsyncTask<Email, Void, Integer> {
 
     public interface Listener{
-        void onEmailInserted();
+        void onEmailInserted(int numberOfEmail);
     }
 
 
@@ -31,16 +31,15 @@ public class EmailInsertTask extends AsyncTask<Email, Void, Void> {
     }
 
     @Override
-    protected Void doInBackground(Email... emails) {
+    protected Integer doInBackground(Email... emails) {
         noteDatabase.emailDao().insertEmails(emails);
-        Log.e("Email","Inserting....");
-        return null;
+        return emails.length;
     }
 
     @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
-        listener.onEmailInserted();
+    protected void onPostExecute(Integer numberOfEmail) {
+        super.onPostExecute(numberOfEmail);
+        listener.onEmailInserted(numberOfEmail);
 
     }
 

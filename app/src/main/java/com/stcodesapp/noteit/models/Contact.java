@@ -13,8 +13,8 @@ import java.io.Serializable;
 @Entity(tableName = "contact",
         foreignKeys = @ForeignKey(
                 entity = Note.class,
-                parentColumns = {"id"},
-                childColumns = {"noteId"},
+                parentColumns = {"note_id"},
+                childColumns = {"note_id"},
                 onDelete = ForeignKey.CASCADE
         ))
 public class Contact implements Serializable {
@@ -22,6 +22,7 @@ public class Contact implements Serializable {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "contact_id")
     private long id;
+    @ColumnInfo(name = "note_id")
     private long noteId;
     private String phoneNumber, displayName;
 

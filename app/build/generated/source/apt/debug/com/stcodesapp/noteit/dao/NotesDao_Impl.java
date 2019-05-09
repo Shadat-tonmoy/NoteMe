@@ -33,7 +33,7 @@ public class NotesDao_Impl implements NotesDao {
     this.__insertionAdapterOfNote = new EntityInsertionAdapter<Note>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `notes`(`note_id`,`noteTitle`,`noteText`,`backgroundColor`,`creationTime`,`isImportant`) VALUES (nullif(?, 0),?,?,?,?,?)";
+        return "INSERT OR ABORT INTO `notes`(`note_id`,`noteTitle`,`noteText`,`backgroundColor`,`creationTime`,`isImportant`,`priority`,`contactPriority`,`emailPriority`,`audioPriority`,`imagePriority`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -58,6 +58,11 @@ public class NotesDao_Impl implements NotesDao {
         final int _tmp;
         _tmp = value.isImportant() ? 1 : 0;
         stmt.bindLong(6, _tmp);
+        stmt.bindLong(7, value.getPriority());
+        stmt.bindLong(8, value.getContactPriority());
+        stmt.bindLong(9, value.getEmailPriority());
+        stmt.bindLong(10, value.getAudioPriority());
+        stmt.bindLong(11, value.getImagePriority());
       }
     };
     this.__deletionAdapterOfNote = new EntityDeletionOrUpdateAdapter<Note>(__db) {
@@ -74,7 +79,7 @@ public class NotesDao_Impl implements NotesDao {
     this.__updateAdapterOfNote = new EntityDeletionOrUpdateAdapter<Note>(__db) {
       @Override
       public String createQuery() {
-        return "UPDATE OR ABORT `notes` SET `note_id` = ?,`noteTitle` = ?,`noteText` = ?,`backgroundColor` = ?,`creationTime` = ?,`isImportant` = ? WHERE `note_id` = ?";
+        return "UPDATE OR ABORT `notes` SET `note_id` = ?,`noteTitle` = ?,`noteText` = ?,`backgroundColor` = ?,`creationTime` = ?,`isImportant` = ?,`priority` = ?,`contactPriority` = ?,`emailPriority` = ?,`audioPriority` = ?,`imagePriority` = ? WHERE `note_id` = ?";
       }
 
       @Override
@@ -99,7 +104,12 @@ public class NotesDao_Impl implements NotesDao {
         final int _tmp;
         _tmp = value.isImportant() ? 1 : 0;
         stmt.bindLong(6, _tmp);
-        stmt.bindLong(7, value.getId());
+        stmt.bindLong(7, value.getPriority());
+        stmt.bindLong(8, value.getContactPriority());
+        stmt.bindLong(9, value.getEmailPriority());
+        stmt.bindLong(10, value.getAudioPriority());
+        stmt.bindLong(11, value.getImagePriority());
+        stmt.bindLong(12, value.getId());
       }
     };
   }
@@ -164,6 +174,11 @@ public class NotesDao_Impl implements NotesDao {
           final int _cursorIndexOfBackgroundColor = _cursor.getColumnIndexOrThrow("backgroundColor");
           final int _cursorIndexOfCreationTime = _cursor.getColumnIndexOrThrow("creationTime");
           final int _cursorIndexOfIsImportant = _cursor.getColumnIndexOrThrow("isImportant");
+          final int _cursorIndexOfPriority = _cursor.getColumnIndexOrThrow("priority");
+          final int _cursorIndexOfContactPriority = _cursor.getColumnIndexOrThrow("contactPriority");
+          final int _cursorIndexOfEmailPriority = _cursor.getColumnIndexOrThrow("emailPriority");
+          final int _cursorIndexOfAudioPriority = _cursor.getColumnIndexOrThrow("audioPriority");
+          final int _cursorIndexOfImagePriority = _cursor.getColumnIndexOrThrow("imagePriority");
           final List<Note> _result = new ArrayList<Note>(_cursor.getCount());
           while(_cursor.moveToNext()) {
             final Note _item;
@@ -188,6 +203,21 @@ public class NotesDao_Impl implements NotesDao {
             _tmp = _cursor.getInt(_cursorIndexOfIsImportant);
             _tmpIsImportant = _tmp != 0;
             _item.setImportant(_tmpIsImportant);
+            final int _tmpPriority;
+            _tmpPriority = _cursor.getInt(_cursorIndexOfPriority);
+            _item.setPriority(_tmpPriority);
+            final int _tmpContactPriority;
+            _tmpContactPriority = _cursor.getInt(_cursorIndexOfContactPriority);
+            _item.setContactPriority(_tmpContactPriority);
+            final int _tmpEmailPriority;
+            _tmpEmailPriority = _cursor.getInt(_cursorIndexOfEmailPriority);
+            _item.setEmailPriority(_tmpEmailPriority);
+            final int _tmpAudioPriority;
+            _tmpAudioPriority = _cursor.getInt(_cursorIndexOfAudioPriority);
+            _item.setAudioPriority(_tmpAudioPriority);
+            final int _tmpImagePriority;
+            _tmpImagePriority = _cursor.getInt(_cursorIndexOfImagePriority);
+            _item.setImagePriority(_tmpImagePriority);
             _result.add(_item);
           }
           return _result;

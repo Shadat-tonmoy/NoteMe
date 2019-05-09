@@ -24,6 +24,14 @@ public class NoteComponents {
             email.setNoteId(noteId);
         }
     }
+
+    public void setNoteIdToContacts(long noteId)
+    {
+        for(Contact contact:getChosenContacts())
+        {
+            contact.setNoteId(noteId);
+        }
+    }
     public List<Contact> getChosenContacts() {
         return chosenContacts;
     }

@@ -23,4 +23,11 @@ public class DatabaseTasks {
         emailInsertTask .setListener(listener);
         return emailInsertTask ;
     }
+
+    public ContactInsertTask getContactInsertTask(ContactInsertTask.Listener listener)
+    {
+        ContactInsertTask contactInsertTask = new ContactInsertTask(context);
+        contactInsertTask.setListener(listener);
+        return contactInsertTask;
+    }
 }
