@@ -19,7 +19,7 @@ public interface NotesDao {
 
 
     @Query("SELECT * FROM notes")
-    LiveData<List<Note>> getAllNoes();
+    List<Note> getAllNoes();
 
     @Update
     void update(Note note);

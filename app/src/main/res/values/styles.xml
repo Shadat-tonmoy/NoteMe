@@ -24,7 +24,8 @@
 
     <style name="noteHeaderStyle">
         <item name="android:textSize">24sp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/gray</item>
         <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingRight">8dp</item>
@@ -36,12 +37,14 @@
 
     <style name="noteTextStyle">
         <item name="android:textSize">16sp</item>
+        <item name="android:layout_margin">8dp</item>
         <item name="android:padding">2dp</item>
         <item name="android:drawablePadding">16dp</item>
     </style>
 
-    <style name="noteTextStyleWhite" parent="noteTextStyle">
-        <item name="android:textColor">@color/white</item>
+    <style name="noteTextStyleSmall" parent="noteTextStyle">
+        <item name="android:textSize">12sp</item>
+        <item name="android:padding">0dp</item>
     </style>
 
 

@@ -2,6 +2,7 @@ package com.stcodesapp.noteit.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.constants.BackgroundColors;
+import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.tasks.UtilityTasks;
 
@@ -33,7 +36,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView noteHeader,noteText,noteTime,editNote,deleteNote,moreOption;
-        ImageView backgroundImage;
+        ConstraintLayout noteRow;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -43,13 +46,14 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
             editNote = itemView.findViewById(R.id.edit_button);
             deleteNote = itemView.findViewById(R.id.delete_button);
             moreOption = itemView.findViewById(R.id.more_button);
-            backgroundImage = itemView.findViewById(R.id.note_header_image);
+            noteRow = itemView.findViewById(R.id.note_row);
         }
     }
 
-    public NoteListAdapter(Context context)
+    public NoteListAdapter(Context context,Listener listener)
     {
         this.context = context;
+        this.listener = listener;
     }
 
     @NonNull
@@ -65,8 +69,9 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         viewHolder.noteHeader.setText(note.getNoteTitle());
         viewHolder.noteText.setText(note.getNoteText());
         viewHolder.noteTime.setText(UtilityTasks.getHumanReadableTime(note.getCreationTime()));
-        setRandomImage(viewHolder.backgroundImage);
+        setNoteBackgroundColor(viewHolder.noteRow, note.getBackgroundColor());
         setClickListener(viewHolder.editNote,viewHolder.deleteNote,viewHolder.moreOption,note);
+
     }
 
     @Override
@@ -76,24 +81,22 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         return 0;
     }
 
-    public void setNotes(List<Note> notes) {
+    private void setNoteBackgroundColor(View view,String colorName)
+    {
+        if(!colorName.equals(BackgroundColors.WHITE))
+        {
+            view.setBackgroundColor(context.getResources().getColor(BackgroundColors.getColorMaps().get(colorName)));
+            view.getBackground().setAlpha(Constants.BACKGROUND_OPACITY);
+
+        }
+
+    }
+
+    public void bindNotes(List<Note> notes) {
         this.notes = notes;
         notifyDataSetChanged();
     }
 
-    private void setRandomImage(ImageView view)
-    {
-        String randomImage = UtilityTasks.getRandomImage();
-        try {
-            Glide.with(context).load(context.getResources()
-                    .getIdentifier(randomImage, "drawable", context.getPackageName())).thumbnail(0.5f)
-                    .crossFade()
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .into(view);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     private void setClickListener(View edit, View delete, View more, final Note note)
     {

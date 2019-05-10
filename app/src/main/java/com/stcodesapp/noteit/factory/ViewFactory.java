@@ -1,8 +1,10 @@
 package com.stcodesapp.noteit.factory;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.stcodesapp.noteit.adapter.NoteListAdapter;
 import com.stcodesapp.noteit.ui.commons.NavigationDrawerView;
 import com.stcodesapp.noteit.ui.views.screenViews.HomeScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.ManualContactScreenView;
@@ -25,9 +27,9 @@ public class ViewFactory {
         return new NavigationDrawerView(layoutInflater,parent);
     }
 
-    public HomeScreenView getHomeScreenView(ViewGroup parent)
+    public HomeScreenView getHomeScreenView(ViewGroup parent, NoteListAdapter noteListAdapter)
     {
-        return new HomeScreenView(layoutInflater,parent);
+        return new HomeScreenView(layoutInflater,parent, noteListAdapter);
     }
 
     public NoteFieldScreenView getSecondaryScreenView(ViewGroup parent)
@@ -54,4 +56,10 @@ public class ViewFactory {
     {
         return new ManualEmailScreenView(layoutInflater,parent);
     }
+
+    public NoteListAdapter getNoteListAdapte(Context context, NoteListAdapter.Listener listener)
+    {
+        return new NoteListAdapter(context,listener);
+    }
+
 }

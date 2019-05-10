@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.adapter.NoteListAdapter;
 import com.stcodesapp.noteit.controllers.HomeScreenController;
 import com.stcodesapp.noteit.ui.views.screens.HomeScreen;
 
@@ -18,6 +19,7 @@ public class HomeScreenFragment extends BaseFragment {
 
     private HomeScreen homeScreenView;
     private HomeScreenController homeScreenController;
+    private NoteListAdapter noteListAdapter;
 
     public static HomeScreenFragment newInstance()
     {
@@ -32,8 +34,9 @@ public class HomeScreenFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        homeScreenView = getCompositionRoot().getViewFactory().getHomeScreenView(null);
         homeScreenController = getCompositionRoot().getFragmentControllerFactory().getHomeScreenController();
+        noteListAdapter = getCompositionRoot().getViewFactory().getNoteListAdapte(getContext(),homeScreenController);
+        homeScreenView = getCompositionRoot().getViewFactory().getHomeScreenView(null,noteListAdapter);
         homeScreenController.bindView(homeScreenView);
         setHasOptionsMenu(true);
         return homeScreenView.getRootView();

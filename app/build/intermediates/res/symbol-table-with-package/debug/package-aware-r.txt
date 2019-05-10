@@ -1254,6 +1254,7 @@ id italic
 id item_touch_helper_previous_elevation
 id labeled
 id largeLabel
+id last_modified_text
 id left
 id line1
 id line3
@@ -1285,8 +1286,9 @@ id none
 id normal
 id note_add_button
 id note_header
-id note_header_image
+id note_list
 id note_mic
+id note_row
 id note_text
 id note_text_divider
 id note_text_field
@@ -1586,6 +1588,7 @@ string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string hide_bottom_view_on_scroll_behavior
 string home_screen
+string last_modified
 string menu_1
 string menu_2
 string menu_3
@@ -2128,7 +2131,7 @@ style Widget_Support_CoordinatorLayout
 style noteHeaderContainer
 style noteHeaderStyle
 style noteTextStyle
-style noteTextStyleWhite
+style noteTextStyleSmall
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth

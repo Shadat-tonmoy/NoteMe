@@ -1,18 +1,16 @@
 package com.stcodesapp.noteit.listeners;
 
-import android.util.Log;
-
 import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.Image;
 import com.stcodesapp.noteit.models.NoteComponents;
-import com.stcodesapp.noteit.tasks.databaseTasks.AudioInsertTask;
-import com.stcodesapp.noteit.tasks.databaseTasks.ContactInsertTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.AudioInsertTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ContactInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
-import com.stcodesapp.noteit.tasks.databaseTasks.EmailInsertTask;
-import com.stcodesapp.noteit.tasks.databaseTasks.ImageInsertTask;
-import com.stcodesapp.noteit.tasks.databaseTasks.NoteInsertTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.EmailInsertTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ImageInsertTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.NoteInsertTask;
 
 import java.util.List;
 
