@@ -177,16 +177,13 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         noteFieldScreenManipulationTasks.grabNoteValues();
         DatabaseTasks databaseTasks = tasksFactory.getDatabaseTasks();
         DatabaseTasksListener databaseTasksListener = listeningTasks.getDatabaseTasksListener(databaseTasks, noteComponents);
-        Log.e("WillInsert",noteComponents.getNote().toString());
         databaseTasks.getNoteInsertTask(databaseTasksListener).execute(noteComponents.getNote());
-//        tasksFactory.getDatabaseTasks().getNoteInsertTask(listeningTasks.getDatabaseTasksListener(tasksFactory.getDatabaseTasks(), noteComponents)).execute();
 
 
     }
 
     @Override
     public void onExportAsButtonClicked() {
-        Log.e("Note","Exporting...");
 
     }
 
@@ -194,6 +191,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     public void onColorClicked(String colorName) {
         noteFieldScreenManipulationTasks.dismissColorPalate();
         noteFieldScreenManipulationTasks.applyBackgroundColor(colorName);
+        noteComponents.getNote().setBackgroundColor(colorName);
     }
 
     private void handleChosenImage(Intent intent)
