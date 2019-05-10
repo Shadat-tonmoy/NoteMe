@@ -6,14 +6,16 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
 import com.stcodesapp.noteit.constants.Constants;
+import com.stcodesapp.noteit.dao.AudioDao;
 import com.stcodesapp.noteit.dao.ContactDao;
 import com.stcodesapp.noteit.dao.EmailDao;
 import com.stcodesapp.noteit.dao.NotesDao;
+import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.Note;
 
-@Database(entities = {Note.class, Email.class, Contact.class},version = 2,exportSchema = false )
+@Database(entities = {Note.class, Email.class, Contact.class, Audio.class},version = 3,exportSchema = false )
 public abstract class NoteDatabase extends RoomDatabase {
 
     public abstract NotesDao notesDao();
@@ -21,6 +23,8 @@ public abstract class NoteDatabase extends RoomDatabase {
     public abstract EmailDao emailDao();
 
     public abstract ContactDao contactDao();
+
+    public abstract AudioDao audioDao();
 
     private static volatile NoteDatabase noteDatabase = null;
 

@@ -16,7 +16,8 @@ import com.stcodesapp.noteit.constants.EventTypes;
 import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.factory.ListeningTasks;
 import com.stcodesapp.noteit.factory.TasksFactory;
-import com.stcodesapp.noteit.listeners.databaseTasksListener.DatabaseTasksListener;
+import com.stcodesapp.noteit.listeners.DatabaseTasksListener;
+import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.NoteComponents;
@@ -212,8 +213,14 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     private void handleChosenAudio(Intent data)
     {
         Uri selectedAudio = data.getData();
-        noteFieldScreenManipulationTasks.addAudioToChosenContactContainer(fileIOTasks.getAudioFileFromURI(selectedAudio),selectedAudio,fileIOTasks);
-//        fileIOTasks.openAudioFile(selectedAudio);
+        Audio audio = fileIOTasks.getAudioFileFromURI(selectedAudio);
+        noteFieldScreenManipulationTasks.addAudioToChosenContactContainer(audio,selectedAudio,fileIOTasks);
+        if(audio!=null)
+        {
+            noteComponents.getNote().updateAudioPriority();
+            noteComponents.getChosenAudios().add(audio);
+        }
+
     }
 
     private void handleManualContact(Intent intent)

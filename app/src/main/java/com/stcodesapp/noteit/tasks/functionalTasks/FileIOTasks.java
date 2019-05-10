@@ -10,7 +10,6 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
-import android.support.v4.content.FileProvider;
 import android.util.Log;
 
 import com.stcodesapp.noteit.constants.Constants;
@@ -20,7 +19,6 @@ import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.Contact;
 
 import java.io.File;
-import java.io.OutputStream;
 import java.util.List;
 
 public class FileIOTasks {
@@ -156,7 +154,7 @@ public class FileIOTasks {
                 int sizeIndex= cursor.getColumnIndex(filePathColumn[1]);
                 String name = cursor.getString(nameIndex);
                 String size = cursor.getString(sizeIndex);
-                audio = new Audio(name,size);
+                audio = new Audio(name,size, data.toString());
             }
             cursor.close();
         }
@@ -199,12 +197,20 @@ public class FileIOTasks {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
         intent.setDataAndType(fileURI, Constants.OPEN_AUDIO_FILE_TYPE);
-        /*Uri fileURI = FileProvider.getUriForFile(
-                activity,
-                activity.getApplicationContext()
-                        .getPackageName() + ".provider", file);*/
         File file = new File(fileURI.getPath());
-        Log.e("Authority",fileURI.getAuthority()+" is File "+file.getAbsolutePath());
+        allowURIReadPermission(intent,fileURI);
+        activity.startActivity(intent);
+    }
+
+    public void openAudioFile(String fileId)
+    {
+
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        File file = new File("file:/"+fileId);
+        Uri fileURI = Uri.parse(fileId);
+        Log.e("Audio",fileURI.getPath());
+        intent.setDataAndType(fileURI, Constants.OPEN_AUDIO_FILE_TYPE);
         allowURIReadPermission(intent,fileURI);
         activity.startActivity(intent);
     }

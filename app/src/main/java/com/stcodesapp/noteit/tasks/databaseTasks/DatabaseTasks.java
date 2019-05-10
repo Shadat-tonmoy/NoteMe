@@ -2,6 +2,8 @@ package com.stcodesapp.noteit.tasks.databaseTasks;
 
 import android.content.Context;
 
+import com.stcodesapp.noteit.models.Audio;
+
 public class DatabaseTasks {
 
     private final Context context;
@@ -29,5 +31,12 @@ public class DatabaseTasks {
         ContactInsertTask contactInsertTask = new ContactInsertTask(context);
         contactInsertTask.setListener(listener);
         return contactInsertTask;
+    }
+
+    public AudioInsertTask getAudioInsertTask(AudioInsertTask.Listener listener)
+    {
+        AudioInsertTask audioInsertTask = new AudioInsertTask(context);
+        audioInsertTask.setListener(listener);
+        return audioInsertTask;
     }
 }

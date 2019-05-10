@@ -2,6 +2,7 @@ package com.stcodesapp.noteit.models;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 import com.stcodesapp.noteit.constants.BackgroundColors;
@@ -122,6 +123,15 @@ public class Note implements Serializable {
     public int getAudioPriority() {
         return audioPriority;
     }
+
+    public void updateAudioPriority() {
+        if(getAudioPriority() == Constants.ZERO)
+        {
+            incrementPriority();
+            setAudioPriority(getPriority());
+        }
+    }
+
 
     public void setAudioPriority(int audioPriority) {
         this.audioPriority = audioPriority;

@@ -9,7 +9,7 @@ import com.stcodesapp.noteit.listeners.AudioListener;
 import com.stcodesapp.noteit.listeners.ContactListener;
 import com.stcodesapp.noteit.listeners.EmailListener;
 import com.stcodesapp.noteit.listeners.RemoveImageListener;
-import com.stcodesapp.noteit.listeners.databaseTasksListener.DatabaseTasksListener;
+import com.stcodesapp.noteit.listeners.DatabaseTasksListener;
 import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
