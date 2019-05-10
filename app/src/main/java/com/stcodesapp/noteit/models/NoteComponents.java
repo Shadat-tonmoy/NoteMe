@@ -10,12 +10,14 @@ public class NoteComponents {
     private List<Contact> chosenContacts;
     private List<Email> emails;
     private List<Audio> chosenAudios;
+    private List<Image> chosenImages;
     private Note note;
 
     public NoteComponents() {
         this.chosenContacts = new ArrayList<>();
         this.emails = new ArrayList<>();
         this.chosenAudios = new ArrayList<>();
+        this.chosenImages = new ArrayList<>();
         this.note = new Note();
     }
 
@@ -27,6 +29,8 @@ public class NoteComponents {
             contact.setNoteId(noteId);
         for(Audio audio:getChosenAudios())
             audio.setNoteId(noteId);
+        for(Image image:getChosenImages())
+            image.setNoteId(noteId);
     }
 
     public List<Contact> getChosenContacts() {
@@ -59,5 +63,13 @@ public class NoteComponents {
 
     public void setNote(Note note) {
         this.note = note;
+    }
+
+    public List<Image> getChosenImages() {
+        return chosenImages;
+    }
+
+    public void setChosenImages(List<Image> chosenImages) {
+        this.chosenImages = chosenImages;
     }
 }

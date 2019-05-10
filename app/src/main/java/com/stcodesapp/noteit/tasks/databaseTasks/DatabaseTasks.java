@@ -39,4 +39,10 @@ public class DatabaseTasks {
         audioInsertTask.setListener(listener);
         return audioInsertTask;
     }
+    public ImageInsertTask getImageInsertTask(ImageInsertTask.Listener listener)
+    {
+        ImageInsertTask imageInsertTask = new ImageInsertTask(context);
+        imageInsertTask.setListener(listener);
+        return imageInsertTask;
+    }
 }

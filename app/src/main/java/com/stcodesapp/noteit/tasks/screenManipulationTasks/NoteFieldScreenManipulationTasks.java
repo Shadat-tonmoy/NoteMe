@@ -23,6 +23,7 @@ import com.stcodesapp.noteit.listeners.RemoveImageListener;
 import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
+import com.stcodesapp.noteit.models.Image;
 import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.UtilityTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
@@ -79,7 +80,7 @@ public class NoteFieldScreenManipulationTasks {
         }
     }
 
-    public void addImageToChosenImageContainer(Uri imageUri)
+    public void addImageToChosenImageContainer(Image image)
     {
         FlexboxLayout imageContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_image_container);
         if(imageContainer==null)
@@ -90,7 +91,7 @@ public class NoteFieldScreenManipulationTasks {
         final View imageHolder = activity.getLayoutInflater().inflate(R.layout.image_holder,null,false);
         ImageView imageView = imageHolder.findViewById(R.id.image);
         ImageView removeIcon = imageHolder.findViewById(R.id.remove_image);
-        imageView.setImageURI(imageUri);
+        imageView.setImageURI(Uri.parse(image.getImageURI()));
         imageContainer.addView(imageHolder);
         RemoveImageListener removeImageListener = listeningTasks.getRemoveImageListener(imageContainer,imageHolder);
         removeIcon.setOnClickListener(removeImageListener);

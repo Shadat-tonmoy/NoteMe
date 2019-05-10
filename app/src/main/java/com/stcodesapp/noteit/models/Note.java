@@ -132,6 +132,14 @@ public class Note implements Serializable {
         }
     }
 
+    public void updateImagePriority() {
+        if(getImagePriority() == Constants.ZERO)
+        {
+            incrementPriority();
+            setImagePriority(getPriority());
+        }
+    }
+
 
     public void setAudioPriority(int audioPriority) {
         this.audioPriority = audioPriority;

@@ -18,6 +18,8 @@ import com.stcodesapp.noteit.dao.ContactDao;
 import com.stcodesapp.noteit.dao.ContactDao_Impl;
 import com.stcodesapp.noteit.dao.EmailDao;
 import com.stcodesapp.noteit.dao.EmailDao_Impl;
+import com.stcodesapp.noteit.dao.ImageDao;
+import com.stcodesapp.noteit.dao.ImageDao_Impl;
 import com.stcodesapp.noteit.dao.NotesDao;
 import com.stcodesapp.noteit.dao.NotesDao_Impl;
 import java.lang.IllegalStateException;
@@ -38,17 +40,20 @@ public class NoteDatabase_Impl extends NoteDatabase {
 
   private volatile AudioDao _audioDao;
 
+  private volatile ImageDao _imageDao;
+
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(3) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(4) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `notes` (`note_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `noteTitle` TEXT, `noteText` TEXT, `backgroundColor` TEXT, `creationTime` INTEGER NOT NULL, `isImportant` INTEGER NOT NULL, `priority` INTEGER NOT NULL, `contactPriority` INTEGER NOT NULL, `emailPriority` INTEGER NOT NULL, `audioPriority` INTEGER NOT NULL, `imagePriority` INTEGER NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `email` (`email_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `note_id` INTEGER NOT NULL, `emailName` TEXT, `emailID` TEXT, FOREIGN KEY(`note_id`) REFERENCES `notes`(`note_id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `contact` (`contact_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `note_id` INTEGER NOT NULL, `phoneNumber` TEXT, `displayName` TEXT, FOREIGN KEY(`note_id`) REFERENCES `notes`(`note_id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `audio` (`audio_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `note_id` INTEGER NOT NULL, `uri` TEXT, FOREIGN KEY(`note_id`) REFERENCES `notes`(`note_id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `images` (`image_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `note_id` INTEGER NOT NULL, `uri` TEXT, FOREIGN KEY(`note_id`) REFERENCES `notes`(`note_id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"afcefcf4a54fdc318a7bba2d20cb54c4\")");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"1433d9f45ad058d0daa4a60ebad53c78\")");
       }
 
       @Override
@@ -57,6 +62,7 @@ public class NoteDatabase_Impl extends NoteDatabase {
         _db.execSQL("DROP TABLE IF EXISTS `email`");
         _db.execSQL("DROP TABLE IF EXISTS `contact`");
         _db.execSQL("DROP TABLE IF EXISTS `audio`");
+        _db.execSQL("DROP TABLE IF EXISTS `images`");
       }
 
       @Override
@@ -147,8 +153,22 @@ public class NoteDatabase_Impl extends NoteDatabase {
                   + " Expected:\n" + _infoAudio + "\n"
                   + " Found:\n" + _existingAudio);
         }
+        final HashMap<String, TableInfo.Column> _columnsImages = new HashMap<String, TableInfo.Column>(3);
+        _columnsImages.put("image_id", new TableInfo.Column("image_id", "INTEGER", true, 1));
+        _columnsImages.put("note_id", new TableInfo.Column("note_id", "INTEGER", true, 0));
+        _columnsImages.put("uri", new TableInfo.Column("uri", "TEXT", false, 0));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysImages = new HashSet<TableInfo.ForeignKey>(1);
+        _foreignKeysImages.add(new TableInfo.ForeignKey("notes", "CASCADE", "NO ACTION",Arrays.asList("note_id"), Arrays.asList("note_id")));
+        final HashSet<TableInfo.Index> _indicesImages = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoImages = new TableInfo("images", _columnsImages, _foreignKeysImages, _indicesImages);
+        final TableInfo _existingImages = TableInfo.read(_db, "images");
+        if (! _infoImages.equals(_existingImages)) {
+          throw new IllegalStateException("Migration didn't properly handle images(com.stcodesapp.noteit.models.Image).\n"
+                  + " Expected:\n" + _infoImages + "\n"
+                  + " Found:\n" + _existingImages);
+        }
       }
-    }, "afcefcf4a54fdc318a7bba2d20cb54c4", "7be620fd4a4559d67435844cb6cc902f");
+    }, "1433d9f45ad058d0daa4a60ebad53c78", "ead91366e15115fc6c5929cecb639f99");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -159,7 +179,7 @@ public class NoteDatabase_Impl extends NoteDatabase {
 
   @Override
   protected InvalidationTracker createInvalidationTracker() {
-    return new InvalidationTracker(this, "notes","email","contact","audio");
+    return new InvalidationTracker(this, "notes","email","contact","audio","images");
   }
 
   @Override
@@ -179,6 +199,7 @@ public class NoteDatabase_Impl extends NoteDatabase {
       _db.execSQL("DELETE FROM `email`");
       _db.execSQL("DELETE FROM `contact`");
       _db.execSQL("DELETE FROM `audio`");
+      _db.execSQL("DELETE FROM `images`");
       super.setTransactionSuccessful();
     } finally {
       super.endTransaction();
@@ -244,6 +265,20 @@ public class NoteDatabase_Impl extends NoteDatabase {
           _audioDao = new AudioDao_Impl(this);
         }
         return _audioDao;
+      }
+    }
+  }
+
+  @Override
+  public ImageDao imageDao() {
+    if (_imageDao != null) {
+      return _imageDao;
+    } else {
+      synchronized(this) {
+        if(_imageDao == null) {
+          _imageDao = new ImageDao_Impl(this);
+        }
+        return _imageDao;
       }
     }
   }

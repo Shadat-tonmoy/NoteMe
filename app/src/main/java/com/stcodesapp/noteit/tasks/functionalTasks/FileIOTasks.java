@@ -17,6 +17,7 @@ import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.Contact;
+import com.stcodesapp.noteit.models.Image;
 
 import java.io.File;
 import java.util.List;
@@ -119,29 +120,14 @@ public class FileIOTasks {
         return false;
     }
 
-    public File getFileForSaving(String fileName)
+    public Image getImageFromURI(Uri data)
     {
-        /*if(isExternalStorageWritable())
-        {
-            File storage = activity.getExternalFilesDirs(Environment.MEDIA_MOUNTED)[0];
-            File fileDirectory = new File(Utils.getStoragePath(storage.getAbsolutePath())+Constants.FILE_DIRECTORY);
-            File directory = new File(fileDirectory.getAbsolutePath());
-            if(!directory.exists())
-                directory.mkdirs();
+        Image image = null;
+        if(data!=null)
+            image = new Image(data.toString());
+        return image;
 
-            File file = new File(directory, fileName+ Constants.MP3_FILE_EXT);
-            if(!file.exists()) {
-                try {
-                    file.createNewFile();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            return file;
-        }*/
-        return null;
     }
-
     public Audio getAudioFileFromURI(Uri data)
     {
         Audio audio = null;

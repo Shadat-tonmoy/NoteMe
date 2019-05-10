@@ -20,6 +20,7 @@ import com.stcodesapp.noteit.listeners.DatabaseTasksListener;
 import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
+import com.stcodesapp.noteit.models.Image;
 import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
@@ -198,7 +199,13 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     private void handleChosenImage(Intent intent)
     {
         Uri selectedImage = intent.getData();
-        noteFieldScreenManipulationTasks.addImageToChosenImageContainer(selectedImage);
+        Image image = fileIOTasks.getImageFromURI(selectedImage);
+        if(image!=null)
+        {
+            noteComponents.getChosenImages().add(image);
+            noteComponents.getNote().updateImagePriority();
+            noteFieldScreenManipulationTasks.addImageToChosenImageContainer(image);
+        }
     }
 
     private void handleChosenContact(Intent intent)
