@@ -13,6 +13,7 @@ public class AppPermissionTrackingTasks {
     private Activity activity;
     private final String WRITE_EXTERNAL_STORAGE = Manifest.permission.WRITE_EXTERNAL_STORAGE;
     private final String READ_CONTACT = Manifest.permission.READ_CONTACTS;
+    private static final String READ_EXTERNAL_STORAGE = Manifest.permission.READ_EXTERNAL_STORAGE;
 
 
     public AppPermissionTrackingTasks(Activity activity) {
@@ -30,6 +31,26 @@ public class AppPermissionTrackingTasks {
             else
             {
                 ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, RequestCode.WRITE_EXTERNAL_STORAGE_PERMISSION);
+                return false;
+            }
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public static boolean hasReadExternalStoragePermission(Activity activity)
+    {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+        {
+            if (activity.checkSelfPermission(READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+            {
+                return true;
+            }
+            else
+            {
+                ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, RequestCode.READ_EXTERNAL_STORAGE_PERMISSION);
                 return false;
             }
         }

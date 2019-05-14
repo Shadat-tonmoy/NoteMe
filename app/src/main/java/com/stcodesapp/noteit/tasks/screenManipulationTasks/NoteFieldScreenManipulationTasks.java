@@ -1,7 +1,11 @@
 package com.stcodesapp.noteit.tasks.screenManipulationTasks;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +18,7 @@ import com.google.android.flexbox.FlexboxLayout;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.BackgroundColors;
 import com.stcodesapp.noteit.constants.Constants;
+import com.stcodesapp.noteit.constants.PermissionType;
 import com.stcodesapp.noteit.factory.ListeningTasks;
 import com.stcodesapp.noteit.factory.UIComponentFatory;
 import com.stcodesapp.noteit.listeners.AudioListener;
@@ -27,9 +32,12 @@ import com.stcodesapp.noteit.models.Image;
 import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.UtilityTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
+import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
 import com.stcodesapp.noteit.ui.fragments.ColorPallateBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.PhoneNoOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
+
+import java.io.IOException;
 
 public class NoteFieldScreenManipulationTasks {
 
@@ -81,6 +89,7 @@ public class NoteFieldScreenManipulationTasks {
 
     public void addImageToChosenImageContainer(Image image)
     {
+        Log.e("TryingToAdd","Image"+image.toString());
         FlexboxLayout imageContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_image_container);
         if(imageContainer==null)
         {
@@ -90,7 +99,14 @@ public class NoteFieldScreenManipulationTasks {
         final View imageHolder = activity.getLayoutInflater().inflate(R.layout.image_holder,null,false);
         ImageView imageView = imageHolder.findViewById(R.id.image);
         ImageView removeIcon = imageHolder.findViewById(R.id.remove_image);
-        imageView.setImageURI(Uri.parse(image.getImageURI()));
+        imageView.invalidate();
+        Bitmap bitmap = null;
+        try {
+            bitmap = MediaStore.Images.Media.getBitmap(activity.getContentResolver(), Uri.parse(image.getImageURI()));
+            imageView.setImageBitmap(bitmap);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         imageContainer.addView(imageHolder);
         RemoveImageListener removeImageListener = listeningTasks.getRemoveImageListener(imageContainer,imageHolder);
         removeIcon.setOnClickListener(removeImageListener);
@@ -145,7 +161,7 @@ public class NoteFieldScreenManipulationTasks {
         copyButton.setOnClickListener(emailListener);
     }
 
-    public void addAudioToChosenContactContainer(Audio audio, Uri audioUri, FileIOTasks fileIOTasks)
+    public void addAudioToChosenContactContainer(Audio audio,Uri audioUri, FileIOTasks fileIOTasks)
     {
         LinearLayout audioContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_audio_container);
         if(audioContainer==null)
@@ -159,6 +175,8 @@ public class NoteFieldScreenManipulationTasks {
         final View audioHolder = activity.getLayoutInflater().inflate(R.layout.chosen_audio_single_row,null,false);
         TextView audioTitle = audioHolder.findViewById(R.id.audio_title);
         TextView audioSize = audioHolder.findViewById(R.id.audio_size);
+        if(audio==null)
+            audio = fileIOTasks.getAudioFileFromURI(audioUri);
 
         audioTitle.setText(UtilityTasks.truncateText(audio.getAudioTitle(),Constants.MAX_AUDIO_FILE_NAME_LENGTH,Constants.MP3_FILE_EXT));
         audioSize.setText(UtilityTasks.getFileSizeString(Double.parseDouble(audio.getAudioSize())));
@@ -179,9 +197,19 @@ public class NoteFieldScreenManipulationTasks {
             phoneNoOptionsBottomSheets.dismiss();
     }
 
-    public void showPermissionRequiredMessage()
+    public void showPermissionRequiredMessage(PermissionType permissionType)
     {
-        Toast.makeText(activity, activity.getResources().getText(R.string.permission_is_required), Toast.LENGTH_SHORT).show();
+        String message = activity.getResources().getString(R.string.permission_is_required);
+        switch (permissionType)
+        {
+            case CONTACT_READ_PERMISSION:
+                message = activity.getResources().getString(R.string.contact_permission_is_required);
+                break;
+            case IMAGE_READ_PERMISSION:
+                message = activity.getResources().getString(R.string.storage_permission_is_required);
+                break;
+        }
+        Toast.makeText(activity, message, Toast.LENGTH_SHORT).show();
     }
 
     public void updateNoteTitleFromVoiceInput(String text) {
@@ -205,6 +233,26 @@ public class NoteFieldScreenManipulationTasks {
         noteComponents.getNote().setNoteTitle(title);
         noteComponents.getNote().setNoteText(text);
         noteComponents.getNote().setCreationTime(UtilityTasks.getCurrentTime());
+    }
 
+    public void buildUIFromNoteComponents(FileIOTasks fileIOTasks)
+    {
+        addImageToFields();
+
+        for(Email email:noteComponents.getEmails())
+            addEmailToChosenEmailContainer(email);
+        for(Contact contact:noteComponents.getChosenContacts())
+            addContactToChosenContactContainer(contact);
+        for(Audio audio:noteComponents.getChosenAudios())
+            addAudioToChosenContactContainer(null,Uri.parse(audio.getAudioUri()),fileIOTasks);
+    }
+
+    public void addImageToFields()
+    {
+        if(AppPermissionTrackingTasks.hasReadExternalStoragePermission(activity))
+        {
+            for(Image image:noteComponents.getChosenImages())
+                addImageToChosenImageContainer(image);
+        }
     }
 }

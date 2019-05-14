@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.EventTypes;
+import com.stcodesapp.noteit.constants.PermissionType;
 import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.factory.ListeningTasks;
@@ -38,7 +39,7 @@ import com.stcodesapp.noteit.ui.views.screens.activityScreen.NoteFieldScreen;
 
 import static android.app.Activity.RESULT_OK;
 
-public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener {
+public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener,DatabaseSelectionTasksListener.Listener {
 
     private TasksFactory tasksFactory;
     private ListeningTasks listeningTasks;
@@ -89,6 +90,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         {
             DatabaseTasks databaseTasks = tasksFactory.getDatabaseTasks();
             DatabaseSelectionTasksListener databaseSelectionTasksListener= listeningTasks.getDBSelectTasksListener(databaseTasks,note.getId());
+            databaseSelectionTasksListener.setListener(this);
             databaseTasks.getEmailSelectTask(databaseSelectionTasksListener).execute(note.getId());
             Log.e("ShowingExisting","Note is "+note.toString());
         }
@@ -165,14 +167,16 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
        if(requestCode == RequestCode.READ_CONTACT_PERMISSION)
        {
            if(grantResults[0]==PackageManager.PERMISSION_GRANTED)
-           {
                executeReadingContact();
-           }
            else
-           {
-               Log.e("Permission","Denied");
-               noteFieldScreenManipulationTasks.showPermissionRequiredMessage();
-           }
+               noteFieldScreenManipulationTasks.showPermissionRequiredMessage(PermissionType.CONTACT_READ_PERMISSION);
+       }
+       else if(requestCode == RequestCode.READ_EXTERNAL_STORAGE_PERMISSION)
+       {
+           if(grantResults[0]==PackageManager.PERMISSION_GRANTED)
+               noteFieldScreenManipulationTasks.addImageToFields();
+           else
+               noteFieldScreenManipulationTasks.showPermissionRequiredMessage(PermissionType.IMAGE_READ_PERMISSION);
        }
 
     }
@@ -301,5 +305,11 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         {
             fileIOTasks.openContactPicker();
         }
+    }
+
+    @Override
+    public void onNoteComponentsFetched(NoteComponents noteComponents) {
+        noteFieldScreenManipulationTasks.bindNoteComponents(noteComponents);
+        noteFieldScreenManipulationTasks.buildUIFromNoteComponents(fileIOTasks);
     }
 }

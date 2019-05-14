@@ -1567,6 +1567,7 @@ string choose_an_option_to_continue
 string choose_background_color
 string choose_color
 string clear
+string contact_permission_is_required
 string contacts
 string copy_note
 string delete_note
@@ -1624,6 +1625,7 @@ string settings
 string share_note
 string share_the_app
 string status_bar_notification_info_overflow
+string storage_permission_is_required
 string test
 string test_contact
 string test_num

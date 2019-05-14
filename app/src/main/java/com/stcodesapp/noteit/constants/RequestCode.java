@@ -13,4 +13,5 @@ public class RequestCode {
     public static final int ADD_MANUAL_EMAIL = 7;
     public static final int NOTE_TITLE_VOICE_INPUT = 8;
     public static final int NOTE_TEXT_VOICE_INPUT = 9;
+    public static final int READ_EXTERNAL_STORAGE_PERMISSION = 10;
 }
