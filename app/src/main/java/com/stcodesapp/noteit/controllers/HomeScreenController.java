@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.adapter.NoteListAdapter;
+import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteSelectTask;
@@ -40,6 +41,7 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     public void onStart()
     {
         homeScreenView.registerListener(this);
+        Log.e("onStart","Called");
         startFetchingNote();
     }
 
@@ -80,17 +82,25 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     }
 
     @Override
-    public void onEditNoteClick(Note note) {
+    public void onEditNoteClicked(Note note) {
 
     }
 
     @Override
-    public void onDeleteNoteClick(Note note) {
+    public void onDeleteNoteClicked(Note note) {
 
     }
 
     @Override
-    public void onMoreClick(Note note) {
+    public void onMoreClicked(Note note) {
+
+    }
+
+    @Override
+    public void onNoteClicked(Note note) {
+        Bundle args = new Bundle();
+        args.putSerializable(Tags.NOTE,note);
+        activityNavigationTasks.toNoteFieldScreen(args);
 
     }
 }

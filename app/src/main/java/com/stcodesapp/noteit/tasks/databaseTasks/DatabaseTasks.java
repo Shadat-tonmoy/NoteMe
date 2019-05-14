@@ -2,11 +2,17 @@ package com.stcodesapp.noteit.tasks.databaseTasks;
 
 import android.content.Context;
 
+import com.stcodesapp.noteit.constants.ComponentType;
+import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.AudioInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ContactInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.EmailInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ImageInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.NoteInsertTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AudioSelectTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.ContactSelectTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.EmailSelectTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.ImageSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteSelectTask;
 
 public class DatabaseTasks {
@@ -58,6 +64,36 @@ public class DatabaseTasks {
         noteSelectTask.setListener(listener);
         return noteSelectTask;
     }
+
+    public EmailSelectTask getEmailSelectTask(EmailSelectTask.Listener listener)
+    {
+        EmailSelectTask emailSelectTask = new EmailSelectTask(context, ComponentType.EMAIL);
+        emailSelectTask.setListener(listener);
+        return emailSelectTask;
+    }
+
+    public AudioSelectTask getAudioSelectTask(AudioSelectTask.Listener listener)
+    {
+        AudioSelectTask AudioSelectTask = new AudioSelectTask(context, ComponentType.AUDIO);
+        AudioSelectTask.setListener(listener);
+        return AudioSelectTask;
+    }
+
+    public ImageSelectTask getImageSelectTask(ImageSelectTask.Listener listener)
+    {
+        ImageSelectTask ImageSelectTask = new ImageSelectTask(context, ComponentType.IMAGE);
+        ImageSelectTask.setListener(listener);
+        return ImageSelectTask;
+    }
+
+
+    public ContactSelectTask getContactSelectTask(ContactSelectTask.Listener listener)
+    {
+        ContactSelectTask ContactSelectTask = new ContactSelectTask(context, ComponentType.CONTACT);
+        ContactSelectTask.setListener(listener);
+        return ContactSelectTask;
+    }
+
 
 
 }

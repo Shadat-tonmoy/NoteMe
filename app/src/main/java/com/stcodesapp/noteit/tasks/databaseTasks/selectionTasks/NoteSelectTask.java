@@ -3,6 +3,7 @@ package com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import com.stcodesapp.noteit.constants.ComponentType;
 import com.stcodesapp.noteit.dao.NotesDao;
 import com.stcodesapp.noteit.database.NoteDatabase;
 import com.stcodesapp.noteit.models.Note;
@@ -44,4 +45,6 @@ public class NoteSelectTask extends AsyncTask<Void,Void, List<Note>> {
     public void setListener(Listener listener) {
         this.listener = listener;
     }
+
+
 }

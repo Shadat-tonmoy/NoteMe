@@ -7,9 +7,10 @@ import android.view.View;
 import com.google.android.flexbox.FlexboxLayout;
 import com.stcodesapp.noteit.listeners.AudioListener;
 import com.stcodesapp.noteit.listeners.ContactListener;
+import com.stcodesapp.noteit.listeners.DatabaseSelectionTasksListener;
 import com.stcodesapp.noteit.listeners.EmailListener;
 import com.stcodesapp.noteit.listeners.RemoveImageListener;
-import com.stcodesapp.noteit.listeners.DatabaseTasksListener;
+import com.stcodesapp.noteit.listeners.DatabaseInsertTasksListener;
 import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
@@ -35,7 +36,7 @@ public class ListeningTasks {
         return new ContactListener(contact, activity);
     }
 
-    public EmailListener getEEmailListener(Email email)
+    public EmailListener getEmailListener(Email email)
     {
         return new EmailListener(email, activity);
     }
@@ -45,8 +46,12 @@ public class ListeningTasks {
         return new AudioListener(audio, fileIOTasks, audioUri);
     }
 
-    public DatabaseTasksListener getDatabaseTasksListener(DatabaseTasks databaseTasks, NoteComponents noteComponents){
-        return new DatabaseTasksListener(databaseTasks, noteComponents);
+    public DatabaseInsertTasksListener getDBInsertTasksListener(DatabaseTasks databaseTasks, NoteComponents noteComponents){
+        return new DatabaseInsertTasksListener(databaseTasks, noteComponents);
+    }
+
+    public DatabaseSelectionTasksListener getDBSelectTasksListener(DatabaseTasks databaseTasks,Long noteId){
+        return new DatabaseSelectionTasksListener(databaseTasks,noteId);
     }
 
 

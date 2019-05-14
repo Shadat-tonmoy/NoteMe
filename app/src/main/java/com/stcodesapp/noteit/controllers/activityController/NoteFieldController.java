@@ -14,13 +14,16 @@ import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.EventTypes;
 import com.stcodesapp.noteit.constants.RequestCode;
+import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.factory.ListeningTasks;
 import com.stcodesapp.noteit.factory.TasksFactory;
-import com.stcodesapp.noteit.listeners.DatabaseTasksListener;
+import com.stcodesapp.noteit.listeners.DatabaseInsertTasksListener;
+import com.stcodesapp.noteit.listeners.DatabaseSelectionTasksListener;
 import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.Image;
+import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
@@ -79,6 +82,18 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         noteFieldScreenView.unregisterListener(this);
     }
 
+    public void checkBundleForNote(Bundle args)
+    {
+        Note note = (Note) args.getSerializable(Tags.NOTE);
+        if(note!=null)
+        {
+            DatabaseTasks databaseTasks = tasksFactory.getDatabaseTasks();
+            DatabaseSelectionTasksListener databaseSelectionTasksListener= listeningTasks.getDBSelectTasksListener(databaseTasks,note.getId());
+            databaseTasks.getEmailSelectTask(databaseSelectionTasksListener).execute(note.getId());
+            Log.e("ShowingExisting","Note is "+note.toString());
+        }
+
+    }
 
     @Override
     public void onNavigateUp() {
@@ -176,8 +191,8 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     public void onSaveButtonClicked() {
         noteFieldScreenManipulationTasks.grabNoteValues();
         DatabaseTasks databaseTasks = tasksFactory.getDatabaseTasks();
-        DatabaseTasksListener databaseTasksListener = listeningTasks.getDatabaseTasksListener(databaseTasks, noteComponents);
-        databaseTasks.getNoteInsertTask(databaseTasksListener).execute(noteComponents.getNote());
+        DatabaseInsertTasksListener databaseInsertTasksListener = listeningTasks.getDBInsertTasksListener(databaseTasks, noteComponents);
+        databaseTasks.getNoteInsertTask(databaseInsertTasksListener).execute(noteComponents.getNote());
 
 
     }

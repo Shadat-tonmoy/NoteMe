@@ -26,7 +26,6 @@ import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.Image;
 import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.UtilityTasks;
-import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
 import com.stcodesapp.noteit.ui.fragments.ColorPallateBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.PhoneNoOptionsBottomSheets;
@@ -141,7 +140,7 @@ public class NoteFieldScreenManipulationTasks {
         emailName.setText(email.getEmailName());
         emailContainer.addView(emailHolder);
 
-        EmailListener emailListener = listeningTasks.getEEmailListener(email);
+        EmailListener emailListener = listeningTasks.getEmailListener(email);
         sendButton.setOnClickListener(emailListener);
         copyButton.setOnClickListener(emailListener);
     }

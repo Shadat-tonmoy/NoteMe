@@ -7,11 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.BackgroundColors;
 import com.stcodesapp.noteit.constants.Constants;
@@ -24,9 +21,10 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
 
 
     public interface Listener {
-        void onEditNoteClick(Note note);
-        void onDeleteNoteClick(Note note);
-        void onMoreClick(Note note);
+        void onEditNoteClicked(Note note);
+        void onDeleteNoteClicked(Note note);
+        void onMoreClicked(Note note);
+        void onNoteClicked(Note note);
     }
 
 
@@ -70,7 +68,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         viewHolder.noteText.setText(note.getNoteText());
         viewHolder.noteTime.setText(UtilityTasks.getHumanReadableTime(note.getCreationTime()));
         setNoteBackgroundColor(viewHolder.noteRow, note.getBackgroundColor());
-        setClickListener(viewHolder.editNote,viewHolder.deleteNote,viewHolder.moreOption,note);
+        setClickListener(note,viewHolder.noteRow, viewHolder.editNote, viewHolder.deleteNote, viewHolder.moreOption);
 
     }
 
@@ -98,26 +96,34 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
     }
 
 
-    private void setClickListener(View edit, View delete, View more, final Note note)
+    private void setClickListener(final Note note, View... views)
     {
-        edit.setOnClickListener(new View.OnClickListener() {
+
+        views[0].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onEditNoteClick(note);
+                listener.onNoteClicked(note);
             }
         });
 
-        delete.setOnClickListener(new View.OnClickListener() {
+        views[1].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onDeleteNoteClick(note);
+                listener.onEditNoteClicked(note);
             }
         });
 
-        more.setOnClickListener(new View.OnClickListener() {
+        views[2].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onMoreClick(note);
+                listener.onDeleteNoteClicked(note);
+            }
+        });
+
+        views[3].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onMoreClicked(note);
             }
         });
 

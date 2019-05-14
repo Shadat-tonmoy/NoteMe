@@ -32,6 +32,7 @@ public class NoteFieldActivity extends BaseActivity {
         noteComponents = getCompositionRoot().getModelFactory().getNoteComponents();
         noteFieldController.bindView(noteFieldScreenView);
         noteFieldController.bindNoteComponents(noteComponents);
+        noteFieldController.checkBundleForNote(getIntent().getExtras());
         setContentView(noteFieldScreenView.getRootView());
     }
 

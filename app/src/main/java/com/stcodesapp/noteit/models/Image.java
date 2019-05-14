@@ -53,4 +53,14 @@ public class Image {
     public void setImageURI(String imageURI) {
         this.imageURI = imageURI;
     }
+
+
+    @Override
+    public String toString() {
+        return "Image{" +
+                "id=" + id +
+                ", noteId=" + noteId +
+                ", imageURI='" + imageURI + '\'' +
+                '}';
+    }
 }
