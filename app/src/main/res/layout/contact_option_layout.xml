@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="52dp">
+
+    <TextView
+        android:id="@+id/contact_copy_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="16dp"
+        android:background="@color/blaze_hole"
+        android:textColor="@color/white"
+        android:text="@string/copy"/>
+
+    <TextView
+        android:id="@+id/contact_call_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="16dp"
+        android:background="@color/green"
+        android:textColor="@color/white"
+        android:text="@string/call"/>
+
+    <TextView
+        android:id="@+id/contact_remove_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="8dp"
+        android:background="@color/lightRed"
+        android:textColor="@color/white"
+        android:text="@string/remove"/>
+
+</LinearLayout>

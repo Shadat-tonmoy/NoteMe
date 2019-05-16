@@ -124,8 +124,8 @@ public class NoteFieldScreenManipulationTasks {
             noteFieldScreenView.getUiComponentContainer().addView(contactContainer);
         }
         final View contactHolder = activity.getLayoutInflater().inflate(R.layout.contact_holder,null,false);
-        ImageView callButton = contactHolder.findViewById(R.id.contact_call_btn);
-        ImageView copyButton = contactHolder.findViewById(R.id.contact_copy_btn);
+        TextView callButton = contactHolder.findViewById(R.id.contact_call_btn);
+        TextView copyButton = contactHolder.findViewById(R.id.contact_copy_btn);
         TextView contactNo = contactHolder.findViewById(R.id.contact_no);
         TextView displayName = contactHolder.findViewById(R.id.contact_name);
         contactNo.setText(contact.getPhoneNumber());

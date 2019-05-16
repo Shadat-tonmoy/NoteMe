@@ -17,23 +17,23 @@ public final class R {
         public static final int dividerDrawable = 0x7f0300b3;
         public static final int dividerDrawableHorizontal = 0x7f0300b4;
         public static final int dividerDrawableVertical = 0x7f0300b5;
-        public static final int flexDirection = 0x7f0300db;
-        public static final int flexWrap = 0x7f0300dc;
-        public static final int justifyContent = 0x7f030114;
-        public static final int layout_alignSelf = 0x7f03011a;
-        public static final int layout_flexBasisPercent = 0x7f03014c;
-        public static final int layout_flexGrow = 0x7f03014d;
-        public static final int layout_flexShrink = 0x7f03014e;
-        public static final int layout_maxHeight = 0x7f030157;
-        public static final int layout_maxWidth = 0x7f030158;
-        public static final int layout_minHeight = 0x7f030159;
-        public static final int layout_minWidth = 0x7f03015a;
-        public static final int layout_order = 0x7f03015c;
-        public static final int layout_wrapBefore = 0x7f03015f;
-        public static final int maxLine = 0x7f030175;
-        public static final int showDivider = 0x7f0301a4;
-        public static final int showDividerHorizontal = 0x7f0301a5;
-        public static final int showDividerVertical = 0x7f0301a6;
+        public static final int flexDirection = 0x7f0300dc;
+        public static final int flexWrap = 0x7f0300dd;
+        public static final int justifyContent = 0x7f030116;
+        public static final int layout_alignSelf = 0x7f03011c;
+        public static final int layout_flexBasisPercent = 0x7f03014e;
+        public static final int layout_flexGrow = 0x7f03014f;
+        public static final int layout_flexShrink = 0x7f030150;
+        public static final int layout_maxHeight = 0x7f030159;
+        public static final int layout_maxWidth = 0x7f03015a;
+        public static final int layout_minHeight = 0x7f03015b;
+        public static final int layout_minWidth = 0x7f03015c;
+        public static final int layout_order = 0x7f03015e;
+        public static final int layout_wrapBefore = 0x7f030161;
+        public static final int maxLine = 0x7f030177;
+        public static final int showDivider = 0x7f0301a8;
+        public static final int showDividerHorizontal = 0x7f0301a9;
+        public static final int showDividerVertical = 0x7f0301aa;
     }
     public static final class id {
         private id() {}
@@ -43,22 +43,22 @@ public final class R {
         public static final int center = 0x7f08002f;
         public static final int column = 0x7f08003e;
         public static final int column_reverse = 0x7f08003f;
-        public static final int flex_end = 0x7f080078;
-        public static final int flex_start = 0x7f080079;
-        public static final int nowrap = 0x7f0800bd;
-        public static final int row = 0x7f0800d1;
-        public static final int row_reverse = 0x7f0800d2;
-        public static final int space_around = 0x7f0800f3;
-        public static final int space_between = 0x7f0800f4;
-        public static final int space_evenly = 0x7f0800f5;
-        public static final int stretch = 0x7f0800ff;
-        public static final int wrap = 0x7f080129;
-        public static final int wrap_reverse = 0x7f08012b;
+        public static final int flex_end = 0x7f080079;
+        public static final int flex_start = 0x7f08007a;
+        public static final int nowrap = 0x7f0800bf;
+        public static final int row = 0x7f0800d3;
+        public static final int row_reverse = 0x7f0800d4;
+        public static final int space_around = 0x7f0800f6;
+        public static final int space_between = 0x7f0800f7;
+        public static final int space_evenly = 0x7f0800f8;
+        public static final int stretch = 0x7f080102;
+        public static final int wrap = 0x7f08012c;
+        public static final int wrap_reverse = 0x7f08012e;
     }
     public static final class styleable {
         private styleable() {}
 
-        public static final int[] FlexboxLayout = { 0x7f030026, 0x7f030027, 0x7f0300b3, 0x7f0300b4, 0x7f0300b5, 0x7f0300db, 0x7f0300dc, 0x7f030114, 0x7f030175, 0x7f0301a4, 0x7f0301a5, 0x7f0301a6 };
+        public static final int[] FlexboxLayout = { 0x7f030026, 0x7f030027, 0x7f0300b3, 0x7f0300b4, 0x7f0300b5, 0x7f0300dc, 0x7f0300dd, 0x7f030116, 0x7f030177, 0x7f0301a8, 0x7f0301a9, 0x7f0301aa };
         public static final int FlexboxLayout_alignContent = 0;
         public static final int FlexboxLayout_alignItems = 1;
         public static final int FlexboxLayout_dividerDrawable = 2;
@@ -71,7 +71,7 @@ public final class R {
         public static final int FlexboxLayout_showDivider = 9;
         public static final int FlexboxLayout_showDividerHorizontal = 10;
         public static final int FlexboxLayout_showDividerVertical = 11;
-        public static final int[] FlexboxLayout_Layout = { 0x7f03011a, 0x7f03014c, 0x7f03014d, 0x7f03014e, 0x7f030157, 0x7f030158, 0x7f030159, 0x7f03015a, 0x7f03015c, 0x7f03015f };
+        public static final int[] FlexboxLayout_Layout = { 0x7f03011c, 0x7f03014e, 0x7f03014f, 0x7f030150, 0x7f030159, 0x7f03015a, 0x7f03015b, 0x7f03015c, 0x7f03015e, 0x7f030161 };
         public static final int FlexboxLayout_Layout_layout_alignSelf = 0;
         public static final int FlexboxLayout_Layout_layout_flexBasisPercent = 1;
         public static final int FlexboxLayout_Layout_layout_flexGrow = 2;
