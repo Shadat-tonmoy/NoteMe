@@ -239,6 +239,8 @@ public class NoteFieldScreenManipulationTasks {
     {
         addImageToFields();
 
+        setNoteFieldValue();
+
         for(Email email:noteComponents.getEmails())
             addEmailToChosenEmailContainer(email);
         for(Contact contact:noteComponents.getChosenContacts())
@@ -246,6 +248,16 @@ public class NoteFieldScreenManipulationTasks {
         for(Audio audio:noteComponents.getChosenAudios())
             addAudioToChosenContactContainer(null,Uri.parse(audio.getAudioUri()),fileIOTasks);
     }
+
+    private void setNoteFieldValue()
+    {
+        Log.e("Setting","Value "+noteComponents.getNote().toString());
+        noteFieldScreenView.getNoteTitleField().setText(noteComponents.getNote().getNoteTitle());
+        noteFieldScreenView.getNoteTextField().setText(noteComponents.getNote().getNoteText());
+        applyBackgroundColor(noteComponents.getNote().getBackgroundColor());
+    }
+
+
 
     public void addImageToFields()
     {

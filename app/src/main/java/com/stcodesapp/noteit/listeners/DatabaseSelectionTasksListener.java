@@ -27,10 +27,10 @@ public class DatabaseSelectionTasksListener implements EmailSelectTask.Listener,
     private Listener listener;
 
 
-    public DatabaseSelectionTasksListener(DatabaseTasks databaseTasks, Long noteId) {
+    public DatabaseSelectionTasksListener(DatabaseTasks databaseTasks, NoteComponents noteComponents) {
         this.databaseTasks = databaseTasks;
-        this.noteId = noteId;
-        this.noteComponents = new NoteComponents();
+        this.noteId = noteComponents.getNote().getId();
+        this.noteComponents = noteComponents;
     }
 
     @Override

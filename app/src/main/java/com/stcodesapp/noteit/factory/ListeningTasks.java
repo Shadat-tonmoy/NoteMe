@@ -50,8 +50,8 @@ public class ListeningTasks {
         return new DatabaseInsertTasksListener(databaseTasks, noteComponents);
     }
 
-    public DatabaseSelectionTasksListener getDBSelectTasksListener(DatabaseTasks databaseTasks,Long noteId){
-        return new DatabaseSelectionTasksListener(databaseTasks,noteId);
+    public DatabaseSelectionTasksListener getDBSelectTasksListener(DatabaseTasks databaseTasks,NoteComponents noteComponents){
+        return new DatabaseSelectionTasksListener(databaseTasks,noteComponents);
     }
 
 

@@ -41,7 +41,6 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     public void onStart()
     {
         homeScreenView.registerListener(this);
-        Log.e("onStart","Called");
         startFetchingNote();
     }
 

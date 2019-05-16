@@ -88,11 +88,11 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         Note note = (Note) args.getSerializable(Tags.NOTE);
         if(note!=null)
         {
+            noteComponents.setNote(note);
             DatabaseTasks databaseTasks = tasksFactory.getDatabaseTasks();
-            DatabaseSelectionTasksListener databaseSelectionTasksListener= listeningTasks.getDBSelectTasksListener(databaseTasks,note.getId());
+            DatabaseSelectionTasksListener databaseSelectionTasksListener= listeningTasks.getDBSelectTasksListener(databaseTasks,noteComponents);
             databaseSelectionTasksListener.setListener(this);
             databaseTasks.getEmailSelectTask(databaseSelectionTasksListener).execute(note.getId());
-            Log.e("ShowingExisting","Note is "+note.toString());
         }
 
     }
