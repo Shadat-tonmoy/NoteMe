@@ -27,6 +27,8 @@ import com.stcodesapp.noteit.models.Image;
 import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
+import com.stcodesapp.noteit.tasks.databaseTasks.NoteDeleteTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.ContactDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteComponentSelectionTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.VoiceInputTasks;
@@ -40,7 +42,7 @@ import com.stcodesapp.noteit.ui.views.screens.activityScreen.NoteFieldScreen;
 
 import static android.app.Activity.RESULT_OK;
 
-public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener,NoteComponentSelectionTask.Listener {
+public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener,NoteComponentSelectionTask.Listener, ContactDeleteTask.Listener{
 
     private TasksFactory tasksFactory;
     private ListeningTasks listeningTasks;
@@ -315,6 +317,14 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     public void onNoteComponentFetched(NoteComponents noteComponents) {
         noteFieldScreenManipulationTasks.bindNoteComponents(noteComponents);
         noteFieldScreenManipulationTasks.buildUIFromNoteComponents(fileIOTasks);
+
+    }
+
+    @Override
+    public void onContactDeleted(Contact contact) {
+        noteComponents.getChosenContacts().remove(contact);
+        noteFieldScreenManipulationTasks.addContactsToField();
+
 
     }
 }

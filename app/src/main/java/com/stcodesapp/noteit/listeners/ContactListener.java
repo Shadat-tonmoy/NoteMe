@@ -6,15 +6,19 @@ import android.view.View;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.tasks.UtilityTasks;
+import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
+import com.stcodesapp.noteit.ui.activities.NoteFieldActivity;
 
 public class ContactListener implements View.OnClickListener {
 
     private Contact contact;
     private Activity activity;
+    private DatabaseTasks databaseTasks;
 
-    public ContactListener(Contact contact, Activity activity) {
+    public ContactListener(Contact contact, Activity activity, DatabaseTasks databaseTasks) {
         this.contact = contact;
         this.activity = activity;
+        this.databaseTasks = databaseTasks;
     }
 
     @Override
@@ -27,6 +31,9 @@ public class ContactListener implements View.OnClickListener {
             case R.id.contact_copy_btn:
                 copyContact();
                 break;
+            case R.id.contact_remove_btn:
+                removeContact();
+                break;
         }
 
     }
@@ -37,5 +44,12 @@ public class ContactListener implements View.OnClickListener {
 
     private void callContact() {
         UtilityTasks.makeCall(activity,contact.getPhoneNumber());
+    }
+
+    private void removeContact()
+    {
+        databaseTasks.getContactDeleteTask(((NoteFieldActivity)activity).getNoteFieldController()).execute(contact);
+
+
     }
 }

@@ -21,9 +21,11 @@ import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
 public class ListeningTasks {
 
     private Activity activity;
+    private DatabaseTasks databaseTasks;
 
-    public ListeningTasks(Activity activity) {
+    public ListeningTasks(Activity activity, DatabaseTasks databaseTasks) {
         this.activity = activity;
+        this.databaseTasks = databaseTasks;
     }
 
     public RemoveImageListener getRemoveImageListener(FlexboxLayout container, View image)
@@ -33,7 +35,7 @@ public class ListeningTasks {
 
     public ContactListener getContactListener(Contact contact)
     {
-        return new ContactListener(contact, activity);
+        return new ContactListener(contact, activity,databaseTasks);
     }
 
     public EmailListener getEmailListener(Email email)

@@ -1,6 +1,7 @@
 package com.stcodesapp.noteit.dao;
 
 import android.arch.persistence.db.SupportSQLiteStatement;
+import android.arch.persistence.room.EntityDeletionOrUpdateAdapter;
 import android.arch.persistence.room.EntityInsertionAdapter;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.RoomSQLiteQuery;
@@ -17,6 +18,8 @@ public class ContactDao_Impl implements ContactDao {
   private final RoomDatabase __db;
 
   private final EntityInsertionAdapter __insertionAdapterOfContact;
+
+  private final EntityDeletionOrUpdateAdapter __deletionAdapterOfContact;
 
   public ContactDao_Impl(RoomDatabase __db) {
     this.__db = __db;
@@ -42,6 +45,17 @@ public class ContactDao_Impl implements ContactDao {
         }
       }
     };
+    this.__deletionAdapterOfContact = new EntityDeletionOrUpdateAdapter<Contact>(__db) {
+      @Override
+      public String createQuery() {
+        return "DELETE FROM `contact` WHERE `contact_id` = ?";
+      }
+
+      @Override
+      public void bind(SupportSQLiteStatement stmt, Contact value) {
+        stmt.bindLong(1, value.getId());
+      }
+    };
   }
 
   @Override
@@ -49,6 +63,17 @@ public class ContactDao_Impl implements ContactDao {
     __db.beginTransaction();
     try {
       __insertionAdapterOfContact.insert(contact);
+      __db.setTransactionSuccessful();
+    } finally {
+      __db.endTransaction();
+    }
+  }
+
+  @Override
+  public void deleteContact(Contact... contacts) {
+    __db.beginTransaction();
+    try {
+      __deletionAdapterOfContact.handleMultiple(contacts);
       __db.setTransactionSuccessful();
     } finally {
       __db.endTransaction();

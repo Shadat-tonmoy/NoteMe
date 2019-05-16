@@ -126,6 +126,7 @@ public class NoteFieldScreenManipulationTasks {
         final View contactHolder = activity.getLayoutInflater().inflate(R.layout.contact_holder,null,false);
         TextView callButton = contactHolder.findViewById(R.id.contact_call_btn);
         TextView copyButton = contactHolder.findViewById(R.id.contact_copy_btn);
+        TextView removeButton = contactHolder.findViewById(R.id.contact_remove_btn);
         TextView contactNo = contactHolder.findViewById(R.id.contact_no);
         TextView displayName = contactHolder.findViewById(R.id.contact_name);
         contactNo.setText(contact.getPhoneNumber());
@@ -134,6 +135,7 @@ public class NoteFieldScreenManipulationTasks {
         ContactListener contactListener= listeningTasks.getContactListener(contact);
         callButton.setOnClickListener(contactListener);
         copyButton.setOnClickListener(contactListener);
+        removeButton.setOnClickListener(contactListener);
     }
 
     public void addEmailToChosenEmailContainer(Email email)
@@ -238,23 +240,49 @@ public class NoteFieldScreenManipulationTasks {
     public void buildUIFromNoteComponents(FileIOTasks fileIOTasks)
     {
         addImageToFields();
-
         setNoteFieldValue();
+        addEmailsToField();
+        addContactsToField();
 
-        for(Email email:noteComponents.getEmails())
-            addEmailToChosenEmailContainer(email);
-        for(Contact contact:noteComponents.getChosenContacts())
-            addContactToChosenContactContainer(contact);
+
         for(Audio audio:noteComponents.getChosenAudios())
             addAudioToChosenContactContainer(null,Uri.parse(audio.getAudioUri()),fileIOTasks);
     }
 
+    public void addEmailsToField()
+    {
+        for(Email email:noteComponents.getEmails())
+            addEmailToChosenEmailContainer(email);
+    }
+
+    public void addContactsToField()
+    {
+        if(noteComponents.getChosenContacts().size()==Constants.ZERO)
+        {
+            removeContactContainer();
+            return;
+        }
+        LinearLayout contactContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_contact_container);
+        if(contactContainer!=null)
+            contactContainer.removeAllViews();
+        for(Contact contact:noteComponents.getChosenContacts())
+            addContactToChosenContactContainer(contact);
+    }
+
     private void setNoteFieldValue()
     {
-        Log.e("Setting","Value "+noteComponents.getNote().toString());
         noteFieldScreenView.getNoteTitleField().setText(noteComponents.getNote().getNoteTitle());
         noteFieldScreenView.getNoteTextField().setText(noteComponents.getNote().getNoteText());
         applyBackgroundColor(noteComponents.getNote().getBackgroundColor());
+    }
+
+    private void removeContactContainer()
+    {
+        LinearLayout contactContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_contact_container);
+        if(contactContainer!=null)
+        {
+            contactContainer.setVisibility(View.GONE);
+        }
     }
 
 

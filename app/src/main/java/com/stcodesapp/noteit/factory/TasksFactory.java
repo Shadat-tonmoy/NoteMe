@@ -73,7 +73,7 @@ public class TasksFactory {
 
     public ListeningTasks getListeningTasks()
     {
-        return new ListeningTasks(activity);
+        return new ListeningTasks(activity,getDatabaseTasks());
     }
 
     private UIComponentFatory getUiComponentFactory()

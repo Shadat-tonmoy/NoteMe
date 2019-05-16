@@ -84,4 +84,8 @@ public class NoteFieldActivity extends BaseActivity {
         super.onStop();
         noteFieldController.onStop();
     }
+
+    public NoteFieldController getNoteFieldController() {
+        return noteFieldController;
+    }
 }

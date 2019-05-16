@@ -70,4 +70,5 @@
     <string name="call">Call</string>
     <string name="copy">Copy</string>
     <string name="remove">Remove</string>
+    <string name="note_component_deleted">Note Component Removed!!</string>
 </resources>
