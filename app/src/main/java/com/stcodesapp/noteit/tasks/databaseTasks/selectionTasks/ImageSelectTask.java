@@ -7,7 +7,7 @@ import com.stcodesapp.noteit.models.Image;
 
 import java.util.List;
 
-public class ImageSelectTask extends NoteComponentSelectionTasks<Image>{
+public class ImageSelectTask extends BaseSelectionTasks<Image> {
 
     public interface Listener{
         void onImageFetched(List<Image> fetchedImage);

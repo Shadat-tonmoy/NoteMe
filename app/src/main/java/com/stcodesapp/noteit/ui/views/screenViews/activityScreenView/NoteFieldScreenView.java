@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.google.android.flexbox.FlexboxLayout;
@@ -32,6 +33,7 @@ public class NoteFieldScreenView extends BaseObservableScreenView<NoteFieldScree
     private LinearLayout uiComponentContainer;
     private ImageView titleMic, noteMic;
     private Button saveButton, exportAsButton;
+    private ScrollView uiComponentRoot;
 
     public NoteFieldScreenView(LayoutInflater inflater, @Nullable ViewGroup parent)
     {
@@ -79,6 +81,7 @@ public class NoteFieldScreenView extends BaseObservableScreenView<NoteFieldScree
         noteTitleDivider = findViewById(R.id.note_title_divider);
         noteTextDivider = findViewById(R.id.note_text_divider);
         uiComponentContainer = findViewById(R.id.ui_component_container);
+        uiComponentRoot = findViewById(R.id.ui_component_root);
 
 
     }
@@ -140,5 +143,9 @@ public class NoteFieldScreenView extends BaseObservableScreenView<NoteFieldScree
 
     public LinearLayout getUiComponentContainer() {
         return uiComponentContainer;
+    }
+
+    public ScrollView getUiComponentRoot() {
+        return uiComponentRoot;
     }
 }

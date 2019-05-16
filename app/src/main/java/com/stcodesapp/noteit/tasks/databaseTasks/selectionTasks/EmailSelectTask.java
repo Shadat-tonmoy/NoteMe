@@ -3,12 +3,11 @@ package com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks;
 import android.content.Context;
 
 import com.stcodesapp.noteit.constants.ComponentType;
-import com.stcodesapp.noteit.database.NoteDatabase;
 import com.stcodesapp.noteit.models.Email;
 
 import java.util.List;
 
-public class EmailSelectTask extends NoteComponentSelectionTasks<Email>{
+public class EmailSelectTask extends BaseSelectionTasks<Email> {
 
     public interface Listener{
         void onEmailFetched(List<Email> fetchedEmails);

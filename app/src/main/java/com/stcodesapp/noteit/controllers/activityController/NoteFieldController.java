@@ -27,6 +27,7 @@ import com.stcodesapp.noteit.models.Image;
 import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
+import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteComponentSelectionTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.VoiceInputTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
@@ -39,7 +40,7 @@ import com.stcodesapp.noteit.ui.views.screens.activityScreen.NoteFieldScreen;
 
 import static android.app.Activity.RESULT_OK;
 
-public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener,DatabaseSelectionTasksListener.Listener {
+public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener,NoteComponentSelectionTask.Listener {
 
     private TasksFactory tasksFactory;
     private ListeningTasks listeningTasks;
@@ -89,10 +90,13 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         if(note!=null)
         {
             noteComponents.setNote(note);
-            DatabaseTasks databaseTasks = tasksFactory.getDatabaseTasks();
+            NoteComponentSelectionTask noteComponentSelectionTask = tasksFactory.getDatabaseTasks().getNoteComponentSelectionTask(this,noteComponents);
+            noteComponentSelectionTask.execute(note.getId());
+
+            /*DatabaseTasks databaseTasks = tasksFactory.getDatabaseTasks();
             DatabaseSelectionTasksListener databaseSelectionTasksListener= listeningTasks.getDBSelectTasksListener(databaseTasks,noteComponents);
             databaseSelectionTasksListener.setListener(this);
-            databaseTasks.getEmailSelectTask(databaseSelectionTasksListener).execute(note.getId());
+            databaseTasks.getEmailSelectTask(databaseSelectionTasksListener).execute(note.getId());*/
         }
 
     }
@@ -308,8 +312,9 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     }
 
     @Override
-    public void onNoteComponentsFetched(NoteComponents noteComponents) {
+    public void onNoteComponentFetched(NoteComponents noteComponents) {
         noteFieldScreenManipulationTasks.bindNoteComponents(noteComponents);
         noteFieldScreenManipulationTasks.buildUIFromNoteComponents(fileIOTasks);
+
     }
 }

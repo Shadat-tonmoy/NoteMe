@@ -9,7 +9,7 @@ import com.stcodesapp.noteit.models.Email;
 
 import java.util.List;
 
-public class NoteComponentSelectionTasks<ReturnTye> extends AsyncTask<Long, Void, List<ReturnTye>>{
+public class BaseSelectionTasks<ReturnTye> extends AsyncTask<Long, Void, List<ReturnTye>>{
 
 
 
@@ -17,7 +17,7 @@ public class NoteComponentSelectionTasks<ReturnTye> extends AsyncTask<Long, Void
     private NoteDatabase noteDatabase;
     private ComponentType componentType;
 
-    public NoteComponentSelectionTasks(Context context, ComponentType componentType)
+    public BaseSelectionTasks(Context context, ComponentType componentType)
     {
         this.context = context;
         noteDatabase = NoteDatabase.getInstance(context);

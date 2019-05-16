@@ -4,11 +4,10 @@ import android.content.Context;
 
 import com.stcodesapp.noteit.constants.ComponentType;
 import com.stcodesapp.noteit.models.Contact;
-import com.stcodesapp.noteit.models.Email;
 
 import java.util.List;
 
-public class ContactSelectTask extends NoteComponentSelectionTasks<Contact>{
+public class ContactSelectTask extends BaseSelectionTasks<Contact> {
 
     public interface Listener{
         void onContactFetched(List<Contact> fetchedContact);

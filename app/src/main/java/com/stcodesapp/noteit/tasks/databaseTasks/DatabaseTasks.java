@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.stcodesapp.noteit.constants.ComponentType;
 import com.stcodesapp.noteit.models.Email;
+import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.AudioInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ContactInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.EmailInsertTask;
@@ -13,6 +14,7 @@ import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AudioSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.ContactSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.EmailSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.ImageSelectTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteComponentSelectionTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteSelectTask;
 
 public class DatabaseTasks {
@@ -92,6 +94,14 @@ public class DatabaseTasks {
         ContactSelectTask ContactSelectTask = new ContactSelectTask(context, ComponentType.CONTACT);
         ContactSelectTask.setListener(listener);
         return ContactSelectTask;
+    }
+
+    public NoteComponentSelectionTask getNoteComponentSelectionTask(NoteComponentSelectionTask.Listener listener,NoteComponents noteComponents)
+    {
+        NoteComponentSelectionTask noteComponentSelectionTask = new NoteComponentSelectionTask(context,noteComponents);
+        noteComponentSelectionTask.setListener(listener);
+        return noteComponentSelectionTask;
+
     }
 
 

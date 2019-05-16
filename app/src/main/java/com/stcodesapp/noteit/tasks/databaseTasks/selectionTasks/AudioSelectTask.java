@@ -4,11 +4,10 @@ import android.content.Context;
 
 import com.stcodesapp.noteit.constants.ComponentType;
 import com.stcodesapp.noteit.models.Audio;
-import com.stcodesapp.noteit.models.Contact;
 
 import java.util.List;
 
-public class AudioSelectTask extends NoteComponentSelectionTasks<Audio>{
+public class AudioSelectTask extends BaseSelectionTasks<Audio> {
 
     public interface Listener{
         void onAudioFetched(List<Audio> fetchedAudio);
