@@ -148,8 +148,8 @@ public class NoteFieldScreenManipulationTasks {
             noteFieldScreenView.getUiComponentContainer().addView(emailContainer);
         }
         final View emailHolder = activity.getLayoutInflater().inflate(R.layout.email_holder,null,false);
-        ImageView sendButton = emailHolder.findViewById(R.id.email_send_btn);
-        ImageView copyButton = emailHolder.findViewById(R.id.email_copy_btn);
+        TextView sendButton = emailHolder.findViewById(R.id.email_send_btn);
+        TextView copyButton = emailHolder.findViewById(R.id.email_copy_btn);
         TextView emailId = emailHolder.findViewById(R.id.email_id);
         TextView emailName = emailHolder.findViewById(R.id.email_name);
         emailId.setText(email.getEmailID());
