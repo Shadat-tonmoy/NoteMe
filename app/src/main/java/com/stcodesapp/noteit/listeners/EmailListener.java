@@ -6,15 +6,21 @@ import android.view.View;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.tasks.UtilityTasks;
+import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
+import com.stcodesapp.noteit.ui.activities.NoteFieldActivity;
 
 public class EmailListener implements View.OnClickListener {
 
     private Email email;
     private Activity activity;
+    private DatabaseTasks databaseTasks;
+    private View emailHolder;
 
-    public EmailListener(Email email, Activity activity) {
+    public EmailListener(Email email, Activity activity, DatabaseTasks databaseTasks, View emailHolder) {
         this.email = email;
         this.activity = activity;
+        this.databaseTasks = databaseTasks;
+        this.emailHolder = emailHolder;
     }
 
 
@@ -28,6 +34,9 @@ public class EmailListener implements View.OnClickListener {
             case R.id.email_send_btn:
                 sendEmail();
                 break;
+            case R.id.email_remove_btn:
+                removeEmail();
+                break;
         }
 
     }
@@ -38,5 +47,11 @@ public class EmailListener implements View.OnClickListener {
 
     private void sendEmail() {
         UtilityTasks.sendEmail(activity,email.getEmailID());
+    }
+
+    private void removeEmail()
+    {
+        emailHolder.setVisibility(View.GONE);
+        databaseTasks.getEmailDeleteTask(((NoteFieldActivity)activity).getNoteFieldController()).execute(email);
     }
 }

@@ -6,6 +6,7 @@ import com.stcodesapp.noteit.constants.ComponentType;
 import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.ContactDeleteTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.EmailDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.AudioInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ContactInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.EmailInsertTask;
@@ -73,6 +74,13 @@ public class DatabaseTasks {
         EmailSelectTask emailSelectTask = new EmailSelectTask(context, ComponentType.EMAIL);
         emailSelectTask.setListener(listener);
         return emailSelectTask;
+    }
+
+    public EmailDeleteTask getEmailDeleteTask(EmailDeleteTask.Listener listener)
+    {
+        EmailDeleteTask emailDeleteTask = new EmailDeleteTask(context, ComponentType.EMAIL);
+        emailDeleteTask.setListener(listener);
+        return emailDeleteTask;
     }
 
     public AudioSelectTask getAudioSelectTask(AudioSelectTask.Listener listener)

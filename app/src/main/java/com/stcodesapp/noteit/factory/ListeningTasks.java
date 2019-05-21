@@ -38,9 +38,9 @@ public class ListeningTasks {
         return new ContactListener(contact, activity,databaseTasks, contactHolder);
     }
 
-    public EmailListener getEmailListener(Email email)
+    public EmailListener getEmailListener(Email email,View emailHolder)
     {
-        return new EmailListener(email, activity);
+        return new EmailListener(email, activity,databaseTasks,emailHolder);
     }
 
     public AudioListener getAudioListener(Audio audio, FileIOTasks fileIOTasks, Uri audioUri)

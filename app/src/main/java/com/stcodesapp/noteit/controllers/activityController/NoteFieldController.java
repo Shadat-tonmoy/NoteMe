@@ -29,6 +29,7 @@ import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.NoteDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.ContactDeleteTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.EmailDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.AudioInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ContactInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.EmailInsertTask;
@@ -46,7 +47,8 @@ import com.stcodesapp.noteit.ui.views.screens.activityScreen.NoteFieldScreen;
 
 import static android.app.Activity.RESULT_OK;
 
-public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener,NoteComponentSelectionTask.Listener, ContactDeleteTask.Listener{
+public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener,NoteComponentSelectionTask.Listener, ContactDeleteTask.Listener, EmailDeleteTask.Listener
+{
 
     private TasksFactory tasksFactory;
     private ListeningTasks listeningTasks;
@@ -380,5 +382,12 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     {
         noteComponents.getChosenContacts().remove(contact);
         noteFieldScreenManipulationTasks.removeContactContainer();
+    }
+
+    @Override
+    public void onEmailDeleted(Email email) {
+        noteComponents.getEmails().remove(email);
+        noteFieldScreenManipulationTasks.removeEmailContainer();
+
     }
 }

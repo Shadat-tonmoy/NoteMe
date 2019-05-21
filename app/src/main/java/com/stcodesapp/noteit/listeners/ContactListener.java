@@ -52,7 +52,5 @@ public class ContactListener implements View.OnClickListener {
     {
         contactHolder.setVisibility(View.GONE);
         databaseTasks.getContactDeleteTask(((NoteFieldActivity)activity).getNoteFieldController()).execute(contact);
-
-
     }
 }

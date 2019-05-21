@@ -55,8 +55,10 @@ public class BaseDeletionTasks<Component> extends AsyncTask<Component, Void, Com
                 return noteDatabase.imageDao().getAllImageForNote(noteId);*/
             case EMAIL:
                 noteDatabase.emailDao().deleteEmail((Email) component);
+                break;
             case CONTACT:
                 noteDatabase.contactDao().deleteContact((Contact)component);
+                break;
             default:
                 return;
         }

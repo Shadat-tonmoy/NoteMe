@@ -150,7 +150,6 @@ public class NoteFieldScreenManipulationTasks {
 
                 }
             });
-
         }
     }
 
@@ -160,7 +159,13 @@ public class NoteFieldScreenManipulationTasks {
         noteComponents.getChosenContacts().remove(contact);
         view.setVisibility(View.GONE);
         removeContactContainer();
+    }
 
+    private void removeEmailComponent(View view,Email email)
+    {
+        noteComponents.getEmails().remove(email);
+        view.setVisibility(View.GONE);
+        removeEmailContainer();
     }
 
     public void removeContactContainer()
@@ -175,7 +180,19 @@ public class NoteFieldScreenManipulationTasks {
         }
     }
 
-    public void addEmailToChosenEmailContainer(Email email)
+    public void removeEmailContainer()
+    {
+        if(noteComponents.getEmails().size()==0)
+        {
+            LinearLayout emailContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_email_container);
+            if(emailContainer!=null)
+            {
+                emailContainer.setVisibility(View.GONE);
+            }
+        }
+    }
+
+    public void addEmailToChosenEmailContainer(final Email email)
     {
         LinearLayout emailContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_email_container);
         if(emailContainer==null)
@@ -186,18 +203,35 @@ public class NoteFieldScreenManipulationTasks {
             emailContainer.setLayoutParams(params);
             noteFieldScreenView.getUiComponentContainer().addView(emailContainer);
         }
+        if(emailContainer.getVisibility()==View.GONE)
+            emailContainer.setVisibility(View.VISIBLE);
         final View emailHolder = activity.getLayoutInflater().inflate(R.layout.email_holder,null,false);
         TextView sendButton = emailHolder.findViewById(R.id.email_send_btn);
         TextView copyButton = emailHolder.findViewById(R.id.email_copy_btn);
+        TextView removeButton = emailHolder.findViewById(R.id.email_remove_btn);
         TextView emailId = emailHolder.findViewById(R.id.email_id);
         TextView emailName = emailHolder.findViewById(R.id.email_name);
         emailId.setText(email.getEmailID());
         emailName.setText(email.getEmailName());
         emailContainer.addView(emailHolder);
 
-        EmailListener emailListener = listeningTasks.getEmailListener(email);
+        EmailListener emailListener = listeningTasks.getEmailListener(email,emailHolder);
         sendButton.setOnClickListener(emailListener);
         copyButton.setOnClickListener(emailListener);
+        if(email.getNoteId()!=Constants.ZERO)
+        {
+            removeButton.setOnClickListener(emailListener);
+        }
+        else
+        {
+            removeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    removeEmailComponent(emailHolder,email);
+
+                }
+            });
+        }
     }
 
     public void addAudioToChosenContactContainer(Audio audio,Uri audioUri, FileIOTasks fileIOTasks)
