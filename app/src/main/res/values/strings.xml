@@ -71,4 +71,8 @@
     <string name="copy">Copy</string>
     <string name="remove">Remove</string>
     <string name="note_component_deleted">Note Component Removed!!</string>
+    <string name="email_inserted">Email Added!</string>
+    <string name="contact_inserted">Contact Added!</string>
+    <string name="audio_inserted">Audio Added!</string>
+    <string name="image_inserted">Image Added!</string>
 </resources>

@@ -14,11 +14,13 @@ public class ContactListener implements View.OnClickListener {
     private Contact contact;
     private Activity activity;
     private DatabaseTasks databaseTasks;
+    private View contactHolder;
 
-    public ContactListener(Contact contact, Activity activity, DatabaseTasks databaseTasks) {
+    public ContactListener(Contact contact, Activity activity, DatabaseTasks databaseTasks, View contactHolder) {
         this.contact = contact;
         this.activity = activity;
         this.databaseTasks = databaseTasks;
+        this.contactHolder = contactHolder;
     }
 
     @Override
@@ -48,6 +50,7 @@ public class ContactListener implements View.OnClickListener {
 
     private void removeContact()
     {
+        contactHolder.setVisibility(View.GONE);
         databaseTasks.getContactDeleteTask(((NoteFieldActivity)activity).getNoteFieldController()).execute(contact);
 
 

@@ -112,7 +112,7 @@ public class NoteFieldScreenManipulationTasks {
         removeIcon.setOnClickListener(removeImageListener);
     }
 
-    public void addContactToChosenContactContainer(Contact contact)
+    public void addContactToChosenContactContainer(final Contact contact)
     {
         LinearLayout contactContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_contact_container);
         if(contactContainer==null)
@@ -123,6 +123,8 @@ public class NoteFieldScreenManipulationTasks {
             contactContainer.setLayoutParams(params);
             noteFieldScreenView.getUiComponentContainer().addView(contactContainer);
         }
+        if(contactContainer.getVisibility()==View.GONE)
+            contactContainer.setVisibility(View.VISIBLE);
         final View contactHolder = activity.getLayoutInflater().inflate(R.layout.contact_holder,null,false);
         TextView callButton = contactHolder.findViewById(R.id.contact_call_btn);
         TextView copyButton = contactHolder.findViewById(R.id.contact_copy_btn);
@@ -132,10 +134,45 @@ public class NoteFieldScreenManipulationTasks {
         contactNo.setText(contact.getPhoneNumber());
         displayName.setText(contact.getDisplayName());
         contactContainer.addView(contactHolder);
-        ContactListener contactListener= listeningTasks.getContactListener(contact);
+        ContactListener contactListener= listeningTasks.getContactListener(contact,contactHolder);
         callButton.setOnClickListener(contactListener);
         copyButton.setOnClickListener(contactListener);
-        removeButton.setOnClickListener(contactListener);
+        if(contact.getNoteId()!=Constants.ZERO)
+        {
+            removeButton.setOnClickListener(contactListener);
+        }
+        else
+        {
+            removeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    removeContactComponent(contactHolder,contact);
+
+                }
+            });
+
+        }
+    }
+
+
+    private void removeContactComponent(View view,Contact contact)
+    {
+        noteComponents.getChosenContacts().remove(contact);
+        view.setVisibility(View.GONE);
+        removeContactContainer();
+
+    }
+
+    public void removeContactContainer()
+    {
+        if(noteComponents.getChosenContacts().size()==0)
+        {
+            LinearLayout contactContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_contact_container);
+            if(contactContainer!=null)
+            {
+                contactContainer.setVisibility(View.GONE);
+            }
+        }
     }
 
     public void addEmailToChosenEmailContainer(Email email)
@@ -178,7 +215,11 @@ public class NoteFieldScreenManipulationTasks {
         TextView audioTitle = audioHolder.findViewById(R.id.audio_title);
         TextView audioSize = audioHolder.findViewById(R.id.audio_size);
         if(audio==null)
+        {
             audio = fileIOTasks.getAudioFileFromURI(audioUri);
+            if(audio==null)
+                return;
+        }
 
         audioTitle.setText(UtilityTasks.truncateText(audio.getAudioTitle(),Constants.MAX_AUDIO_FILE_NAME_LENGTH,Constants.MP3_FILE_EXT));
         audioSize.setText(UtilityTasks.getFileSizeString(Double.parseDouble(audio.getAudioSize())));
@@ -257,14 +298,6 @@ public class NoteFieldScreenManipulationTasks {
 
     public void addContactsToField()
     {
-        if(noteComponents.getChosenContacts().size()==Constants.ZERO)
-        {
-            removeContactContainer();
-            return;
-        }
-        LinearLayout contactContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_contact_container);
-        if(contactContainer!=null)
-            contactContainer.removeAllViews();
         for(Contact contact:noteComponents.getChosenContacts())
             addContactToChosenContactContainer(contact);
     }
@@ -274,15 +307,6 @@ public class NoteFieldScreenManipulationTasks {
         noteFieldScreenView.getNoteTitleField().setText(noteComponents.getNote().getNoteTitle());
         noteFieldScreenView.getNoteTextField().setText(noteComponents.getNote().getNoteText());
         applyBackgroundColor(noteComponents.getNote().getBackgroundColor());
-    }
-
-    private void removeContactContainer()
-    {
-        LinearLayout contactContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_contact_container);
-        if(contactContainer!=null)
-        {
-            contactContainer.setVisibility(View.GONE);
-        }
     }
 
 

@@ -1,5 +1,9 @@
 package com.stcodesapp.noteit.listeners;
 
+import android.app.Activity;
+import android.widget.Toast;
+
+import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
@@ -19,37 +23,50 @@ public class DatabaseInsertTasksListener implements EmailInsertTask.Listener, No
     private DatabaseTasks databaseTasks;
     private NoteComponents noteComponents;
     private long insertedNoteId;
+    private boolean isUpdating;
+    private Activity activity;
 
-    public DatabaseInsertTasksListener(DatabaseTasks databaseTasks, NoteComponents noteComponents) {
+    public DatabaseInsertTasksListener(Activity activity, NoteComponents noteComponents, boolean isUpdating, DatabaseTasks databaseTasks) {
+        this.activity = activity;
         this.databaseTasks = databaseTasks;
         this.noteComponents = noteComponents;
+        this.isUpdating = isUpdating;
     }
 
     @Override
     public void onNoteInserted(long insertedId) {
         setInsertedNoteId(insertedId);
         noteComponents.setNoteIdToNoteComponents(insertedId);
-        insertEmail();
+        if(!isUpdating)
+            insertEmail();
 
     }
 
     @Override
     public void onEmailInserted(int numberOfEmail) {
-        insertContact();
+        if(!isUpdating)
+            insertContact();
+        else Toast.makeText(activity,activity.getResources().getString(R.string.email_inserted),Toast.LENGTH_SHORT).show();
     }
 
 
     @Override
     public void onContactInserted(int numberOfContact) {
-        insertAudio();
+        if(!isUpdating)
+            insertAudio();
+        else Toast.makeText(activity,activity.getResources().getString(R.string.contact_inserted),Toast.LENGTH_SHORT).show();
     }
     @Override
     public void onAudioInserted(int numberOfEmail) {
-        insertImage();
+        if(!isUpdating)
+            insertImage();
+        else Toast.makeText(activity,activity.getResources().getString(R.string.audio_inserted),Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onImageInserted(int numberOfImages) {
+        if(isUpdating)
+            Toast.makeText(activity,activity.getResources().getString(R.string.image_inserted),Toast.LENGTH_SHORT).show();
 
     }
 

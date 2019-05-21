@@ -33,9 +33,9 @@ public class ListeningTasks {
         return new RemoveImageListener(container,image);
     }
 
-    public ContactListener getContactListener(Contact contact)
+    public ContactListener getContactListener(Contact contact,View contactHolder)
     {
-        return new ContactListener(contact, activity,databaseTasks);
+        return new ContactListener(contact, activity,databaseTasks, contactHolder);
     }
 
     public EmailListener getEmailListener(Email email)
@@ -48,8 +48,8 @@ public class ListeningTasks {
         return new AudioListener(audio, fileIOTasks, audioUri);
     }
 
-    public DatabaseInsertTasksListener getDBInsertTasksListener(DatabaseTasks databaseTasks, NoteComponents noteComponents){
-        return new DatabaseInsertTasksListener(databaseTasks, noteComponents);
+    public DatabaseInsertTasksListener getDBInsertTasksListener(DatabaseTasks databaseTasks, NoteComponents noteComponents, boolean isUpdating){
+        return new DatabaseInsertTasksListener(activity, noteComponents, isUpdating, databaseTasks);
     }
 
     public DatabaseSelectionTasksListener getDBSelectTasksListener(DatabaseTasks databaseTasks,NoteComponents noteComponents){

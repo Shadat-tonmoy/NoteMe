@@ -595,6 +595,7 @@
     <string name="app_name">NoteIt</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="audio">Audio</string>
+    <string name="audio_inserted">Audio Added!</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="call">Call</string>
     <string name="character_counter_content_description">Character limit exceeded %1$d of %2$d</string>
@@ -603,6 +604,7 @@
     <string name="choose_background_color">Choose Background Color</string>
     <string name="choose_color">Choose Color</string>
     <string name="clear">Clear</string>
+    <string name="contact_inserted">Contact Added!</string>
     <string name="contact_permission_is_required">Permission is required to read contact. Please allow permission and try again</string>
     <string name="contacts">Contacts</string>
     <string name="copy">Copy</string>
@@ -620,12 +622,14 @@
     <string name="edit_note">Edit</string>
     <string name="email">Email</string>
     <string name="email_address">Email Address</string>
+    <string name="email_inserted">Email Added!</string>
     <string name="empty_string">""</string>
     <string name="export_as">Export As...</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">android.support.design.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">android.support.design.transformation.FabTransformationSheetBehavior</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">android.support.design.behavior.HideBottomViewOnScrollBehavior</string>
     <string name="home_screen">Home Screen</string>
+    <string name="image_inserted">Image Added!</string>
     <string name="last_modified">Last Modified</string>
     <string name="menu_1">Menu 1</string>
     <string name="menu_2">Menu 2</string>
