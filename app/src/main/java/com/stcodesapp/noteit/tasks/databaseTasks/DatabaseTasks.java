@@ -5,8 +5,10 @@ import android.content.Context;
 import com.stcodesapp.noteit.constants.ComponentType;
 import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.NoteComponents;
+import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.AudioDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.ContactDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.EmailDeleteTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.ImageDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.AudioInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ContactInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.EmailInsertTask;
@@ -26,6 +28,10 @@ public class DatabaseTasks {
     public DatabaseTasks(Context context) {
         this.context = context;
     }
+
+    /*
+    * List of insertion tasks
+    * */
 
     public NoteInsertTask getNoteInsertTask(NoteInsertTask.Listener listener)
     {
@@ -62,6 +68,10 @@ public class DatabaseTasks {
         return imageInsertTask;
     }
 
+
+    /*
+     * List of selection tasks
+     * */
     public NoteSelectTask getNoteSelectTask(NoteSelectTask.Listener listener)
     {
         NoteSelectTask noteSelectTask = new NoteSelectTask(context);
@@ -76,11 +86,11 @@ public class DatabaseTasks {
         return emailSelectTask;
     }
 
-    public EmailDeleteTask getEmailDeleteTask(EmailDeleteTask.Listener listener)
+    public ContactSelectTask getContactSelectTask(ContactSelectTask.Listener listener)
     {
-        EmailDeleteTask emailDeleteTask = new EmailDeleteTask(context, ComponentType.EMAIL);
-        emailDeleteTask.setListener(listener);
-        return emailDeleteTask;
+        ContactSelectTask ContactSelectTask = new ContactSelectTask(context, ComponentType.CONTACT);
+        ContactSelectTask.setListener(listener);
+        return ContactSelectTask;
     }
 
     public AudioSelectTask getAudioSelectTask(AudioSelectTask.Listener listener)
@@ -98,11 +108,15 @@ public class DatabaseTasks {
     }
 
 
-    public ContactSelectTask getContactSelectTask(ContactSelectTask.Listener listener)
+
+    /*
+     * List of deletion tasks
+     * */
+    public EmailDeleteTask getEmailDeleteTask(EmailDeleteTask.Listener listener)
     {
-        ContactSelectTask ContactSelectTask = new ContactSelectTask(context, ComponentType.CONTACT);
-        ContactSelectTask.setListener(listener);
-        return ContactSelectTask;
+        EmailDeleteTask emailDeleteTask = new EmailDeleteTask(context, ComponentType.EMAIL);
+        emailDeleteTask.setListener(listener);
+        return emailDeleteTask;
     }
 
 
@@ -111,6 +125,20 @@ public class DatabaseTasks {
         ContactDeleteTask contactDeleteTask = new ContactDeleteTask(context, ComponentType.CONTACT);
         contactDeleteTask.setListener(listener);
         return contactDeleteTask;
+    }
+
+    public AudioDeleteTask getAudioDeleteTask(AudioDeleteTask.Listener listener)
+    {
+        AudioDeleteTask audioDeleteTask = new AudioDeleteTask(context, ComponentType.AUDIO);
+        audioDeleteTask.setListener(listener);
+        return audioDeleteTask;
+    }
+
+    public ImageDeleteTask getImageDeleteTask(ImageDeleteTask.Listener listener)
+    {
+        ImageDeleteTask imageDeleteTask = new ImageDeleteTask(context, ComponentType.IMAGE);
+        imageDeleteTask.setListener(listener);
+        return imageDeleteTask;
     }
 
     public NoteComponentSelectionTask getNoteComponentSelectionTask(NoteComponentSelectionTask.Listener listener,NoteComponents noteComponents)

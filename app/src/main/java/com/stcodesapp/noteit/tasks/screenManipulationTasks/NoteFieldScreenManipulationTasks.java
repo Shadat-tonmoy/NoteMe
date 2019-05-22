@@ -25,6 +25,7 @@ import com.stcodesapp.noteit.factory.UIComponentFatory;
 import com.stcodesapp.noteit.listeners.AudioListener;
 import com.stcodesapp.noteit.listeners.ContactListener;
 import com.stcodesapp.noteit.listeners.EmailListener;
+import com.stcodesapp.noteit.listeners.ImageListener;
 import com.stcodesapp.noteit.listeners.RemoveImageListener;
 import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.Contact;
@@ -91,7 +92,7 @@ public class NoteFieldScreenManipulationTasks {
         }
     }
 
-    public void addImageToChosenImageContainer(Image image)
+    public void addImageToChosenImageContainer(final Image image)
     {
         Log.e("TryingToAdd","Image"+image.toString());
         FlexboxLayout imageContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_image_container);
@@ -112,8 +113,21 @@ public class NoteFieldScreenManipulationTasks {
             e.printStackTrace();
         }
         imageContainer.addView(imageHolder);
-        RemoveImageListener removeImageListener = listeningTasks.getRemoveImageListener(imageContainer,imageHolder);
-        removeIcon.setOnClickListener(removeImageListener);
+        ImageListener imageListener = listeningTasks.getImageListener(image,imageHolder);
+        if(image.getNoteId()!=Constants.ZERO)
+        {
+            removeIcon.setOnClickListener(imageListener);
+        }
+        else
+        {
+            removeIcon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    removeImageComponent(imageHolder,image);
+
+                }
+            });
+        }
     }
 
     public void addContactToChosenContactContainer(final Contact contact)
@@ -172,17 +186,20 @@ public class NoteFieldScreenManipulationTasks {
         removeEmailContainer();
     }
 
-    public void removeContactContainer()
+    private void removeImageComponent(View view,Image image)
     {
-        if(noteComponents.getChosenContacts().size()==0)
-        {
-            LinearLayout contactContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_contact_container);
-            if(contactContainer!=null)
-            {
-                contactContainer.setVisibility(View.GONE);
-            }
-        }
+        noteComponents.getChosenImages().remove(image);
+        view.setVisibility(View.GONE);
+        removeImageContainer();
     }
+
+    private void removeAudioComponent(View view,Audio audio)
+    {
+        noteComponents.getChosenAudios().remove(audio);
+        view.setVisibility(View.GONE);
+        removeAudioContainer();
+    }
+
 
     public void removeEmailContainer()
     {
@@ -195,6 +212,44 @@ public class NoteFieldScreenManipulationTasks {
             }
         }
     }
+
+    public void removeContactContainer()
+    {
+        if(noteComponents.getChosenContacts().size()==0)
+        {
+            LinearLayout contactContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_contact_container);
+            if(contactContainer!=null)
+            {
+                contactContainer.setVisibility(View.GONE);
+            }
+        }
+    }
+
+
+    public void removeAudioContainer()
+    {
+        if(noteComponents.getChosenAudios().size()==0)
+        {
+            LinearLayout audioContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_audio_container);
+            if(audioContainer!=null)
+            {
+                audioContainer.setVisibility(View.GONE);
+            }
+        }
+    }
+
+    public void removeImageContainer()
+    {
+        if(noteComponents.getChosenImages().size()==0)
+        {
+            LinearLayout imageContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_image_container);
+            if(imageContainer!=null)
+            {
+                imageContainer.setVisibility(View.GONE);
+            }
+        }
+    }
+
 
     public void addEmailToChosenEmailContainer(final Email email)
     {

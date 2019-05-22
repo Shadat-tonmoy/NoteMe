@@ -28,8 +28,10 @@ import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.NoteDeleteTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.AudioDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.ContactDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.EmailDeleteTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.ImageDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.AudioInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ContactInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.EmailInsertTask;
@@ -47,7 +49,7 @@ import com.stcodesapp.noteit.ui.views.screens.activityScreen.NoteFieldScreen;
 
 import static android.app.Activity.RESULT_OK;
 
-public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener,NoteComponentSelectionTask.Listener, ContactDeleteTask.Listener, EmailDeleteTask.Listener
+public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener,NoteComponentSelectionTask.Listener, ContactDeleteTask.Listener, EmailDeleteTask.Listener, ImageDeleteTask.Listener, AudioDeleteTask.Listener
 {
 
     private TasksFactory tasksFactory;
@@ -389,5 +391,17 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         noteComponents.getEmails().remove(email);
         noteFieldScreenManipulationTasks.removeEmailContainer();
 
+    }
+
+    @Override
+    public void onImageDeleted(Image image) {
+        noteComponents.getChosenImages().remove(image);
+        noteFieldScreenManipulationTasks.removeImageContainer();
+    }
+
+    @Override
+    public void onAudioDeleted(Audio audio) {
+        noteComponents.getChosenAudios().remove(audio);
+        noteFieldScreenManipulationTasks.removeAudioContainer();
     }
 }

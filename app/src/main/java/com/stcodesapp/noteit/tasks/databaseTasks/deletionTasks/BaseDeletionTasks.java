@@ -7,8 +7,10 @@ import android.widget.Toast;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.ComponentType;
 import com.stcodesapp.noteit.database.NoteDatabase;
+import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
+import com.stcodesapp.noteit.models.Image;
 
 import java.util.List;
 
@@ -49,10 +51,12 @@ public class BaseDeletionTasks<Component> extends AsyncTask<Component, Void, Com
     {
         switch (componentType)
         {
-            /*case AUDIO:
-                return noteDatabase.audioDao().getAllAudioForNote(noteId);
+            case AUDIO:
+                noteDatabase.audioDao().deleteAudio((Audio)component);
+                break;
             case IMAGE:
-                return noteDatabase.imageDao().getAllImageForNote(noteId);*/
+                noteDatabase.imageDao().deleteImage((Image)component);
+                break;
             case EMAIL:
                 noteDatabase.emailDao().deleteEmail((Email) component);
                 break;
