@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.flexbox.FlexboxLayout;
+import com.ravikoradiya.zoomableimageview.ZoomableImageView;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.BackgroundColors;
 import com.stcodesapp.noteit.constants.Constants;
@@ -38,6 +39,9 @@ import com.stcodesapp.noteit.ui.fragments.PhoneNoOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class NoteFieldScreenManipulationTasks {
 
@@ -97,7 +101,7 @@ public class NoteFieldScreenManipulationTasks {
             noteFieldScreenView.getUiComponentContainer().addView(imageContainer);
         }
         final View imageHolder = activity.getLayoutInflater().inflate(R.layout.image_holder,null,false);
-        ImageView imageView = imageHolder.findViewById(R.id.image);
+        ZoomableImageView imageView = imageHolder.findViewById(R.id.image);
         ImageView removeIcon = imageHolder.findViewById(R.id.remove_image);
         imageView.invalidate();
         Bitmap bitmap = null;

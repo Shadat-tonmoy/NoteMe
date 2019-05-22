@@ -22,6 +22,7 @@ import com.stcodesapp.noteit.ui.views.screens.activityScreen.NoteFieldScreen;
 import java.util.List;
 
 
+
 public class NoteFieldScreenView extends BaseObservableScreenView<NoteFieldScreen.Listener> implements NoteFieldScreen {
 
 
@@ -148,4 +149,5 @@ public class NoteFieldScreenView extends BaseObservableScreenView<NoteFieldScree
     public ScrollView getUiComponentRoot() {
         return uiComponentRoot;
     }
+
 }

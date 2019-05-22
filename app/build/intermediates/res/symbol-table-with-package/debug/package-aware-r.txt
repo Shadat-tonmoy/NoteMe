@@ -68,6 +68,7 @@ attr alignItems
 attr allowStacking
 attr alpha
 attr alphabeticModifiers
+attr animation_speed
 attr arrowHeadLength
 attr arrowShaftLength
 attr autoCompleteTextViewStyle
@@ -81,6 +82,7 @@ attr backgroundSplit
 attr backgroundStacked
 attr backgroundTint
 attr backgroundTintMode
+attr background_color
 attr barLength
 attr barrierAllowsGoneWidgets
 attr barrierDirection
@@ -287,6 +289,7 @@ attr iconTint
 attr iconTintMode
 attr iconifiedByDefault
 attr imageButtonStyle
+attr image_url
 attr indeterminateProgressStyle
 attr initialActivityCount
 attr insetForeground
@@ -424,6 +427,7 @@ attr passwordToggleDrawable
 attr passwordToggleEnabled
 attr passwordToggleTint
 attr passwordToggleTintMode
+attr placeholder_id
 attr popupMenuStyle
 attr popupTheme
 attr popupWindowStyle
@@ -2235,4 +2239,5 @@ styleable Toolbar android_gravity android_minHeight buttonGravity collapseConten
 styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewStubCompat android_id android_layout android_inflatedId
+styleable ZoomableImageView animation_speed background_color image_url placeholder_id
 xml provider_paths
