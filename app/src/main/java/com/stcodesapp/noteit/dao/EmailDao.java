@@ -14,7 +14,7 @@ import java.util.List;
 public interface EmailDao {
 
     @Insert
-    void insertEmail(Email email);
+    long insertSingleEmail(Email email);
 
     @Insert
     void insertEmails(Email... emails);

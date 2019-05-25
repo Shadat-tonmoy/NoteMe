@@ -6,6 +6,7 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
 import com.stcodesapp.noteit.models.Audio;
+import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Image;
 
 import java.util.List;
@@ -15,6 +16,9 @@ public interface ImageDao {
 
     @Insert
     void insertImage(Image... images);
+
+    @Insert
+    long insertSingleImage(Image image);
 
     @Delete
     void deleteImage(Image... images);

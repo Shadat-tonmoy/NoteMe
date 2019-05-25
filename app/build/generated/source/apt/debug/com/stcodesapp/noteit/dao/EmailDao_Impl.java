@@ -59,11 +59,12 @@ public class EmailDao_Impl implements EmailDao {
   }
 
   @Override
-  public void insertEmail(Email email) {
+  public long insertSingleEmail(Email email) {
     __db.beginTransaction();
     try {
-      __insertionAdapterOfEmail.insert(email);
+      long _result = __insertionAdapterOfEmail.insertAndReturnId(email);
       __db.setTransactionSuccessful();
+      return _result;
     } finally {
       __db.endTransaction();
     }

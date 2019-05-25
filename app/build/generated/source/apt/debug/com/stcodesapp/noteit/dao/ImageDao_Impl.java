@@ -1,6 +1,7 @@
 package com.stcodesapp.noteit.dao;
 
 import android.arch.persistence.db.SupportSQLiteStatement;
+import android.arch.persistence.room.EntityDeletionOrUpdateAdapter;
 import android.arch.persistence.room.EntityInsertionAdapter;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.RoomSQLiteQuery;
@@ -17,6 +18,8 @@ public class ImageDao_Impl implements ImageDao {
   private final RoomDatabase __db;
 
   private final EntityInsertionAdapter __insertionAdapterOfImage;
+
+  private final EntityDeletionOrUpdateAdapter __deletionAdapterOfImage;
 
   public ImageDao_Impl(RoomDatabase __db) {
     this.__db = __db;
@@ -37,6 +40,17 @@ public class ImageDao_Impl implements ImageDao {
         }
       }
     };
+    this.__deletionAdapterOfImage = new EntityDeletionOrUpdateAdapter<Image>(__db) {
+      @Override
+      public String createQuery() {
+        return "DELETE FROM `images` WHERE `image_id` = ?";
+      }
+
+      @Override
+      public void bind(SupportSQLiteStatement stmt, Image value) {
+        stmt.bindLong(1, value.getId());
+      }
+    };
   }
 
   @Override
@@ -44,6 +58,29 @@ public class ImageDao_Impl implements ImageDao {
     __db.beginTransaction();
     try {
       __insertionAdapterOfImage.insert(images);
+      __db.setTransactionSuccessful();
+    } finally {
+      __db.endTransaction();
+    }
+  }
+
+  @Override
+  public long insertSingleImage(Image image) {
+    __db.beginTransaction();
+    try {
+      long _result = __insertionAdapterOfImage.insertAndReturnId(image);
+      __db.setTransactionSuccessful();
+      return _result;
+    } finally {
+      __db.endTransaction();
+    }
+  }
+
+  @Override
+  public void deleteImage(Image... images) {
+    __db.beginTransaction();
+    try {
+      __deletionAdapterOfImage.handleMultiple(images);
       __db.setTransactionSuccessful();
     } finally {
       __db.endTransaction();

@@ -70,6 +70,18 @@ public class ContactDao_Impl implements ContactDao {
   }
 
   @Override
+  public long insertSingleContact(Contact contact) {
+    __db.beginTransaction();
+    try {
+      long _result = __insertionAdapterOfContact.insertAndReturnId(contact);
+      __db.setTransactionSuccessful();
+      return _result;
+    } finally {
+      __db.endTransaction();
+    }
+  }
+
+  @Override
   public void deleteContact(Contact... contacts) {
     __db.beginTransaction();
     try {

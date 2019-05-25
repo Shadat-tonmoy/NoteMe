@@ -1153,7 +1153,9 @@ id all
 id always
 id app_toolbar
 id async
+id audio_holder
 id audio_icon
+id audio_remove_btn
 id audio_size
 id audio_title
 id auto
@@ -1471,7 +1473,8 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout audio_container
-layout chosen_audio_single_row
+layout audio_holder
+layout audio_option_layout
 layout color_pallete_layout
 layout contact_container
 layout contact_holder

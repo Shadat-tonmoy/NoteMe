@@ -237,6 +237,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         {
             noteComponents.getChosenImages().add(image);
             noteComponents.getNote().updateImagePriority();
+            image.setNoteId(noteComponents.getNote().getId());
             noteFieldScreenManipulationTasks.addImageToChosenImageContainer(image);
             if(isUpdating)
                 addChosenImageToDB(image);
@@ -260,6 +261,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         {
             noteComponents.getNote().updateContactPriority();
             noteComponents.getChosenContacts().add(contact);
+            contact.setNoteId(noteComponents.getNote().getId());
             noteFieldScreenManipulationTasks.addContactToChosenContactContainer(contact);
             if(isUpdating)
                 addChosenContactToDB(contact);
@@ -274,6 +276,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         {
             noteComponents.getNote().updateContactPriority();
             noteComponents.getChosenContacts().add(contact);
+            contact.setNoteId(noteComponents.getNote().getId());
             noteFieldScreenManipulationTasks.addContactToChosenContactContainer(contact);
             if(isUpdating)
                 addChosenContactToDB(contact);
@@ -293,6 +296,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     {
         Uri selectedAudio = data.getData();
         Audio audio = fileIOTasks.getAudioFileFromURI(selectedAudio);
+        audio.setNoteId(noteComponents.getNote().getId());
         noteFieldScreenManipulationTasks.addAudioToChosenContactContainer(audio,selectedAudio,fileIOTasks);
         if(audio!=null)
         {
@@ -319,6 +323,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         {
             noteComponents.getNote().updateEmailPriority();
             noteComponents.getEmails().add(email);
+            email.setNoteId(noteComponents.getNote().getId());
             noteFieldScreenManipulationTasks.addEmailToChosenEmailContainer(email);
             if(isUpdating)
                 addChosenEmailToDB(email);

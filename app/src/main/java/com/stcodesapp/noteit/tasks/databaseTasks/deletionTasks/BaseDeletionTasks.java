@@ -2,6 +2,7 @@ package com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.stcodesapp.noteit.R;
@@ -52,6 +53,7 @@ public class BaseDeletionTasks<Component> extends AsyncTask<Component, Void, Com
         switch (componentType)
         {
             case AUDIO:
+                Log.e("WillDelete",((Audio)component).toString());
                 noteDatabase.audioDao().deleteAudio((Audio)component);
                 break;
             case IMAGE:

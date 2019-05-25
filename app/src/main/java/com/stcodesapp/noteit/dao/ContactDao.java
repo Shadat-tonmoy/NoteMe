@@ -15,6 +15,9 @@ public interface ContactDao {
     @Insert
     void insertContact(Contact... contact);
 
+    @Insert
+    long insertSingleContact(Contact contact);
+
     @Delete
     void deleteContact(Contact... contacts);
 

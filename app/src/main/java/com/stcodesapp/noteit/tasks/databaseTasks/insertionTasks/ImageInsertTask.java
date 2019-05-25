@@ -31,7 +31,9 @@ public class ImageInsertTask extends AsyncTask<Image, Void, Integer> {
 
     @Override
     protected Integer doInBackground(Image... images) {
-        noteDatabase.imageDao().insertImage(images);
+        if(images.length==1)
+            images[0].setId(noteDatabase.imageDao().insertSingleImage(images[0]));
+        else noteDatabase.imageDao().insertImage(images);
         return images.length;
     }
 

@@ -10,7 +10,7 @@ import com.stcodesapp.noteit.models.Email;
 public class AudioInsertTask extends AsyncTask<Audio, Void, Integer> {
 
     public interface Listener{
-        void onAudioInserted(int numberOfEmail);
+        void onAudioInserted(int numberOfAudio);
     }
 
 
@@ -31,7 +31,9 @@ public class AudioInsertTask extends AsyncTask<Audio, Void, Integer> {
 
     @Override
     protected Integer doInBackground(Audio... audio) {
-        noteDatabase.audioDao().insertAudio(audio);
+        if(audio.length==1)
+            audio[0].setId(noteDatabase.audioDao().insertSingleAudio(audio[0]));
+        else noteDatabase.audioDao().insertAudio(audio);
         return audio.length;
     }
 

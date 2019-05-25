@@ -32,7 +32,9 @@ public class EmailInsertTask extends AsyncTask<Email, Void, Integer> {
 
     @Override
     protected Integer doInBackground(Email... emails) {
-        noteDatabase.emailDao().insertEmails(emails);
+        if(emails.length==1)
+            emails[0].setId(noteDatabase.emailDao().insertSingleEmail(emails[0]));
+        else noteDatabase.emailDao().insertEmails(emails);
         return emails.length;
     }
 

@@ -31,7 +31,9 @@ public class ContactInsertTask extends AsyncTask<Contact, Void, Integer> {
 
     @Override
     protected Integer doInBackground(Contact... contacts) {
-        noteDatabase.contactDao().insertContact(contacts);
+        if(contacts.length==1)
+            contacts[0].setId(noteDatabase.contactDao().insertSingleContact(contacts[0]));
+        else noteDatabase.contactDao().insertContact(contacts);
         return contacts.length;
     }
 

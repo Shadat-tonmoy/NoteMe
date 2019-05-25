@@ -2,8 +2,6 @@ package com.stcodesapp.noteit.tasks.screenManipulationTasks;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -26,7 +24,6 @@ import com.stcodesapp.noteit.listeners.AudioListener;
 import com.stcodesapp.noteit.listeners.ContactListener;
 import com.stcodesapp.noteit.listeners.EmailListener;
 import com.stcodesapp.noteit.listeners.ImageListener;
-import com.stcodesapp.noteit.listeners.RemoveImageListener;
 import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
@@ -40,8 +37,6 @@ import com.stcodesapp.noteit.ui.fragments.PhoneNoOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class NoteFieldScreenManipulationTasks {
@@ -296,6 +291,14 @@ public class NoteFieldScreenManipulationTasks {
     public void addAudioToChosenContactContainer(Audio audio,Uri audioUri, FileIOTasks fileIOTasks)
     {
         LinearLayout audioContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_audio_container);
+        Audio audioFromUri = fileIOTasks.getAudioFileFromURI(audioUri);
+        if(audioFromUri==null)
+        {
+            return;
+        }
+        audioFromUri.setId(audio.getId());
+        audioFromUri.setNoteId(audio.getNoteId());
+        audio = audioFromUri;
         if(audioContainer==null)
         {
             audioContainer = (activity.getLayoutInflater().inflate(R.layout.audio_container,null,false)).findViewById(R.id.chosen_audio_container);
@@ -304,21 +307,33 @@ public class NoteFieldScreenManipulationTasks {
             audioContainer.setLayoutParams(params);
             noteFieldScreenView.getUiComponentContainer().addView(audioContainer);
         }
-        final View audioHolder = activity.getLayoutInflater().inflate(R.layout.chosen_audio_single_row,null,false);
+        final View audioHolder = activity.getLayoutInflater().inflate(R.layout.audio_holder,null,false);
+        View audioHolderRow = audioHolder.findViewById(R.id.audio_holder);
         TextView audioTitle = audioHolder.findViewById(R.id.audio_title);
         TextView audioSize = audioHolder.findViewById(R.id.audio_size);
-        if(audio==null)
-        {
-            audio = fileIOTasks.getAudioFileFromURI(audioUri);
-            if(audio==null)
-                return;
-        }
-
+        TextView removeIcon = audioHolder.findViewById(R.id.audio_remove_btn);
         audioTitle.setText(UtilityTasks.truncateText(audio.getAudioTitle(),Constants.MAX_AUDIO_FILE_NAME_LENGTH,Constants.MP3_FILE_EXT));
         audioSize.setText(UtilityTasks.getFileSizeString(Double.parseDouble(audio.getAudioSize())));
         audioContainer.addView(audioHolder);
-        AudioListener audioListener = listeningTasks.getAudioListener(audio,fileIOTasks,audioUri);
-        audioHolder.setOnClickListener(audioListener);
+        AudioListener audioListener = listeningTasks.getAudioListener(audio,fileIOTasks,audioUri,audioHolder);
+        audioHolderRow.setOnClickListener(audioListener);
+        if(audio.getNoteId()!=Constants.ZERO)
+        {
+            removeIcon.setOnClickListener(audioListener);
+        }
+        else
+        {
+            final Audio finalAudio = audio;
+            removeIcon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    removeAudioComponent(audioHolder, finalAudio);
+
+                }
+            });
+        }
+
+
     }
 
     public void showPhoneNoOptions(PhoneNoOptionsBottomSheets.Listener listener)
@@ -380,7 +395,7 @@ public class NoteFieldScreenManipulationTasks {
 
 
         for(Audio audio:noteComponents.getChosenAudios())
-            addAudioToChosenContactContainer(null,Uri.parse(audio.getAudioUri()),fileIOTasks);
+            addAudioToChosenContactContainer(audio,Uri.parse(audio.getAudioUri()),fileIOTasks);
     }
 
     public void addEmailsToField()

@@ -1952,6 +1952,10 @@
         "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/c549c8990ba4fbd5655852a8d7f455d1/res/layout/abc_list_menu_item_checkbox.xml"
     },
     {
+        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/layout_audio_holder.xml.flat",
+        "source": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/layout/audio_holder.xml"
+    },
+    {
         "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-mdpi_pro_version.png.flat",
         "source": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/drawable-mdpi/pro_version.png"
     },
@@ -2018,10 +2022,6 @@
     {
         "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
         "source": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/mipmap-hdpi/ic_launcher.png"
-    },
-    {
-        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/layout_chosen_audio_single_row.xml.flat",
-        "source": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/layout/chosen_audio_single_row.xml"
     },
     {
         "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
@@ -2338,6 +2338,10 @@
     {
         "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-v21_notification_action_background.xml.flat",
         "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/a000fa13100ae0b91967f4ad090577c1/res/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/layout_audio_option_layout.xml.flat",
+        "source": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/layout/audio_option_layout.xml"
     },
     {
         "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-v21_design_bottom_navigation_item_background.xml.flat",

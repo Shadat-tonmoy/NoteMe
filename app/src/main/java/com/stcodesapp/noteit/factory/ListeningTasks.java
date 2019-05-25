@@ -50,9 +50,9 @@ public class ListeningTasks {
         return new ImageListener(image, activity,databaseTasks,imageHolder);
     }
 
-    public AudioListener getAudioListener(Audio audio, FileIOTasks fileIOTasks, Uri audioUri)
+    public AudioListener getAudioListener(Audio audio, FileIOTasks fileIOTasks, Uri audioUri,View audioHolder)
     {
-        return new AudioListener(audio, fileIOTasks, audioUri);
+        return new AudioListener(audio, fileIOTasks, audioUri, activity, databaseTasks, audioHolder);
     }
 
     public DatabaseInsertTasksListener getDBInsertTasksListener(DatabaseTasks databaseTasks, NoteComponents noteComponents, boolean isUpdating){

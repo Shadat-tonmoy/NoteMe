@@ -16,6 +16,10 @@ public interface AudioDao {
     void insertAudio(Audio... audio);
 
 
+    @Insert
+    long insertSingleAudio(Audio audio);
+
+
     @Delete
     void deleteAudio(Audio... audio);
 

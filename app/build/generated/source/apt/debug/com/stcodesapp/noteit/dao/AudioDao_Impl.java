@@ -1,6 +1,7 @@
 package com.stcodesapp.noteit.dao;
 
 import android.arch.persistence.db.SupportSQLiteStatement;
+import android.arch.persistence.room.EntityDeletionOrUpdateAdapter;
 import android.arch.persistence.room.EntityInsertionAdapter;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.RoomSQLiteQuery;
@@ -17,6 +18,8 @@ public class AudioDao_Impl implements AudioDao {
   private final RoomDatabase __db;
 
   private final EntityInsertionAdapter __insertionAdapterOfAudio;
+
+  private final EntityDeletionOrUpdateAdapter __deletionAdapterOfAudio;
 
   public AudioDao_Impl(RoomDatabase __db) {
     this.__db = __db;
@@ -37,6 +40,17 @@ public class AudioDao_Impl implements AudioDao {
         }
       }
     };
+    this.__deletionAdapterOfAudio = new EntityDeletionOrUpdateAdapter<Audio>(__db) {
+      @Override
+      public String createQuery() {
+        return "DELETE FROM `audio` WHERE `audio_id` = ?";
+      }
+
+      @Override
+      public void bind(SupportSQLiteStatement stmt, Audio value) {
+        stmt.bindLong(1, value.getId());
+      }
+    };
   }
 
   @Override
@@ -44,6 +58,29 @@ public class AudioDao_Impl implements AudioDao {
     __db.beginTransaction();
     try {
       __insertionAdapterOfAudio.insert(audio);
+      __db.setTransactionSuccessful();
+    } finally {
+      __db.endTransaction();
+    }
+  }
+
+  @Override
+  public long insertSingleAudio(Audio audio) {
+    __db.beginTransaction();
+    try {
+      long _result = __insertionAdapterOfAudio.insertAndReturnId(audio);
+      __db.setTransactionSuccessful();
+      return _result;
+    } finally {
+      __db.endTransaction();
+    }
+  }
+
+  @Override
+  public void deleteAudio(Audio... audio) {
+    __db.beginTransaction();
+    try {
+      __deletionAdapterOfAudio.handleMultiple(audio);
       __db.setTransactionSuccessful();
     } finally {
       __db.endTransaction();
