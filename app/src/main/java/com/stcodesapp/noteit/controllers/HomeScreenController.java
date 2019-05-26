@@ -96,6 +96,19 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     }*/
 
     @Override
+    public void onContactBadgeClicked(Note note) {
+        Log.e("WillFindContactFor",note.toString());
+
+
+    }
+
+    @Override
+    public void onEmailBadgeClicked(Note note) {
+        Log.e("WillFindEmailFor",note.toString());
+
+    }
+
+    @Override
     public void onNoteClicked(Note note) {
         Bundle args = new Bundle();
         args.putSerializable(Tags.NOTE,note);

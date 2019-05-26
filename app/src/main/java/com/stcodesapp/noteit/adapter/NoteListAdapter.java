@@ -24,6 +24,8 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         /*void onEditNoteClicked(Note note);
         void onDeleteNoteClicked(Note note);
         void onMoreClicked(Note note);*/
+        void onContactBadgeClicked(Note note);
+        void onEmailBadgeClicked(Note note);
         void onNoteClicked(Note note);
     }
 
@@ -77,7 +79,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
             viewHolder.contactBadge.setVisibility(View.VISIBLE);
         else viewHolder.contactBadge.setVisibility(View.GONE);
         setNoteBackgroundColor(viewHolder.noteRow, note.getBackgroundColor());
-        setClickListener(note,viewHolder.noteRow /*, viewHolder.editNote, viewHolder.deleteNote, viewHolder.moreOption*/);
+        setClickListener(note,viewHolder.noteRow, viewHolder.contactBadge, viewHolder.emailBadge /*, viewHolder.editNote, viewHolder.deleteNote, viewHolder.moreOption*/);
 
     }
 
@@ -112,6 +114,20 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
             @Override
             public void onClick(View v) {
                 listener.onNoteClicked(note);
+            }
+        });
+
+        views[1].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onContactBadgeClicked(note);
+            }
+        });
+
+        views[2].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onEmailBadgeClicked(note);
             }
         });
 
