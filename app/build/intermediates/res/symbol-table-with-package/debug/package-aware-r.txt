@@ -816,6 +816,7 @@ dimen abc_text_size_subhead_material
 dimen abc_text_size_subtitle_material_toolbar
 dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
+dimen badgeRadius
 dimen cardview_compat_inset_shadow
 dimen cardview_default_elevation
 dimen cardview_default_radius
@@ -1051,6 +1052,7 @@ drawable avd_show_password
 drawable back_white
 drawable call_black
 drawable close_black
+drawable contact_badge
 drawable copy_black
 drawable delete_black
 drawable design_bottom_navigation_item_background
@@ -1061,8 +1063,10 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable edit_black
 drawable edit_text_bg
+drawable email_badge
 drawable email_black
 drawable email_white
+drawable email_white_xs
 drawable folder_image
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -1096,6 +1100,7 @@ drawable palette
 drawable person_add_black
 drawable person_black
 drawable phone
+drawable phone_ring_white_xs
 drawable plus
 drawable privacy_policy
 drawable pro_version
@@ -1166,7 +1171,6 @@ id beginning
 id blocking
 id bottom
 id buttonPanel
-id button_container
 id center
 id center_horizontal
 id center_vertical
@@ -1184,6 +1188,7 @@ id collapseActionView
 id color_grid
 id column
 id column_reverse
+id contact_badge
 id contact_call_btn
 id contact_copy_btn
 id contact_divider
@@ -1206,7 +1211,6 @@ id custom
 id customPanel
 id decor_content_parent
 id default_activity_button
-id delete_button
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -1217,8 +1221,8 @@ id direct
 id disableHome
 id divider
 id drawer_layout
-id edit_button
 id edit_query
+id email_badge
 id email_copy_btn
 id email_divider
 id email_field
@@ -1254,7 +1258,6 @@ id gone
 id group_divider
 id groups
 id hamburger_button
-id header_container
 id home
 id homeAsUp
 id home_screen
@@ -1280,7 +1283,6 @@ id masked
 id message
 id middle
 id mini
-id more_button
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
@@ -1594,6 +1596,7 @@ string contact_permission_is_required
 string contacts
 string copy
 string copy_note
+string created
 string delete_note
 string delete_note_cancel
 string delete_note_ok
@@ -1608,6 +1611,7 @@ string edit_note
 string email
 string email_address
 string email_inserted
+string emails
 string empty_string
 string export_as
 string fab_transformation_scrim_behavior

@@ -38,6 +38,6 @@ public class NoteUpdateTask extends AsyncTask<Note,Void, Note> {
     @Override
     protected void onPostExecute(Note note) {
         super.onPostExecute(note);
-        Toast.makeText(context, R.string.note_updated, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(context, R.string.note_updated, Toast.LENGTH_SHORT).show();
     }
 }

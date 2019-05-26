@@ -80,7 +80,7 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
        homeScreenManipulationTasks.bindNotes(fetchedNotes);
     }
 
-    @Override
+    /*@Override
     public void onEditNoteClicked(Note note) {
 
     }
@@ -93,7 +93,7 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     @Override
     public void onMoreClicked(Note note) {
 
-    }
+    }*/
 
     @Override
     public void onNoteClicked(Note note) {

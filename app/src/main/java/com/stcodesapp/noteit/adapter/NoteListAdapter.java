@@ -21,9 +21,9 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
 
 
     public interface Listener {
-        void onEditNoteClicked(Note note);
+        /*void onEditNoteClicked(Note note);
         void onDeleteNoteClicked(Note note);
-        void onMoreClicked(Note note);
+        void onMoreClicked(Note note);*/
         void onNoteClicked(Note note);
     }
 
@@ -33,7 +33,8 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
     private Listener listener;
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView noteHeader,noteText,noteTime,editNote,deleteNote,moreOption;
+        TextView noteHeader,noteText,noteTime,contactBadge,emailBadge;
+        /*TextView editNote,deleteNote,moreOption;*/
         ConstraintLayout noteRow;
 
         public ViewHolder(@NonNull View itemView) {
@@ -41,9 +42,11 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
             noteHeader = itemView.findViewById(R.id.note_header);
             noteText = itemView.findViewById(R.id.note_text);
             noteTime = itemView.findViewById(R.id.note_time);
-            editNote = itemView.findViewById(R.id.edit_button);
+            contactBadge = itemView.findViewById(R.id.contact_badge);
+            emailBadge = itemView.findViewById(R.id.email_badge);
+            /*editNote = itemView.findViewById(R.id.edit_button);
             deleteNote = itemView.findViewById(R.id.delete_button);
-            moreOption = itemView.findViewById(R.id.more_button);
+            moreOption = itemView.findViewById(R.id.more_button);*/
             noteRow = itemView.findViewById(R.id.note_row);
         }
     }
@@ -67,8 +70,14 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         viewHolder.noteHeader.setText(note.getNoteTitle());
         viewHolder.noteText.setText(note.getNoteText());
         viewHolder.noteTime.setText(UtilityTasks.getHumanReadableTime(note.getCreationTime()));
+        if(note.getEmailPriority()!=Constants.ZERO)
+            viewHolder.emailBadge.setVisibility(View.VISIBLE);
+        else viewHolder.emailBadge.setVisibility(View.GONE);
+        if(note.getContactPriority()!=Constants.ZERO)
+            viewHolder.contactBadge.setVisibility(View.VISIBLE);
+        else viewHolder.contactBadge.setVisibility(View.GONE);
         setNoteBackgroundColor(viewHolder.noteRow, note.getBackgroundColor());
-        setClickListener(note,viewHolder.noteRow, viewHolder.editNote, viewHolder.deleteNote, viewHolder.moreOption);
+        setClickListener(note,viewHolder.noteRow /*, viewHolder.editNote, viewHolder.deleteNote, viewHolder.moreOption*/);
 
     }
 
@@ -106,7 +115,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
             }
         });
 
-        views[1].setOnClickListener(new View.OnClickListener() {
+        /*views[1].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 listener.onEditNoteClicked(note);
@@ -125,7 +134,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
             public void onClick(View v) {
                 listener.onMoreClicked(note);
             }
-        });
+        });*/
 
 
     }
