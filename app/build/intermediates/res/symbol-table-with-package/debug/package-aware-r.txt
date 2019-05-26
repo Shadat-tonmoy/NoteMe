@@ -1627,6 +1627,7 @@ string no_phone_number
 string note
 string note_added
 string note_component_deleted
+string note_component_updated
 string note_deleted
 string note_text
 string note_time

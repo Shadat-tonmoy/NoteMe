@@ -75,4 +75,5 @@
     <string name="contact_inserted">Contact Added!</string>
     <string name="audio_inserted">Audio Added!</string>
     <string name="image_inserted">Image Added!</string>
+    <string name="note_component_updated">Note Component Updated</string>
 </resources>

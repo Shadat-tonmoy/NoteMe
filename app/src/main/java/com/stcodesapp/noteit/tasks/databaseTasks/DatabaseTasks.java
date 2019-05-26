@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.stcodesapp.noteit.constants.ComponentType;
 import com.stcodesapp.noteit.models.Email;
+import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.AudioDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.ContactDeleteTask;
@@ -147,6 +148,17 @@ public class DatabaseTasks {
         noteComponentSelectionTask.setListener(listener);
         return noteComponentSelectionTask;
 
+    }
+
+
+    /**
+     * list of update tasks
+     */
+
+    public NoteUpdateTask getNoteUpdateTask()
+    {
+        NoteUpdateTask noteUpdateTask = new NoteUpdateTask(context);
+        return noteUpdateTask;
     }
 
 

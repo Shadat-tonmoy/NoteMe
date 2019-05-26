@@ -95,6 +95,13 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         noteFieldScreenView.unregisterListener(this);
     }
 
+    public void onBackPressed()
+    {
+        if(isUpdating)
+            updateNote(noteComponents.getNote());
+    }
+
+
     public void checkBundleForNote(Bundle args)
     {
         Note note = (Note) args.getSerializable(Tags.NOTE);
@@ -213,8 +220,6 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         DatabaseTasks databaseTasks = tasksFactory.getDatabaseTasks();
         DatabaseInsertTasksListener databaseInsertTasksListener = listeningTasks.getDBInsertTasksListener(databaseTasks, noteComponents,false);
         databaseTasks.getNoteInsertTask(databaseInsertTasksListener).execute(noteComponents.getNote());
-
-
     }
 
     @Override
@@ -227,6 +232,11 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         noteFieldScreenManipulationTasks.dismissColorPalate();
         noteFieldScreenManipulationTasks.applyBackgroundColor(colorName);
         noteComponents.getNote().setBackgroundColor(colorName);
+    }
+
+    private void updateNote(Note note)
+    {
+        tasksFactory.getDatabaseTasks().getNoteUpdateTask().execute(note);
     }
 
     private void handleChosenImage(Intent intent)
