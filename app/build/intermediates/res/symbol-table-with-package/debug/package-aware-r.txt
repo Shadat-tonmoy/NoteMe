@@ -1165,6 +1165,7 @@ id audio_size
 id audio_title
 id auto
 id back_button
+id badge_holder
 id barrier
 id baseline
 id beginning
@@ -1478,6 +1479,7 @@ layout audio_container
 layout audio_holder
 layout audio_option_layout
 layout color_pallete_layout
+layout contact_badge
 layout contact_container
 layout contact_holder
 layout contact_option_layout
@@ -1495,6 +1497,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout email_badge
 layout email_container
 layout email_holder
 layout email_option_layout

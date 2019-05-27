@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.stcodesapp.noteit.R;
@@ -35,7 +36,8 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
     private Listener listener;
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView noteHeader,noteText,noteTime,contactBadge,emailBadge;
+        TextView noteHeader,noteText,noteTime;
+        LinearLayout badgeHolder,emailBadge,contactBadge;
         /*TextView editNote,deleteNote,moreOption;*/
         ConstraintLayout noteRow;
 
@@ -44,8 +46,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
             noteHeader = itemView.findViewById(R.id.note_header);
             noteText = itemView.findViewById(R.id.note_text);
             noteTime = itemView.findViewById(R.id.note_time);
-            contactBadge = itemView.findViewById(R.id.contact_badge);
-            emailBadge = itemView.findViewById(R.id.email_badge);
+            badgeHolder = itemView.findViewById(R.id.badge_holder);
             /*editNote = itemView.findViewById(R.id.edit_button);
             deleteNote = itemView.findViewById(R.id.delete_button);
             moreOption = itemView.findViewById(R.id.more_button);*/
@@ -73,10 +74,17 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         viewHolder.noteText.setText(note.getNoteText());
         viewHolder.noteTime.setText(UtilityTasks.getHumanReadableTime(note.getCreationTime()));
         if(note.getEmailPriority()!=Constants.ZERO)
-            viewHolder.emailBadge.setVisibility(View.VISIBLE);
-        else viewHolder.emailBadge.setVisibility(View.GONE);
+        {
+            viewHolder.badgeHolder.setVisibility(View.VISIBLE);
+            viewHolder.emailBadge = getEmailBadge(viewHolder.badgeHolder);
+            viewHolder.badgeHolder.addView(viewHolder.emailBadge);
+        }
         if(note.getContactPriority()!=Constants.ZERO)
-            viewHolder.contactBadge.setVisibility(View.VISIBLE);
+        {
+            viewHolder.badgeHolder.setVisibility(View.VISIBLE);
+            viewHolder.contactBadge = getContactBadge(viewHolder.badgeHolder);
+            viewHolder.badgeHolder.addView(viewHolder.contactBadge);
+        }
         else viewHolder.contactBadge.setVisibility(View.GONE);
         setNoteBackgroundColor(viewHolder.noteRow, note.getBackgroundColor());
         setClickListener(note,viewHolder.noteRow, viewHolder.contactBadge, viewHolder.emailBadge /*, viewHolder.editNote, viewHolder.deleteNote, viewHolder.moreOption*/);
@@ -106,6 +114,21 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         notifyDataSetChanged();
     }
 
+    private LinearLayout getEmailBadge(ViewGroup parent)
+    {
+        return (LinearLayout) ((LayoutInflater)context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE))
+                .inflate(R.layout.email_badge,null);
+    }
+
+    private LinearLayout getContactBadge(ViewGroup parent)
+    {
+        return (LinearLayout) ((LayoutInflater)context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE))
+                .inflate(R.layout.contact_badge,null);
+//                .findViewById(R.id.contact_badge);
+    }
+
 
     private void setClickListener(final Note note, View... views)
     {
@@ -117,40 +140,26 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
             }
         });
 
-        views[1].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onContactBadgeClicked(note);
-            }
-        });
+        if(views[1]!=null)
+        {
+            views[1].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onContactBadgeClicked(note);
+                }
+            });
+        }
 
-        views[2].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onEmailBadgeClicked(note);
-            }
-        });
+        if(views[2]!=null)
+        {
+            views[2].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onEmailBadgeClicked(note);
+                }
+            });
+        }
 
-        /*views[1].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onEditNoteClicked(note);
-            }
-        });
-
-        views[2].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onDeleteNoteClicked(note);
-            }
-        });
-
-        views[3].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onMoreClicked(note);
-            }
-        });*/
 
 
     }
