@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.adapter.NoteListAdapter;
+import com.stcodesapp.noteit.constants.FragmentTags;
 import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.models.Note;
@@ -12,6 +13,7 @@ import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteSelectTask;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.HomeScreenManipulationTasks;
+import com.stcodesapp.noteit.ui.fragments.PhoneNoListBottomSheets;
 import com.stcodesapp.noteit.ui.views.screens.HomeScreen;
 
 import java.util.List;
@@ -38,10 +40,14 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
         homeScreenManipulationTasks.bindView(homeScreenView);
     }
 
+    public void onnAttach() {
+        startFetchingNote();
+    }
+
+
     public void onStart()
     {
         homeScreenView.registerListener(this);
-        startFetchingNote();
     }
 
     public void onStop()
@@ -97,6 +103,11 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
 
     @Override
     public void onContactBadgeClicked(Note note) {
+        Bundle args = new Bundle();
+        args.putBoolean(FragmentTags.IS_CONTACT,true);
+        args.putLong(FragmentTags.NOTE_ID,note.getId());
+        PhoneNoListBottomSheets phoneNoListBottomSheets = PhoneNoListBottomSheets.newInstance(args);
+        homeScreenManipulationTasks.showContactBottomSheet(phoneNoListBottomSheets);
         Log.e("WillFindContactFor",note.toString());
 
 
@@ -115,4 +126,6 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
         activityNavigationTasks.toNoteFieldScreen(args);
 
     }
+
+
 }

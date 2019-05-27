@@ -38,6 +38,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
 
         TextView noteHeader,noteText,noteTime;
         LinearLayout badgeHolder,emailBadge,contactBadge;
+        boolean emailBadgeSet = false, contactBadgeSet = false;
         /*TextView editNote,deleteNote,moreOption;*/
         ConstraintLayout noteRow;
 
@@ -73,16 +74,18 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         viewHolder.noteHeader.setText(note.getNoteTitle());
         viewHolder.noteText.setText(note.getNoteText());
         viewHolder.noteTime.setText(UtilityTasks.getHumanReadableTime(note.getCreationTime()));
-        if(note.getEmailPriority()!=Constants.ZERO)
+        if(note.getEmailPriority()!=Constants.ZERO && !viewHolder.emailBadgeSet)
         {
+            viewHolder.emailBadgeSet = true;
             viewHolder.badgeHolder.setVisibility(View.VISIBLE);
-            viewHolder.emailBadge = getEmailBadge(viewHolder.badgeHolder);
+            viewHolder.emailBadge = getEmailBadge();
             viewHolder.badgeHolder.addView(viewHolder.emailBadge);
         }
-        if(note.getContactPriority()!=Constants.ZERO)
+        if(note.getContactPriority()!=Constants.ZERO && !viewHolder.contactBadgeSet)
         {
+            viewHolder.contactBadgeSet= true;
             viewHolder.badgeHolder.setVisibility(View.VISIBLE);
-            viewHolder.contactBadge = getContactBadge(viewHolder.badgeHolder);
+            viewHolder.contactBadge = getContactBadge();
             viewHolder.badgeHolder.addView(viewHolder.contactBadge);
         }
         else viewHolder.contactBadge.setVisibility(View.GONE);
@@ -114,14 +117,14 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         notifyDataSetChanged();
     }
 
-    private LinearLayout getEmailBadge(ViewGroup parent)
+    private LinearLayout getEmailBadge()
     {
         return (LinearLayout) ((LayoutInflater)context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE))
                 .inflate(R.layout.email_badge,null);
     }
 
-    private LinearLayout getContactBadge(ViewGroup parent)
+    private LinearLayout getContactBadge()
     {
         return (LinearLayout) ((LayoutInflater)context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE))

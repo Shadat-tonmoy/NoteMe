@@ -1208,6 +1208,7 @@ id content
 id contentPanel
 id continue_button
 id coordinator
+id copy_menu
 id custom
 id customPanel
 id decor_content_parent
@@ -1287,6 +1288,7 @@ id mini
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
+id name
 id nav_about
 id nav_menu_1
 id nav_menu_2
@@ -1317,6 +1319,8 @@ id notification_background
 id notification_main_column
 id notification_main_column_container
 id nowrap
+id number
+id object_list
 id outline
 id packed
 id parallax
@@ -1361,6 +1365,7 @@ id search_src_text
 id search_voice_btn
 id select_dialog_listview
 id selected
+id send_menu
 id shape
 id shortcut
 id showCustom
@@ -1483,6 +1488,7 @@ layout contact_badge
 layout contact_container
 layout contact_holder
 layout contact_option_layout
+layout contact_single_row
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar
@@ -1501,6 +1507,7 @@ layout email_badge
 layout email_container
 layout email_holder
 layout email_option_layout
+layout email_single_row
 layout fragment_container_layout
 layout home_screen
 layout image_container
@@ -1522,6 +1529,7 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout phone_no_list_bottom_sheet_layout
 layout phone_no_option_bottom_sheet_layout
 layout rounded_view
 layout select_dialog_item_material

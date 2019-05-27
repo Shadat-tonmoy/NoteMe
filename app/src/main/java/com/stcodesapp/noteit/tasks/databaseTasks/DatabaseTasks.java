@@ -22,6 +22,8 @@ import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.ImageSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteComponentSelectionTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteSelectTask;
 
+import java.io.Serializable;
+
 public class DatabaseTasks {
 
     private final Context context;

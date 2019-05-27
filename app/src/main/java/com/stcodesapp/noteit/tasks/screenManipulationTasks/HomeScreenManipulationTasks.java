@@ -1,8 +1,11 @@
 package com.stcodesapp.noteit.tasks.screenManipulationTasks;
 
 import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 
+import com.stcodesapp.noteit.constants.FragmentTags;
 import com.stcodesapp.noteit.models.Note;
+import com.stcodesapp.noteit.ui.fragments.PhoneNoListBottomSheets;
 import com.stcodesapp.noteit.ui.views.screenViews.HomeScreenView;
 import com.stcodesapp.noteit.ui.views.screens.HomeScreen;
 
@@ -27,4 +30,9 @@ public class HomeScreenManipulationTasks {
         homeScreenView.getNoteListAdapter().bindNotes(notes);
     }
 
+    public void showContactBottomSheet(PhoneNoListBottomSheets phoneNoListBottomSheets)
+    {
+        phoneNoListBottomSheets.show(((AppCompatActivity)activity).getSupportFragmentManager(), FragmentTags.CONTACT_BOTTOM_SHEET);
+
+    }
 }

@@ -1,5 +1,6 @@
 package com.stcodesapp.noteit.ui.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -33,8 +34,6 @@ public class HomeScreenFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        homeScreenController = getCompositionRoot().getFragmentControllerFactory().getHomeScreenController();
         noteListAdapter = getCompositionRoot().getViewFactory().getNoteListAdapte(getContext(),homeScreenController);
         homeScreenView = getCompositionRoot().getViewFactory().getHomeScreenView(null,noteListAdapter);
         homeScreenController.bindView(homeScreenView);
@@ -42,6 +41,12 @@ public class HomeScreenFragment extends BaseFragment {
         return homeScreenView.getRootView();
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        homeScreenController = getCompositionRoot().getFragmentControllerFactory().getHomeScreenController();
+        homeScreenController.onnAttach();
+    }
 
     @Override
     public void onStart() {
