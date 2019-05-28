@@ -33,6 +33,10 @@ public class HomeScreenManipulationTasks {
     public void showContactBottomSheet(PhoneNoListBottomSheets phoneNoListBottomSheets)
     {
         phoneNoListBottomSheets.show(((AppCompatActivity)activity).getSupportFragmentManager(), FragmentTags.CONTACT_BOTTOM_SHEET);
+    }
 
+    public void showEmailBottomSheet(PhoneNoListBottomSheets phoneNoListBottomSheets)
+    {
+        phoneNoListBottomSheets.show(((AppCompatActivity)activity).getSupportFragmentManager(), FragmentTags.EMAIL_BOTTOM_SHEET);
     }
 }

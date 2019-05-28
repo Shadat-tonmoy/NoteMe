@@ -62,7 +62,6 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
                 .execute();
     }
 
-
     public void onOptionMenuClicked(int menuId) {
         switch (menuId)
         {
@@ -108,14 +107,16 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
         args.putLong(FragmentTags.NOTE_ID,note.getId());
         PhoneNoListBottomSheets phoneNoListBottomSheets = PhoneNoListBottomSheets.newInstance(args);
         homeScreenManipulationTasks.showContactBottomSheet(phoneNoListBottomSheets);
-        Log.e("WillFindContactFor",note.toString());
-
-
     }
 
     @Override
     public void onEmailBadgeClicked(Note note) {
         Log.e("WillFindEmailFor",note.toString());
+        Bundle args = new Bundle();
+        args.putBoolean(FragmentTags.IS_CONTACT,false);
+        args.putLong(FragmentTags.NOTE_ID,note.getId());
+        PhoneNoListBottomSheets phoneNoListBottomSheets = PhoneNoListBottomSheets.newInstance(args);
+        homeScreenManipulationTasks.showEmailBottomSheet(phoneNoListBottomSheets);
 
     }
 

@@ -57,8 +57,18 @@ public class PhoneNoListBottomSheets extends BottomSheetDialogFragment implement
             noteId = args.getLong(FragmentTags.NOTE_ID, Constants.ZERO);
             isContact = args.getBoolean(FragmentTags.IS_CONTACT,false);
         }
-        ContactSelectTask contactSelectTask = databaseTasks.getContactSelectTask(this);
-        contactSelectTask.execute(noteId);
+        if(isContact)
+        {
+            ContactSelectTask contactSelectTask = databaseTasks.getContactSelectTask(this);
+            contactSelectTask.execute(noteId);
+        }
+        else
+        {
+            EmailSelectTask emailSelectTask = databaseTasks.getEmailSelectTask(this);
+            emailSelectTask.execute(noteId);
+
+        }
+
     }
 
     @Nullable
