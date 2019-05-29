@@ -1,5 +1,6 @@
 package com.stcodesapp.noteit.controllers.activityController;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -49,7 +50,7 @@ import com.stcodesapp.noteit.ui.views.screens.activityScreen.NoteFieldScreen;
 
 import static android.app.Activity.RESULT_OK;
 
-public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener,NoteComponentSelectionTask.Listener, ContactDeleteTask.Listener, EmailDeleteTask.Listener, ImageDeleteTask.Listener, AudioDeleteTask.Listener
+public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener,NoteComponentSelectionTask.Listener, ContactDeleteTask.Listener, EmailDeleteTask.Listener, ImageDeleteTask.Listener, AudioDeleteTask.Listener, DialogInterface.OnClickListener
 {
 
     private TasksFactory tasksFactory;
@@ -98,7 +99,23 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     public void onBackPressed()
     {
         if(isUpdating)
+        {
             updateNote(noteComponents.getNote());
+            activityNavigationTasks.closeScreen();
+
+        }
+        else
+        {
+            noteFieldScreenManipulationTasks.grabNoteValues();
+            if(tasksFactory.getNoteFieldValidationTask(noteComponents).isValidNote())
+            {
+                noteFieldScreenManipulationTasks.showSavePromptDialog(this);
+            }
+            else
+            {
+                activityNavigationTasks.closeScreen();
+            }
+        }
     }
 
 
@@ -143,6 +160,9 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
                 break;
             case R.id.add_audio_menu:
                 fileIOTasks.openFilePickerForAudio();
+                break;
+            case R.id.export_note_menu:
+                noteFieldScreenManipulationTasks.showExportOption();
                 break;
 
         }
@@ -217,9 +237,17 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     @Override
     public void onSaveButtonClicked() {
         noteFieldScreenManipulationTasks.grabNoteValues();
-        DatabaseTasks databaseTasks = tasksFactory.getDatabaseTasks();
-        DatabaseInsertTasksListener databaseInsertTasksListener = listeningTasks.getDBInsertTasksListener(databaseTasks, noteComponents,false);
-        databaseTasks.getNoteInsertTask(databaseInsertTasksListener).execute(noteComponents.getNote());
+        if(tasksFactory.getNoteFieldValidationTask(noteComponents).isValidNote())
+        {
+            DatabaseTasks databaseTasks = tasksFactory.getDatabaseTasks();
+            DatabaseInsertTasksListener databaseInsertTasksListener = listeningTasks.getDBInsertTasksListener(databaseTasks, noteComponents,false);
+            databaseTasks.getNoteInsertTask(databaseInsertTasksListener).execute(noteComponents.getNote());
+            activityNavigationTasks.closeScreen();
+        }
+        else
+        {
+            noteFieldScreenManipulationTasks.showInvalidNoteToast();
+        }
     }
 
     @Override
@@ -418,5 +446,21 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     public void onAudioDeleted(Audio audio) {
         noteComponents.getChosenAudios().remove(audio);
         noteFieldScreenManipulationTasks.removeAudioContainer();
+    }
+
+    @Override
+    public void onClick(DialogInterface dialog, int which) {
+        switch (which)
+        {
+            case DialogInterface.BUTTON_POSITIVE:
+                onSaveButtonClicked();
+                activityNavigationTasks.closeScreen();
+                break;
+            case DialogInterface.BUTTON_NEGATIVE:
+                activityNavigationTasks.closeScreen();
+                break;
+
+        }
+
     }
 }

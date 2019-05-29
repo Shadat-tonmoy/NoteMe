@@ -88,7 +88,6 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
             viewHolder.contactBadge = getContactBadge();
             viewHolder.badgeHolder.addView(viewHolder.contactBadge);
         }
-        else viewHolder.contactBadge.setVisibility(View.GONE);
         setNoteBackgroundColor(viewHolder.noteRow, note.getBackgroundColor());
         setClickListener(note,viewHolder.noteRow, viewHolder.contactBadge, viewHolder.emailBadge /*, viewHolder.editNote, viewHolder.deleteNote, viewHolder.moreOption*/);
 

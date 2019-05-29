@@ -2,8 +2,10 @@ package com.stcodesapp.noteit.factory;
 
 import android.support.v4.app.FragmentActivity;
 import com.stcodesapp.noteit.common.FragmentFrameHelper;
+import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
+import com.stcodesapp.noteit.tasks.functionalTasks.NoteFieldValidationTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.VoiceInputTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
@@ -99,6 +101,11 @@ public class TasksFactory {
     public DatabaseTasks getDatabaseTasks()
     {
         return new DatabaseTasks(activity);
+    }
+
+    public NoteFieldValidationTask getNoteFieldValidationTask(NoteComponents noteComponents)
+    {
+        return new NoteFieldValidationTask(activity,noteComponents);
     }
 
 

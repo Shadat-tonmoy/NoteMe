@@ -1,6 +1,8 @@
 package com.stcodesapp.noteit.tasks.screenManipulationTasks;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
@@ -18,6 +20,7 @@ import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.BackgroundColors;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.PermissionType;
+import com.stcodesapp.noteit.controllers.activityController.NoteFieldController;
 import com.stcodesapp.noteit.factory.ListeningTasks;
 import com.stcodesapp.noteit.factory.UIComponentFatory;
 import com.stcodesapp.noteit.listeners.AudioListener;
@@ -68,6 +71,11 @@ public class NoteFieldScreenManipulationTasks {
         colorPallateBottomSheets =  uiComponentFatory.getColorPallateBottomSheets();
         colorPallateBottomSheets.setListener(listener);
         colorPallateBottomSheets.show(((AppCompatActivity)activity).getSupportFragmentManager(),"TAG");
+    }
+
+    public void showExportOption()
+    {
+        Toast.makeText(activity,"I am getting ready",Toast.LENGTH_SHORT).show();
     }
 
     public void dismissColorPalate()
@@ -426,5 +434,23 @@ public class NoteFieldScreenManipulationTasks {
             for(Image image:noteComponents.getChosenImages())
                 addImageToChosenImageContainer(image);
         }
+    }
+
+    public void showInvalidNoteToast()
+    {
+        Toast.makeText(activity, activity.getResources().getString(R.string.nothing_to_save), Toast.LENGTH_SHORT).show();
+    }
+
+    public void showSavePromptDialog(DialogInterface.OnClickListener listener) {
+
+        new AlertDialog.Builder(activity)
+                .setTitle(activity.getResources().getString(R.string.save_note))
+                .setMessage(activity.getResources().getString(R.string.note_is_not_saved))
+                .setPositiveButton(android.R.string.yes, listener)
+                .setNegativeButton(android.R.string.no, listener)
+                .setIcon(activity.getResources().getDrawable(R.drawable.warning_red))
+                .show();
+
+
     }
 }

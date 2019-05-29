@@ -2,6 +2,7 @@ package com.stcodesapp.noteit.ui.views.screenViews.activityScreenView;
 
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,8 +34,8 @@ public class NoteFieldScreenView extends BaseObservableScreenView<NoteFieldScree
     private View noteTitleDivider,noteTextDivider;
     private LinearLayout uiComponentContainer;
     private ImageView titleMic, noteMic;
-    private Button saveButton, exportAsButton;
     private ScrollView uiComponentRoot;
+    private FloatingActionButton noteSaveButton;
 
     public NoteFieldScreenView(LayoutInflater inflater, @Nullable ViewGroup parent)
     {
@@ -59,10 +60,7 @@ public class NoteFieldScreenView extends BaseObservableScreenView<NoteFieldScree
         });
         setClickListener(titleMic, EventTypes.NOTE_TITLE_MIC_CLICKED);
         setClickListener(noteMic, EventTypes.NOTE_TEXT_MIC_CLICKED);
-        setClickListener(saveButton, EventTypes.NOTE_SAVE_BUTTON_CLICKED);
-        setClickListener(exportAsButton, EventTypes.NOTE_EXPORT_BUTTON_CLICKED);
-
-
+        setClickListener(noteSaveButton, EventTypes.NOTE_SAVE_BUTTON_CLICKED);
     }
 
     @Override
@@ -76,11 +74,10 @@ public class NoteFieldScreenView extends BaseObservableScreenView<NoteFieldScree
         noteTitleField = findViewById(R.id.note_title_field);
         noteTextField = findViewById(R.id.note_text_field);
         titleMic = findViewById(R.id.title_mic);
-        saveButton = findViewById(R.id.save_button);
-        exportAsButton = findViewById(R.id.export_as_button);
         noteMic = findViewById(R.id.note_mic);
         noteTitleDivider = findViewById(R.id.note_title_divider);
         noteTextDivider = findViewById(R.id.note_text_divider);
+        noteSaveButton = findViewById(R.id.save_button);
         uiComponentContainer = findViewById(R.id.ui_component_container);
         uiComponentRoot = findViewById(R.id.ui_component_root);
 

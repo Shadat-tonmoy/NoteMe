@@ -1061,6 +1061,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable done_white
 drawable edit_black
 drawable edit_text_bg
 drawable email_badge
@@ -1115,6 +1116,7 @@ drawable round_shape_light_red
 drawable round_shape_pumpkin
 drawable round_shape_purple
 drawable round_shape_white
+drawable save_as_pdf_white
 drawable send_black
 drawable settings
 drawable share
@@ -1123,6 +1125,7 @@ drawable test
 drawable test_2
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable warning_red
 id ALT
 id CTRL
 id FUNCTION
@@ -1243,7 +1246,7 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
-id export_as_button
+id export_note_menu
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1644,10 +1647,12 @@ string note_added
 string note_component_deleted
 string note_component_updated
 string note_deleted
+string note_is_not_saved
 string note_text
 string note_time
 string note_title
 string note_updated
+string nothing_to_save
 string ok_continue
 string password_toggle_content_description
 string path_password_eye
@@ -1662,6 +1667,7 @@ string pro_version
 string rate_the_app
 string remove
 string save
+string save_note
 string search_menu_title
 string second_activity
 string secondary_fragment
