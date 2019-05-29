@@ -2,9 +2,11 @@ package com.stcodesapp.noteit.ui.activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.widget.FrameLayout;
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.common.FragmentFrameHelper;
 import com.stcodesapp.noteit.controllers.commons.FragmentFrameWrapper;
 import com.stcodesapp.noteit.controllers.commons.NavigationDrawerController;
 import com.stcodesapp.noteit.ui.commons.NavigationDrawerView;
@@ -73,6 +75,7 @@ public class BaseNavigationDrawerActivity extends BaseActivity implements Fragme
             navigationDrawerController.onBackPressed();
         }
     }
+
 
     @Override
     public FrameLayout getFragmentFrame() {

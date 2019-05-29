@@ -101,7 +101,9 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         if(isUpdating)
         {
             updateNote(noteComponents.getNote());
-            activityNavigationTasks.closeScreen();
+            Intent result = new Intent();
+            result.putExtra(Tags.NOTE_UPDATED,true);
+            activityNavigationTasks.sendResultBack(result);
 
         }
         else
@@ -242,7 +244,9 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
             DatabaseTasks databaseTasks = tasksFactory.getDatabaseTasks();
             DatabaseInsertTasksListener databaseInsertTasksListener = listeningTasks.getDBInsertTasksListener(databaseTasks, noteComponents,false);
             databaseTasks.getNoteInsertTask(databaseInsertTasksListener).execute(noteComponents.getNote());
-            activityNavigationTasks.closeScreen();
+            Intent result = new Intent();
+            result.putExtra(Tags.NOTE_ADDED,true);
+            activityNavigationTasks.sendResultBack(result);
         }
         else
         {
@@ -454,7 +458,6 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         {
             case DialogInterface.BUTTON_POSITIVE:
                 onSaveButtonClicked();
-                activityNavigationTasks.closeScreen();
                 break;
             case DialogInterface.BUTTON_NEGATIVE:
                 activityNavigationTasks.closeScreen();

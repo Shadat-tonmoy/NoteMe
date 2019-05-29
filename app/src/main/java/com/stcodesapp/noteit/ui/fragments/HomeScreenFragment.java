@@ -1,6 +1,7 @@
 package com.stcodesapp.noteit.ui.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -45,7 +46,7 @@ public class HomeScreenFragment extends BaseFragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         homeScreenController = getCompositionRoot().getFragmentControllerFactory().getHomeScreenController();
-        homeScreenController.onnAttach();
+        homeScreenController.onAttach();
     }
 
     @Override
@@ -60,6 +61,11 @@ public class HomeScreenFragment extends BaseFragment {
         homeScreenController.onStop();
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        homeScreenController.onActivityResult(requestCode,resultCode,data);
+    }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {

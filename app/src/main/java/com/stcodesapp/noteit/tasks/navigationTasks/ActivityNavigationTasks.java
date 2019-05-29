@@ -9,6 +9,8 @@ import com.stcodesapp.noteit.ui.activities.ManualContactActivity;
 import com.stcodesapp.noteit.ui.activities.ManualEmailActivity;
 import com.stcodesapp.noteit.ui.activities.NoteFieldActivity;
 
+import static android.app.Activity.RESULT_OK;
+
 public class ActivityNavigationTasks {
 
     private Activity activity;
@@ -24,11 +26,13 @@ public class ActivityNavigationTasks {
         activity.startActivity(intent);
     }
 
-    public void toNoteFieldScreen(Bundle args)
+    public void toNoteFieldScreen(Bundle args,boolean isUpdating)
     {
         Intent intent = new Intent(activity, NoteFieldActivity.class);
         intent.putExtras(args);
-        activity.startActivity(intent);
+        if(isUpdating)
+            activity.startActivityForResult(intent,RequestCode.UPDATE_NOTE);
+        else activity.startActivityForResult(intent,RequestCode.ADD_NEW_NOTE);
     }
 
     public void toManualContactScreen(Bundle args)
@@ -47,6 +51,12 @@ public class ActivityNavigationTasks {
 
     public void closeScreen()
     {
+        activity.finish();
+    }
+
+    public void sendResultBack(Intent result)
+    {
+        activity.setResult(RESULT_OK, result);
         activity.finish();
     }
 }

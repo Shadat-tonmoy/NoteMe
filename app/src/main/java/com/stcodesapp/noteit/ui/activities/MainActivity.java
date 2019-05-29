@@ -1,5 +1,6 @@
 package com.stcodesapp.noteit.ui.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import com.stcodesapp.noteit.controllers.activityController.MainActivityController;
@@ -19,6 +20,11 @@ public class MainActivity extends BaseNavigationDrawerActivity {
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        getCompositionRoot().getCurrentFragment().onActivityResult(requestCode,resultCode,data);
+    }
 
     @Override
     protected void onStart() {

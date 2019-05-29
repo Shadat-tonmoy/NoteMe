@@ -1,6 +1,7 @@
 package com.stcodesapp.noteit.common.dependencyInjection;
 
 import android.content.Context;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
@@ -74,6 +75,11 @@ public class ControllerCompositionRoot {
     public FragmentFrameHelper getFragmentFrameHelper()
     {
         return new FragmentFrameHelper(getActivity(),getFragmentFrameWrapper(),getFragmentManager());
+    }
+
+    public Fragment getCurrentFragment()
+    {
+        return new FragmentFrameHelper(getActivity(),getFragmentFrameWrapper(),getFragmentManager()).getCurrentFragment();
     }
 
     public ModelFactory getModelFactory()

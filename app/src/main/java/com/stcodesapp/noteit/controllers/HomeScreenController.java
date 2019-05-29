@@ -1,11 +1,13 @@
 package com.stcodesapp.noteit.controllers;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.adapter.NoteListAdapter;
 import com.stcodesapp.noteit.constants.FragmentTags;
+import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.models.Note;
@@ -17,6 +19,8 @@ import com.stcodesapp.noteit.ui.fragments.PhoneNoListBottomSheets;
 import com.stcodesapp.noteit.ui.views.screens.HomeScreen;
 
 import java.util.List;
+
+import static android.app.Activity.RESULT_OK;
 
 public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask.Listener, NoteListAdapter.Listener {
 
@@ -40,7 +44,7 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
         homeScreenManipulationTasks.bindView(homeScreenView);
     }
 
-    public void onnAttach() {
+    public void onAttach() {
         startFetchingNote();
     }
 
@@ -62,6 +66,37 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
                 .execute();
     }
 
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode==RESULT_OK)
+        {
+            Log.e("onActivityResult","FromController result ok request code"+requestCode);
+            switch (requestCode)
+            {
+                case RequestCode.ADD_NEW_NOTE:
+                    checkForAddedNote(data);
+                    break;
+                case RequestCode.UPDATE_NOTE:
+                    checkForUpdatedNote(data);
+                    break;
+            }
+        }
+    }
+
+    private void checkForAddedNote(Intent data)
+    {
+        boolean isAdded = data.getBooleanExtra(Tags.NOTE_ADDED,false);
+        Log.e("NoteAdded",isAdded+" is result");
+        if(isAdded)
+            startFetchingNote();
+    }
+
+    private void checkForUpdatedNote(Intent data)
+    {
+        boolean isUpdated= data.getBooleanExtra(Tags.NOTE_UPDATED,false);
+        if(isUpdated)
+            startFetchingNote();
+    }
+
     public void onOptionMenuClicked(int menuId) {
         switch (menuId)
         {
@@ -77,11 +112,12 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
 
     @Override
     public void onNoteAddButtonClicked() {
-        activityNavigationTasks.toNoteFieldScreen(new Bundle());
+        activityNavigationTasks.toNoteFieldScreen(new Bundle(),false);
     }
 
     @Override
     public void onNoteFetched(List<Note> fetchedNotes) {
+        Log.e("NoteFetched",fetchedNotes.size()+" i sisze");
        homeScreenManipulationTasks.bindNotes(fetchedNotes);
     }
 
@@ -124,9 +160,10 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     public void onNoteClicked(Note note) {
         Bundle args = new Bundle();
         args.putSerializable(Tags.NOTE,note);
-        activityNavigationTasks.toNoteFieldScreen(args);
+        activityNavigationTasks.toNoteFieldScreen(args,true);
 
     }
+
 
 
 }
