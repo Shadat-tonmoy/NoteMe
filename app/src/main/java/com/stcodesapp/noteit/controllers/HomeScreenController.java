@@ -92,7 +92,8 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
 
     private void checkForUpdatedNote(Intent data)
     {
-        boolean isUpdated= data.getBooleanExtra(Tags.NOTE_UPDATED,false);
+        boolean isUpdated = data.getBooleanExtra(Tags.NOTE_UPDATED,false);
+        Log.e("NoteUpdated",isUpdated+" is result");
         if(isUpdated)
             startFetchingNote();
     }

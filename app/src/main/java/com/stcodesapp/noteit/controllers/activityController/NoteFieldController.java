@@ -100,6 +100,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     {
         if(isUpdating)
         {
+            noteFieldScreenManipulationTasks.grabNoteValues();
             updateNote(noteComponents.getNote());
             Intent result = new Intent();
             result.putExtra(Tags.NOTE_UPDATED,true);
