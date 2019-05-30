@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,9 @@ import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.tasks.UtilityTasks;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHolder> {
 
@@ -34,6 +37,9 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
     private List<Note> notes;
     private Context context;
     private Listener listener;
+    private Map<Integer, Boolean> emailFlag, contactFlag;
+    private Map<Integer, Note> noteMap;
+    private Map<Integer, String> bgColor;
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView noteHeader,noteText,noteTime;
@@ -74,19 +80,36 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         viewHolder.noteHeader.setText(note.getNoteTitle());
         viewHolder.noteText.setText(note.getNoteText());
         viewHolder.noteTime.setText(UtilityTasks.getHumanReadableTime(note.getCreationTime()));
-        if(note.getEmailPriority()!=Constants.ZERO && !viewHolder.emailBadgeSet)
+        if(emailFlag.get(i)==null)
         {
-            viewHolder.emailBadgeSet = true;
-            viewHolder.badgeHolder.setVisibility(View.VISIBLE);
-            viewHolder.emailBadge = getEmailBadge();
-            viewHolder.badgeHolder.addView(viewHolder.emailBadge);
+            bindEmailBadgeToViewHolder(note,viewHolder,i);
         }
-        if(note.getContactPriority()!=Constants.ZERO && !viewHolder.contactBadgeSet)
+        else
         {
-            viewHolder.contactBadgeSet= true;
-            viewHolder.badgeHolder.setVisibility(View.VISIBLE);
-            viewHolder.contactBadge = getContactBadge();
-            viewHolder.badgeHolder.addView(viewHolder.contactBadge);
+            if(emailFlag.get(i))
+            {
+                bindEmailBadgeToViewHolder(note,viewHolder,i);
+            }
+            else
+            {
+                viewHolder.badgeHolder.removeView(viewHolder.emailBadge);
+            }
+        }
+        if(contactFlag.get(i)==null)
+        {
+            bindContactBadgeToViewHolder(note,viewHolder,i);
+        }
+        else
+        {
+            if(contactFlag.get(i))
+            {
+                bindContactBadgeToViewHolder(note,viewHolder,i);
+            }
+
+            else
+            {
+                viewHolder.badgeHolder.removeView(viewHolder.contactBadge);
+            }
         }
         setNoteBackgroundColor(viewHolder.noteRow, note.getBackgroundColor());
         setClickListener(note,viewHolder.noteRow, viewHolder.contactBadge, viewHolder.emailBadge /*, viewHolder.editNote, viewHolder.deleteNote, viewHolder.moreOption*/);
@@ -98,6 +121,41 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         if(notes!=null)
             return notes.size();
         return 0;
+    }
+
+    private void bindEmailBadgeToViewHolder(Note note,NoteListAdapter.ViewHolder viewHolder, int i)
+    {
+        if(note.getEmailPriority()!=Constants.ZERO)
+        {
+            viewHolder.badgeHolder.removeView(viewHolder.emailBadge);
+            viewHolder.badgeHolder.setVisibility(View.VISIBLE);
+            viewHolder.emailBadge = getEmailBadge();
+            viewHolder.badgeHolder.addView(viewHolder.emailBadge);
+            emailFlag.put(i,true);
+        }
+        else
+        {
+            viewHolder.badgeHolder.removeView(viewHolder.emailBadge);
+            emailFlag.put(i,false);
+        }
+    }
+
+    private void bindContactBadgeToViewHolder(Note note,NoteListAdapter.ViewHolder viewHolder, int i)
+    {
+        if(note.getContactPriority()!=Constants.ZERO)
+        {
+            viewHolder.badgeHolder.removeView(viewHolder.contactBadge);
+            viewHolder.contactBadgeSet= true;
+            viewHolder.badgeHolder.setVisibility(View.VISIBLE);
+            viewHolder.contactBadge = getContactBadge();
+            viewHolder.badgeHolder.addView(viewHolder.contactBadge);
+            contactFlag.put(i,true);
+        }
+        else
+        {
+            viewHolder.badgeHolder.removeView(viewHolder.contactBadge);
+            contactFlag.put(i,false);
+        }
     }
 
     private void setNoteBackgroundColor(View view,String colorName)
@@ -113,6 +171,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
 
     public void bindNotes(List<Note> notes) {
         this.notes = notes;
+        initDS();
         notifyDataSetChanged();
     }
 
@@ -131,6 +190,13 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
 //                .findViewById(R.id.contact_badge);
     }
 
+    private void initDS()
+    {
+        this.emailFlag = new HashMap<>();
+        this.contactFlag = new HashMap<>();
+        this.bgColor = new HashMap<>();
+        this.noteMap = new HashMap<>();
+    }
 
     private void setClickListener(final Note note, View... views)
     {
