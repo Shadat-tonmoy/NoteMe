@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -31,6 +32,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         void onContactBadgeClicked(Note note);
         void onEmailBadgeClicked(Note note);
         void onNoteClicked(Note note);
+        void onAddToFavoriteClicked(Note note);
     }
 
 
@@ -43,7 +45,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
 
         TextView noteHeader,noteText,noteTime;
         LinearLayout badgeHolder,emailBadge,contactBadge;
-        boolean emailBadgeSet = false, contactBadgeSet = false;
+        ImageView addToFavoriteButton;
         /*TextView editNote,deleteNote,moreOption;*/
         ConstraintLayout noteRow;
 
@@ -53,6 +55,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
             noteText = itemView.findViewById(R.id.note_text);
             noteTime = itemView.findViewById(R.id.note_time);
             badgeHolder = itemView.findViewById(R.id.badge_holder);
+            addToFavoriteButton = itemView.findViewById(R.id.favorite_button);
             /*editNote = itemView.findViewById(R.id.edit_button);
             deleteNote = itemView.findViewById(R.id.delete_button);
             moreOption = itemView.findViewById(R.id.more_button);*/
@@ -79,6 +82,14 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         viewHolder.noteHeader.setText(note.getNoteTitle());
         viewHolder.noteText.setText(note.getNoteText());
         viewHolder.noteTime.setText(UtilityTasks.getHumanReadableTime(note.getCreationTime()));
+        if(note.isImportant())
+        {
+            viewHolder.addToFavoriteButton.setImageResource(R.drawable.star_gold);
+        }
+        else
+        {
+            viewHolder.addToFavoriteButton.setImageResource(R.drawable.star_border);
+        }
         if(emailFlag.get(i)==null)
         {
             bindEmailBadgeToViewHolder(note,viewHolder,i);
@@ -120,7 +131,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         {
             setNoteBackgroundColor(viewHolder.noteRow, bgColor.get(i));
         }
-        setClickListener(note,viewHolder.noteRow, viewHolder.contactBadge, viewHolder.emailBadge /*, viewHolder.editNote, viewHolder.deleteNote, viewHolder.moreOption*/);
+        setClickListener(note,viewHolder.noteRow, viewHolder.contactBadge, viewHolder.emailBadge, viewHolder.addToFavoriteButton);
 
     }
 
@@ -153,7 +164,6 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         if(note.getContactPriority()!=Constants.ZERO)
         {
             viewHolder.badgeHolder.removeView(viewHolder.contactBadge);
-            viewHolder.contactBadgeSet= true;
             viewHolder.badgeHolder.setVisibility(View.VISIBLE);
             viewHolder.contactBadge = getContactBadge();
             viewHolder.badgeHolder.addView(viewHolder.contactBadge);
@@ -234,6 +244,18 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
                 @Override
                 public void onClick(View v) {
                     listener.onEmailBadgeClicked(note);
+                }
+            });
+        }
+
+        if(views[3]!=null)
+        {
+            views[3].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    note.setImportant(!note.isImportant());
+                    notifyDataSetChanged();
+                    listener.onAddToFavoriteClicked(note);
                 }
             });
         }

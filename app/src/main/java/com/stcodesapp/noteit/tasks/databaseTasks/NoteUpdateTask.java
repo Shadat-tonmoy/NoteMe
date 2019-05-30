@@ -30,7 +30,7 @@ public class NoteUpdateTask extends AsyncTask<Note,Void, Note> {
 
     @Override
     protected Note doInBackground(Note... notes) {
-        Log.e("Note","Inserting....");
+        Log.e("Note","Updating...."+notes[0].isImportant());
         notesDao.update(notes[0]);
         return notes[0];
     }

@@ -11,6 +11,7 @@ import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.models.Note;
+import com.stcodesapp.noteit.tasks.databaseTasks.NoteUpdateTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteSelectTask;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
@@ -22,7 +23,7 @@ import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
-public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask.Listener, NoteListAdapter.Listener {
+public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask.Listener, NoteListAdapter.Listener{
 
 
     private TasksFactory tasksFactory;
@@ -111,6 +112,11 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
         }
     }
 
+    private void updateNote(Note note)
+    {
+        tasksFactory.getDatabaseTasks().getNoteUpdateTask().execute(note);
+    }
+
     @Override
     public void onNoteAddButtonClicked() {
         activityNavigationTasks.toNoteFieldScreen(new Bundle(),false);
@@ -121,21 +127,6 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
         Log.e("NoteFetched",fetchedNotes.size()+" i sisze");
        homeScreenManipulationTasks.bindNotes(fetchedNotes);
     }
-
-    /*@Override
-    public void onEditNoteClicked(Note note) {
-
-    }
-
-    @Override
-    public void onDeleteNoteClicked(Note note) {
-
-    }
-
-    @Override
-    public void onMoreClicked(Note note) {
-
-    }*/
 
     @Override
     public void onContactBadgeClicked(Note note) {
@@ -165,6 +156,9 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
 
     }
 
-
-
+    @Override
+    public void onAddToFavoriteClicked(Note note) {
+        updateNote(note);
+        homeScreenManipulationTasks.showAddToFavoriteToast(note);
+    }
 }

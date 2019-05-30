@@ -1120,6 +1120,8 @@ drawable save_as_pdf_white
 drawable send_black
 drawable settings
 drawable share
+drawable star_border
+drawable star_gold
 drawable tag
 drawable test
 drawable test_2
@@ -1247,6 +1249,7 @@ id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
 id export_note_menu
+id favorite_button
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1593,6 +1596,7 @@ string add_image
 string add_phone_no
 string add_phone_number_manually
 string add_tag
+string added_to_favorite
 string app_name
 string appbar_scrolling_view_behavior
 string audio
@@ -1666,6 +1670,7 @@ string privacy_policy
 string pro_version
 string rate_the_app
 string remove
+string removed_from_favorite
 string save
 string save_note
 string search_menu_title

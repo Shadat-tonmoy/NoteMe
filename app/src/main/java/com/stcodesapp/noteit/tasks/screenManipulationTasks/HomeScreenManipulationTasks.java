@@ -2,7 +2,9 @@ package com.stcodesapp.noteit.tasks.screenManipulationTasks;
 
 import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
+import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.FragmentTags;
 import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.ui.fragments.PhoneNoListBottomSheets;
@@ -38,5 +40,12 @@ public class HomeScreenManipulationTasks {
     public void showEmailBottomSheet(PhoneNoListBottomSheets phoneNoListBottomSheets)
     {
         phoneNoListBottomSheets.show(((AppCompatActivity)activity).getSupportFragmentManager(), FragmentTags.EMAIL_BOTTOM_SHEET);
+    }
+
+    public void showAddToFavoriteToast(Note note) {
+        String message = activity.getResources().getString(R.string.added_to_favorite);
+        if(!note.isImportant())
+            message = activity.getResources().getString(R.string.removed_from_favorite);
+        Toast.makeText(activity,message,Toast.LENGTH_SHORT).show();
     }
 }
