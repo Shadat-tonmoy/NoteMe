@@ -10,8 +10,8 @@ import com.stcodesapp.noteit.ui.views.screenViews.HomeScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.ManualContactScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.ManualEmailScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
-import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.NavigationMenu1FragmentScreenView;
-import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.NavigationMenu2FragmentScreenView;
+import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.ContactFragmentScreenView;
+import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.EmailFragmentScreenView;
 
 public class ViewFactory {
 
@@ -37,14 +37,14 @@ public class ViewFactory {
         return new NoteFieldScreenView(layoutInflater,parent);
     }
 
-    public NavigationMenu1FragmentScreenView getNavigationMenu1Screen(ViewGroup parent)
+    public EmailFragmentScreenView getEmailFragmentScreenView(ViewGroup parent)
     {
-        return new NavigationMenu1FragmentScreenView(layoutInflater,parent);
+        return new EmailFragmentScreenView(layoutInflater,parent);
     }
 
-    public NavigationMenu2FragmentScreenView getNavigationMenu2FragmentScreenView(ViewGroup parent)
+    public ContactFragmentScreenView getContactFragmentScreenView(ViewGroup parent)
     {
-        return new NavigationMenu2FragmentScreenView(layoutInflater,parent);
+        return new ContactFragmentScreenView(layoutInflater,parent);
     }
 
     public ManualContactScreenView getManualContactScreenView(ViewGroup parent)

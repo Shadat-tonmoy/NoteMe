@@ -39,7 +39,7 @@ public class MainActivityController implements NavigationDrawerScreen.Listener {
                 fragmentNavigationTasks.toHomeScreen();
                 break;
             case R.id.contact_menu:
-                fragmentNavigationTasks.toNavigationMenu1Fragment();
+                fragmentNavigationTasks.toImportantNoteFragment();
                 break;
 
 

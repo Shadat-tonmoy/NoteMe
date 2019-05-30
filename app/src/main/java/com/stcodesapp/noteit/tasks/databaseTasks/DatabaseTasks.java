@@ -15,6 +15,7 @@ import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ContactInsertTas
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.EmailInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ImageInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.NoteInsertTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllContactSelectionTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AudioSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.ContactSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.EmailSelectTask;
@@ -116,6 +117,12 @@ public class DatabaseTasks {
         ImageSelectTask ImageSelectTask = new ImageSelectTask(context, ComponentType.IMAGE);
         ImageSelectTask.setListener(listener);
         return ImageSelectTask;
+    }
+
+    public AllContactSelectionTasks getAllContactSelectionTasks(AllContactSelectionTasks.Listener listener)
+    {
+        AllContactSelectionTasks allContactSelectionTasks = new AllContactSelectionTasks(context,listener);
+        return allContactSelectionTasks;
     }
 
 

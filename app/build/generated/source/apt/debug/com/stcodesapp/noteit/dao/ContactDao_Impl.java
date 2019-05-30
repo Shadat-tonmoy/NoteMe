@@ -93,6 +93,39 @@ public class ContactDao_Impl implements ContactDao {
   }
 
   @Override
+  public List<Contact> getAllContacts() {
+    final String _sql = "select * from contact";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    final Cursor _cursor = __db.query(_statement);
+    try {
+      final int _cursorIndexOfId = _cursor.getColumnIndexOrThrow("contact_id");
+      final int _cursorIndexOfNoteId = _cursor.getColumnIndexOrThrow("note_id");
+      final int _cursorIndexOfPhoneNumber = _cursor.getColumnIndexOrThrow("phoneNumber");
+      final int _cursorIndexOfDisplayName = _cursor.getColumnIndexOrThrow("displayName");
+      final List<Contact> _result = new ArrayList<Contact>(_cursor.getCount());
+      while(_cursor.moveToNext()) {
+        final Contact _item;
+        final String _tmpPhoneNumber;
+        _tmpPhoneNumber = _cursor.getString(_cursorIndexOfPhoneNumber);
+        final String _tmpDisplayName;
+        _tmpDisplayName = _cursor.getString(_cursorIndexOfDisplayName);
+        _item = new Contact(_tmpPhoneNumber,_tmpDisplayName);
+        final long _tmpId;
+        _tmpId = _cursor.getLong(_cursorIndexOfId);
+        _item.setId(_tmpId);
+        final long _tmpNoteId;
+        _tmpNoteId = _cursor.getLong(_cursorIndexOfNoteId);
+        _item.setNoteId(_tmpNoteId);
+        _result.add(_item);
+      }
+      return _result;
+    } finally {
+      _cursor.close();
+      _statement.release();
+    }
+  }
+
+  @Override
   public List<Contact> getAllContactsForNote(long noteId) {
     final String _sql = "select * from contact where note_id = ?";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);

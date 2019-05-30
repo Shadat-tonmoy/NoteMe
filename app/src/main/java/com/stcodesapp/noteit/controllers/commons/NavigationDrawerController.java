@@ -37,13 +37,17 @@ public class NavigationDrawerController implements NavigationDrawerScreen.Listen
                 updateToolbarTitle(FragmentTags.HOME_SCREEN);
                 break;
             case R.id.important_menu:
-                fragmentNavigationTasks.toNavigationMenu1Fragment();
+                fragmentNavigationTasks.toImportantNoteFragment();
                 updateToolbarTitle(FragmentTags.IMPORTANT_NOTES);
                 break;
             case R.id.contact_menu:
-                fragmentNavigationTasks.toNavigationMenu2Fragment();
-                updateToolbarTitle(FragmentTags.NAVIGATION_MENU_2);
+                fragmentNavigationTasks.toContactFragment();
+                updateToolbarTitle(FragmentTags.CONTACTS);
                 break;
+            /*case R.id.email_menu:
+                fragmentNavigationTasks.toContactFragment();
+                updateToolbarTitle(FragmentTags.CONTACTS);
+                break;*/
         }
     }
 
@@ -58,7 +62,7 @@ public class NavigationDrawerController implements NavigationDrawerScreen.Listen
             case FragmentTags.IMPORTANT_NOTES:
                 navigationDrawerView.checkMenuItem(R.id.important_menu);
                 break;
-            case FragmentTags.NAVIGATION_MENU_2:
+            case FragmentTags.CONTACTS:
                 navigationDrawerView.checkMenuItem(R.id.contact_menu);
                 break;
         }

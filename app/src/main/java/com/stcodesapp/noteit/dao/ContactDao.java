@@ -12,6 +12,9 @@ import java.util.List;
 @Dao
 public interface ContactDao {
 
+    @Query("select * from contact")
+    List<Contact> getAllContacts();
+
     @Insert
     void insertContact(Contact... contact);
 

@@ -1201,6 +1201,7 @@ id contact_call_btn
 id contact_copy_btn
 id contact_divider
 id contact_icon
+id contact_list
 id contact_menu
 id contact_name
 id contact_name_divider
@@ -1494,6 +1495,7 @@ layout audio_option_layout
 layout color_pallete_layout
 layout contact_badge
 layout contact_container
+layout contact_fragment_screen
 layout contact_holder
 layout contact_option_layout
 layout contact_single_row
@@ -1528,7 +1530,6 @@ layout mtrl_layout_snackbar_include
 layout navigation_drawer_header
 layout navigation_drawer_layout
 layout navigation_menu_1_screen
-layout navigation_menu_2_screen
 layout note_field_screen
 layout note_single_row
 layout notification_action
