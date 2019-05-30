@@ -12,6 +12,7 @@ import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.tasks.databaseTasks.NoteUpdateTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.ImportantNoteSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteSelectTask;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
@@ -23,7 +24,7 @@ import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
-public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask.Listener, NoteListAdapter.Listener{
+public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask.Listener, NoteListAdapter.Listener, ImportantNoteSelectTask.Listener{
 
 
     private TasksFactory tasksFactory;
@@ -46,13 +47,20 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     }
 
     public void onAttach() {
-        startFetchingNote();
+//        startFetchingNote();
     }
 
 
     public void onStart()
     {
         homeScreenView.registerListener(this);
+        startFetchingNote();
+    }
+
+    public void onStartImportant()
+    {
+        homeScreenView.registerListener(this);
+        startFetchingImportantNote();
     }
 
     public void onStop()
@@ -67,10 +75,17 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
                 .execute();
     }
 
+    private void startFetchingImportantNote()
+    {
+        tasksFactory.getDatabaseTasks()
+                .getImportantNoteSelectTask(this)
+                .execute();
+    }
+
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(resultCode==RESULT_OK)
         {
-            Log.e("onActivityResult","FromController result ok request code"+requestCode);
+            /*Log.e("onActivityResult","FromController result ok request code"+requestCode);
             switch (requestCode)
             {
                 case RequestCode.ADD_NEW_NOTE:
@@ -79,7 +94,7 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
                 case RequestCode.UPDATE_NOTE:
                     checkForUpdatedNote(data);
                     break;
-            }
+            }*/
         }
     }
 
@@ -160,5 +175,10 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     public void onAddToFavoriteClicked(Note note) {
         updateNote(note);
         homeScreenManipulationTasks.showAddToFavoriteToast(note);
+    }
+
+    @Override
+    public void onImportantNoteFetched(List<Note> fetchedNotes) {
+        homeScreenManipulationTasks.bindNotes(fetchedNotes);
     }
 }

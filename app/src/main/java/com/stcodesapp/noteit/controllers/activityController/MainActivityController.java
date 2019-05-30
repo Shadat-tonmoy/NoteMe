@@ -35,10 +35,10 @@ public class MainActivityController implements NavigationDrawerScreen.Listener {
     public void onNavigationDrawerItemClicked(int itemId) {
         switch (itemId)
         {
-            case R.id.nav_menu_1:
+            case R.id.important_menu:
                 fragmentNavigationTasks.toHomeScreen();
                 break;
-            case R.id.nav_menu_2:
+            case R.id.contact_menu:
                 fragmentNavigationTasks.toNavigationMenu1Fragment();
                 break;
 

@@ -43,8 +43,8 @@ public final class R {
         public static final int center = 0x7f080031;
         public static final int column = 0x7f080040;
         public static final int column_reverse = 0x7f080041;
-        public static final int flex_end = 0x7f08007f;
-        public static final int flex_start = 0x7f080080;
+        public static final int flex_end = 0x7f080081;
+        public static final int flex_start = 0x7f080082;
         public static final int nowrap = 0x7f0800c4;
         public static final int row = 0x7f0800da;
         public static final int row_reverse = 0x7f0800db;

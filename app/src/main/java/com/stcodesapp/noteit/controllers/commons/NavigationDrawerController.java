@@ -32,15 +32,15 @@ public class NavigationDrawerController implements NavigationDrawerScreen.Listen
     public void onNavigationDrawerItemClicked(int itemId) {
         switch (itemId)
         {
-            case R.id.home_screen:
+            case R.id.home_menu:
                 fragmentNavigationTasks.toHomeScreen();
                 updateToolbarTitle(FragmentTags.HOME_SCREEN);
                 break;
-            case R.id.nav_menu_1:
+            case R.id.important_menu:
                 fragmentNavigationTasks.toNavigationMenu1Fragment();
-                updateToolbarTitle(FragmentTags.NAVIGATION_MENU_1);
+                updateToolbarTitle(FragmentTags.IMPORTANT_NOTES);
                 break;
-            case R.id.nav_menu_2:
+            case R.id.contact_menu:
                 fragmentNavigationTasks.toNavigationMenu2Fragment();
                 updateToolbarTitle(FragmentTags.NAVIGATION_MENU_2);
                 break;
@@ -53,13 +53,13 @@ public class NavigationDrawerController implements NavigationDrawerScreen.Listen
         switch (title)
         {
             case FragmentTags.HOME_SCREEN:
-                navigationDrawerView.checkMenuItem(R.id.home_screen);
+                navigationDrawerView.checkMenuItem(R.id.home_menu);
                 break;
-            case FragmentTags.NAVIGATION_MENU_1:
-                navigationDrawerView.checkMenuItem(R.id.nav_menu_1);
+            case FragmentTags.IMPORTANT_NOTES:
+                navigationDrawerView.checkMenuItem(R.id.important_menu);
                 break;
             case FragmentTags.NAVIGATION_MENU_2:
-                navigationDrawerView.checkMenuItem(R.id.nav_menu_2);
+                navigationDrawerView.checkMenuItem(R.id.contact_menu);
                 break;
         }
     }

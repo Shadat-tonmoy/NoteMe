@@ -21,7 +21,7 @@ public final class R {
         private id() {}
 
         public static final int bottom = 0x7f08002f;
-        public static final int left = 0x7f080098;
+        public static final int left = 0x7f08009b;
         public static final int normal = 0x7f0800b5;
         public static final int right = 0x7f0800d7;
         public static final int same_level = 0x7f0800dc;

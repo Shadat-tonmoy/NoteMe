@@ -19,9 +19,9 @@ import com.stcodesapp.noteit.ui.views.screens.HomeScreen;
 
 public class HomeScreenFragment extends BaseFragment {
 
-    private HomeScreen homeScreenView;
-    private HomeScreenController homeScreenController;
-    private NoteListAdapter noteListAdapter;
+    public HomeScreen homeScreenView;
+    public HomeScreenController homeScreenController;
+    public NoteListAdapter noteListAdapter;
 
     public static HomeScreenFragment newInstance()
     {

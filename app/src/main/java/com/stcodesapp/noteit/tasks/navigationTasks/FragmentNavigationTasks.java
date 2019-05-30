@@ -2,7 +2,7 @@ package com.stcodesapp.noteit.tasks.navigationTasks;
 import com.stcodesapp.noteit.common.FragmentFrameHelper;
 import com.stcodesapp.noteit.constants.FragmentTags;
 import com.stcodesapp.noteit.ui.fragments.HomeScreenFragment;
-import com.stcodesapp.noteit.ui.fragments.NavigationMenu1Fragment;
+import com.stcodesapp.noteit.ui.fragments.ImportantNoteFragment;
 import com.stcodesapp.noteit.ui.fragments.NavigationMenu2Fragment;
 
 public class FragmentNavigationTasks {
@@ -23,7 +23,7 @@ public class FragmentNavigationTasks {
 
     public void toNavigationMenu1Fragment()
     {
-        fragmentFrameHelper.replaceFragment(NavigationMenu1Fragment.newInstance(), FragmentTags.NAVIGATION_MENU_1);
+        fragmentFrameHelper.replaceFragment(ImportantNoteFragment.newInstance(), FragmentTags.IMPORTANT_NOTES);
 
     }
 

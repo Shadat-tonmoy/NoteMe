@@ -21,6 +21,10 @@ public interface NotesDao {
     @Query("SELECT * FROM notes")
     List<Note> getAllNoes();
 
+
+    @Query("SELECT * FROM notes where isImportant")
+    List<Note> getImportantNoes();
+
     @Update
     void update(Note note);
 
