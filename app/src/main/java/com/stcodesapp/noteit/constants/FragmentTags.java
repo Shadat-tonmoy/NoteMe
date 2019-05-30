@@ -9,4 +9,5 @@ public class FragmentTags {
     public static final String IS_CONTACT = "is_contact";
     public static final String DATABASE_TASKS= "db_tasks";
     public static final String NOTE_ID = "note_id";
+    public static final String EMAILS = "EMAILS";
 }

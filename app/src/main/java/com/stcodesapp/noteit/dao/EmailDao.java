@@ -13,6 +13,11 @@ import java.util.List;
 @Dao
 public interface EmailDao {
 
+
+    @Query("select * from email")
+    List<Email> getAllEmails();
+
+
     @Insert
     long insertSingleEmail(Email email);
 

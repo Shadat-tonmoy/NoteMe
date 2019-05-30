@@ -44,10 +44,10 @@ public class NavigationDrawerController implements NavigationDrawerScreen.Listen
                 fragmentNavigationTasks.toContactFragment();
                 updateToolbarTitle(FragmentTags.CONTACTS);
                 break;
-            /*case R.id.email_menu:
-                fragmentNavigationTasks.toContactFragment();
-                updateToolbarTitle(FragmentTags.CONTACTS);
-                break;*/
+            case R.id.email_menu:
+                fragmentNavigationTasks.toEmailFragment();
+                updateToolbarTitle(FragmentTags.EMAILS);
+                break;
         }
     }
 

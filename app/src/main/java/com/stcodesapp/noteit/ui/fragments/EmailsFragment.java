@@ -11,20 +11,21 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.controllers.fragmentController.EmailFragmentController;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.ContactFragmentScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.EmailFragmentScreenView;
 
 public class EmailsFragment extends BaseFragment {
 
-    private EmailFragmentScreenView contactFragmentScreenView;
-//    private SeconFr secondaryScreenController;
+    private EmailFragmentScreenView emailFragmentScreenView;
+    private EmailFragmentController emailFragmentController;
 
     public static EmailsFragment newInstance()
     {
         Bundle args = new Bundle();
-        EmailsFragment contactsFragment = new EmailsFragment();
-        contactsFragment.setArguments(args);
-        return contactsFragment;
+        EmailsFragment emailsFragment = new EmailsFragment();
+        emailsFragment.setArguments(args);
+        return emailsFragment;
     }
 
 
@@ -32,25 +33,25 @@ public class EmailsFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        contactFragmentScreenView = getCompositionRoot().getViewFactory().getEmailFragmentScreenView(null);
-//        secondaryScreenController= getCompositionRoot().getFragmentControllerFactory().getSecondaryController();
-//        secondaryScreenController.bindView((NoteFieldScreenView) secondaryActivityScreenView);
+        emailFragmentScreenView = getCompositionRoot().getViewFactory().getEmailFragmentScreenView(null);
+        emailFragmentController= getCompositionRoot().getFragmentControllerFactory().getEmailFragmentController();
+        emailFragmentController.bindView(emailFragmentScreenView);
 //        ((AppCompatActivity)requireActivity()).setSupportActionBar(secondFragmentScreenView.getToolbar());
         setHasOptionsMenu(true);
-        return contactFragmentScreenView.getRootView();
+        return emailFragmentScreenView.getRootView();
     }
 
 
     @Override
     public void onStart() {
         super.onStart();
-//        secondaryScreenController.onStart();
+        emailFragmentController.onStart();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-//        secondaryScreenController.onStop();
+        emailFragmentController.onStop();
     }
 
 

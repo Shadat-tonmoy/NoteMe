@@ -7,6 +7,7 @@ import com.stcodesapp.noteit.controllers.activityController.ManualEmailActivityC
 import com.stcodesapp.noteit.controllers.activityController.NoteFieldController;
 import com.stcodesapp.noteit.controllers.commons.NavigationDrawerController;
 import com.stcodesapp.noteit.controllers.fragmentController.ContactFragmentController;
+import com.stcodesapp.noteit.controllers.fragmentController.EmailFragmentController;
 import com.stcodesapp.noteit.ui.activities.ManualEmailActivity;
 
 public class ControllerFactory {
@@ -50,5 +51,10 @@ public class ControllerFactory {
     public ContactFragmentController getContactFragmentController()
     {
         return new ContactFragmentController(tasksFactory);
+    }
+
+    public EmailFragmentController getEmailFragmentController()
+    {
+        return new EmailFragmentController(tasksFactory);
     }
 }

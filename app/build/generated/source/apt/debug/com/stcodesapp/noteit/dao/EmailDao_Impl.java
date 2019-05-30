@@ -93,6 +93,39 @@ public class EmailDao_Impl implements EmailDao {
   }
 
   @Override
+  public List<Email> getAllEmails() {
+    final String _sql = "select * from email";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    final Cursor _cursor = __db.query(_statement);
+    try {
+      final int _cursorIndexOfId = _cursor.getColumnIndexOrThrow("email_id");
+      final int _cursorIndexOfNoteId = _cursor.getColumnIndexOrThrow("note_id");
+      final int _cursorIndexOfEmailName = _cursor.getColumnIndexOrThrow("emailName");
+      final int _cursorIndexOfEmailID = _cursor.getColumnIndexOrThrow("emailID");
+      final List<Email> _result = new ArrayList<Email>(_cursor.getCount());
+      while(_cursor.moveToNext()) {
+        final Email _item;
+        final String _tmpEmailName;
+        _tmpEmailName = _cursor.getString(_cursorIndexOfEmailName);
+        final String _tmpEmailID;
+        _tmpEmailID = _cursor.getString(_cursorIndexOfEmailID);
+        _item = new Email(_tmpEmailName,_tmpEmailID);
+        final long _tmpId;
+        _tmpId = _cursor.getLong(_cursorIndexOfId);
+        _item.setId(_tmpId);
+        final long _tmpNoteId;
+        _tmpNoteId = _cursor.getLong(_cursorIndexOfNoteId);
+        _item.setNoteId(_tmpNoteId);
+        _result.add(_item);
+      }
+      return _result;
+    } finally {
+      _cursor.close();
+      _statement.release();
+    }
+  }
+
+  @Override
   public Email getEmailById(long id) {
     final String _sql = "select * from email where email_id = ?";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);

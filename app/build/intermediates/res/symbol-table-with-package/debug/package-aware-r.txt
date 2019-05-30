@@ -1239,6 +1239,7 @@ id email_divider
 id email_field
 id email_icon
 id email_id
+id email_list
 id email_menu
 id email_name
 id email_name_divider
@@ -1515,6 +1516,7 @@ layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout email_badge
 layout email_container
+layout email_fragment_screen
 layout email_holder
 layout email_option_layout
 layout email_single_row
@@ -1529,7 +1531,6 @@ layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout navigation_drawer_header
 layout navigation_drawer_layout
-layout navigation_menu_1_screen
 layout note_field_screen
 layout note_single_row
 layout notification_action
