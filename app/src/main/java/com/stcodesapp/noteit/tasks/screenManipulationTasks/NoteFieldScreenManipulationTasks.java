@@ -453,4 +453,8 @@ public class NoteFieldScreenManipulationTasks {
 
 
     }
+
+    public void hideDoneButton() {
+        noteFieldScreenView.getSaveBtton().setVisibility(View.GONE);
+    }
 }

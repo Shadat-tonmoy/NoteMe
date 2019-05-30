@@ -7,25 +7,25 @@
     format="10"
     ir-eligibility="COMPATIBLE"
     plugin-version="3.4.0"
-    timestamp="1559215747043"
+    timestamp="1559216270575"
     token="-909958535106817979"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="2771" />
+        duration="4505" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="30" />
+        duration="20" />
     <task
         name="verifier"
-        duration="15" />
+        duration="9" />
 
     <artifact
-        location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+        location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
         type="SPLIT" />
     <artifact
         location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
@@ -74,9 +74,15 @@
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="COMPATIBLE"
-        timestamp="1559215592540"
+        ir-eligibility="METHOD_ADDED"
+        timestamp="1559215944033"
         verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+            type="SPLIT" />
         <artifact
             location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
             type="SPLIT_MAIN" />
@@ -84,10 +90,10 @@
     <build
         build-mode="COLD"
         ir-eligibility="COMPATIBLE"
-        timestamp="1559215747043"
+        timestamp="1559216270575"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+            location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
             type="SPLIT" />
         <artifact
             location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/instant-run-apk/debug/app-debug.apk"

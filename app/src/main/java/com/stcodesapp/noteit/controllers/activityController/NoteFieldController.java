@@ -131,6 +131,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
             NoteComponentSelectionTask noteComponentSelectionTask = tasksFactory.getDatabaseTasks().getNoteComponentSelectionTask(this,noteComponents);
             noteComponentSelectionTask.execute(note.getId());
             isUpdating = true;
+            noteFieldScreenManipulationTasks.hideDoneButton();
 
             /*DatabaseTasks databaseTasks = tasksFactory.getDatabaseTasks();
             DatabaseSelectionTasksListener databaseSelectionTasksListener= listeningTasks.getDBSelectTasksListener(databaseTasks,noteComponents);
@@ -432,11 +433,21 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     {
         noteComponents.getChosenContacts().remove(contact);
         noteFieldScreenManipulationTasks.removeContactContainer();
+        if(noteComponents.getChosenContacts().size()==Constants.ZERO)
+        {
+            noteComponents.getNote().setContactPriority(Constants.ZERO);
+            updateNote(noteComponents.getNote());
+        }
     }
 
     @Override
     public void onEmailDeleted(Email email) {
         noteComponents.getEmails().remove(email);
+        if(noteComponents.getEmails().size()==Constants.ZERO)
+        {
+            noteComponents.getNote().setEmailPriority(Constants.ZERO);
+            updateNote(noteComponents.getNote());
+        }
         noteFieldScreenManipulationTasks.removeEmailContainer();
 
     }

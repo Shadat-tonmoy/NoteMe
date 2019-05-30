@@ -135,6 +135,11 @@ public class NoteFieldScreenView extends BaseObservableScreenView<NoteFieldScree
         return noteTextDivider;
     }
 
+    public View getSaveBtton()
+    {
+        return noteSaveButton;
+    }
+
     public Toolbar getToolbar() {
         return toolbar;
     }
