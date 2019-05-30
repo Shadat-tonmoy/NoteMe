@@ -5,24 +5,24 @@
     build-mode="COLD"
     density="xhdpi"
     format="10"
-    ir-eligibility="METHOD_ADDED"
+    ir-eligibility="COMPATIBLE"
     plugin-version="3.4.0"
-    timestamp="1559214304660"
+    timestamp="1559215747043"
     token="-909958535106817979"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="2895" />
+        duration="2771" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="20" />
+        duration="30" />
     <task
         name="verifier"
-        duration="13" />
+        duration="15" />
 
     <artifact
         location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
@@ -75,7 +75,7 @@
     <build
         build-mode="COLD"
         ir-eligibility="COMPATIBLE"
-        timestamp="1559214168690"
+        timestamp="1559215592540"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
@@ -83,8 +83,8 @@
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="METHOD_ADDED"
-        timestamp="1559214304660"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1559215747043"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_4.apk"

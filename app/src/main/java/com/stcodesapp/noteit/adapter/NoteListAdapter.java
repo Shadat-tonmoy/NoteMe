@@ -38,7 +38,6 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
     private Context context;
     private Listener listener;
     private Map<Integer, Boolean> emailFlag, contactFlag;
-    private Map<Integer, Note> noteMap;
     private Map<Integer, String> bgColor;
     public class ViewHolder extends RecyclerView.ViewHolder{
 
@@ -111,7 +110,16 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
                 viewHolder.badgeHolder.removeView(viewHolder.contactBadge);
             }
         }
-        setNoteBackgroundColor(viewHolder.noteRow, note.getBackgroundColor());
+        if(bgColor.get(i)==null)
+        {
+            setNoteBackgroundColor(viewHolder.noteRow, note.getBackgroundColor());
+            Log.e("BGColor","Null for postiton "+i+" Note "+note.toString());
+            bgColor.put(i,note.getBackgroundColor());
+        }
+        else
+        {
+            setNoteBackgroundColor(viewHolder.noteRow, bgColor.get(i));
+        }
         setClickListener(note,viewHolder.noteRow, viewHolder.contactBadge, viewHolder.emailBadge /*, viewHolder.editNote, viewHolder.deleteNote, viewHolder.moreOption*/);
 
     }
@@ -164,7 +172,10 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         {
             view.setBackgroundColor(context.getResources().getColor(BackgroundColors.getColorMaps().get(colorName)));
             view.getBackground().setAlpha(Constants.BACKGROUND_OPACITY);
-
+        }
+        else
+        {
+            view.setBackgroundColor(context.getResources().getColor(BackgroundColors.getColorMaps().get(colorName)));
         }
 
     }
@@ -195,7 +206,6 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         this.emailFlag = new HashMap<>();
         this.contactFlag = new HashMap<>();
         this.bgColor = new HashMap<>();
-        this.noteMap = new HashMap<>();
     }
 
     private void setClickListener(final Note note, View... views)
