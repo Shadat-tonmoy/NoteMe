@@ -77,6 +77,7 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
 
     private void startFetchingImportantNote()
     {
+        homeScreenManipulationTasks.hideAddButton();
         tasksFactory.getDatabaseTasks()
                 .getImportantNoteSelectTask(this)
                 .execute();

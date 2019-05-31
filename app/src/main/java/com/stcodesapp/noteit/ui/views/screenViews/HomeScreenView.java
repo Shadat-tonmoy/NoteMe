@@ -68,4 +68,9 @@ public class HomeScreenView extends BaseObservableScreenView<HomeScreen.Listener
     public NoteListAdapter getNoteListAdapter() {
         return noteListAdapter;
     }
+
+    @Override
+    public View getNoteAddButton() {
+        return noteAddButton;
+    }
 }

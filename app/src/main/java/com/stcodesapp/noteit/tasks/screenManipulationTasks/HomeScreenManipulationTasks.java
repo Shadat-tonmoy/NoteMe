@@ -2,6 +2,7 @@ package com.stcodesapp.noteit.tasks.screenManipulationTasks;
 
 import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Toast;
 
 import com.stcodesapp.noteit.R;
@@ -47,5 +48,9 @@ public class HomeScreenManipulationTasks {
         if(!note.isImportant())
             message = activity.getResources().getString(R.string.removed_from_favorite);
         Toast.makeText(activity,message,Toast.LENGTH_SHORT).show();
+    }
+
+    public void hideAddButton() {
+        homeScreenView.getNoteAddButton().setVisibility(View.GONE);
     }
 }
