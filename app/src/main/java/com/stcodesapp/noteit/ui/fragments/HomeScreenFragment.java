@@ -12,14 +12,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.adapter.NoteListAdapter;
 import com.stcodesapp.noteit.controllers.HomeScreenController;
+import com.stcodesapp.noteit.ui.views.screenViews.HomeScreenView;
 import com.stcodesapp.noteit.ui.views.screens.HomeScreen;
 
 public class HomeScreenFragment extends BaseFragment {
 
-    public HomeScreen homeScreenView;
+    public HomeScreenView homeScreenView;
     public HomeScreenController homeScreenController;
     public NoteListAdapter noteListAdapter;
 
@@ -41,6 +43,7 @@ public class HomeScreenFragment extends BaseFragment {
         setHasOptionsMenu(true);
         return homeScreenView.getRootView();
     }
+
 
     @Override
     public void onAttach(Context context) {
@@ -69,13 +72,20 @@ public class HomeScreenFragment extends BaseFragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.home_popup_menu,menu);
+        inflater.inflate(R.menu.home_menu,menu);
+        homeScreenView.onCreateOptionMenu(menu, (MaterialSearchView) requireActivity().findViewById(R.id.search_view));
+        homeScreenView.getSearchView().setOnQueryTextListener(homeScreenController);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        homeScreenController.onOptionMenuClicked(item.getItemId());
+//        homeScreenController.onOptionMenuClicked(item.getItemId());
         return true;
+    }
+
+    public boolean onBackPressed()
+    {
+        return homeScreenController.onBackPressed();
     }
 
 

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.adapter.NoteListAdapter;
 import com.stcodesapp.noteit.constants.FragmentTags;
@@ -24,7 +25,7 @@ import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
-public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask.Listener, NoteListAdapter.Listener, ImportantNoteSelectTask.Listener{
+public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask.Listener, NoteListAdapter.Listener, ImportantNoteSelectTask.Listener, MaterialSearchView.OnQueryTextListener{
 
 
     private TasksFactory tasksFactory;
@@ -118,14 +119,16 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     public void onOptionMenuClicked(int menuId) {
         switch (menuId)
         {
-            case R.id.popup_menu_1:
+            case R.id.note_search:
                 activityNavigationTasks.toSettingsScreen(new Bundle());
                 break;
-            case R.id.popup_menu_2:
-                break;
-            case R.id.popup_menu_3:
-                break;
+
         }
+    }
+
+    public boolean onBackPressed()
+    {
+        return homeScreenManipulationTasks.closeSearchView();
     }
 
     private void updateNote(Note note)
@@ -181,5 +184,16 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     @Override
     public void onImportantNoteFetched(List<Note> fetchedNotes) {
         homeScreenManipulationTasks.bindNotes(fetchedNotes);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        homeScreenManipulationTasks.performFilter(newText);
+        return false;
     }
 }

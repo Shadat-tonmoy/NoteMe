@@ -53,4 +53,17 @@ public class HomeScreenManipulationTasks {
     public void hideAddButton() {
         homeScreenView.getNoteAddButton().setVisibility(View.GONE);
     }
+
+    public void performFilter(String newText) {
+        homeScreenView.getNoteListAdapter().getNoteFilteringTask().getFilter().filter(newText);
+    }
+
+    public boolean closeSearchView() {
+        if(homeScreenView.getSearchView().isSearchOpen())
+        {
+            homeScreenView.getSearchView().closeSearch();
+            return true;
+        }
+        return false;
+    }
 }

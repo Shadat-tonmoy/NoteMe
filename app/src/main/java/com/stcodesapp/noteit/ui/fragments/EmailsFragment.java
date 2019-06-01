@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.controllers.fragmentController.EmailFragmentController;
-import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.ContactFragmentScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.EmailFragmentScreenView;
 
 public class EmailsFragment extends BaseFragment {
@@ -57,7 +56,7 @@ public class EmailsFragment extends BaseFragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.home_popup_menu,menu);
+        inflater.inflate(R.menu.home_menu,menu);
     }
 
     @Override

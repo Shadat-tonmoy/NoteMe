@@ -5,9 +5,12 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.adapter.NoteListAdapter;
 import com.stcodesapp.noteit.constants.EventTypes;
@@ -19,6 +22,7 @@ public class HomeScreenView extends BaseObservableScreenView<HomeScreen.Listener
     private FloatingActionButton noteAddButton;
     private RecyclerView noteList;
     private NoteListAdapter noteListAdapter;
+    private MaterialSearchView searchView;
 
     public HomeScreenView(LayoutInflater layoutInflater, @Nullable ViewGroup parent, NoteListAdapter noteListAdapter)
     {
@@ -33,6 +37,7 @@ public class HomeScreenView extends BaseObservableScreenView<HomeScreen.Listener
     public void inflateUIElements() {
         noteAddButton = findViewById(R.id.note_add_button);
         noteList = findViewById(R.id.note_list);
+        searchView = findViewById(R.id.search_view);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         noteList.setLayoutManager(layoutManager);
         noteList.setAdapter(noteListAdapter);
@@ -64,6 +69,12 @@ public class HomeScreenView extends BaseObservableScreenView<HomeScreen.Listener
     }
 
 
+    public void onCreateOptionMenu(Menu menu,MaterialSearchView searchView) {
+        MenuItem item = menu.findItem(R.id.note_search);
+        this.searchView = searchView;
+        searchView.setMenuItem(item);
+    }
+
     @Override
     public NoteListAdapter getNoteListAdapter() {
         return noteListAdapter;
@@ -72,5 +83,9 @@ public class HomeScreenView extends BaseObservableScreenView<HomeScreen.Listener
     @Override
     public View getNoteAddButton() {
         return noteAddButton;
+    }
+
+    public MaterialSearchView getSearchView() {
+        return searchView;
     }
 }

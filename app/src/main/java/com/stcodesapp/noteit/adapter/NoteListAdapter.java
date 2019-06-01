@@ -17,13 +17,20 @@ import com.stcodesapp.noteit.constants.BackgroundColors;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.tasks.UtilityTasks;
+import com.stcodesapp.noteit.tasks.filteringTasks.NoteFilteringTask;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHolder> {
+public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHolder> implements NoteFilteringTask.Listener {
 
+
+    @Override
+    public void onNoteFiltered(List<Note> filteredNotes) {
+        bindFilterredNotes(filteredNotes);
+    }
 
     public interface Listener {
         /*void onEditNoteClicked(Note note);
@@ -36,11 +43,13 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
     }
 
 
-    private List<Note> notes;
+    private List<Note> notes,filteredNotes;
     private Context context;
     private Listener listener;
     private Map<Integer, Boolean> emailFlag, contactFlag;
     private Map<Integer, String> bgColor;
+    private NoteFilteringTask noteFilteringTask;
+
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView noteHeader,noteText,noteTime;
@@ -192,8 +201,23 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
 
     public void bindNotes(List<Note> notes) {
         this.notes = notes;
+        this.filteredNotes = notes;
         initDS();
         notifyDataSetChanged();
+        noteFilteringTask = new NoteFilteringTask(filteredNotes,notes);
+        noteFilteringTask.setListener(this);
+
+    }
+
+    public void bindFilterredNotes(List<Note> notes) {
+        this.notes = new ArrayList<>(notes);
+        initDS();
+        notifyDataSetChanged();
+
+    }
+
+    public NoteFilteringTask getNoteFilteringTask() {
+        return noteFilteringTask;
     }
 
     private LinearLayout getEmailBadge()

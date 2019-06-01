@@ -446,9 +446,15 @@ attr rippleColor
 attr scrimAnimationDuration
 attr scrimBackground
 attr scrimVisibleHeightTrigger
+attr searchBackIcon
+attr searchBackground
+attr searchCloseIcon
 attr searchHintIcon
 attr searchIcon
+attr searchSuggestionBackground
+attr searchSuggestionIcon
 attr searchViewStyle
+attr searchVoiceIcon
 attr seekBarStyle
 attr selectableItemBackground
 attr selectableItemBackgroundBorderless
@@ -726,6 +732,7 @@ color purple700
 color red
 color ripple_material_dark
 color ripple_material_light
+color search_layover_bg
 color secondary_text_default_material_dark
 color secondary_text_default_material_light
 color secondary_text_disabled_material_dark
@@ -951,6 +958,8 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+dimen search_icon_padding
+dimen search_view_text_padding
 dimen toolbarTitle
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
@@ -1052,6 +1061,7 @@ drawable avd_show_password
 drawable back_white
 drawable call_black
 drawable close_black
+drawable color_cursor_white
 drawable contact_badge
 drawable contacts_gray
 drawable copy_black
@@ -1071,11 +1081,19 @@ drawable email_white
 drawable email_white_xs
 drawable folder_image
 drawable home_gray
+drawable ic_action_action_search
+drawable ic_action_navigation_arrow_back
+drawable ic_action_navigation_arrow_back_inverted
+drawable ic_action_navigation_close
+drawable ic_action_navigation_close_inverted
+drawable ic_action_voice_search
+drawable ic_action_voice_search_inverted
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_suggestion
 drawable image_foreground
 drawable list_white
 drawable menu
@@ -1119,6 +1137,7 @@ drawable round_shape_pumpkin
 drawable round_shape_purple
 drawable round_shape_white
 drawable save_as_pdf_white
+drawable search_white
 drawable send_black
 drawable settings
 drawable share
@@ -1146,6 +1165,7 @@ id action_bar_title
 id action_container
 id action_context_bar
 id action_divider
+id action_empty_btn
 id action_image
 id action_menu_divider
 id action_menu_presenter
@@ -1153,6 +1173,8 @@ id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
 id action_text
+id action_up_btn
+id action_voice_btn
 id actions
 id activity_chooser_view_content
 id add
@@ -1319,6 +1341,7 @@ id note_header
 id note_list
 id note_mic
 id note_row
+id note_search
 id note_text
 id note_text_divider
 id note_text_field
@@ -1340,9 +1363,6 @@ id parent_matrix
 id percent
 id pick_from_contact_option
 id pin
-id popup_menu_1
-id popup_menu_2
-id popup_menu_3
 id progress_circular
 id progress_horizontal
 id radio
@@ -1363,15 +1383,19 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
+id searchTextView
 id search_badge
 id search_bar
 id search_button
 id search_close_btn
 id search_edit_frame
 id search_go_btn
+id search_layout
 id search_mag_icon
 id search_plate
 id search_src_text
+id search_top_bar
+id search_view
 id search_voice_btn
 id select_dialog_listview
 id selected
@@ -1401,6 +1425,9 @@ id start
 id stretch
 id submenuarrow
 id submit_area
+id suggestion_icon
+id suggestion_list
+id suggestion_text
 id tabMode
 id tag_transition_group
 id tag_unhandled_key_event_manager
@@ -1421,6 +1448,7 @@ id titleDividerNoCustom
 id title_mic
 id title_template
 id title_text
+id toolbar_container
 id toolbar_title
 id top
 id topPanel
@@ -1430,6 +1458,7 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id transparent_view
 id ui_component_container
 id ui_component_root
 id ui_root
@@ -1522,6 +1551,7 @@ layout email_option_layout
 layout email_single_row
 layout fragment_container_layout
 layout home_screen
+layout home_screen_toolbar_layout
 layout image_container
 layout image_holder
 layout main_activity_layout
@@ -1542,13 +1572,15 @@ layout notification_template_part_time
 layout phone_no_list_bottom_sheet_layout
 layout phone_no_option_bottom_sheet_layout
 layout rounded_view
+layout search_view
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout suggest_item
 layout support_simple_spinner_dropdown_item
 layout toolbar
 layout toolbar_layout
-menu home_popup_menu
+menu home_menu
 menu navigation_drawer_menu
 menu note_add_menu
 mipmap ic_launcher
@@ -1679,6 +1711,8 @@ string remove
 string removed_from_favorite
 string save
 string save_note
+string search
+string search_hint
 string search_menu_title
 string second_activity
 string secondary_fragment
@@ -1893,6 +1927,7 @@ style Base_Widget_MaterialComponents_TextInputLayout
 style CardView
 style CardView_Dark
 style CardView_Light
+style MSV_ImageButton
 style Platform_AppCompat
 style Platform_AppCompat_Light
 style Platform_MaterialComponents
@@ -2248,6 +2283,7 @@ styleable ListPopupWindow android_dropDownHorizontalOffset android_dropDownVerti
 styleable MaterialButton android_insetLeft android_insetRight android_insetTop android_insetBottom backgroundTint backgroundTintMode cornerRadius icon iconGravity iconPadding iconSize iconTint iconTintMode rippleColor strokeColor strokeWidth
 styleable MaterialCardView strokeColor strokeWidth
 styleable MaterialComponentsTheme bottomSheetDialogTheme bottomSheetStyle chipGroupStyle chipStandaloneStyle chipStyle colorAccent colorBackgroundFloating colorPrimary colorPrimaryDark colorSecondary editTextStyle floatingActionButtonStyle materialButtonStyle materialCardViewStyle navigationViewStyle scrimBackground snackbarButtonStyle tabStyle textAppearanceBody1 textAppearanceBody2 textAppearanceButton textAppearanceCaption textAppearanceHeadline1 textAppearanceHeadline2 textAppearanceHeadline3 textAppearanceHeadline4 textAppearanceHeadline5 textAppearanceHeadline6 textAppearanceOverline textAppearanceSubtitle1 textAppearanceSubtitle2 textInputStyle
+styleable MaterialSearchView android_textColor android_textColorHint android_hint searchBackIcon searchBackground searchCloseIcon searchSuggestionBackground searchSuggestionIcon searchVoiceIcon
 styleable MenuGroup android_enabled android_id android_visible android_menuCategory android_orderInCategory android_checkableBehavior
 styleable MenuItem android_icon android_enabled android_id android_checked android_visible android_menuCategory android_orderInCategory android_title android_titleCondensed android_alphabeticShortcut android_numericShortcut android_checkable android_onClick actionLayout actionProviderClass actionViewClass alphabeticModifiers contentDescription iconTint iconTintMode numericModifiers showAsAction tooltipText
 styleable MenuView android_windowAnimationStyle android_itemTextAppearance android_horizontalDivider android_verticalDivider android_headerBackground android_itemBackground android_itemIconDisabledAlpha preserveIconSpacing subMenuArrow

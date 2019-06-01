@@ -55,7 +55,7 @@ public class ContactsFragment extends BaseFragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.home_popup_menu,menu);
+        inflater.inflate(R.menu.home_menu,menu);
     }
 
     @Override

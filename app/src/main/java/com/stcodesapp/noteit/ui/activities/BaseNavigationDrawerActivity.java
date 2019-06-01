@@ -10,6 +10,7 @@ import com.stcodesapp.noteit.common.FragmentFrameHelper;
 import com.stcodesapp.noteit.controllers.commons.FragmentFrameWrapper;
 import com.stcodesapp.noteit.controllers.commons.NavigationDrawerController;
 import com.stcodesapp.noteit.ui.commons.NavigationDrawerView;
+import com.stcodesapp.noteit.ui.fragments.HomeScreenFragment;
 
 public class BaseNavigationDrawerActivity extends BaseActivity implements FragmentFrameWrapper {
 
@@ -65,6 +66,11 @@ public class BaseNavigationDrawerActivity extends BaseActivity implements Fragme
 
     @Override
     public void onBackPressed() {
+        if((getCompositionRoot().getCurrentFragment()) instanceof  HomeScreenFragment)
+        {
+            if(((HomeScreenFragment)(getCompositionRoot().getCurrentFragment())).onBackPressed())
+                return;
+        }
         if(navigationDrawerView.isDrawerOpen())
         {
             navigationDrawerView.closeNavDrawer();

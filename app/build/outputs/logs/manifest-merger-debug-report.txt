@@ -15,6 +15,7 @@ ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/Android
 INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-48:12
 INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-48:12
 INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-48:12
+MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/65137e17d16f9ae2743fca2afdae3ae7/AndroidManifest.xml:2:1-13:12
 MERGED from [com.android.support:design:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3d44d17547dd1f827030aacfcd3932ff/AndroidManifest.xml:17:1-24:12
 MERGED from [com.github.RaviKoradiya:ZoomableImageView:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/532ad281426b22f99ed735c16fc01b96/AndroidManifest.xml:2:1-16:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c549c8990ba4fbd5655852a8d7f455d1/AndroidManifest.xml:17:1-22:12
@@ -93,6 +94,8 @@ ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/Android
 		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:9:22-66
 application
 ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:11:5-46:19
+MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/65137e17d16f9ae2743fca2afdae3ae7/AndroidManifest.xml:11:5-20
+MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/65137e17d16f9ae2743fca2afdae3ae7/AndroidManifest.xml:11:5-20
 MERGED from [com.android.support:design:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3d44d17547dd1f827030aacfcd3932ff/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3d44d17547dd1f827030aacfcd3932ff/AndroidManifest.xml:22:5-20
 MERGED from [com.github.RaviKoradiya:ZoomableImageView:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/532ad281426b22f99ed735c16fc01b96/AndroidManifest.xml:11:5-14:19
@@ -163,6 +166,8 @@ uses-sdk
 INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
 INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
+MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/65137e17d16f9ae2743fca2afdae3ae7/AndroidManifest.xml:7:5-9:41
+MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/65137e17d16f9ae2743fca2afdae3ae7/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:design:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3d44d17547dd1f827030aacfcd3932ff/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:design:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3d44d17547dd1f827030aacfcd3932ff/AndroidManifest.xml:20:5-44
 MERGED from [com.github.RaviKoradiya:ZoomableImageView:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/532ad281426b22f99ed735c16fc01b96/AndroidManifest.xml:7:5-9:41

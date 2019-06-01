@@ -85,4 +85,5 @@
     <string name="removed_from_favorite">Note is removed from favorite</string>
     <string name="home">Home</string>
     <string name="important">Importants</string>
+    <string name="search">Search</string>
 </resources>
