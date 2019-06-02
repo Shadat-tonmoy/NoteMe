@@ -86,4 +86,13 @@
     <string name="home">Home</string>
     <string name="important">Importants</string>
     <string name="search">Search</string>
+    <string name="sort">Sort</string>
+    <string name="sort_by">Sort By</string>
+
+    <string-array name="sorting_choices">
+        <item>Ascending</item>
+        <item>Descending</item>
+    </string-array>
+
+
 </resources>

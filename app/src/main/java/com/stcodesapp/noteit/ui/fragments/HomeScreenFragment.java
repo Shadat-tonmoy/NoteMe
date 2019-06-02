@@ -79,7 +79,7 @@ public class HomeScreenFragment extends BaseFragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-//        homeScreenController.onOptionMenuClicked(item.getItemId());
+        homeScreenController.onOptionMenuClicked(item.getItemId());
         return true;
     }
 

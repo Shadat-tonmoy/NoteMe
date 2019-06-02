@@ -119,8 +119,9 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     public void onOptionMenuClicked(int menuId) {
         switch (menuId)
         {
-            case R.id.note_search:
-                activityNavigationTasks.toSettingsScreen(new Bundle());
+            case R.id.note_sort:
+                Log.e("WillSort","NoteList");
+                homeScreenManipulationTasks.showSortingOptionDialog();
                 break;
 
         }

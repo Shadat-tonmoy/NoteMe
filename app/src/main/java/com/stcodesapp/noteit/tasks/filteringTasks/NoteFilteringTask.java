@@ -38,7 +38,9 @@ public class NoteFilteringTask implements Filterable {
                     List<Note> filteredNoteList = new ArrayList<>();
                     for(Note note:notes)
                     {
-                        if(note.getNoteTitle().toLowerCase().contains(text.toLowerCase()))
+                        if
+                        ( note.getNoteTitle().toLowerCase().contains(text.toLowerCase()) ||
+                            note.getNoteText().toLowerCase().contains(text.toLowerCase()))
                             filteredNoteList.add(note);
                     }
                     filteredNotes = filteredNoteList;

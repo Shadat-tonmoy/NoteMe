@@ -25,6 +25,7 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array sorting_choices
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -1141,6 +1142,7 @@ drawable search_white
 drawable send_black
 drawable settings
 drawable share
+drawable sort_white
 drawable star_border
 drawable star_gold
 drawable tag
@@ -1338,16 +1340,23 @@ id none
 id normal
 id note_add_button
 id note_header
+id note_important_text
 id note_list
 id note_mic
 id note_row
 id note_search
+id note_sort
 id note_text
+id note_text_choices
 id note_text_divider
 id note_text_field
+id note_text_text
 id note_time
+id note_time_text
+id note_title_choices
 id note_title_divider
 id note_title_field
+id note_title_text
 id notification_background
 id notification_main_column
 id notification_main_column_container
@@ -1410,6 +1419,8 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
+id sort_by_text
+id sorting_option_container
 id space_around
 id space_between
 id space_evenly
@@ -1551,7 +1562,6 @@ layout email_option_layout
 layout email_single_row
 layout fragment_container_layout
 layout home_screen
-layout home_screen_toolbar_layout
 layout image_container
 layout image_holder
 layout main_activity_layout
@@ -1576,6 +1586,11 @@ layout search_view
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout sort_by_note_important
+layout sort_by_note_text
+layout sort_by_note_time
+layout sort_by_note_title
+layout sorting_option_dialog_layout
 layout suggest_item
 layout support_simple_spinner_dropdown_item
 layout toolbar
@@ -1719,6 +1734,8 @@ string secondary_fragment
 string settings
 string share_note
 string share_the_app
+string sort
+string sort_by
 string status_bar_notification_info_overflow
 string storage_permission_is_required
 string test
@@ -2230,6 +2247,8 @@ style noteHeaderContainer
 style noteHeaderStyle
 style noteTextStyle
 style noteTextStyleSmall
+style sorting_option_spinner_style
+style sorting_option_text_style
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth

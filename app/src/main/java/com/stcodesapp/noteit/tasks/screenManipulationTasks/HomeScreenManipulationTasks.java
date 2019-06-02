@@ -9,6 +9,7 @@ import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.FragmentTags;
 import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.ui.fragments.PhoneNoListBottomSheets;
+import com.stcodesapp.noteit.ui.fragments.SortingOptionDialog;
 import com.stcodesapp.noteit.ui.views.screenViews.HomeScreenView;
 import com.stcodesapp.noteit.ui.views.screens.HomeScreen;
 
@@ -65,5 +66,10 @@ public class HomeScreenManipulationTasks {
             return true;
         }
         return false;
+    }
+
+    public void showSortingOptionDialog() {
+        SortingOptionDialog sortingOptionDialog = new SortingOptionDialog();
+        sortingOptionDialog.show(((AppCompatActivity)activity).getSupportFragmentManager(),FragmentTags.SORTING_OPTIONS);
     }
 }

@@ -10,6 +10,7 @@ import com.stcodesapp.noteit.ui.views.screenViews.HomeScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.ManualContactScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.ManualEmailScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
+import com.stcodesapp.noteit.ui.views.screenViews.dialogScreenView.SortingOptionDialogScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.ContactFragmentScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.EmailFragmentScreenView;
 
@@ -55,6 +56,11 @@ public class ViewFactory {
     public ManualEmailScreenView getManualEmailScreenView(ViewGroup parent)
     {
         return new ManualEmailScreenView(layoutInflater,parent);
+    }
+
+    public SortingOptionDialogScreenView getSortingOptionDialogScreenView(ViewGroup parent)
+    {
+        return new SortingOptionDialogScreenView(layoutInflater,parent);
     }
 
     public NoteListAdapter getNoteListAdapte(Context context, NoteListAdapter.Listener listener)
