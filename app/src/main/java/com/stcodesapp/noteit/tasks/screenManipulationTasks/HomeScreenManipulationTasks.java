@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.FragmentTags;
+import com.stcodesapp.noteit.controllers.dialogController.SortingOptionDialogController;
 import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.ui.fragments.PhoneNoListBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.SortingOptionDialog;
@@ -68,8 +69,9 @@ public class HomeScreenManipulationTasks {
         return false;
     }
 
-    public void showSortingOptionDialog() {
+    public void showSortingOptionDialog(SortingOptionDialog.Listener listener) {
         SortingOptionDialog sortingOptionDialog = new SortingOptionDialog();
+        sortingOptionDialog.setListener(listener);
         sortingOptionDialog.show(((AppCompatActivity)activity).getSupportFragmentManager(),FragmentTags.SORTING_OPTIONS);
     }
 }

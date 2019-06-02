@@ -10,6 +10,7 @@ import com.stcodesapp.noteit.adapter.NoteListAdapter;
 import com.stcodesapp.noteit.constants.FragmentTags;
 import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.constants.Tags;
+import com.stcodesapp.noteit.controllers.dialogController.SortingOptionDialogController;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.tasks.databaseTasks.NoteUpdateTask;
@@ -19,13 +20,14 @@ import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.HomeScreenManipulationTasks;
 import com.stcodesapp.noteit.ui.fragments.PhoneNoListBottomSheets;
+import com.stcodesapp.noteit.ui.fragments.SortingOptionDialog;
 import com.stcodesapp.noteit.ui.views.screens.HomeScreen;
 
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
-public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask.Listener, NoteListAdapter.Listener, ImportantNoteSelectTask.Listener, MaterialSearchView.OnQueryTextListener{
+public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask.Listener, NoteListAdapter.Listener, ImportantNoteSelectTask.Listener, MaterialSearchView.OnQueryTextListener, SortingOptionDialog.Listener {
 
 
     private TasksFactory tasksFactory;
@@ -100,7 +102,7 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
         }
     }
 
-    private void checkForAddedNote(Intent data)
+    /*private void checkForAddedNote(Intent data)
     {
         boolean isAdded = data.getBooleanExtra(Tags.NOTE_ADDED,false);
         Log.e("NoteAdded",isAdded+" is result");
@@ -114,14 +116,13 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
         Log.e("NoteUpdated",isUpdated+" is result");
         if(isUpdated)
             startFetchingNote();
-    }
+    }*/
 
     public void onOptionMenuClicked(int menuId) {
         switch (menuId)
         {
             case R.id.note_sort:
-                Log.e("WillSort","NoteList");
-                homeScreenManipulationTasks.showSortingOptionDialog();
+                homeScreenManipulationTasks.showSortingOptionDialog(this);
                 break;
 
         }
@@ -196,5 +197,29 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     public boolean onQueryTextChange(String newText) {
         homeScreenManipulationTasks.performFilter(newText);
         return false;
+    }
+
+    @Override
+    public void onNoteTitleOptionSelected(int position) {
+        Log.e("selected","title "+position);
+
+    }
+
+    @Override
+    public void onNoteTextOptionSelected(int position) {
+        Log.e("selected","text "+position);
+
+    }
+
+    @Override
+    public void onNoteTimeOptionSelected(int position) {
+        Log.e("selected","time "+position);
+
+    }
+
+    @Override
+    public void onNoteImportantOptionSelected(int position) {
+        Log.e("selected","important "+position);
+
     }
 }

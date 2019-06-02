@@ -1,22 +1,21 @@
 package com.stcodesapp.noteit.ui.views.screenViews.dialogScreenView;
 
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Spinner;
-
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.SpinnerType;
-import com.stcodesapp.noteit.tasks.filteringTasks.NoteFilteringTask;
 import com.stcodesapp.noteit.ui.views.baseScreens.BaseObservableScreenView;
 import com.stcodesapp.noteit.ui.views.screens.dialogScreen.SortingOptionDialogScreen;
 
 public class SortingOptionDialogScreenView extends BaseObservableScreenView<SortingOptionDialogScreen.Listener> implements SortingOptionDialogScreen {
 
     private Spinner titleOptions, noteOptions, createdOptions, importantOptions;
+    private boolean firstTime = true;
+    private int eventCount = 0;
 
     public SortingOptionDialogScreenView(LayoutInflater layoutInflater, @Nullable ViewGroup parent)
     {
@@ -53,22 +52,35 @@ public class SortingOptionDialogScreenView extends BaseObservableScreenView<Sort
                 switch (spinnerType)
                 {
                     case NOTE_TITLE:
-                        Log.e("selected","title "+position);
+                        if(!firstTime)
+                            for (Listener listener:getListeners())
+                                listener.onNoteTitleOptionSelected(position);
                         break;
                     case NOTE_TEXT:
-                        Log.e("selected","text "+position);
+                        if(!firstTime)
+                            for (Listener listener:getListeners())
+                                listener.onNoteTextOptionSelected(position);
                         break;
                     case NOTE_TIME:
-                        Log.e("selected","time "+position);
+                        if(!firstTime)
+                            for (Listener listener:getListeners())
+                                listener.onNoteTimeOptionSelected(position);
                         break;
                     case NOTE_IMPORTANT:
-                        Log.e("selected","important "+position);
+                        if(!firstTime)
+                            for (Listener listener:getListeners())
+                                listener.onNoteImportantOptionSelected(position);
                         break;
                 }
+                eventCount++;
+                if(eventCount==4)
+                    firstTime = false;
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+
+
 
             }
         });

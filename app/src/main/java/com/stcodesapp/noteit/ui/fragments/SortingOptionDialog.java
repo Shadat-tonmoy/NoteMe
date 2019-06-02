@@ -7,21 +7,31 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 
+import com.stcodesapp.noteit.constants.FragmentTags;
 import com.stcodesapp.noteit.controllers.dialogController.SortingOptionDialogController;
 import com.stcodesapp.noteit.ui.activities.BaseActivity;
 import com.stcodesapp.noteit.ui.views.screenViews.dialogScreenView.SortingOptionDialogScreenView;
 
-public class SortingOptionDialog  extends DialogFragment/* implements CharacterLimitDialogController.Listener*/{
+public class SortingOptionDialog  extends DialogFragment implements SortingOptionDialogController.Listener{
 
     /*@Override
     public void onDismissDialog() {
         this.dismiss();
     }*/
 
+    public interface Listener{
+        void onNoteTitleOptionSelected(int position);
+        void onNoteTextOptionSelected(int position);
+        void onNoteTimeOptionSelected(int position);
+        void onNoteImportantOptionSelected(int position);
+    }
+
     private Activity activity;
     private SortingOptionDialogScreenView sortingOptionDialogScreenView;
     private SortingOptionDialogController sortingOptionDialogController;
+    private Listener listener;
 
 
     @Override
@@ -36,8 +46,14 @@ public class SortingOptionDialog  extends DialogFragment/* implements CharacterL
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         sortingOptionDialogScreenView = ((BaseActivity)requireActivity()).getCompositionRoot().getViewFactory().getSortingOptionDialogScreenView(null);
         sortingOptionDialogController = ((BaseActivity)requireActivity()).getCompositionRoot().getFragmentControllerFactory().getSortingOptionDialogController();
+        /*sortingOptionDialogController.setListener(
+                ((HomeScreenFragment)((AppCompatActivity)activity)
+                        .getSupportFragmentManager()
+                        .findFragmentByTag(FragmentTags.HOME_SCREEN))
+                        .homeScreenController);*/
+        sortingOptionDialogController.setListener(this);
+
         sortingOptionDialogController.bindView(sortingOptionDialogScreenView);
-//        sortingOptionDialogController.setListener(this);
         builder.setView(sortingOptionDialogScreenView.getRootView());
         return builder.create();
 
@@ -53,5 +69,41 @@ public class SortingOptionDialog  extends DialogFragment/* implements CharacterL
     public void onStop() {
         super.onStop();
         sortingOptionDialogController.onStop();
+    }
+
+    public void setListener(Listener listener) {
+        this.listener = listener;
+    }
+
+    @Override
+    public void onNoteTitleOptionSelected(int position) {
+        listener.onNoteTitleOptionSelected(position);
+        dismissDialog();
+
+    }
+
+    @Override
+    public void onNoteTextOptionSelected(int position) {
+        listener.onNoteTextOptionSelected(position);
+        dismissDialog();
+
+    }
+
+    @Override
+    public void onNoteTimeOptionSelected(int position) {
+        listener.onNoteTimeOptionSelected(position);
+        dismissDialog();
+
+    }
+
+    @Override
+    public void onNoteImportantOptionSelected(int position) {
+        listener.onNoteImportantOptionSelected(position);
+        dismissDialog();
+    }
+
+    private void dismissDialog()
+    {
+        this.dismiss();
     }
 }

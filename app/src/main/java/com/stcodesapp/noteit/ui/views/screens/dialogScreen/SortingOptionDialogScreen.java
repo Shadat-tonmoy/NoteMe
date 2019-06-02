@@ -6,5 +6,12 @@ public interface SortingOptionDialogScreen extends BaseObservableScreen<SortingO
 
     interface Listener{
 
+        void onNoteTitleOptionSelected(int position);
+
+        void onNoteTextOptionSelected(int position);
+
+        void onNoteTimeOptionSelected(int position);
+
+        void onNoteImportantOptionSelected(int position);
     }
 }
