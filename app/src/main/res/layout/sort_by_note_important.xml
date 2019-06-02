@@ -14,7 +14,7 @@
         style="@style/sorting_option_text_style" />
 
     <Spinner
-        android:id="@+id/note_text_choices"
+        android:id="@+id/note_important_choices"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"

@@ -1340,6 +1340,7 @@ id none
 id normal
 id note_add_button
 id note_header
+id note_important_choices
 id note_important_text
 id note_list
 id note_mic
@@ -1352,6 +1353,7 @@ id note_text_divider
 id note_text_field
 id note_text_text
 id note_time
+id note_time_choices
 id note_time_text
 id note_title_choices
 id note_title_divider

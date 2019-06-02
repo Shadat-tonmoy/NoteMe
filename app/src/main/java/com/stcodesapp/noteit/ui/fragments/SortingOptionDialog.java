@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 
+import com.stcodesapp.noteit.controllers.dialogController.SortingOptionDialogController;
 import com.stcodesapp.noteit.ui.activities.BaseActivity;
 import com.stcodesapp.noteit.ui.views.screenViews.dialogScreenView.SortingOptionDialogScreenView;
 
@@ -20,7 +21,7 @@ public class SortingOptionDialog  extends DialogFragment/* implements CharacterL
 
     private Activity activity;
     private SortingOptionDialogScreenView sortingOptionDialogScreenView;
-//    private CharacterLimitDialogController characterLimitDialogController;
+    private SortingOptionDialogController sortingOptionDialogController;
 
 
     @Override
@@ -34,9 +35,9 @@ public class SortingOptionDialog  extends DialogFragment/* implements CharacterL
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         sortingOptionDialogScreenView = ((BaseActivity)requireActivity()).getCompositionRoot().getViewFactory().getSortingOptionDialogScreenView(null);
-//        characterLimitDialogController = ((BaseActivity)getActivity()).getCompositionRoot().getCharacterLimitDialogController();
-//        characterLimitDialogController.bindView(characterLimitDialogScreenView);
-//        characterLimitDialogController.setListener(this);
+        sortingOptionDialogController = ((BaseActivity)requireActivity()).getCompositionRoot().getFragmentControllerFactory().getSortingOptionDialogController();
+        sortingOptionDialogController.bindView(sortingOptionDialogScreenView);
+//        sortingOptionDialogController.setListener(this);
         builder.setView(sortingOptionDialogScreenView.getRootView());
         return builder.create();
 
@@ -45,12 +46,12 @@ public class SortingOptionDialog  extends DialogFragment/* implements CharacterL
     @Override
     public void onStart() {
         super.onStart();
-//        characterLimitDialogController.onStart();
+        sortingOptionDialogController.onStart();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-//        characterLimitDialogController.onStop();
+        sortingOptionDialogController.onStop();
     }
 }

@@ -23,9 +23,9 @@ public final class R {
         public static final int bottom = 0x7f090032;
         public static final int left = 0x7f0900a0;
         public static final int normal = 0x7f0900ba;
-        public static final int right = 0x7f0900e1;
-        public static final int same_level = 0x7f0900e6;
-        public static final int top = 0x7f090136;
+        public static final int right = 0x7f0900e3;
+        public static final int same_level = 0x7f0900e8;
+        public static final int top = 0x7f090138;
     }
     public static final class styleable {
         private styleable() {}
