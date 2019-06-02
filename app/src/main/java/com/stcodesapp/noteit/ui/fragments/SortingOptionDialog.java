@@ -46,14 +46,10 @@ public class SortingOptionDialog  extends DialogFragment implements SortingOptio
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         sortingOptionDialogScreenView = ((BaseActivity)requireActivity()).getCompositionRoot().getViewFactory().getSortingOptionDialogScreenView(null);
         sortingOptionDialogController = ((BaseActivity)requireActivity()).getCompositionRoot().getFragmentControllerFactory().getSortingOptionDialogController();
-        /*sortingOptionDialogController.setListener(
-                ((HomeScreenFragment)((AppCompatActivity)activity)
-                        .getSupportFragmentManager()
-                        .findFragmentByTag(FragmentTags.HOME_SCREEN))
-                        .homeScreenController);*/
         sortingOptionDialogController.setListener(this);
 
         sortingOptionDialogController.bindView(sortingOptionDialogScreenView);
+        sortingOptionDialogController.bindBundle(getArguments());
         builder.setView(sortingOptionDialogScreenView.getRootView());
         return builder.create();
 

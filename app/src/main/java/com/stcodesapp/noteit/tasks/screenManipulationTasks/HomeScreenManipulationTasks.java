@@ -1,6 +1,7 @@
 package com.stcodesapp.noteit.tasks.screenManipulationTasks;
 
 import android.app.Activity;
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
@@ -70,8 +71,9 @@ public class HomeScreenManipulationTasks {
         return false;
     }
 
-    public void showSortingOptionDialog(SortingOptionDialog.Listener listener) {
+    public void showSortingOptionDialog(SortingOptionDialog.Listener listener, Bundle args) {
         SortingOptionDialog sortingOptionDialog = new SortingOptionDialog();
+        sortingOptionDialog.setArguments(args);
         sortingOptionDialog.setListener(listener);
         sortingOptionDialog.show(((AppCompatActivity)activity).getSupportFragmentManager(),FragmentTags.SORTING_OPTIONS);
     }

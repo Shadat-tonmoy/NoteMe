@@ -13,6 +13,7 @@ import com.stcodesapp.noteit.tasks.screenManipulationTasks.HomeScreenManipulatio
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.ManualContactScreenManipulationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.ManualEmailScreenManipulationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.NoteFieldScreenManipulationTasks;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.SortingDialogManipulationTask;
 import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.ClipboardTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.SharingTasks;
@@ -106,6 +107,11 @@ public class TasksFactory {
     public NoteFieldValidationTask getNoteFieldValidationTask(NoteComponents noteComponents)
     {
         return new NoteFieldValidationTask(activity,noteComponents);
+    }
+
+    public SortingDialogManipulationTask getSortingDialogManipulationTask()
+    {
+        return new SortingDialogManipulationTask(activity);
     }
 
 

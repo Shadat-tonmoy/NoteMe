@@ -36,6 +36,7 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     private ActivityNavigationTasks activityNavigationTasks;
     private FragmentNavigationTasks fragmentNavigationTasks;
     private HomeScreenManipulationTasks homeScreenManipulationTasks;
+    private boolean titleAsc = true, textAsc = true, timeAsc = true, importantAsc = true;
 
     public HomeScreenController(TasksFactory tasksFactory)
     {
@@ -123,7 +124,7 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
         switch (menuId)
         {
             case R.id.note_sort:
-                homeScreenManipulationTasks.showSortingOptionDialog(this);
+                homeScreenManipulationTasks.showSortingOptionDialog(this,getSortingSelectionBundle());
                 break;
 
         }
@@ -137,6 +138,16 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     private void updateNote(Note note)
     {
         tasksFactory.getDatabaseTasks().getNoteUpdateTask().execute(note);
+    }
+
+    private Bundle getSortingSelectionBundle()
+    {
+        Bundle bundle = new Bundle();
+        bundle.putBoolean(FragmentTags.TITILE_ASC,titleAsc);
+        bundle.putBoolean(FragmentTags.TEXT_ASC,textAsc);
+        bundle.putBoolean(FragmentTags.TIME_ASC,timeAsc);
+        bundle.putBoolean(FragmentTags.IMPORTANT_ASC,importantAsc);
+        return bundle;
     }
 
     @Override
@@ -204,6 +215,7 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     public void onNoteTitleOptionSelected(int position) {
         Log.e("selected","title "+position);
         boolean ascending = position == 0;
+        titleAsc = ascending;
         homeScreenManipulationTasks.sortNote(SortingType.NOTE_TITLE,ascending);
 
     }
@@ -211,18 +223,27 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     @Override
     public void onNoteTextOptionSelected(int position) {
         Log.e("selected","text "+position);
+        boolean ascending = position == 0;
+        textAsc = ascending;
+        homeScreenManipulationTasks.sortNote(SortingType.NOTE_TEXT,ascending);
 
     }
 
     @Override
     public void onNoteTimeOptionSelected(int position) {
         Log.e("selected","time "+position);
+        boolean ascending = position == 0;
+        timeAsc = ascending;
+        homeScreenManipulationTasks.sortNote(SortingType.NOTE_TIME,ascending);
 
     }
 
     @Override
     public void onNoteImportantOptionSelected(int position) {
         Log.e("selected","important "+position);
+        boolean ascending = position == 0;
+        importantAsc = ascending;
+        homeScreenManipulationTasks.sortNote(SortingType.NOTE_IMPORTANT,ascending);
 
     }
 }

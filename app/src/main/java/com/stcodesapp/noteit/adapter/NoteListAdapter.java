@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.BackgroundColors;
@@ -36,6 +37,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
     @Override
     public void onSortingFinished(List<Note> sortedNotes) {
         bindSortedNotes(sortedNotes);
+        Toast.makeText(context,context.getResources().getString(R.string.notes_are_sorted),Toast.LENGTH_SHORT).show();
 
     }
 

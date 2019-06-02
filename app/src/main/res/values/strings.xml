@@ -88,6 +88,7 @@
     <string name="search">Search</string>
     <string name="sort">Sort</string>
     <string name="sort_by">Sort By</string>
+    <string name="notes_are_sorted">Notes are sorted</string>
 
     <string-array name="sorting_choices">
         <item>Ascending</item>

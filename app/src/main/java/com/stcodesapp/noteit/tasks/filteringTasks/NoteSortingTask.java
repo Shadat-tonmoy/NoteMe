@@ -1,5 +1,7 @@
 package com.stcodesapp.noteit.tasks.filteringTasks;
 
+import android.widget.Toast;
+
 import com.stcodesapp.noteit.constants.SortingType;
 import com.stcodesapp.noteit.models.Note;
 
@@ -21,7 +23,7 @@ public class NoteSortingTask {
         this.listener = listener;
     }
 
-    public void sortNotes(final SortingType sortingType, boolean ascending)
+    public void sortNotes(final SortingType sortingType, final boolean ascending)
     {
         Collections.sort(notes, new Comparator<Note>() {
             @Override
@@ -29,9 +31,21 @@ public class NoteSortingTask {
                 switch (sortingType)
                 {
                     case NOTE_TITLE:
-                        return note1.getNoteTitle().compareTo(note2.getNoteTitle());
+                        if(ascending)
+                            return note1.getNoteTitle().compareTo(note2.getNoteTitle());
+                        else return -note1.getNoteTitle().compareTo(note2.getNoteTitle());
                     case NOTE_TEXT:
-                        return note1.getNoteTitle().compareTo(note2.getNoteTitle());
+                        if(ascending)
+                            return note1.getNoteText().compareTo(note2.getNoteText());
+                        else return -note1.getNoteText().compareTo(note2.getNoteText());
+                    case NOTE_TIME:
+                        if(ascending)
+                            return Long.compare(note1.getCreationTime(),note2.getCreationTime());
+                        else return -Long.compare(note1.getCreationTime(),note2.getCreationTime());
+                    case NOTE_IMPORTANT:
+                        if(ascending)
+                            return Boolean.compare(note1.isImportant(),note2.isImportant());
+                        else return -Boolean.compare(note1.isImportant(),note2.isImportant());
                 }
                 return 0;
             }

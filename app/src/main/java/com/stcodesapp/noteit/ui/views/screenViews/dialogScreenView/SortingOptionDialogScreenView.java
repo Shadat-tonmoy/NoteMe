@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Spinner;
+
+import com.stcodesapp.noteit.BuildConfig;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.SortingType;
 import com.stcodesapp.noteit.ui.views.baseScreens.BaseObservableScreenView;
@@ -80,9 +82,23 @@ public class SortingOptionDialogScreenView extends BaseObservableScreenView<Sort
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
-
-
             }
         });
+    }
+
+    public Spinner getTitleOptions() {
+        return titleOptions;
+    }
+
+    public Spinner getNoteOptions() {
+        return noteOptions;
+    }
+
+    public Spinner getCreatedOptions() {
+        return createdOptions;
+    }
+
+    public Spinner getImportantOptions() {
+        return importantOptions;
     }
 }

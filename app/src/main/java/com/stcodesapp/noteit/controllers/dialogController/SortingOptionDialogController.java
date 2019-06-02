@@ -1,8 +1,10 @@
 package com.stcodesapp.noteit.controllers.dialogController;
 
+import android.os.Bundle;
 import android.util.Log;
 
 import com.stcodesapp.noteit.factory.TasksFactory;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.SortingDialogManipulationTask;
 import com.stcodesapp.noteit.ui.views.screenViews.dialogScreenView.SortingOptionDialogScreenView;
 import com.stcodesapp.noteit.ui.views.screens.dialogScreen.SortingOptionDialogScreen;
 
@@ -10,6 +12,7 @@ public class SortingOptionDialogController implements SortingOptionDialogScreen.
 
     private TasksFactory tasksFactory;
     private SortingOptionDialogScreenView sortingOptionDialogScreenView;
+    private SortingDialogManipulationTask sortingDialogManipulationTask;
     private Listener listener;
 
     public interface Listener{
@@ -22,10 +25,18 @@ public class SortingOptionDialogController implements SortingOptionDialogScreen.
 
     public SortingOptionDialogController(TasksFactory tasksFactory) {
         this.tasksFactory = tasksFactory;
+        this.sortingDialogManipulationTask = tasksFactory.getSortingDialogManipulationTask();
     }
 
     public void bindView(SortingOptionDialogScreenView sortingOptionDialogScreenView) {
         this.sortingOptionDialogScreenView = sortingOptionDialogScreenView;
+        sortingDialogManipulationTask.bindView(sortingOptionDialogScreenView);
+    }
+
+    public void bindBundle(Bundle bundle)
+    {
+        if(bundle!=null)
+            sortingDialogManipulationTask.setSpinnerValueFromBundle(bundle);
     }
 
     public void onStart()
