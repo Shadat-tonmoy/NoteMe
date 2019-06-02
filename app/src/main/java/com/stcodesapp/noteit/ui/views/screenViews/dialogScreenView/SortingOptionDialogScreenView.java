@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 import com.stcodesapp.noteit.R;
-import com.stcodesapp.noteit.constants.SpinnerType;
+import com.stcodesapp.noteit.constants.SortingType;
 import com.stcodesapp.noteit.ui.views.baseScreens.BaseObservableScreenView;
 import com.stcodesapp.noteit.ui.views.screens.dialogScreen.SortingOptionDialogScreen;
 
@@ -29,10 +29,10 @@ public class SortingOptionDialogScreenView extends BaseObservableScreenView<Sort
 
     @Override
     public void initUserInteractions() {
-        setItemSelectedListener(titleOptions,SpinnerType.NOTE_TITLE);
-        setItemSelectedListener(noteOptions,SpinnerType.NOTE_TEXT);
-        setItemSelectedListener(createdOptions,SpinnerType.NOTE_TIME);
-        setItemSelectedListener(importantOptions,SpinnerType.NOTE_IMPORTANT);
+        setItemSelectedListener(titleOptions, SortingType.NOTE_TITLE);
+        setItemSelectedListener(noteOptions, SortingType.NOTE_TEXT);
+        setItemSelectedListener(createdOptions, SortingType.NOTE_TIME);
+        setItemSelectedListener(importantOptions, SortingType.NOTE_IMPORTANT);
 
     }
 
@@ -44,12 +44,12 @@ public class SortingOptionDialogScreenView extends BaseObservableScreenView<Sort
         importantOptions = findViewById(R.id.note_important_choices);
     }
 
-    private void setItemSelectedListener(Spinner spinner, final SpinnerType spinnerType)
+    private void setItemSelectedListener(Spinner spinner, final SortingType sortingType)
     {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch (spinnerType)
+                switch (sortingType)
                 {
                     case NOTE_TITLE:
                         if(!firstTime)

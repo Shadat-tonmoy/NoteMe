@@ -18,24 +18,29 @@ import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.tasks.UtilityTasks;
 import com.stcodesapp.noteit.tasks.filteringTasks.NoteFilteringTask;
+import com.stcodesapp.noteit.tasks.filteringTasks.NoteSortingTask;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHolder> implements NoteFilteringTask.Listener {
+public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHolder> implements NoteFilteringTask.Listener,NoteSortingTask.Listener {
 
 
     @Override
     public void onNoteFiltered(List<Note> filteredNotes) {
-        bindFilterredNotes(filteredNotes);
+        bindFilteredNotes(filteredNotes);
     }
 
+    @Override
+    public void onSortingFinished(List<Note> sortedNotes) {
+        bindSortedNotes(sortedNotes);
+
+    }
+
+
     public interface Listener {
-        /*void onEditNoteClicked(Note note);
-        void onDeleteNoteClicked(Note note);
-        void onMoreClicked(Note note);*/
         void onContactBadgeClicked(Note note);
         void onEmailBadgeClicked(Note note);
         void onNoteClicked(Note note);
@@ -49,6 +54,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
     private Map<Integer, Boolean> emailFlag, contactFlag;
     private Map<Integer, String> bgColor;
     private NoteFilteringTask noteFilteringTask;
+    private NoteSortingTask noteSortingTask;
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
@@ -205,19 +211,22 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         initDS();
         notifyDataSetChanged();
         noteFilteringTask = new NoteFilteringTask(filteredNotes,notes);
+        noteSortingTask = new NoteSortingTask(notes,this);
         noteFilteringTask.setListener(this);
 
     }
 
-    public void bindFilterredNotes(List<Note> notes) {
+    public void bindFilteredNotes(List<Note> notes) {
         this.notes = new ArrayList<>(notes);
         initDS();
         notifyDataSetChanged();
 
     }
 
-    public NoteFilteringTask getNoteFilteringTask() {
-        return noteFilteringTask;
+    public void bindSortedNotes(List<Note> notes) {
+        this.notes = new ArrayList<>(notes);
+        initDS();
+        notifyDataSetChanged();
     }
 
     private LinearLayout getEmailBadge()
@@ -290,5 +299,13 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
 
     public void setListener(Listener listener) {
         this.listener = listener;
+    }
+
+    public NoteFilteringTask getNoteFilteringTask() {
+        return noteFilteringTask;
+    }
+
+    public NoteSortingTask getNoteSortingTask() {
+        return noteSortingTask;
     }
 }

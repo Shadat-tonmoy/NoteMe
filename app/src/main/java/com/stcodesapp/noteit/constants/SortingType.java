@@ -1,6 +1,6 @@
 package com.stcodesapp.noteit.constants;
 
-public enum SpinnerType {
+public enum SortingType {
     NOTE_TITLE,
     NOTE_TEXT,
     NOTE_TIME,

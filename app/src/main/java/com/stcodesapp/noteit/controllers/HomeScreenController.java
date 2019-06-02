@@ -9,6 +9,7 @@ import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.adapter.NoteListAdapter;
 import com.stcodesapp.noteit.constants.FragmentTags;
 import com.stcodesapp.noteit.constants.RequestCode;
+import com.stcodesapp.noteit.constants.SortingType;
 import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.controllers.dialogController.SortingOptionDialogController;
 import com.stcodesapp.noteit.factory.TasksFactory;
@@ -202,6 +203,8 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     @Override
     public void onNoteTitleOptionSelected(int position) {
         Log.e("selected","title "+position);
+        boolean ascending = position == 0;
+        homeScreenManipulationTasks.sortNote(SortingType.NOTE_TITLE,ascending);
 
     }
 
