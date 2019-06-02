@@ -8,19 +8,16 @@ import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.adapter.NoteListAdapter;
 import com.stcodesapp.noteit.constants.FragmentTags;
-import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.constants.SortingType;
 import com.stcodesapp.noteit.constants.Tags;
-import com.stcodesapp.noteit.controllers.dialogController.SortingOptionDialogController;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.models.Note;
-import com.stcodesapp.noteit.tasks.databaseTasks.NoteUpdateTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.ImportantNoteSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteSelectTask;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.HomeScreenManipulationTasks;
-import com.stcodesapp.noteit.ui.fragments.PhoneNoListBottomSheets;
+import com.stcodesapp.noteit.ui.fragments.PhoneOrEmailListBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.SortingOptionDialog;
 import com.stcodesapp.noteit.ui.views.screens.HomeScreen;
 
@@ -166,8 +163,8 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
         Bundle args = new Bundle();
         args.putBoolean(FragmentTags.IS_CONTACT,true);
         args.putLong(FragmentTags.NOTE_ID,note.getId());
-        PhoneNoListBottomSheets phoneNoListBottomSheets = PhoneNoListBottomSheets.newInstance(args);
-        homeScreenManipulationTasks.showContactBottomSheet(phoneNoListBottomSheets);
+        PhoneOrEmailListBottomSheets phoneOrEmailListBottomSheets = PhoneOrEmailListBottomSheets.newInstance(args);
+        homeScreenManipulationTasks.showContactBottomSheet(phoneOrEmailListBottomSheets);
     }
 
     @Override
@@ -176,8 +173,8 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
         Bundle args = new Bundle();
         args.putBoolean(FragmentTags.IS_CONTACT,false);
         args.putLong(FragmentTags.NOTE_ID,note.getId());
-        PhoneNoListBottomSheets phoneNoListBottomSheets = PhoneNoListBottomSheets.newInstance(args);
-        homeScreenManipulationTasks.showEmailBottomSheet(phoneNoListBottomSheets);
+        PhoneOrEmailListBottomSheets phoneOrEmailListBottomSheets = PhoneOrEmailListBottomSheets.newInstance(args);
+        homeScreenManipulationTasks.showEmailBottomSheet(phoneOrEmailListBottomSheets);
 
     }
 

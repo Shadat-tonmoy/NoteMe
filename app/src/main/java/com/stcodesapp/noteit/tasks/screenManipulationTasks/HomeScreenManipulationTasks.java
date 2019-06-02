@@ -9,11 +9,9 @@ import android.widget.Toast;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.FragmentTags;
 import com.stcodesapp.noteit.constants.SortingType;
-import com.stcodesapp.noteit.controllers.dialogController.SortingOptionDialogController;
 import com.stcodesapp.noteit.models.Note;
-import com.stcodesapp.noteit.ui.fragments.PhoneNoListBottomSheets;
+import com.stcodesapp.noteit.ui.fragments.PhoneOrEmailListBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.SortingOptionDialog;
-import com.stcodesapp.noteit.ui.views.screenViews.HomeScreenView;
 import com.stcodesapp.noteit.ui.views.screens.HomeScreen;
 
 import java.util.List;
@@ -37,14 +35,14 @@ public class HomeScreenManipulationTasks {
         homeScreenView.getNoteListAdapter().bindNotes(notes);
     }
 
-    public void showContactBottomSheet(PhoneNoListBottomSheets phoneNoListBottomSheets)
+    public void showContactBottomSheet(PhoneOrEmailListBottomSheets phoneOrEmailListBottomSheets)
     {
-        phoneNoListBottomSheets.show(((AppCompatActivity)activity).getSupportFragmentManager(), FragmentTags.CONTACT_BOTTOM_SHEET);
+        phoneOrEmailListBottomSheets.show(((AppCompatActivity)activity).getSupportFragmentManager(), FragmentTags.CONTACT_BOTTOM_SHEET);
     }
 
-    public void showEmailBottomSheet(PhoneNoListBottomSheets phoneNoListBottomSheets)
+    public void showEmailBottomSheet(PhoneOrEmailListBottomSheets phoneOrEmailListBottomSheets)
     {
-        phoneNoListBottomSheets.show(((AppCompatActivity)activity).getSupportFragmentManager(), FragmentTags.EMAIL_BOTTOM_SHEET);
+        phoneOrEmailListBottomSheets.show(((AppCompatActivity)activity).getSupportFragmentManager(), FragmentTags.EMAIL_BOTTOM_SHEET);
     }
 
     public void showAddToFavoriteToast(Note note) {

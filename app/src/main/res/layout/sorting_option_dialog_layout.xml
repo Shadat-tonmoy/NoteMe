@@ -43,22 +43,9 @@
 
         <include layout="@layout/sort_by_note_title"/>
 
-        <!--<View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?android:attr/listDivider"
-            android:layout_margin="8dp" />-->
-
         <include layout="@layout/sort_by_note_text"/>
 
-        <!--<View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?android:attr/listDivider"
-            android:layout_margin="8dp" />-->
-
         <include layout="@layout/sort_by_note_time"/>
-
 
         <include layout="@layout/sort_by_note_important"/>
 

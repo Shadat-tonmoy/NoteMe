@@ -9,12 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.adapter.PhoneEmailListAdapter;
 import com.stcodesapp.noteit.constants.Constants;
-import com.stcodesapp.noteit.constants.EventTypes;
 import com.stcodesapp.noteit.constants.FragmentTags;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
@@ -24,7 +22,7 @@ import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.EmailSelectTask;
 
 import java.util.List;
 
-public class PhoneNoListBottomSheets extends BottomSheetDialogFragment implements ContactSelectTask.Listener, EmailSelectTask.Listener {
+public class PhoneOrEmailListBottomSheets extends BottomSheetDialogFragment implements ContactSelectTask.Listener, EmailSelectTask.Listener {
 
     public interface Listener{
         void onPhoneNoOptionSelected(int phoneNoOption);
@@ -38,8 +36,8 @@ public class PhoneNoListBottomSheets extends BottomSheetDialogFragment implement
     private boolean isContact;
     private long noteId;
 
-    public static PhoneNoListBottomSheets newInstance(Bundle args) {
-        PhoneNoListBottomSheets fragment = new PhoneNoListBottomSheets();
+    public static PhoneOrEmailListBottomSheets newInstance(Bundle args) {
+        PhoneOrEmailListBottomSheets fragment = new PhoneOrEmailListBottomSheets();
         fragment.setArguments(args);
         return fragment;
     }
