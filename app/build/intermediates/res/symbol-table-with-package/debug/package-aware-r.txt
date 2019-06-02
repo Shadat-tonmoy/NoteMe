@@ -1270,6 +1270,7 @@ id email_name_divider
 id email_name_field
 id email_name_text
 id email_remove_btn
+id email_search
 id email_send_btn
 id email_text
 id end
@@ -1597,6 +1598,7 @@ layout suggest_item
 layout support_simple_spinner_dropdown_item
 layout toolbar
 layout toolbar_layout
+menu email_menu
 menu home_menu
 menu navigation_drawer_menu
 menu note_add_menu
@@ -1711,6 +1713,7 @@ string note_text
 string note_time
 string note_title
 string note_updated
+string notes_are_sorted
 string nothing_to_save
 string ok_continue
 string password_toggle_content_description

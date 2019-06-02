@@ -4,8 +4,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.ViewGroup;
 
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.adapter.PhoneEmailListAdapter;
 import com.stcodesapp.noteit.models.Email;
@@ -19,6 +22,7 @@ public class EmailFragmentScreenView extends BaseObservableScreenView<EmailFragm
 
     private PhoneEmailListAdapter phoneEmailListAdapter;
     private RecyclerView emailList;
+    private MaterialSearchView searchView;
 
 
     public EmailFragmentScreenView (LayoutInflater layoutInflater, @Nullable ViewGroup parent)
@@ -43,7 +47,19 @@ public class EmailFragmentScreenView extends BaseObservableScreenView<EmailFragm
         emailList.setAdapter(phoneEmailListAdapter);
     }
 
+    public void onCreateOptionMenu(Menu menu, MaterialSearchView searchView) {
+        MenuItem item = menu.findItem(R.id.email_search);
+        this.searchView = searchView;
+        searchView.setMenuItem(item);
+    }
 
+    public MaterialSearchView getSearchView() {
+        return searchView;
+    }
+
+    public PhoneEmailListAdapter getPhoneEmailListAdapter() {
+        return phoneEmailListAdapter;
+    }
 
     public void bindEmails(List<Email> emails)
     {

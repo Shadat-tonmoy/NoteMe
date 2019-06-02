@@ -18,15 +18,24 @@ import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.tasks.UtilityTasks;
+import com.stcodesapp.noteit.tasks.filteringTasks.EmailFilteringTask;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class PhoneEmailListAdapter extends RecyclerView.Adapter<PhoneEmailListAdapter.ViewHolder> {
+public class PhoneEmailListAdapter extends RecyclerView.Adapter<PhoneEmailListAdapter.ViewHolder> implements EmailFilteringTask.Listener{
 
 
-    private List<? extends Object> objects;
+    private List<? extends Object> objects,filteredObject;
     private Context context;
     private boolean isContact;
+    private EmailFilteringTask emailFilteringTask;
+
+    @Override
+    public void onEmailFiltered(List<Email> filteredEmail) {
+        bindFilteredEmail(filteredEmail);
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView name,number;
@@ -84,6 +93,20 @@ public class PhoneEmailListAdapter extends RecyclerView.Adapter<PhoneEmailListAd
 
     public void bindObjects(List<? extends Object> objects) {
         this.objects = objects;
+        this.filteredObject = objects;
+        this.emailFilteringTask = new EmailFilteringTask((List<Email>)filteredObject,(List<Email>) objects,this);
+        notifyDataSetChanged();
+    }
+
+    public void bindFilteredEmail(List<Email> emails)
+    {
+        this.objects= new ArrayList<>(emails);
+        notifyDataSetChanged();
+    }
+
+    public void bindFilteredContact(List<Contact> contacts)
+    {
+        this.objects= new ArrayList<>(contacts);
         notifyDataSetChanged();
     }
 
@@ -124,5 +147,9 @@ public class PhoneEmailListAdapter extends RecyclerView.Adapter<PhoneEmailListAd
                 }
             });
         }
+    }
+
+    public EmailFilteringTask getEmailFilteringTask() {
+        return emailFilteringTask;
     }
 }

@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.controllers.fragmentController.EmailFragmentController;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.EmailFragmentScreenView;
@@ -56,12 +57,19 @@ public class EmailsFragment extends BaseFragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.home_menu,menu);
+        inflater.inflate(R.menu.email_menu,menu);
+        emailFragmentScreenView.onCreateOptionMenu(menu, (MaterialSearchView) requireActivity().findViewById(R.id.search_view));
+        emailFragmentScreenView.getSearchView().setOnQueryTextListener(emailFragmentController);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 //        secondaryScreenController.onOptionMenuClicked(item.getItemId());
         return true;
+    }
+
+    public boolean onBackPressed()
+    {
+        return emailFragmentController.onBackPressed();
     }
 }

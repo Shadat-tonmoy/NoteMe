@@ -9,6 +9,7 @@ import com.stcodesapp.noteit.tasks.functionalTasks.NoteFieldValidationTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.VoiceInputTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.EmailScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.HomeScreenManipulationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.ManualContactScreenManipulationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.ManualEmailScreenManipulationTasks;
@@ -112,6 +113,11 @@ public class TasksFactory {
     public SortingDialogManipulationTask getSortingDialogManipulationTask()
     {
         return new SortingDialogManipulationTask(activity);
+    }
+
+    public EmailScreenManipulationTask getEmailScreenManipulationTask()
+    {
+        return new EmailScreenManipulationTask(activity);
     }
 
 
