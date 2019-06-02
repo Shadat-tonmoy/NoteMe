@@ -10,6 +10,7 @@ import com.stcodesapp.noteit.common.FragmentFrameHelper;
 import com.stcodesapp.noteit.controllers.commons.FragmentFrameWrapper;
 import com.stcodesapp.noteit.controllers.commons.NavigationDrawerController;
 import com.stcodesapp.noteit.ui.commons.NavigationDrawerView;
+import com.stcodesapp.noteit.ui.fragments.ContactsFragment;
 import com.stcodesapp.noteit.ui.fragments.EmailsFragment;
 import com.stcodesapp.noteit.ui.fragments.HomeScreenFragment;
 
@@ -77,7 +78,11 @@ public class BaseNavigationDrawerActivity extends BaseActivity implements Fragme
         {
             if(((EmailsFragment)(getCompositionRoot().getCurrentFragment())).onBackPressed())
             return;
-
+        }
+        else if(currentFragment instanceof ContactsFragment)
+        {
+            if(((ContactsFragment)(getCompositionRoot().getCurrentFragment())).onBackPressed())
+            return;
         }
         if(navigationDrawerView.isDrawerOpen())
         {

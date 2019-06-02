@@ -1236,6 +1236,7 @@ id contact_no_divider
 id contact_no_field
 id contact_no_text
 id contact_remove_btn
+id contact_search
 id container
 id content
 id contentPanel
@@ -1598,6 +1599,7 @@ layout suggest_item
 layout support_simple_spinner_dropdown_item
 layout toolbar
 layout toolbar_layout
+menu contact_menu
 menu email_menu
 menu home_menu
 menu navigation_drawer_menu

@@ -6,9 +6,6 @@ public interface ContactFragmentScreen extends BaseObservableScreen<ContactFragm
 
     interface Listener {
 
-        void onCallButtonPressed();
-
-        void onCopyButtonPressed();
 
     }
 

@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.controllers.fragmentController.ContactFragmentController;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.ContactFragmentScreenView;
@@ -35,7 +36,7 @@ public class ContactsFragment extends BaseFragment {
         contactFragmentScreenView = getCompositionRoot().getViewFactory().getContactFragmentScreenView(null);
         contactFragmentController = getCompositionRoot().getFragmentControllerFactory().getContactFragmentController();
         contactFragmentController.bindView(contactFragmentScreenView);
-        /*setHasOptionsMenu(true);*/
+        setHasOptionsMenu(true);
         return contactFragmentScreenView.getRootView();
     }
 
@@ -53,14 +54,23 @@ public class ContactsFragment extends BaseFragment {
     }
 
 
+
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.home_menu,menu);
+        inflater.inflate(R.menu.contact_menu,menu);
+        contactFragmentScreenView.onCreateOptionMenu(menu, (MaterialSearchView) requireActivity().findViewById(R.id.search_view));
+        contactFragmentScreenView.getSearchView().setOnQueryTextListener(contactFragmentController);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 //        secondaryScreenController.onOptionMenuClicked(item.getItemId());
         return true;
+    }
+
+    public boolean onBackPressed()
+    {
+        return contactFragmentController.onBackPressed();
     }
 }
