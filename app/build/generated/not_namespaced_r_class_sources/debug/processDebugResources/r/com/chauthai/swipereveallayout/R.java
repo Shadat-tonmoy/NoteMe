@@ -22,7 +22,7 @@ public final class R {
 
         public static final int bottom = 0x7f090032;
         public static final int left = 0x7f0900a2;
-        public static final int normal = 0x7f0900bc;
+        public static final int normal = 0x7f0900bb;
         public static final int right = 0x7f0900e5;
         public static final int same_level = 0x7f0900ea;
         public static final int top = 0x7f09013a;

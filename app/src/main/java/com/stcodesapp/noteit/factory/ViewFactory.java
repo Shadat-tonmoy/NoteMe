@@ -10,6 +10,7 @@ import com.stcodesapp.noteit.ui.views.screenViews.HomeScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.ManualContactScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.ManualEmailScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
+import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.PrivacyPolicyScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.dialogScreenView.SortingOptionDialogScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.ContactFragmentScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.EmailFragmentScreenView;
@@ -33,7 +34,7 @@ public class ViewFactory {
         return new HomeScreenView(layoutInflater,parent, noteListAdapter);
     }
 
-    public NoteFieldScreenView getSecondaryScreenView(ViewGroup parent)
+    public NoteFieldScreenView getNoteFieldScreenView(ViewGroup parent)
     {
         return new NoteFieldScreenView(layoutInflater,parent);
     }
@@ -66,6 +67,11 @@ public class ViewFactory {
     public NoteListAdapter getNoteListAdapte(Context context, NoteListAdapter.Listener listener)
     {
         return new NoteListAdapter(context,listener);
+    }
+
+    public PrivacyPolicyScreenView getPrivacyPolicyScreenView(ViewGroup parent)
+    {
+        return new PrivacyPolicyScreenView(layoutInflater,parent);
     }
 
 }

@@ -1,17 +1,27 @@
 package com.stcodesapp.noteit.controllers.commons;
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.FragmentTags;
+import com.stcodesapp.noteit.factory.TasksFactory;
+import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
+import com.stcodesapp.noteit.tasks.utilityTasks.SharingTasks;
 import com.stcodesapp.noteit.ui.commons.NavigationDrawerView;
 import com.stcodesapp.noteit.ui.views.screens.commons.NavigationDrawerScreen;
 
 public class NavigationDrawerController implements NavigationDrawerScreen.Listener {
 
     private final FragmentNavigationTasks fragmentNavigationTasks;
+    private final ActivityNavigationTasks activityNavigationTasks;
+    private TasksFactory tasksFactory;
     private NavigationDrawerView navigationDrawerView;
+    private SharingTasks sharingTasks;
 
-    public NavigationDrawerController(FragmentNavigationTasks fragmentNavigationTasks) {
-        this.fragmentNavigationTasks = fragmentNavigationTasks;
+    public NavigationDrawerController(TasksFactory tasksFactory) {
+        this.tasksFactory= tasksFactory;
+        this.fragmentNavigationTasks = tasksFactory.getFragmentNavigationTasks();
+        this.activityNavigationTasks = tasksFactory.getActivityNavigationTasks();
+        this.sharingTasks = tasksFactory.getSharingTasks();
     }
 
     public void bindView(NavigationDrawerView navigationDrawerView) {
@@ -47,6 +57,18 @@ public class NavigationDrawerController implements NavigationDrawerScreen.Listen
             case R.id.email_menu:
                 fragmentNavigationTasks.toEmailFragment();
                 updateToolbarTitle(FragmentTags.EMAILS);
+                break;
+            case R.id.nav_share:
+                sharingTasks.shareApp();
+                break;
+            case R.id.nav_email_support:
+                sharingTasks.emailSupport();
+                break;
+            case R.id.nav_rate:
+                sharingTasks.rateApp();
+                break;
+            case R.id.nav_privacy_policy:
+                activityNavigationTasks.toPrivacyPolicyScreen();
                 break;
         }
     }

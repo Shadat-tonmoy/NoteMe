@@ -1,4 +1,4 @@
-package com.stcodesapp.noteit.tasks;
+package com.stcodesapp.noteit.tasks.utilityTasks;
 
 import android.app.Activity;
 import android.content.ClipData;

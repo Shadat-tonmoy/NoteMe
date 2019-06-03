@@ -6,7 +6,7 @@ import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 
 import com.stcodesapp.noteit.constants.Constants;
-import com.stcodesapp.noteit.tasks.UtilityTasks;
+import com.stcodesapp.noteit.tasks.utilityTasks.UtilityTasks;
 
 import java.io.Serializable;
 

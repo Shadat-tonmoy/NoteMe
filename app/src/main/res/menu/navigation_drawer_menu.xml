@@ -36,31 +36,36 @@
                     android:icon="@drawable/privacy_policy"/>
 
                 <item
-                    android:id="@+id/nav_privacy_settings"
-                    android:title="@string/settings"
-                    android:icon="@drawable/settings"/>
-
+                    android:id="@+id/nav_rate"
+                    android:title="@string/rate_the_app"
+                    android:icon="@drawable/rate" />
 
                 <item
+                    android:id="@+id/nav_email_support"
+                    android:title="@string/email_support"
+                    android:icon="@drawable/email_black"/>
+
+                <!--<item
+                    android:id="@+id/nav_privacy_settings"
+                    android:title="@string/settings"
+                    android:icon="@drawable/settings"/>-->
+
+
+                <!--<item
                     android:id="@+id/nav_about"
                     android:title="@string/about_the_app"
                     android:icon="@drawable/about"
-                    />
+                    />-->
 
                 <item
                     android:id="@+id/nav_share"
                     android:title="@string/share_the_app"
                     android:icon="@drawable/share"/>
 
-                <item
-                    android:id="@+id/nav_rate"
-                    android:title="@string/rate_the_app"
-                    android:icon="@drawable/rate" />
-
-            <item
+            <!--<item
                     android:id="@+id/nav_more"
                     android:title="@string/more"
-                    android:icon="@drawable/more" />
+                    android:icon="@drawable/more" />-->
 
         </menu>
     </item>

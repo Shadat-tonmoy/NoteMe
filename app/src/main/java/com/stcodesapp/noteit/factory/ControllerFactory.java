@@ -46,7 +46,7 @@ public class ControllerFactory {
 
     public NavigationDrawerController getNavigationDrawerController()
     {
-        return new NavigationDrawerController(tasksFactory.getFragmentNavigationTasks());
+        return new NavigationDrawerController(tasksFactory);
     }
 
     public ContactFragmentController getContactFragmentController()

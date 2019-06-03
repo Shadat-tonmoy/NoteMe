@@ -37,7 +37,7 @@ public class SharingTasks {
         activity.startActivity(Intent.createChooser(sharingIntent, Constants.SHARE_VIA));
     }
 
-    public void shareEmailSupport()
+    public void emailSupport()
     {
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setType(Constants.TEXT_TYPE);
@@ -55,6 +55,16 @@ public class SharingTasks {
             activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appLink)));
         } catch (android.content.ActivityNotFoundException anfe) {
             activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appLink)));
+        }
+    }
+
+    public void rateApp()
+    {
+        String appID = activity.getPackageName();
+        try {
+            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appID)));
+        } catch (android.content.ActivityNotFoundException anfe) {
+            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appID)));
         }
     }
 

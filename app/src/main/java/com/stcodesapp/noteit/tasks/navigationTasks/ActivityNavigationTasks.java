@@ -8,6 +8,7 @@ import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.ui.activities.ManualContactActivity;
 import com.stcodesapp.noteit.ui.activities.ManualEmailActivity;
 import com.stcodesapp.noteit.ui.activities.NoteFieldActivity;
+import com.stcodesapp.noteit.ui.activities.PrivacyPolicyActivity;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -47,6 +48,12 @@ public class ActivityNavigationTasks {
         Intent intent = new Intent(activity, ManualEmailActivity.class);
         intent.putExtras(args);
         activity.startActivityForResult(intent, RequestCode.ADD_MANUAL_EMAIL);
+    }
+
+    public void toPrivacyPolicyScreen()
+    {
+        Intent intent = new Intent(activity, PrivacyPolicyActivity.class);
+        activity.startActivity(intent);
     }
 
     public void closeScreen()

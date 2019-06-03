@@ -7,7 +7,7 @@ import android.widget.Toast;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.models.Contact;
-import com.stcodesapp.noteit.tasks.UtilityTasks;
+import com.stcodesapp.noteit.tasks.utilityTasks.UtilityTasks;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.ManualContactScreenView;
 
 public class ManualContactScreenManipulationTasks {

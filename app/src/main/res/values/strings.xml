@@ -89,6 +89,7 @@
     <string name="sort">Sort</string>
     <string name="sort_by">Sort By</string>
     <string name="notes_are_sorted">Notes are sorted</string>
+    <string name="email_support">Email Support</string>
 
     <string-array name="sorting_choices">
         <item>Ascending</item>

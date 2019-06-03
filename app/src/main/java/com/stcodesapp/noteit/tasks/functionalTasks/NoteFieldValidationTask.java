@@ -3,7 +3,7 @@ package com.stcodesapp.noteit.tasks.functionalTasks;
 import android.app.Activity;
 
 import com.stcodesapp.noteit.models.NoteComponents;
-import com.stcodesapp.noteit.tasks.UtilityTasks;
+import com.stcodesapp.noteit.tasks.utilityTasks.UtilityTasks;
 
 public class NoteFieldValidationTask {
 

@@ -8,16 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.stcodesapp.noteit.R;
-import com.stcodesapp.noteit.constants.BackgroundColors;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
-import com.stcodesapp.noteit.models.Note;
-import com.stcodesapp.noteit.tasks.UtilityTasks;
+import com.stcodesapp.noteit.tasks.utilityTasks.UtilityTasks;
 import com.stcodesapp.noteit.tasks.filteringTasks.ContactFilteringTask;
 import com.stcodesapp.noteit.tasks.filteringTasks.EmailFilteringTask;
 

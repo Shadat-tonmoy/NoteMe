@@ -32,11 +32,11 @@ public class Constants {
     public static final String DEFAULT_LANGUAGE_1_CODE = "dl1c";
     public static final String DEFAULT_LANGUAGE_2_CODE = "dl2c";
     public static final String PLAYSTORE_BASE_URL = "https://play.google.com/store/apps/details?id=";
-    public static final String INVERSE_AI_URL = "https://www.inverseai.com/";
+    public static final String STAPSS_BASE_URL = "https://sites.google.com/view/stcodesapp/";
     public static final String TEXT_TYPE = "text/plain";
     public static final String SHARE_SUBJECT = "Subject Here";
     public static final String SHARE_VIA= "Subject Via";
-    public static final String SHARE_BODY= "Check The Awesome Language Translation Application for Free. Get it from ";
+    public static final String SHARE_BODY= "Hi There!! I am using an awesome app for taking my day to day note. You can try it for Free. Get it from ";
     public static final String TRANSLATOR = "com.inverseai.language_translator_voice_text";
     public static final String NOISE_REDUCER = "com.inverseai.noice_reducer";
     public static final String AVM = "com.inverseai.audio_video_manager";
@@ -44,8 +44,8 @@ public class Constants {
     public static final String BG_CHANGER = "com.inverseai.auto_blur_background_changer";
     public static final String TEXT_2_SPEECH = "com.inverseai.text2speech";
     public static final String EMAIL_SUBJECT= "Email Support For ";
-    public static final String INVERSE_AI_MAIL= "inverseaibd@gmail.com";
-    public static final String EMAIL_ADDRESS= "mailto:"+INVERSE_AI_MAIL;
+    public static final String STAPPS_MAIL= "stappsbd@gmail.com";
+    public static final String EMAIL_ADDRESS= "mailto:"+STAPPS_MAIL;
     public static final String MAIL_TO= "mailto:";
     public static final String ENGLISH = "English";
     public static final String EN = "en";

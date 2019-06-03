@@ -1318,6 +1318,7 @@ id line1
 id line3
 id listMode
 id list_item
+id loading_view
 id main_layout
 id manual_phone_number_option
 id masked
@@ -1328,10 +1329,8 @@ id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
 id name
-id nav_about
-id nav_more
+id nav_email_support
 id nav_privacy_policy
-id nav_privacy_settings
 id nav_pro_version
 id nav_rate
 id nav_share
@@ -1376,6 +1375,7 @@ id parent_matrix
 id percent
 id pick_from_contact_option
 id pin
+id policy_webview
 id progress_circular
 id progress_horizontal
 id radio
@@ -1585,6 +1585,7 @@ layout notification_template_part_chronometer
 layout notification_template_part_time
 layout phone_no_list_bottom_sheet_layout
 layout phone_no_option_bottom_sheet_layout
+layout privacy_policy_layout
 layout rounded_view
 layout search_view
 layout select_dialog_item_material
@@ -1686,6 +1687,7 @@ string edit_note
 string email
 string email_address
 string email_inserted
+string email_support
 string emails
 string empty_string
 string export_as

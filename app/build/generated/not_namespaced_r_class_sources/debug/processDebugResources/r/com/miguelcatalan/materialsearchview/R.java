@@ -641,16 +641,16 @@ public final class R {
         public static final int line3 = 0x7f0900a4;
         public static final int listMode = 0x7f0900a5;
         public static final int list_item = 0x7f0900a6;
-        public static final int middle = 0x7f0900ab;
-        public static final int mini = 0x7f0900ac;
-        public static final int multiply = 0x7f0900af;
-        public static final int navigation_header_container = 0x7f0900b8;
-        public static final int never = 0x7f0900ba;
-        public static final int none = 0x7f0900bb;
-        public static final int normal = 0x7f0900bc;
-        public static final int parallax = 0x7f0900da;
-        public static final int parentPanel = 0x7f0900dc;
-        public static final int pin = 0x7f0900e0;
+        public static final int middle = 0x7f0900ac;
+        public static final int mini = 0x7f0900ad;
+        public static final int multiply = 0x7f0900b0;
+        public static final int navigation_header_container = 0x7f0900b7;
+        public static final int never = 0x7f0900b9;
+        public static final int none = 0x7f0900ba;
+        public static final int normal = 0x7f0900bb;
+        public static final int parallax = 0x7f0900d9;
+        public static final int parentPanel = 0x7f0900db;
+        public static final int pin = 0x7f0900df;
         public static final int progress_circular = 0x7f0900e1;
         public static final int progress_horizontal = 0x7f0900e2;
         public static final int radio = 0x7f0900e3;
@@ -757,12 +757,12 @@ public final class R {
         public static final int design_navigation_menu_item = 0x7f0c0032;
         public static final int notification_template_part_chronometer = 0x7f0c004b;
         public static final int notification_template_part_time = 0x7f0c004c;
-        public static final int search_view = 0x7f0c0050;
-        public static final int select_dialog_item_material = 0x7f0c0051;
-        public static final int select_dialog_multichoice_material = 0x7f0c0052;
-        public static final int select_dialog_singlechoice_material = 0x7f0c0053;
-        public static final int suggest_item = 0x7f0c0059;
-        public static final int support_simple_spinner_dropdown_item = 0x7f0c005a;
+        public static final int search_view = 0x7f0c0051;
+        public static final int select_dialog_item_material = 0x7f0c0052;
+        public static final int select_dialog_multichoice_material = 0x7f0c0053;
+        public static final int select_dialog_singlechoice_material = 0x7f0c0054;
+        public static final int suggest_item = 0x7f0c005a;
+        public static final int support_simple_spinner_dropdown_item = 0x7f0c005b;
     }
     public static final class string {
         private string() {}
@@ -786,8 +786,8 @@ public final class R {
         public static final int abc_toolbar_collapse_description = 0x7f0f0026;
         public static final int appbar_scrolling_view_behavior = 0x7f0f0031;
         public static final int character_counter_pattern = 0x7f0f0037;
-        public static final int search_hint = 0x7f0f0080;
-        public static final int status_bar_notification_info_overflow = 0x7f0f0089;
+        public static final int search_hint = 0x7f0f0081;
+        public static final int status_bar_notification_info_overflow = 0x7f0f008a;
     }
     public static final class style {
         private style() {}

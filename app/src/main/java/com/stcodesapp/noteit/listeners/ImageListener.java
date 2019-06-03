@@ -5,7 +5,6 @@ import android.view.View;
 
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.models.Image;
-import com.stcodesapp.noteit.tasks.UtilityTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.ui.activities.NoteFieldActivity;
 

@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name="com.stcodesapp.noteit.common.CustomApplication"
@@ -35,6 +36,9 @@
         <activity
             android:name="com.stcodesapp.noteit.ui.activities.NoteFieldActivity"
             android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.stcodesapp.noteit.ui.activities.PrivacyPolicyActivity"
+            android:theme="@style/AppTheme.Transparent" />
         <activity
             android:name="com.stcodesapp.noteit.ui.activities.MainActivity"
             android:theme="@style/AppTheme.TransparentActionBar" >
