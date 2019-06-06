@@ -1714,6 +1714,7 @@ string name
 string no_contact_found
 string no_email_address
 string no_email_found
+string no_important_note_found
 string no_note_found
 string no_phone_number
 string note

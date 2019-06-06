@@ -3,7 +3,12 @@ package com.stcodesapp.noteit.tasks.screenManipulationTasks;
 import android.app.Activity;
 import android.view.View;
 
+import com.stcodesapp.noteit.constants.Constants;
+import com.stcodesapp.noteit.models.Contact;
+import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.EmailFragmentScreenView;
+
+import java.util.List;
 
 public class EmailScreenManipulationTask {
 
@@ -41,5 +46,14 @@ public class EmailScreenManipulationTask {
     {
         emailFragmentScreenView.getEmailList().setVisibility(View.VISIBLE);
         emailFragmentScreenView.getNotFoundContainer().setVisibility(View.GONE);
+    }
+
+    public void bindEmails(List<Email> emails) {
+        if(emails.size()> Constants.ZERO)
+        {
+            showEmailList();
+            emailFragmentScreenView.getPhoneEmailListAdapter().bindObjects(emails);
+        }
+        else showNoEmailFound();
     }
 }

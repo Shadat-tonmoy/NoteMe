@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.FragmentTags;
 import com.stcodesapp.noteit.constants.SortingType;
 import com.stcodesapp.noteit.models.Note;
@@ -32,7 +33,13 @@ public class HomeScreenManipulationTasks {
 
     public void bindNotes(List<Note> notes)
     {
-        homeScreenView.getNoteListAdapter().bindNotes(notes);
+        if(notes.size()> Constants.ZERO)
+        {
+            showNoteList();
+            homeScreenView.getNoteListAdapter().bindNotes(notes);
+        }
+        else showNoNoteFound();
+
     }
 
     public void showContactBottomSheet(PhoneOrEmailListBottomSheets phoneOrEmailListBottomSheets)
@@ -74,6 +81,14 @@ public class HomeScreenManipulationTasks {
         sortingOptionDialog.setArguments(args);
         sortingOptionDialog.setListener(listener);
         sortingOptionDialog.show(((AppCompatActivity)activity).getSupportFragmentManager(),FragmentTags.SORTING_OPTIONS);
+    }
+
+    public void setNoNoteFoundText(boolean isImportant)
+    {
+        String text = activity.getResources().getString(R.string.no_note_found);
+        if(isImportant)
+            text = activity.getResources().getString(R.string.no_important_note_found);
+        homeScreenView.getNotFoundText().setText(text);
     }
 
     public void showNoNoteFound()

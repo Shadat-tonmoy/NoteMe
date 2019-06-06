@@ -105,6 +105,10 @@ public class HomeScreenView extends BaseObservableScreenView<HomeScreen.Listener
         return notFoundContainer;
     }
 
+    public TextView getNotFoundText() {
+        return notFoundText;
+    }
+
     @Override
     public RecyclerView getNoteList() {
         return noteList;

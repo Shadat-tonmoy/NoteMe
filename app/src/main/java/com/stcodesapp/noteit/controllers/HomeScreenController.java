@@ -62,6 +62,7 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     public void onStartImportant()
     {
         homeScreenView.registerListener(this);
+        homeScreenManipulationTasks.setNoNoteFoundText(true);
         startFetchingImportantNote();
     }
 

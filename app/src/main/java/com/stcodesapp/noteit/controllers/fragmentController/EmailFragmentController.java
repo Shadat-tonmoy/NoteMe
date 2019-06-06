@@ -29,7 +29,7 @@ public class EmailFragmentController implements EmailFragmentScreen.Listener, Al
     public void onStart()
     {
         emailFragmentScreenView.registerListener(this);
-        startFetchingContacts();
+        startFetchingEmails();
     }
 
     public void onStop()
@@ -42,7 +42,7 @@ public class EmailFragmentController implements EmailFragmentScreen.Listener, Al
         emailScreenManipulationTask.bindView(emailFragmentScreenView);
     }
 
-    private void startFetchingContacts()
+    private void startFetchingEmails()
     {
         tasksFactory.getDatabaseTasks().getAllEmailSelectionTasks(this).execute();
 
@@ -55,7 +55,7 @@ public class EmailFragmentController implements EmailFragmentScreen.Listener, Al
 
     @Override
     public void onAllEmailFetched(List<Email> emails) {
-        emailFragmentScreenView.bindEmails(emails);
+        emailScreenManipulationTask.bindEmails(emails);
 
     }
 

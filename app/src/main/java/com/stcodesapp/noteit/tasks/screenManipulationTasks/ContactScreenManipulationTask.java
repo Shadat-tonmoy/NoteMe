@@ -3,8 +3,12 @@ package com.stcodesapp.noteit.tasks.screenManipulationTasks;
 import android.app.Activity;
 import android.view.View;
 
+import com.stcodesapp.noteit.constants.Constants;
+import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.ContactFragmentScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.EmailFragmentScreenView;
+
+import java.util.List;
 
 public class ContactScreenManipulationTask {
 
@@ -42,5 +46,14 @@ public class ContactScreenManipulationTask {
             return true;
         }
         return false;
+    }
+
+    public void bindContacts(List<Contact> contacts) {
+        if(contacts.size()> Constants.ZERO)
+        {
+            showContactList();
+            contactFragmentScreenView.getPhoneEmailListAdapter().bindObjects(contacts);
+        }
+        else showNoConntactFound();
     }
 }

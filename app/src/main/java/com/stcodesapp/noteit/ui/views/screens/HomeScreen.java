@@ -5,6 +5,7 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.View;
+import android.widget.TextView;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.stcodesapp.noteit.adapter.NoteListAdapter;
@@ -29,6 +30,8 @@ public interface HomeScreen extends BaseObservableScreen<HomeScreen.Listener> {
     RecyclerView getNoteList();
 
     ConstraintLayout getNotFoundContainer();
+
+    TextView getNotFoundText();
 
 
 }

@@ -52,7 +52,7 @@ public class ContactFragmentController implements ContactFragmentScreen.Listener
     }
     @Override
     public void onAllContactFetched(List<Contact> contacts) {
-        contactFragmentScreenView.bindContacts(contacts);
+        contactScreenManipulationTask.bindContacts(contacts);
 
     }
 
