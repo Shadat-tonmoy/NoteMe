@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.ManualContactActivity">
+
+    <include
+        layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:id="@+id/ui_component_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="vertical"
+        app:layout_anchor="@id/app_toolbar"
+        app:layout_anchorGravity="bottom"
+        android:layout_gravity="bottom" >
+
+
+        <LinearLayout
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/email_name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/name"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/email_name_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/empty_string"
+                android:inputType="textAutoComplete"
+                android:background="@drawable/edit_text_bg"
+                android:padding="8dp" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/email_name_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="?android:attr/listDivider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/email_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/email"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/email_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/empty_string"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/edit_text_bg"
+                android:padding="8dp" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/contact_no_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="?android:attr/listDivider" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/continue_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:padding="16dp"
+        android:layout_margin="8dp"
+        android:text="@string/ok_continue"
+        android:textColor="@color/white"
+        android:background="@color/green"
+        />
+
+</android.support.design.widget.CoordinatorLayout>

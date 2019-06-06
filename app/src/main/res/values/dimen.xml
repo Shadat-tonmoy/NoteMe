@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="hamburgerPadding">16dp</dimen>
+    <dimen name="toolbarTitle">16sp</dimen>
+    <dimen name="badgeRadius">8dp</dimen>
+</resources>
