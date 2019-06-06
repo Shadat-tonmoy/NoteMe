@@ -5,6 +5,7 @@
     build-mode="FULL"
     density="xhdpi"
     format="10"
+<<<<<<< HEAD
     plugin-version="3.4.0"
     timestamp="1559801364512"
     token="-909958535106817979"
@@ -13,20 +14,39 @@
     <task
         name="javac"
         duration="5472" />
+=======
+    ir-eligibility="COMPATIBLE"
+    plugin-version="3.4.0"
+    timestamp="1559557900551"
+    token="-909958535106817979"
+    verifier="COLD_SWAP_REQUESTED" >
+
+    <task
+        name="javac"
+        duration="3650" />
+>>>>>>> 1ad964d6291dea6973e1888cb388832d1ae5ae03
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
+<<<<<<< HEAD
         duration="3017" />
     <task
         name="verifier"
         duration="102" />
+=======
+        duration="13" />
+    <task
+        name="verifier"
+        duration="17" />
+>>>>>>> 1ad964d6291dea6973e1888cb388832d1ae5ae03
 
     <artifact
         location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
         type="SPLIT" />
     <artifact
+<<<<<<< HEAD
         location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
         type="SPLIT" />
     <artifact
@@ -64,10 +84,51 @@
         build-mode="FULL"
         timestamp="1559801364512"
         verifier="FULL_BUILD_REQUESTED" >
+=======
+        location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+        type="SPLIT" />
+    <artifact
+        location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+        type="SPLIT" />
+    <artifact
+        location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+        type="SPLIT" />
+    <artifact
+        location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+        type="SPLIT" />
+    <artifact
+        location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+        type="SPLIT" />
+    <artifact
+        location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+        type="SPLIT" />
+    <artifact
+        location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+        type="SPLIT" />
+    <artifact
+        location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+        type="SPLIT" />
+    <artifact
+        location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+        type="SPLIT" />
+    <artifact
+        location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
+        type="SPLIT" />
+    <artifact
+        location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
+        type="SPLIT_MAIN" />
+
+    <build
+        build-mode="FULL"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1559557900551"
+        verifier="COLD_SWAP_REQUESTED" >
+>>>>>>> 1ad964d6291dea6973e1888cb388832d1ae5ae03
         <artifact
             location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
             type="SPLIT" />
         <artifact
+<<<<<<< HEAD
             location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
             type="SPLIT" />
         <artifact
@@ -100,6 +161,40 @@
         <artifact
             location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
             type="SPLIT" />
+=======
+            location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+            type="SPLIT" />
+        <artifact
+            location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
+            type="SPLIT" />
+        <artifact
+            location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
+            type="SPLIT_MAIN" />
+>>>>>>> 1ad964d6291dea6973e1888cb388832d1ae5ae03
     </build>
 
 </instant-run>

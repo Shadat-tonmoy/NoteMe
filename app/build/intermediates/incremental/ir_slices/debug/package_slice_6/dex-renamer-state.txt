@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #Tue Jun 04 12:45:26 BDT 2019
+=======
+#Mon Jun 03 16:31:51 BDT 2019
+>>>>>>> 1ad964d6291dea6973e1888cb388832d1ae5ae03
 base.0=/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/transforms/dexMerger/debug/6
 path.0=classes.dex
 renamed.0=classes.dex

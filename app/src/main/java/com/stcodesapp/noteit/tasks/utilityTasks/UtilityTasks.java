@@ -99,4 +99,5 @@ public class UtilityTasks {
     {
         return rootPath.substring(0,rootPath.indexOf(Constants.ANDROID));
     }
+
 }

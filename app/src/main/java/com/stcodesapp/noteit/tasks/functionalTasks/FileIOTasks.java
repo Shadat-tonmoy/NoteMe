@@ -22,6 +22,7 @@ import com.stcodesapp.noteit.tasks.utilityTasks.UtilityTasks;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.File;
 import java.util.List;
 
 public class FileIOTasks {
@@ -158,15 +159,7 @@ public class FileIOTasks {
     {
         File storage = activity.getExternalFilesDirs(Environment.MEDIA_MOUNTED)[0];
         File fileDirectory = new File(UtilityTasks.getStoragePath(storage.getAbsolutePath())+Constants.FILE_DIRECTORY);
-        File directory = new File(fileDirectory.getAbsolutePath());
-        if(!directory.exists())
-            directory.mkdirs();
-
-        File file = new File(directory, fileName+ Constants.PDF_FILE_EXT);
-        if(file.exists()) {
-            return true;
-        }
-        else return false;
+        return false;
     }
 
 
@@ -238,5 +231,4 @@ public class FileIOTasks {
         }
         return null;
     }
-
 }

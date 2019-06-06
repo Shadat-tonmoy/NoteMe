@@ -180,7 +180,6 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         tasksFactory.getPDFCreationTasks().createPDF(noteComponents);
     }
 
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
