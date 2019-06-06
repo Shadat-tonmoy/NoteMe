@@ -1,6 +1,8 @@
 package com.stcodesapp.noteit.ui.views.screens;
 
 
+import android.support.constraint.ConstraintLayout;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.View;
 
@@ -23,6 +25,10 @@ public interface HomeScreen extends BaseObservableScreen<HomeScreen.Listener> {
     View getNoteAddButton();
 
     MaterialSearchView getSearchView();
+
+    RecyclerView getNoteList();
+
+    ConstraintLayout getNotFoundContainer();
 
 
 }

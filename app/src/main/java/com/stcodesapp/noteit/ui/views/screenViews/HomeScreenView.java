@@ -1,6 +1,7 @@
 package com.stcodesapp.noteit.ui.views.screenViews;
 
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.stcodesapp.noteit.R;
@@ -23,6 +26,9 @@ public class HomeScreenView extends BaseObservableScreenView<HomeScreen.Listener
     private RecyclerView noteList;
     private NoteListAdapter noteListAdapter;
     private MaterialSearchView searchView;
+    private ConstraintLayout notFoundContainer;
+    private TextView notFoundText;
+    private ImageView notFoundImage;
 
     public HomeScreenView(LayoutInflater layoutInflater, @Nullable ViewGroup parent, NoteListAdapter noteListAdapter)
     {
@@ -37,6 +43,9 @@ public class HomeScreenView extends BaseObservableScreenView<HomeScreen.Listener
     public void inflateUIElements() {
         noteAddButton = findViewById(R.id.note_add_button);
         noteList = findViewById(R.id.note_list);
+        notFoundContainer = findViewById(R.id.not_found_container);
+        notFoundText = findViewById(R.id.not_found_text);
+        notFoundImage = findViewById(R.id.not_found_image);
         searchView = findViewById(R.id.search_view);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         noteList.setLayoutManager(layoutManager);
@@ -85,7 +94,19 @@ public class HomeScreenView extends BaseObservableScreenView<HomeScreen.Listener
         return noteAddButton;
     }
 
+    @Override
     public MaterialSearchView getSearchView() {
         return searchView;
+    }
+
+
+    @Override
+    public ConstraintLayout getNotFoundContainer() {
+        return notFoundContainer;
+    }
+
+    @Override
+    public RecyclerView getNoteList() {
+        return noteList;
     }
 }

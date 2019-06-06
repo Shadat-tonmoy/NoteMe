@@ -1106,6 +1106,9 @@ drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable nav_drawe_header_bg
 drawable navigation_empty_icon
+drawable no_contact
+drawable no_email
+drawable no_note
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -1280,7 +1283,6 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
-id export_note_menu
 id favorite_button
 id fill
 id fill_horizontal
@@ -1339,6 +1341,9 @@ id navigation_view
 id never
 id none
 id normal
+id not_found_container
+id not_found_image
+id not_found_text
 id note_add_button
 id note_header
 id note_important_choices
@@ -1575,6 +1580,7 @@ layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout navigation_drawer_header
 layout navigation_drawer_layout
+layout not_found_layout
 layout note_field_screen
 layout note_single_row
 layout notification_action
@@ -1705,7 +1711,10 @@ string menu_3
 string more
 string mtrl_chip_close_icon_content_description
 string name
+string no_contact_found
 string no_email_address
+string no_email_found
+string no_note_found
 string no_phone_number
 string note
 string note_added

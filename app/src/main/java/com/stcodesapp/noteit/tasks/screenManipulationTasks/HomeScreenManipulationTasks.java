@@ -76,6 +76,18 @@ public class HomeScreenManipulationTasks {
         sortingOptionDialog.show(((AppCompatActivity)activity).getSupportFragmentManager(),FragmentTags.SORTING_OPTIONS);
     }
 
+    public void showNoNoteFound()
+    {
+        homeScreenView.getNoteList().setVisibility(View.GONE);
+        homeScreenView.getNotFoundContainer().setVisibility(View.VISIBLE);
+    }
+
+    public void showNoteList()
+    {
+        homeScreenView.getNoteList().setVisibility(View.VISIBLE);
+        homeScreenView.getNotFoundContainer().setVisibility(View.GONE);
+    }
+
     public void sortNote(SortingType sortingType,boolean ascending)
     {
         homeScreenView.getNoteListAdapter().getNoteSortingTask().sortNotes(sortingType,ascending);

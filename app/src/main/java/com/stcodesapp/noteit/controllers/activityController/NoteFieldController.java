@@ -165,10 +165,10 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
             case R.id.add_audio_menu:
                 fileIOTasks.openFilePickerForAudio();
                 break;
-            case R.id.export_note_menu:
+            /*case R.id.export_note_menu:
                 if(appPermissionTrackingTasks.hasWriteExternalStoragePermission())
                     testExport();
-                break;
+                break;*/
 
         }
 

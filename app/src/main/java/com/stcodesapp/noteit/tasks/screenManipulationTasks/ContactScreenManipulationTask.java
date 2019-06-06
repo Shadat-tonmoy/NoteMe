@@ -1,6 +1,7 @@
 package com.stcodesapp.noteit.tasks.screenManipulationTasks;
 
 import android.app.Activity;
+import android.view.View;
 
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.ContactFragmentScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.EmailFragmentScreenView;
@@ -20,6 +21,18 @@ public class ContactScreenManipulationTask {
 
     public void performFilter(String newText) {
         contactFragmentScreenView.getPhoneEmailListAdapter().getContactFilteringTask().getFilter().filter(newText);
+    }
+
+    public void showNoConntactFound()
+    {
+        contactFragmentScreenView.getContactList().setVisibility(View.GONE);
+        contactFragmentScreenView.getNotFoundContainer().setVisibility(View.VISIBLE);
+    }
+
+    public void showContactList()
+    {
+        contactFragmentScreenView.getContactList().setVisibility(View.VISIBLE);
+        contactFragmentScreenView.getNotFoundContainer().setVisibility(View.GONE);
     }
 
     public boolean closeSearchView() {

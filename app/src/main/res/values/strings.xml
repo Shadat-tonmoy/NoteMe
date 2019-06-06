@@ -90,6 +90,9 @@
     <string name="sort_by">Sort By</string>
     <string name="notes_are_sorted">Notes are sorted</string>
     <string name="email_support">Email Support</string>
+    <string name="no_note_found">No Note Found!!\n Tap the \'+\' button to add new note</string>
+    <string name="no_contact_found">No Contact Found!!</string>
+    <string name="no_email_found">No Email Found!!</string>
 
     <string-array name="sorting_choices">
         <item>Ascending</item>

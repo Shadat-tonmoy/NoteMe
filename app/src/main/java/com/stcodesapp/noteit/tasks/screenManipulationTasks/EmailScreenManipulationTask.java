@@ -1,6 +1,7 @@
 package com.stcodesapp.noteit.tasks.screenManipulationTasks;
 
 import android.app.Activity;
+import android.view.View;
 
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.EmailFragmentScreenView;
 
@@ -28,5 +29,17 @@ public class EmailScreenManipulationTask {
             return true;
         }
         return false;
+    }
+
+    public void showNoEmailFound()
+    {
+        emailFragmentScreenView.getEmailList().setVisibility(View.GONE);
+        emailFragmentScreenView.getNotFoundContainer().setVisibility(View.VISIBLE);
+    }
+
+    public void showEmailList()
+    {
+        emailFragmentScreenView.getEmailList().setVisibility(View.VISIBLE);
+        emailFragmentScreenView.getNotFoundContainer().setVisibility(View.GONE);
     }
 }

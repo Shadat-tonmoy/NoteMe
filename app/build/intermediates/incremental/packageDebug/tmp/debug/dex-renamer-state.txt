@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-#Thu Jun 06 12:10:23 BDT 2019
-=======
-#Mon Jun 03 16:31:52 BDT 2019
->>>>>>> 1ad964d6291dea6973e1888cb388832d1ae5ae03
+#Fri Jun 07 00:10:16 BDT 2019
 path.1=classes.dex
 path.0=classes.dex
 renamed.10=classes11.dex

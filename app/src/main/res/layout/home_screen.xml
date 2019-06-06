@@ -15,8 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:paddingBottom="?attr/actionBarSize"
-        android:clipToPadding="false"
-        />
+        android:clipToPadding="false"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/note_add_button"
@@ -27,5 +26,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
+
+    <include layout="@layout/not_found_layout"/>
+
 
 </android.support.constraint.ConstraintLayout>
