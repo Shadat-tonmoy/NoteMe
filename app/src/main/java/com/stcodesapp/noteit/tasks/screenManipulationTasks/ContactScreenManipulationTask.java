@@ -24,7 +24,13 @@ public class ContactScreenManipulationTask {
     }
 
     public void performFilter(String newText) {
-        contactFragmentScreenView.getPhoneEmailListAdapter().getContactFilteringTask().getFilter().filter(newText);
+        try {
+            contactFragmentScreenView.getPhoneEmailListAdapter().getContactFilteringTask().getFilter().filter(newText);
+        }catch (Exception e)
+        {
+
+        }
+
     }
 
     public void showNoConntactFound()

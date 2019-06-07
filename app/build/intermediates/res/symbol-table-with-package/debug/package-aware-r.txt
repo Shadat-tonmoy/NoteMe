@@ -1353,6 +1353,7 @@ id not_found_container
 id not_found_image
 id not_found_text
 id note_add_button
+id note_clear
 id note_header
 id note_important_choices
 id note_important_text
@@ -1682,6 +1683,8 @@ string choose_an_option_to_continue
 string choose_background_color
 string choose_color
 string clear
+string clear_note
+string clear_note_msg
 string contact_inserted
 string contact_permission_is_required
 string contacts
@@ -1736,6 +1739,7 @@ string note_added
 string note_component_deleted
 string note_component_updated
 string note_deleted
+string note_is_cleared
 string note_is_not_saved
 string note_is_removed
 string note_text
@@ -1757,6 +1761,7 @@ string privacy_policy
 string pro_version
 string rate_the_app
 string remove
+string remove_all_note
 string removed_from_favorite
 string save
 string save_note

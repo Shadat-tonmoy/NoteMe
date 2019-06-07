@@ -1,5 +1,6 @@
 package com.stcodesapp.noteit.controllers;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,7 +32,7 @@ import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
-public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask.Listener, NoteListAdapter.Listener, ImportantNoteSelectTask.Listener, MaterialSearchView.OnQueryTextListener, SortingOptionDialog.Listener, MoreOptionsBottomSheets.Listener, AllDeletionTasks.Listener, NoteDeleteTask.Listener {
+public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask.Listener, NoteListAdapter.Listener, ImportantNoteSelectTask.Listener, MaterialSearchView.OnQueryTextListener, SortingOptionDialog.Listener, MoreOptionsBottomSheets.Listener, AllDeletionTasks.Listener, NoteDeleteTask.Listener, HomeScreenManipulationTasks.Listener{
 
 
     private TasksFactory tasksFactory;
@@ -52,6 +53,7 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     public void bindView(HomeScreen homeScreenView) {
         this.homeScreenView = homeScreenView;
         homeScreenManipulationTasks.bindView(homeScreenView);
+        homeScreenManipulationTasks.setListener(this);
     }
 
     public void onAttach() {
@@ -130,6 +132,9 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
             case R.id.note_sort:
                 homeScreenManipulationTasks.showSortingOptionDialog(this,getSortingSelectionBundle());
                 break;
+            case R.id.note_clear:
+                homeScreenManipulationTasks.showClearNoteConfirmationDialog();
+                break;
 
         }
     }
@@ -152,6 +157,15 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
         bundle.putBoolean(FragmentTags.TIME_ASC,timeAsc);
         bundle.putBoolean(FragmentTags.IMPORTANT_ASC,importantAsc);
         return bundle;
+    }
+
+    private void clearNote()
+    {
+        DatabaseTasks databaseTasks = tasksFactory.getDatabaseTasks();
+        databaseTasks
+                .getAllDeletionTasks(this, ComponentType.ALL_NOTE)
+                .execute((long)Constants.ZERO);
+
     }
 
     @Override
@@ -320,5 +334,11 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     public void onNoteDeleted(Note note) {
         homeScreenManipulationTasks.showNoteRemovedToas();
         startFetchingNote();
+    }
+
+
+    @Override
+    public void onClearNoteClicked() {
+        clearNote();
     }
 }

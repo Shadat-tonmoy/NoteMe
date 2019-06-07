@@ -1,6 +1,8 @@
 package com.stcodesapp.noteit.tasks.screenManipulationTasks;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -22,8 +24,14 @@ import java.util.Objects;
 
 public class HomeScreenManipulationTasks {
 
+
+    public interface Listener{
+        void onClearNoteClicked();
+    }
+
     private Activity activity;
     private HomeScreen homeScreenView;
+    private Listener listener;
 
 
     public HomeScreenManipulationTasks(Activity activity) {
@@ -32,6 +40,10 @@ public class HomeScreenManipulationTasks {
 
     public void bindView(HomeScreen homeScreenView) {
         this.homeScreenView = homeScreenView;
+    }
+
+    public void setListener(Listener listener) {
+        this.listener = listener;
     }
 
     public void bindNotes(List<Note> notes)
@@ -73,7 +85,13 @@ public class HomeScreenManipulationTasks {
     }
 
     public void performFilter(String newText) {
-        homeScreenView.getNoteListAdapter().getNoteFilteringTask().getFilter().filter(newText);
+        try {
+            homeScreenView.getNoteListAdapter().getNoteFilteringTask().getFilter().filter(newText);
+        }catch (Exception e)
+        {
+
+        }
+
     }
 
     public boolean closeSearchView() {
@@ -137,7 +155,30 @@ public class HomeScreenManipulationTasks {
         {
 
         }
+    }
 
+
+    public void showClearNoteConfirmationDialog() {
+
+        new AlertDialog.Builder(activity)
+                .setTitle(activity.getResources().getString(R.string.clear_note))
+                .setMessage(activity.getResources().getString(R.string.clear_note_msg))
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        listener.onClearNoteClicked();
+                        dialog.dismiss();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+
+                    }
+                })
+                .setIcon(activity.getResources().getDrawable(R.drawable.warning_red))
+                .show();
 
 
     }

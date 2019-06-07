@@ -71,6 +71,7 @@
     <string name="copy">Copy</string>
     <string name="remove">Remove</string>
     <string name="note_component_deleted">Note Component Removed!!</string>
+    <string name="note_is_cleared">Note list is cleared!!</string>
     <string name="email_inserted">Email Added!</string>
     <string name="contact_inserted">Contact Added!</string>
     <string name="audio_inserted">Audio Added!</string>
@@ -80,6 +81,8 @@
     <string name="emails">Emails</string>
     <string name="nothing_to_save">Nothing to save!!</string>
     <string name="save_note">Save Note?</string>
+    <string name="clear_note">Clear Note?</string>
+    <string name="clear_note_msg">Are you sure to clear all note?</string>
     <string name="note_is_not_saved">Note is note saved. Do you want to save the note?</string>
     <string name="added_to_favorite">Note is added to favorite</string>
     <string name="removed_from_favorite">Note is removed from favorite</string>
@@ -100,6 +103,7 @@
     <string name="delete_audio">Delete All Audio</string>
     <string name="delete_notes">Delete Note</string>
     <string name="note_is_removed">Note is removed!</string>
+    <string name="remove_all_note">Remove All Notes</string>
 
     <string-array name="sorting_choices">
         <item>Ascending</item>

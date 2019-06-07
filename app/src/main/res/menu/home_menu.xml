@@ -14,5 +14,11 @@
         android:title="@string/sort"
         android:icon="@drawable/sort_white"/>
 
+    <item
+        android:id="@+id/note_clear"
+        app:showAsAction="never"
+        android:title="@string/remove_all_note"
+        android:icon="@drawable/delete_black"/>
+
 
 </menu>

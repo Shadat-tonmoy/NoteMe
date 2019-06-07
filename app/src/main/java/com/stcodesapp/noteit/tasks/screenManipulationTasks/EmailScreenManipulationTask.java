@@ -24,7 +24,13 @@ public class EmailScreenManipulationTask {
     }
 
     public void performFilter(String newText) {
-        emailFragmentScreenView.getPhoneEmailListAdapter().getEmailFilteringTask().getFilter().filter(newText);
+        try {
+            emailFragmentScreenView.getPhoneEmailListAdapter().getEmailFilteringTask().getFilter().filter(newText);
+        }catch (Exception e)
+        {
+
+        }
+
     }
 
     public boolean closeSearchView() {

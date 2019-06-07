@@ -50,8 +50,18 @@ public class AllDeletionTasks extends AsyncTask<Long, Void, Integer>{
     protected void onPostExecute(Integer result) {
         super.onPostExecute(result);
         if(result> Constants.ZERO)
+        {
             listener.onAllElementOfSingleNoteDeleted();
-        Toast.makeText(context,context.getResources().getString(R.string.note_component_deleted),Toast.LENGTH_SHORT).show();
+            showDeletedMessage();
+        }
+    }
+
+    private void showDeletedMessage()
+    {
+        String message = context.getResources().getString(R.string.note_component_deleted);
+        if(componentType==ComponentType.ALL_NOTE)
+            message = context.getResources().getString(R.string.note_is_cleared);
+        Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
     }
 
     private int getDeletionTask(Long noteId)
