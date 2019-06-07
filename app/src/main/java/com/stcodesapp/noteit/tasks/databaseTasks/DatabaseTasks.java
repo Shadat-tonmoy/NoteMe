@@ -3,13 +3,13 @@ package com.stcodesapp.noteit.tasks.databaseTasks;
 import android.content.Context;
 
 import com.stcodesapp.noteit.constants.ComponentType;
-import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.models.NoteComponents;
-import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.AudioDeleteTask;
-import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.ContactDeleteTask;
-import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.EmailDeleteTask;
-import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.ImageDeleteTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.allDeletionTask.AllDeletionTasks;
+import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.AudioDeleteTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.ContactDeleteTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.EmailDeleteTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.ImageDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.AudioInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ContactInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.EmailInsertTask;
@@ -24,8 +24,6 @@ import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.ImageSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.ImportantNoteSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteComponentSelectionTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteSelectTask;
-
-import java.io.Serializable;
 
 public class DatabaseTasks {
 
@@ -172,6 +170,13 @@ public class DatabaseTasks {
         noteComponentSelectionTask.setListener(listener);
         return noteComponentSelectionTask;
 
+    }
+
+    public AllDeletionTasks getAllDeletionTasks(AllDeletionTasks.Listener listener, ComponentType componentType)
+    {
+        AllDeletionTasks allDeletionTasks = new AllDeletionTasks(context,componentType);
+        allDeletionTasks.setListener(listener);
+        return allDeletionTasks;
     }
 
 

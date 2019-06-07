@@ -7,16 +7,21 @@ import android.util.Log;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.adapter.NoteListAdapter;
+import com.stcodesapp.noteit.constants.ComponentType;
+import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.FragmentTags;
 import com.stcodesapp.noteit.constants.SortingType;
 import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.models.Note;
+import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
+import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.allDeletionTask.AllDeletionTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.ImportantNoteSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteSelectTask;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.HomeScreenManipulationTasks;
+import com.stcodesapp.noteit.ui.fragments.MoreOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.PhoneOrEmailListBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.SortingOptionDialog;
 import com.stcodesapp.noteit.ui.views.screens.HomeScreen;
@@ -25,7 +30,7 @@ import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
-public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask.Listener, NoteListAdapter.Listener, ImportantNoteSelectTask.Listener, MaterialSearchView.OnQueryTextListener, SortingOptionDialog.Listener {
+public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask.Listener, NoteListAdapter.Listener, ImportantNoteSelectTask.Listener, MaterialSearchView.OnQueryTextListener, SortingOptionDialog.Listener, MoreOptionsBottomSheets.Listener, AllDeletionTasks.Listener {
 
 
     private TasksFactory tasksFactory;
@@ -195,7 +200,7 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
 
     @Override
     public void onMoreButtonClicked(Note note) {
-        homeScreenManipulationTasks.showMoreOptionBottomSheet(note);
+        homeScreenManipulationTasks.showMoreOptionBottomSheet(note,this);
 
     }
 
@@ -248,6 +253,62 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
         boolean ascending = position == 0;
         importantAsc = ascending;
         homeScreenManipulationTasks.sortNote(SortingType.NOTE_IMPORTANT,ascending);
+
+    }
+
+    @Override
+    public void onDeleteNoteClicked(Note note) {
+
+
+    }
+
+    @Override
+    public void onDeleteContactClicked(Note note) {
+        DatabaseTasks databaseTasks = tasksFactory.getDatabaseTasks();
+        note.setContactPriority(Constants.ZERO);
+        databaseTasks.getNoteUpdateTask().execute(note);
+        databaseTasks
+                .getAllDeletionTasks(this, ComponentType.CONTACT)
+                .execute(note.getId());
+        homeScreenManipulationTasks.hideMoreOptionBottomSheet();
+    }
+
+    @Override
+    public void onDeleteEmailClicked(Note note) {
+        DatabaseTasks databaseTasks = tasksFactory.getDatabaseTasks();
+        note.setEmailPriority(Constants.ZERO);
+        databaseTasks.getNoteUpdateTask().execute(note);
+        databaseTasks
+                .getAllDeletionTasks(this, ComponentType.EMAIL)
+                .execute(note.getId());
+        homeScreenManipulationTasks.hideMoreOptionBottomSheet();
+    }
+
+    @Override
+    public void onDeleteImageClicked(Note note) {
+        DatabaseTasks databaseTasks = tasksFactory.getDatabaseTasks();
+        note.setImagePriority(Constants.ZERO);
+        databaseTasks.getNoteUpdateTask().execute(note);
+        databaseTasks
+                .getAllDeletionTasks(this, ComponentType.IMAGE)
+                .execute(note.getId());
+        homeScreenManipulationTasks.hideMoreOptionBottomSheet();
+    }
+
+    @Override
+    public void onDeleteAudioClicked(Note note) {
+        DatabaseTasks databaseTasks = tasksFactory.getDatabaseTasks();
+        note.setAudioPriority(Constants.ZERO);
+        databaseTasks.getNoteUpdateTask().execute(note);
+        databaseTasks
+                .getAllDeletionTasks(this, ComponentType.AUDIO)
+                .execute(note.getId());
+        homeScreenManipulationTasks.hideMoreOptionBottomSheet();
+    }
+
+    @Override
+    public void onAllElementOfSingleNoteDeleted() {
+        startFetchingNote();
 
     }
 }

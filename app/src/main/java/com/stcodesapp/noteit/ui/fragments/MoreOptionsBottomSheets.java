@@ -28,6 +28,7 @@ public class MoreOptionsBottomSheets extends BottomSheetDialogFragment {
     private Listener listener;
     private TextView deleteContacts,deleteEmails,deleteImages,deleteAudios,deleteNote;
     private Note note;
+    private MoreOptionsBottomSheets moreOptionsBottomSheets;
 
 
     public static MoreOptionsBottomSheets newInstance(Bundle args) {
@@ -35,6 +36,8 @@ public class MoreOptionsBottomSheets extends BottomSheetDialogFragment {
         fragment.setArguments(args);
         return fragment;
     }
+
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

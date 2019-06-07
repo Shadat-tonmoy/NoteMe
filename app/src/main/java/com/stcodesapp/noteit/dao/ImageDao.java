@@ -27,4 +27,8 @@ public interface ImageDao {
     List<Image> getAllImageForNote(long noteId);
 
 
+    @Query("delete from images where note_id = :noteId")
+    int deleteAllImageForNote(long noteId);
+
+
 }

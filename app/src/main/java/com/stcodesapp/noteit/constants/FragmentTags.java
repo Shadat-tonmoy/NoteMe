@@ -3,6 +3,7 @@ package com.stcodesapp.noteit.constants;
 public class FragmentTags {
     public static final String HOME_SCREEN = "HOME";
     public static final String CONTACT_BOTTOM_SHEET = "cbs";
+    public static final String MORE_OPTION_BOTTOM_SHEET = "mobs";
     public static final String EMAIL_BOTTOM_SHEET = "ebs";
     public static final String IMPORTANT_NOTES = "IMPORTANT";
     public static final String CONTACTS = "CONTACTS";

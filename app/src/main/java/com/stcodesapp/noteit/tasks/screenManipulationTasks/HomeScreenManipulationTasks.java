@@ -18,6 +18,7 @@ import com.stcodesapp.noteit.ui.fragments.SortingOptionDialog;
 import com.stcodesapp.noteit.ui.views.screens.HomeScreen;
 
 import java.util.List;
+import java.util.Objects;
 
 public class HomeScreenManipulationTasks {
 
@@ -111,10 +112,27 @@ public class HomeScreenManipulationTasks {
 
     }
 
-    public void showMoreOptionBottomSheet(Note note) {
+    public void showMoreOptionBottomSheet(Note note,MoreOptionsBottomSheets.Listener listener) {
         Bundle args = new Bundle();
         args.putSerializable(Tags.NOTE,note);
         MoreOptionsBottomSheets moreOptionsBottomSheets = MoreOptionsBottomSheets.newInstance(args);
-        moreOptionsBottomSheets.show(((AppCompatActivity)activity).getSupportFragmentManager(), FragmentTags.CONTACT_BOTTOM_SHEET);
+        moreOptionsBottomSheets.setListener(listener);
+        moreOptionsBottomSheets.show(((AppCompatActivity)activity).getSupportFragmentManager(), FragmentTags.MORE_OPTION_BOTTOM_SHEET);
+    }
+
+    public void hideMoreOptionBottomSheet()
+    {
+        try {
+            ((MoreOptionsBottomSheets) Objects.requireNonNull(((AppCompatActivity) activity)
+                    .getSupportFragmentManager()
+                    .findFragmentByTag(FragmentTags.MORE_OPTION_BOTTOM_SHEET)))
+                    .dismiss();
+        }catch (Exception e)
+        {
+
+        }
+
+
+
     }
 }

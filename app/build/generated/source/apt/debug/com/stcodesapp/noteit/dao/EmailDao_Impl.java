@@ -5,6 +5,7 @@ import android.arch.persistence.room.EntityDeletionOrUpdateAdapter;
 import android.arch.persistence.room.EntityInsertionAdapter;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.RoomSQLiteQuery;
+import android.arch.persistence.room.SharedSQLiteStatement;
 import android.database.Cursor;
 import com.stcodesapp.noteit.models.Email;
 import java.lang.Override;
@@ -20,6 +21,8 @@ public class EmailDao_Impl implements EmailDao {
   private final EntityInsertionAdapter __insertionAdapterOfEmail;
 
   private final EntityDeletionOrUpdateAdapter __deletionAdapterOfEmail;
+
+  private final SharedSQLiteStatement __preparedStmtOfDeleteAllEmailForNote;
 
   public EmailDao_Impl(RoomDatabase __db) {
     this.__db = __db;
@@ -56,6 +59,13 @@ public class EmailDao_Impl implements EmailDao {
         stmt.bindLong(1, value.getId());
       }
     };
+    this.__preparedStmtOfDeleteAllEmailForNote = new SharedSQLiteStatement(__db) {
+      @Override
+      public String createQuery() {
+        final String _query = "delete from email where note_id = ?";
+        return _query;
+      }
+    };
   }
 
   @Override
@@ -89,6 +99,22 @@ public class EmailDao_Impl implements EmailDao {
       __db.setTransactionSuccessful();
     } finally {
       __db.endTransaction();
+    }
+  }
+
+  @Override
+  public int deleteAllEmailForNote(long noteId) {
+    final SupportSQLiteStatement _stmt = __preparedStmtOfDeleteAllEmailForNote.acquire();
+    __db.beginTransaction();
+    try {
+      int _argIndex = 1;
+      _stmt.bindLong(_argIndex, noteId);
+      final int _result = _stmt.executeUpdateDelete();
+      __db.setTransactionSuccessful();
+      return _result;
+    } finally {
+      __db.endTransaction();
+      __preparedStmtOfDeleteAllEmailForNote.release(_stmt);
     }
   }
 

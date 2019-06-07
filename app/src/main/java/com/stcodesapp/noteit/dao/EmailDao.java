@@ -34,5 +34,8 @@ public interface EmailDao {
     @Query("select * from email where note_id = :noteId")
     List<Email> getAllEmailForNote(long noteId);
 
+    @Query("delete from email where note_id = :noteId")
+    int deleteAllEmailForNote(long noteId);
+
 
 }

@@ -5,6 +5,7 @@ import android.arch.persistence.room.EntityDeletionOrUpdateAdapter;
 import android.arch.persistence.room.EntityInsertionAdapter;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.RoomSQLiteQuery;
+import android.arch.persistence.room.SharedSQLiteStatement;
 import android.database.Cursor;
 import com.stcodesapp.noteit.models.Image;
 import java.lang.Override;
@@ -20,6 +21,8 @@ public class ImageDao_Impl implements ImageDao {
   private final EntityInsertionAdapter __insertionAdapterOfImage;
 
   private final EntityDeletionOrUpdateAdapter __deletionAdapterOfImage;
+
+  private final SharedSQLiteStatement __preparedStmtOfDeleteAllImageForNote;
 
   public ImageDao_Impl(RoomDatabase __db) {
     this.__db = __db;
@@ -49,6 +52,13 @@ public class ImageDao_Impl implements ImageDao {
       @Override
       public void bind(SupportSQLiteStatement stmt, Image value) {
         stmt.bindLong(1, value.getId());
+      }
+    };
+    this.__preparedStmtOfDeleteAllImageForNote = new SharedSQLiteStatement(__db) {
+      @Override
+      public String createQuery() {
+        final String _query = "delete from images where note_id = ?";
+        return _query;
       }
     };
   }
@@ -84,6 +94,22 @@ public class ImageDao_Impl implements ImageDao {
       __db.setTransactionSuccessful();
     } finally {
       __db.endTransaction();
+    }
+  }
+
+  @Override
+  public int deleteAllImageForNote(long noteId) {
+    final SupportSQLiteStatement _stmt = __preparedStmtOfDeleteAllImageForNote.acquire();
+    __db.beginTransaction();
+    try {
+      int _argIndex = 1;
+      _stmt.bindLong(_argIndex, noteId);
+      final int _result = _stmt.executeUpdateDelete();
+      __db.setTransactionSuccessful();
+      return _result;
+    } finally {
+      __db.endTransaction();
+      __preparedStmtOfDeleteAllImageForNote.release(_stmt);
     }
   }
 
