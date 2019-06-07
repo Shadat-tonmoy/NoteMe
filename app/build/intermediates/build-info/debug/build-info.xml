@@ -6,22 +6,22 @@
     density="xhdpi"
     format="10"
     plugin-version="3.4.0"
-    timestamp="1559930595662"
+    timestamp="1559931787231"
     token="-909958535106817979"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="4621" />
+        duration="4582" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="29" />
+        duration="44" />
     <task
         name="verifier"
-        duration="64" />
+        duration="68" />
 
     <artifact
         location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
@@ -62,7 +62,7 @@
 
     <build
         build-mode="FULL"
-        timestamp="1559930595662"
+        timestamp="1559931787231"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/split-apk/debug/slices/slice_7.apk"

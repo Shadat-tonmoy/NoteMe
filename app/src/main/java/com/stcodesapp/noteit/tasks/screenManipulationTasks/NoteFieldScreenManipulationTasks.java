@@ -50,6 +50,7 @@ public class NoteFieldScreenManipulationTasks {
     private ListeningTasks listeningTasks;
     private UIComponentFatory uiComponentFatory;
     private NoteComponents noteComponents;
+    private FileIOTasks fileIOTasks;
 
     public NoteFieldScreenManipulationTasks(Activity activity, ListeningTasks listeningTasks, UIComponentFatory uiComponentFatory) {
         this.activity = activity;
@@ -395,26 +396,43 @@ public class NoteFieldScreenManipulationTasks {
 
     public void buildUIFromNoteComponents(FileIOTasks fileIOTasks)
     {
-        addImageToFields();
+        this.fileIOTasks = fileIOTasks;
         setNoteFieldValue();
-        addEmailsToField();
-        addContactsToField();
-
-
-        for(Audio audio:noteComponents.getChosenAudios())
-            addAudioToChosenContactContainer(audio,Uri.parse(audio.getAudioUri()),fileIOTasks);
+        addComponentByPriority(1);
+        addComponentByPriority(2);
+        addComponentByPriority(3);
+        addComponentByPriority(4);
     }
 
-    public void addEmailsToField()
+    private void addComponentByPriority(int priority)
+    {
+        if(noteComponents.getNote().getContactPriority()==priority)
+            addContactsToField();
+        else if(noteComponents.getNote().getEmailPriority()==priority)
+            addEmailsToField();
+        else if(noteComponents.getNote().getAudioPriority()==priority)
+            addAudioToField();
+        else if(noteComponents.getNote().getImagePriority()==priority)
+            addImageToFields();
+    }
+
+
+    private void addEmailsToField()
     {
         for(Email email:noteComponents.getEmails())
             addEmailToChosenEmailContainer(email);
     }
 
-    public void addContactsToField()
+    private void addContactsToField()
     {
         for(Contact contact:noteComponents.getChosenContacts())
             addContactToChosenContactContainer(contact);
+    }
+
+    private void addAudioToField()
+    {
+        for(Audio audio:noteComponents.getChosenAudios())
+            addAudioToChosenContactContainer(audio,Uri.parse(audio.getAudioUri()),fileIOTasks);
     }
 
     private void setNoteFieldValue()
