@@ -194,6 +194,12 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     }
 
     @Override
+    public void onMoreButtonClicked(Note note) {
+        homeScreenManipulationTasks.showMoreOptionBottomSheet(note);
+
+    }
+
+    @Override
     public void onImportantNoteFetched(List<Note> fetchedNotes) {
         homeScreenManipulationTasks.bindNotes(fetchedNotes);
     }

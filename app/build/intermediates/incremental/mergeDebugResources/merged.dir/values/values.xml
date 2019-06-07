@@ -619,10 +619,15 @@
     <string name="copy">Copy</string>
     <string name="copy_note">Copy</string>
     <string name="created">Created</string>
+    <string name="delete_audio">Delete All Audio</string>
+    <string name="delete_contacts">Delete All Contacts</string>
+    <string name="delete_emails">Delete All Emails</string>
+    <string name="delete_images">Delete All Images</string>
     <string name="delete_note">Delete</string>
     <string name="delete_note_cancel">No!! That Was an Accident</string>
     <string name="delete_note_ok">Yes! Delete The Note</string>
     <string name="delete_note_prompt">Are You Sure To Permanently Delete The Note?</string>
+    <string name="delete_notes">Delete Note</string>
     <string name="done">Done</string>
     <string name="drawer_close">Drawer Close</string>
     <string name="drawer_open">Drawer Open</string>

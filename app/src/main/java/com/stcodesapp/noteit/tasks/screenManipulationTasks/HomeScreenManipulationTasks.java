@@ -10,7 +10,9 @@ import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.FragmentTags;
 import com.stcodesapp.noteit.constants.SortingType;
+import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.models.Note;
+import com.stcodesapp.noteit.ui.fragments.MoreOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.PhoneOrEmailListBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.SortingOptionDialog;
 import com.stcodesapp.noteit.ui.views.screens.HomeScreen;
@@ -107,5 +109,12 @@ public class HomeScreenManipulationTasks {
     {
         homeScreenView.getNoteListAdapter().getNoteSortingTask().sortNotes(sortingType,ascending);
 
+    }
+
+    public void showMoreOptionBottomSheet(Note note) {
+        Bundle args = new Bundle();
+        args.putSerializable(Tags.NOTE,note);
+        MoreOptionsBottomSheets moreOptionsBottomSheets = MoreOptionsBottomSheets.newInstance(args);
+        moreOptionsBottomSheets.show(((AppCompatActivity)activity).getSupportFragmentManager(), FragmentTags.CONTACT_BOTTOM_SHEET);
     }
 }

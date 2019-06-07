@@ -94,6 +94,11 @@
     <string name="no_important_note_found">No Note is marked as important!!</string>
     <string name="no_contact_found">No Contact Found!!</string>
     <string name="no_email_found">No Email Found!!</string>
+    <string name="delete_contacts">Delete All Contacts</string>
+    <string name="delete_emails">Delete All Emails</string>
+    <string name="delete_images">Delete All Images</string>
+    <string name="delete_audio">Delete All Audio</string>
+    <string name="delete_notes">Delete Note</string>
 
     <string-array name="sorting_choices">
         <item>Ascending</item>

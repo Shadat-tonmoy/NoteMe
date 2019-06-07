@@ -1067,6 +1067,7 @@ drawable contact_badge
 drawable contacts_gray
 drawable copy_black
 drawable delete_black
+drawable delete_red
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1102,6 +1103,7 @@ drawable mic_black
 drawable microphone
 drawable more
 drawable more_black
+drawable more_horizontal_gray
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable nav_drawe_header_bg
@@ -1250,6 +1252,11 @@ id custom
 id customPanel
 id decor_content_parent
 id default_activity_button
+id delete_audios
+id delete_contacts
+id delete_emails
+id delete_images
+id delete_note
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -1327,6 +1334,7 @@ id masked
 id message
 id middle
 id mini
+id more_button
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
@@ -1576,6 +1584,7 @@ layout image_holder
 layout main_activity_layout
 layout manual_contact_screen
 layout manual_email_screen
+layout more_option_bottom_sheet_layout
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout navigation_drawer_header
@@ -1679,10 +1688,15 @@ string contacts
 string copy
 string copy_note
 string created
+string delete_audio
+string delete_contacts
+string delete_emails
+string delete_images
 string delete_note
 string delete_note_cancel
 string delete_note_ok
 string delete_note_prompt
+string delete_notes
 string done
 string drawer_close
 string drawer_open

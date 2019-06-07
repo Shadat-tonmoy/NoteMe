@@ -47,6 +47,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         void onEmailBadgeClicked(Note note);
         void onNoteClicked(Note note);
         void onAddToFavoriteClicked(Note note);
+        void onMoreButtonClicked(Note note);
     }
 
 
@@ -62,8 +63,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
 
         TextView noteHeader,noteText,noteTime;
         LinearLayout badgeHolder,emailBadge,contactBadge;
-        ImageView addToFavoriteButton;
-        /*TextView editNote,deleteNote,moreOption;*/
+        ImageView addToFavoriteButton,moreButton;
         ConstraintLayout noteRow;
 
         public ViewHolder(@NonNull View itemView) {
@@ -73,9 +73,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
             noteTime = itemView.findViewById(R.id.note_time);
             badgeHolder = itemView.findViewById(R.id.badge_holder);
             addToFavoriteButton = itemView.findViewById(R.id.favorite_button);
-            /*editNote = itemView.findViewById(R.id.edit_button);
-            deleteNote = itemView.findViewById(R.id.delete_button);
-            moreOption = itemView.findViewById(R.id.more_button);*/
+            moreButton = itemView.findViewById(R.id.more_button);
             noteRow = itemView.findViewById(R.id.note_row);
         }
     }
@@ -148,7 +146,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         {
             setNoteBackgroundColor(viewHolder.noteRow, bgColor.get(i));
         }
-        setClickListener(note,viewHolder.noteRow, viewHolder.contactBadge, viewHolder.emailBadge, viewHolder.addToFavoriteButton);
+        setClickListener(note,viewHolder.noteRow, viewHolder.contactBadge, viewHolder.emailBadge, viewHolder.addToFavoriteButton,viewHolder.moreButton);
 
     }
 
@@ -291,6 +289,16 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
                     note.setImportant(!note.isImportant());
                     notifyDataSetChanged();
                     listener.onAddToFavoriteClicked(note);
+                }
+            });
+        }
+
+        if(views[4]!=null)
+        {
+            views[4].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onMoreButtonClicked(note);
                 }
             });
         }

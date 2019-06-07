@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/delete_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/delete_contacts"
+        android:textSize="16sp"
+        android:padding="16dp"
+        android:drawableLeft="@drawable/delete_black"
+        android:drawablePadding="8dp"
+        android:foreground="?attr/selectableItemBackground"
+        />
+
+    <TextView
+        android:id="@+id/delete_emails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/delete_emails"
+        android:textSize="16sp"
+        android:padding="16dp"
+        android:drawableLeft="@drawable/delete_black"
+        android:drawablePadding="8dp"
+        android:foreground="?attr/selectableItemBackground"
+        />
+
+    <TextView
+        android:id="@+id/delete_images"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/delete_images"
+        android:textSize="16sp"
+        android:padding="16dp"
+        android:drawableLeft="@drawable/delete_black"
+        android:drawablePadding="8dp"
+        android:foreground="?attr/selectableItemBackground"
+        />
+
+    <TextView
+        android:id="@+id/delete_audios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/delete_audio"
+        android:textSize="16sp"
+        android:padding="16dp"
+        android:drawableLeft="@drawable/delete_black"
+        android:drawablePadding="8dp"
+        android:foreground="?attr/selectableItemBackground"
+        />
+
+    <TextView
+        android:id="@+id/delete_note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/delete_notes"
+        android:textSize="16sp"
+        android:textColor="@color/lightRed"
+        android:padding="16dp"
+        android:drawableLeft="@drawable/delete_red"
+        android:drawablePadding="8dp"
+        android:foreground="?attr/selectableItemBackground"
+        />
+
+</LinearLayout>
