@@ -99,6 +99,7 @@
     <string name="delete_images">Delete All Images</string>
     <string name="delete_audio">Delete All Audio</string>
     <string name="delete_notes">Delete Note</string>
+    <string name="note_is_removed">Note is removed!</string>
 
     <string-array name="sorting_choices">
         <item>Ascending</item>

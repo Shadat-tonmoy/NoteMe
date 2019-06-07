@@ -16,6 +16,7 @@ import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.allDeletionTask.AllDeletionTasks;
+import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.NoteDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.ImportantNoteSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteSelectTask;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
@@ -30,7 +31,7 @@ import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
-public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask.Listener, NoteListAdapter.Listener, ImportantNoteSelectTask.Listener, MaterialSearchView.OnQueryTextListener, SortingOptionDialog.Listener, MoreOptionsBottomSheets.Listener, AllDeletionTasks.Listener {
+public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask.Listener, NoteListAdapter.Listener, ImportantNoteSelectTask.Listener, MaterialSearchView.OnQueryTextListener, SortingOptionDialog.Listener, MoreOptionsBottomSheets.Listener, AllDeletionTasks.Listener, NoteDeleteTask.Listener {
 
 
     private TasksFactory tasksFactory;
@@ -258,8 +259,11 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
 
     @Override
     public void onDeleteNoteClicked(Note note) {
-
-
+        DatabaseTasks databaseTasks = tasksFactory.getDatabaseTasks();
+        databaseTasks
+                .getNoteDeleteTask(this)
+                .execute(note);
+        homeScreenManipulationTasks.hideMoreOptionBottomSheet();
     }
 
     @Override
@@ -310,5 +314,11 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     public void onAllElementOfSingleNoteDeleted() {
         startFetchingNote();
 
+    }
+
+    @Override
+    public void onNoteDeleted(Note note) {
+        homeScreenManipulationTasks.showNoteRemovedToas();
+        startFetchingNote();
     }
 }

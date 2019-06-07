@@ -66,6 +66,8 @@ public class AllDeletionTasks extends AsyncTask<Long, Void, Integer>{
                 return noteDatabase.emailDao().deleteAllEmailForNote(noteId);
             case CONTACT:
                 return noteDatabase.contactDao().deleteAllContactForNote(noteId);
+            case ALL_NOTE:
+                return noteDatabase.notesDao().deleteAllNote();
             default:
                 return -1;
         }

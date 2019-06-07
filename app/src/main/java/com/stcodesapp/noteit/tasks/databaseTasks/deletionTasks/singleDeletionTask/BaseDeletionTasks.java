@@ -12,6 +12,7 @@ import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.Image;
+import com.stcodesapp.noteit.models.Note;
 
 import java.util.List;
 
@@ -64,6 +65,9 @@ public class BaseDeletionTasks<Component> extends AsyncTask<Component, Void, Com
                 break;
             case CONTACT:
                 noteDatabase.contactDao().deleteContact((Contact)component);
+                break;
+            case NOTE:
+                noteDatabase.notesDao().delete((Note)component);
                 break;
             default:
                 return;

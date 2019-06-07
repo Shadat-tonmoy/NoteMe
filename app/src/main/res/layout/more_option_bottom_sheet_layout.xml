@@ -12,8 +12,6 @@
         android:text="@string/delete_contacts"
         android:textSize="16sp"
         android:padding="16dp"
-        android:drawableLeft="@drawable/delete_black"
-        android:drawablePadding="8dp"
         android:foreground="?attr/selectableItemBackground"
         />
 
@@ -24,8 +22,6 @@
         android:text="@string/delete_emails"
         android:textSize="16sp"
         android:padding="16dp"
-        android:drawableLeft="@drawable/delete_black"
-        android:drawablePadding="8dp"
         android:foreground="?attr/selectableItemBackground"
         />
 
@@ -36,8 +32,6 @@
         android:text="@string/delete_images"
         android:textSize="16sp"
         android:padding="16dp"
-        android:drawableLeft="@drawable/delete_black"
-        android:drawablePadding="8dp"
         android:foreground="?attr/selectableItemBackground"
         />
 
@@ -48,8 +42,6 @@
         android:text="@string/delete_audio"
         android:textSize="16sp"
         android:padding="16dp"
-        android:drawableLeft="@drawable/delete_black"
-        android:drawablePadding="8dp"
         android:foreground="?attr/selectableItemBackground"
         />
 
@@ -61,8 +53,6 @@
         android:textSize="16sp"
         android:textColor="@color/lightRed"
         android:padding="16dp"
-        android:drawableLeft="@drawable/delete_red"
-        android:drawablePadding="8dp"
         android:foreground="?attr/selectableItemBackground"
         />
 

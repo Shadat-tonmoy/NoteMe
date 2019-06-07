@@ -5,6 +5,7 @@ import android.arch.persistence.room.EntityDeletionOrUpdateAdapter;
 import android.arch.persistence.room.EntityInsertionAdapter;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.RoomSQLiteQuery;
+import android.arch.persistence.room.SharedSQLiteStatement;
 import android.database.Cursor;
 import com.stcodesapp.noteit.models.Note;
 import java.lang.Override;
@@ -22,6 +23,8 @@ public class NotesDao_Impl implements NotesDao {
   private final EntityDeletionOrUpdateAdapter __deletionAdapterOfNote;
 
   private final EntityDeletionOrUpdateAdapter __updateAdapterOfNote;
+
+  private final SharedSQLiteStatement __preparedStmtOfDeleteAllNote;
 
   public NotesDao_Impl(RoomDatabase __db) {
     this.__db = __db;
@@ -107,6 +110,13 @@ public class NotesDao_Impl implements NotesDao {
         stmt.bindLong(12, value.getId());
       }
     };
+    this.__preparedStmtOfDeleteAllNote = new SharedSQLiteStatement(__db) {
+      @Override
+      public String createQuery() {
+        final String _query = "delete from notes";
+        return _query;
+      }
+    };
   }
 
   @Override
@@ -140,6 +150,20 @@ public class NotesDao_Impl implements NotesDao {
       __db.setTransactionSuccessful();
     } finally {
       __db.endTransaction();
+    }
+  }
+
+  @Override
+  public int deleteAllNote() {
+    final SupportSQLiteStatement _stmt = __preparedStmtOfDeleteAllNote.acquire();
+    __db.beginTransaction();
+    try {
+      final int _result = _stmt.executeUpdateDelete();
+      __db.setTransactionSuccessful();
+      return _result;
+    } finally {
+      __db.endTransaction();
+      __preparedStmtOfDeleteAllNote.release(_stmt);
     }
   }
 

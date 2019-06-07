@@ -4,5 +4,7 @@ public enum ComponentType {
     EMAIL,
     AUDIO,
     IMAGE,
-    CONTACT
+    CONTACT,
+    NOTE,
+    ALL_NOTE
 }

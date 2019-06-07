@@ -62,6 +62,12 @@ public class HomeScreenManipulationTasks {
         Toast.makeText(activity,message,Toast.LENGTH_SHORT).show();
     }
 
+    public void showNoteRemovedToas()
+    {
+        Toast.makeText(activity,activity.getResources().getString(R.string.note_is_removed),Toast.LENGTH_SHORT).show();
+
+    }
+
     public void hideAddButton() {
         homeScreenView.getNoteAddButton().setVisibility(View.GONE);
     }

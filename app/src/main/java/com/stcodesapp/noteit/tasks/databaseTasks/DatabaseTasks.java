@@ -10,6 +10,7 @@ import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTas
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.ContactDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.EmailDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.ImageDeleteTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.NoteDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.AudioInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ContactInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.EmailInsertTask;
@@ -162,6 +163,13 @@ public class DatabaseTasks {
         ImageDeleteTask imageDeleteTask = new ImageDeleteTask(context, ComponentType.IMAGE);
         imageDeleteTask.setListener(listener);
         return imageDeleteTask;
+    }
+
+    public NoteDeleteTask getNoteDeleteTask(NoteDeleteTask.Listener listener)
+    {
+        NoteDeleteTask noteDeleteTask= new NoteDeleteTask(context, ComponentType.NOTE);
+        noteDeleteTask.setListener(listener);
+        return noteDeleteTask;
     }
 
     public NoteComponentSelectionTask getNoteComponentSelectionTask(NoteComponentSelectionTask.Listener listener,NoteComponents noteComponents)
