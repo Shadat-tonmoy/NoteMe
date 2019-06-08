@@ -104,6 +104,8 @@ public class NoteFieldScreenManipulationTasks {
             imageContainer = (activity.getLayoutInflater().inflate(R.layout.image_container,null,false)).findViewById(R.id.chosen_image_container);
             noteFieldScreenView.getUiComponentContainer().addView(imageContainer);
         }
+        if(imageContainer.getVisibility()==View.GONE)
+            imageContainer.setVisibility(View.VISIBLE);
         final View imageHolder = activity.getLayoutInflater().inflate(R.layout.image_holder,null,false);
         ZoomableImageView imageView = imageHolder.findViewById(R.id.image);
         ImageView removeIcon = imageHolder.findViewById(R.id.remove_image);
@@ -245,7 +247,7 @@ public class NoteFieldScreenManipulationTasks {
     {
         if(noteComponents.getChosenImages().size()==0)
         {
-            LinearLayout imageContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_image_container);
+            FlexboxLayout imageContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_image_container);
             if(imageContainer!=null)
             {
                 imageContainer.setVisibility(View.GONE);

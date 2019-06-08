@@ -95,7 +95,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
     public void onBindViewHolder(@NonNull NoteListAdapter.ViewHolder viewHolder, int i) {
         Note note = notes.get(i);
         viewHolder.noteHeader.setText(note.getNoteTitle());
-        viewHolder.noteText.setText(note.getNoteText());
+        viewHolder.noteText.setText(UtilityTasks.truncateText(note.getNoteText(),Constants.MAX_NOTE_TEXT_LENGTH,Constants.DOTS));
         viewHolder.noteTime.setText(UtilityTasks.getHumanReadableTime(note.getCreationTime()));
         if(note.isImportant())
         {

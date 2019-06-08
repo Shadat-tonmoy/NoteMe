@@ -84,8 +84,8 @@
     <string name="clear_note">Clear Note?</string>
     <string name="clear_note_msg">Are you sure to clear all note?</string>
     <string name="note_is_not_saved">Note is note saved. Do you want to save the note?</string>
-    <string name="added_to_favorite">Note is added to favorite</string>
-    <string name="removed_from_favorite">Note is removed from favorite</string>
+    <string name="added_to_favorite">Note is marked as important</string>
+    <string name="removed_from_favorite">Note is removed from important</string>
     <string name="home">Home</string>
     <string name="important">Importants</string>
     <string name="search">Search</string>
