@@ -12,6 +12,7 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.ui.views.baseScreens.BaseScreenView;
 
 public class PrivacyPolicyScreenView extends BaseScreenView {
@@ -64,7 +65,7 @@ public class PrivacyPolicyScreenView extends BaseScreenView {
                 alertDialog.show();*/
             }
         });
-        policyWebView.loadUrl("https://sites.google.com/view/sustnavigatorprivacypolicy");
+        policyWebView.loadUrl(Constants.PRIVACY_POLICY_URL);
         policyWebView.getSettings().setJavaScriptEnabled(true);
 
     }

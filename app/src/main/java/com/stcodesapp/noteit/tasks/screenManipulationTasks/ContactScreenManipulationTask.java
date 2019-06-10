@@ -3,8 +3,11 @@ package com.stcodesapp.noteit.tasks.screenManipulationTasks;
 import android.app.Activity;
 import android.view.View;
 
+import com.google.android.gms.ads.AdView;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.models.Contact;
+import com.stcodesapp.noteit.monetization.ads.AdMob;
+import com.stcodesapp.noteit.monetization.ads.AdNetwork;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.ContactFragmentScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.EmailFragmentScreenView;
 
@@ -61,5 +64,12 @@ public class ContactScreenManipulationTask {
             contactFragmentScreenView.getPhoneEmailListAdapter().bindObjects(contacts);
         }
         else showNoConntactFound();
+    }
+
+    public void loadBannerAd()
+    {
+        AdNetwork adNetwork = new AdMob(contactFragmentScreenView.getAdMobBannerAdView(),activity);
+        adNetwork.loadBannerAd();
+
     }
 }

@@ -6,6 +6,8 @@ import android.view.View;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
+import com.stcodesapp.noteit.monetization.ads.AdMob;
+import com.stcodesapp.noteit.monetization.ads.AdNetwork;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.EmailFragmentScreenView;
 
 import java.util.List;
@@ -61,5 +63,12 @@ public class EmailScreenManipulationTask {
             emailFragmentScreenView.getPhoneEmailListAdapter().bindObjects(emails);
         }
         else showNoEmailFound();
+    }
+
+    public void loadBannerAd()
+    {
+        AdNetwork adNetwork = new AdMob(emailFragmentScreenView.getAdMobBannerAdView(),activity);
+        adNetwork.loadBannerAd();
+
     }
 }

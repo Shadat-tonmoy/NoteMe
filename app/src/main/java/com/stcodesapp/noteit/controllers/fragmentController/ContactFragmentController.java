@@ -38,6 +38,7 @@ public class ContactFragmentController implements ContactFragmentScreen.Listener
     public void bindView(ContactFragmentScreenView contactFragmentScreenView) {
         this.contactFragmentScreenView = contactFragmentScreenView;
         contactScreenManipulationTask.bindView(contactFragmentScreenView);
+        contactScreenManipulationTask.loadBannerAd();
     }
 
     private void startFetchingContacts()

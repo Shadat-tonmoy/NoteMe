@@ -40,6 +40,7 @@ public class EmailFragmentController implements EmailFragmentScreen.Listener, Al
     public void bindView(EmailFragmentScreenView emailFragmentScreenView) {
         this.emailFragmentScreenView = emailFragmentScreenView;
         emailScreenManipulationTask.bindView(emailFragmentScreenView);
+        emailScreenManipulationTask.loadBannerAd();
     }
 
     private void startFetchingEmails()

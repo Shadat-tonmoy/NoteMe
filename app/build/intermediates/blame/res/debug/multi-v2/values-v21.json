@@ -14,12 +14,12 @@
                         "endOffsets": "154,218,285,349,465,591,717,845,1017,1355"
                     },
                     "to": {
-                        "startLines": "2,3,4,5,270,271,272,273,306,309",
+                        "startLines": "2,3,4,5,270,271,278,282,318,321",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,159,223,290,19682,19798,19924,20050,21891,22063",
-                        "endLines": "2,3,4,5,270,271,272,273,308,313",
+                        "startOffsets": "55,159,223,290,19682,19798,20255,20549,22557,22729",
+                        "endLines": "2,3,4,5,270,271,278,282,320,325",
                         "endColumns": "103,63,66,63,115,125,125,127,12,12",
-                        "endOffsets": "154,218,285,349,19793,19919,20045,20173,22058,22396"
+                        "endOffsets": "154,218,285,349,19793,19919,20376,20672,22724,23062"
                     }
                 },
                 {
@@ -42,6 +42,25 @@
                     }
                 },
                 {
+                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/50658efb5c7d777ad31ded39241588b5/res/values-v21/values-v21.xml",
+                    "from": {
+                        "startLines": "2,5,8,11",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,223,386,554",
+                        "endLines": "4,7,10,13",
+                        "endColumns": "12,12,12,12",
+                        "endOffsets": "218,381,549,716"
+                    },
+                    "to": {
+                        "startLines": "272,275,279,283",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "19924,20092,20381,20677",
+                        "endLines": "274,277,281,285",
+                        "endColumns": "12,12,12,12",
+                        "endOffsets": "20087,20250,20544,20839"
+                    }
+                },
+                {
                     "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/3d44d17547dd1f827030aacfcd3932ff/res/values-v21/values-v21.xml",
                     "from": {
                         "startLines": "2,10,18,26",
@@ -52,12 +71,12 @@
                         "endOffsets": "479,905,1328,1763"
                     },
                     "to": {
-                        "startLines": "274,282,290,298",
+                        "startLines": "286,294,302,310",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "20178,20607,21033,21456",
-                        "endLines": "281,289,297,305",
+                        "startOffsets": "20844,21273,21699,22122",
+                        "endLines": "293,301,309,317",
                         "endColumns": "10,10,10,10",
-                        "endOffsets": "20602,21028,21451,21886"
+                        "endOffsets": "21268,21694,22117,22552"
                     }
                 },
                 {

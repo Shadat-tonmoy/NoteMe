@@ -54,10 +54,11 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
         this.homeScreenView = homeScreenView;
         homeScreenManipulationTasks.bindView(homeScreenView);
         homeScreenManipulationTasks.setListener(this);
+        homeScreenManipulationTasks.loadBannerAd();
     }
 
     public void onAttach() {
-//        startFetchingNote();
+
     }
 
 

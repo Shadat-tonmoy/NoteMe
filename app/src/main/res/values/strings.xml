@@ -105,6 +105,24 @@
     <string name="note_is_removed">Note is removed!</string>
     <string name="remove_all_note">Remove All Notes</string>
 
+
+
+    <!--ad_related_ids-->
+
+    <!--admob-->
+    <string name="admob_app_id">@string/admob_app_id_test</string>
+    <string name="admob_app_id_test">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="admob_app_id_real">NA</string>
+
+    <string name="admob_banner_ad_id">@string/admob_banner_ad_test</string>
+    <string name="admob_banner_ad_test">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_banner_ad_real">NA</string>
+    <!--admob-->
+
+    <!--ad_related_ids-->
+
+
+
     <string-array name="sorting_choices">
         <item>Ascending</item>
         <item>Descending</item>

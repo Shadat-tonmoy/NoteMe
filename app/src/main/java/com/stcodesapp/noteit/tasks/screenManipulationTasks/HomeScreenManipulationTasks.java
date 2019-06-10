@@ -8,12 +8,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdView;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.FragmentTags;
 import com.stcodesapp.noteit.constants.SortingType;
 import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.models.Note;
+import com.stcodesapp.noteit.monetization.ads.AdMob;
+import com.stcodesapp.noteit.monetization.ads.AdNetwork;
 import com.stcodesapp.noteit.ui.fragments.MoreOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.PhoneOrEmailListBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.SortingOptionDialog;
@@ -179,7 +182,12 @@ public class HomeScreenManipulationTasks {
                 })
                 .setIcon(activity.getResources().getDrawable(R.drawable.warning_red))
                 .show();
+    }
 
+    public void loadBannerAd()
+    {
+        AdNetwork adNetwork = new AdMob((AdView) homeScreenView.getAdMobBannerAdContainer(),activity);
+        adNetwork.loadBannerAd();
 
     }
 }

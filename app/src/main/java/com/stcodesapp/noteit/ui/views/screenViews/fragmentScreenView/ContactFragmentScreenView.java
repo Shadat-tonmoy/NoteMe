@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdView;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.adapter.PhoneEmailListAdapter;
@@ -29,6 +30,7 @@ public class ContactFragmentScreenView extends BaseObservableScreenView<ContactF
     private ConstraintLayout notFoundContainer;
     private TextView notFoundText;
     private ImageView notFoundImage;
+    private AdView adMobBannerAdView;
 
 
 
@@ -54,6 +56,7 @@ public class ContactFragmentScreenView extends BaseObservableScreenView<ContactF
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         contactList.setLayoutManager(layoutManager);
         contactList.setAdapter(phoneEmailListAdapter);
+        adMobBannerAdView = findViewById(R.id.admob_banner_ad_view);
         notFoundImage.setImageDrawable(getContext().getResources().getDrawable(R.drawable.no_contact));
         notFoundText.setText(getContext().getResources().getString(R.string.no_contact_found));
 
@@ -84,5 +87,9 @@ public class ContactFragmentScreenView extends BaseObservableScreenView<ContactF
     public void bindContacts(List<Contact> contacts)
     {
         phoneEmailListAdapter.bindObjects(contacts);
+    }
+
+    public AdView getAdMobBannerAdView() {
+        return adMobBannerAdView;
     }
 }

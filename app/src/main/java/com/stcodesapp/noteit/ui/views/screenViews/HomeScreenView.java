@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdView;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.adapter.NoteListAdapter;
@@ -29,6 +30,7 @@ public class HomeScreenView extends BaseObservableScreenView<HomeScreen.Listener
     private ConstraintLayout notFoundContainer;
     private TextView notFoundText;
     private ImageView notFoundImage;
+    private AdView adMobBannerAdView;
 
     public HomeScreenView(LayoutInflater layoutInflater, @Nullable ViewGroup parent, NoteListAdapter noteListAdapter)
     {
@@ -47,6 +49,7 @@ public class HomeScreenView extends BaseObservableScreenView<HomeScreen.Listener
         notFoundText = findViewById(R.id.not_found_text);
         notFoundImage = findViewById(R.id.not_found_image);
         searchView = findViewById(R.id.search_view);
+        adMobBannerAdView = findViewById(R.id.admob_banner_ad_view);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         noteList.setLayoutManager(layoutManager);
         noteList.setAdapter(noteListAdapter);
@@ -107,6 +110,11 @@ public class HomeScreenView extends BaseObservableScreenView<HomeScreen.Listener
 
     public TextView getNotFoundText() {
         return notFoundText;
+    }
+
+    @Override
+    public View getAdMobBannerAdContainer() {
+        return adMobBannerAdView;
     }
 
     @Override
