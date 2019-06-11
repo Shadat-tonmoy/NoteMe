@@ -4,24 +4,7 @@
             "outputFile": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sq/values-sq.xml",
             "map": [
                 {
-                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/dc100625d2145964601d4db2a1372036/res/values-sq/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "187",
-                        "endOffsets": "434"
-                    },
-                    "to": {
-                        "startLines": "29",
-                        "startColumns": "4",
-                        "startOffsets": "2826",
-                        "endColumns": "187",
-                        "endOffsets": "3009"
-                    }
-                },
-                {
-                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/c549c8990ba4fbd5655852a8d7f455d1/res/values-sq/values-sq.xml",
+                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/113b6971cc78efe86dba63f285c05332/res/values-sq/values-sq.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/a000fa13100ae0b91967f4ad090577c1/res/values-sq/values-sq.xml",
+                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/00010516e7c282248957e50c47fe6c5e/res/values-sq/values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10",
+                        "startColumns": "0,0,0,0,0,0,0",
+                        "startOffsets": "197,267,394,457,521,608,723",
+                        "endColumns": "69,126,62,63,86,114,69",
+                        "endOffsets": "266,393,456,520,607,722,792"
+                    },
+                    "to": {
+                        "startLines": "30,31,32,33,34,35,36",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "3014,3088,3219,3286,3354,3445,3564",
+                        "endColumns": "73,130,66,67,90,118,73",
+                        "endOffsets": "3083,3214,3281,3349,3440,3559,3633"
+                    }
+                },
+                {
+                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/b8b51774e9cd696b623c1619147c237d/res/values-sq/values-sq.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -55,20 +55,20 @@
                     }
                 },
                 {
-                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/41633ca0c891dcf981c3cb52e0d2a89e/res/values-sq/values.xml",
+                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/af19441a780e74b4eb4e8e98a3e5ee20/res/values-sq/values.xml",
                     "from": {
-                        "startLines": "4,5,6,7,8,9,10",
-                        "startColumns": "0,0,0,0,0,0,0",
-                        "startOffsets": "197,267,394,457,521,608,723",
-                        "endColumns": "69,126,62,63,86,114,69",
-                        "endOffsets": "266,393,456,520,607,722,792"
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "187",
+                        "endOffsets": "434"
                     },
                     "to": {
-                        "startLines": "30,31,32,33,34,35,36",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "3014,3088,3219,3286,3354,3445,3564",
-                        "endColumns": "73,130,66,67,90,118,73",
-                        "endOffsets": "3083,3214,3281,3349,3440,3559,3633"
+                        "startLines": "29",
+                        "startColumns": "4",
+                        "startOffsets": "2826",
+                        "endColumns": "187",
+                        "endOffsets": "3009"
                     }
                 }
             ]

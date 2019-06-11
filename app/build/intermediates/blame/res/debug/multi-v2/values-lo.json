@@ -4,24 +4,7 @@
             "outputFile": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-lo/values-lo.xml",
             "map": [
                 {
-                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/a000fa13100ae0b91967f4ad090577c1/res/values-lo/values-lo.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "38",
-                        "startColumns": "4",
-                        "startOffsets": "3603",
-                        "endColumns": "100",
-                        "endOffsets": "3699"
-                    }
-                },
-                {
-                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/c549c8990ba4fbd5655852a8d7f455d1/res/values-lo/values-lo.xml",
+                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/113b6971cc78efe86dba63f285c05332/res/values-lo/values-lo.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/dc100625d2145964601d4db2a1372036/res/values-lo/values.xml",
+                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/af19441a780e74b4eb4e8e98a3e5ee20/res/values-lo/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -55,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/41633ca0c891dcf981c3cb52e0d2a89e/res/values-lo/values.xml",
+                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/00010516e7c282248957e50c47fe6c5e/res/values-lo/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10",
                         "startColumns": "0,0,0,0,0,0,0",
@@ -69,6 +52,23 @@
                         "startOffsets": "2946,3019,3131,3199,3268,3347,3448",
                         "endColumns": "72,111,67,68,78,100,73",
                         "endOffsets": "3014,3126,3194,3263,3342,3443,3517"
+                    }
+                },
+                {
+                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/b8b51774e9cd696b623c1619147c237d/res/values-lo/values-lo.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "38",
+                        "startColumns": "4",
+                        "startOffsets": "3603",
+                        "endColumns": "100",
+                        "endOffsets": "3699"
                     }
                 }
             ]

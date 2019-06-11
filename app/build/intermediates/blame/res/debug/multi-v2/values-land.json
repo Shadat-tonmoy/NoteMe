@@ -4,7 +4,7 @@
             "outputFile": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
             "map": [
                 {
-                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/3d44d17547dd1f827030aacfcd3932ff/res/values-land/values-land.xml",
+                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/5f176d3bc9ae5f7c3b9f6c87a7a86f4e/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/c549c8990ba4fbd5655852a8d7f455d1/res/values-land/values-land.xml",
+                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/113b6971cc78efe86dba63f285c05332/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",

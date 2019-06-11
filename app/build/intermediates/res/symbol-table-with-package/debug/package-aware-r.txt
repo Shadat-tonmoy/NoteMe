@@ -1698,6 +1698,9 @@ string admob_app_id_test
 string admob_banner_ad_id
 string admob_banner_ad_real
 string admob_banner_ad_test
+string admob_interstitial_ad_id
+string admob_interstitial_ad_real
+string admob_interstitial_ad_test
 string app_name
 string appbar_scrolling_view_behavior
 string audio

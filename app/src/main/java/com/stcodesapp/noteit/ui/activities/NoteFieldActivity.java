@@ -9,6 +9,7 @@ import android.view.MenuItem;
 
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.controllers.activityController.NoteFieldController;
+import com.stcodesapp.noteit.controllers.adController.NoteFieldAdController;
 import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
 
@@ -17,6 +18,7 @@ public class NoteFieldActivity extends BaseActivity {
 
     private NoteFieldScreenView noteFieldScreenView;
     private NoteFieldController noteFieldController;
+    private NoteFieldAdController noteFieldAdController;
     private NoteComponents noteComponents;
 
     @Override
@@ -29,11 +31,18 @@ public class NoteFieldActivity extends BaseActivity {
     {
         noteFieldScreenView = getCompositionRoot().getViewFactory().getNoteFieldScreenView(null);
         noteFieldController = getCompositionRoot().getActivityControllerFactory().getNoteFieldController();
+        noteFieldAdController = getCompositionRoot().getActivityControllerFactory().getNoteFieldAdController();
         noteComponents = getCompositionRoot().getModelFactory().getNoteComponents();
-        noteFieldController.bindView(noteFieldScreenView);
+        bindViewToController();
         noteFieldController.bindNoteComponents(noteComponents);
         noteFieldController.checkBundleForNote(getIntent().getExtras());
         setContentView(noteFieldScreenView.getRootView());
+    }
+
+    private void bindViewToController()
+    {
+        noteFieldController.bindView(noteFieldScreenView);
+        noteFieldAdController.bindView(noteFieldScreenView);
     }
 
     @Override
@@ -77,12 +86,19 @@ public class NoteFieldActivity extends BaseActivity {
     protected void onStart() {
         super.onStart();
         noteFieldController.onStart();
+        noteFieldAdController.onStart();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         noteFieldController.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        noteFieldAdController.onDestroy();
     }
 
     public NoteFieldController getNoteFieldController() {
