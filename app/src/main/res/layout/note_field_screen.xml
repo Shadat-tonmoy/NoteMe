@@ -19,7 +19,7 @@
             android:id="@+id/ui_component_root"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="80dp"
+            android:paddingBottom="@dimen/homeScreenBottomPadding"
             android:clipToPadding="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
