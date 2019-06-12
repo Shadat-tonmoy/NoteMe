@@ -8,6 +8,7 @@ import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.monetization.ads.AdMob;
 import com.stcodesapp.noteit.monetization.ads.BannerAd;
 import com.stcodesapp.noteit.monetization.ads.InterstitialAd;
+import com.stcodesapp.noteit.monetization.ads.RewardedVideoAd;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
 
 public class NoteFieldAdController {
@@ -16,6 +17,7 @@ public class NoteFieldAdController {
     private NoteFieldScreenView noteFieldScreenView;
     private InterstitialAd interstitialAd;
     private BannerAd bannerAd;
+    private RewardedVideoAd rewardedVideoAd;
 
     public NoteFieldAdController(Activity activity) {
         this.activity = activity;
@@ -30,11 +32,18 @@ public class NoteFieldAdController {
         initMobileAds();
         interstitialAd.loadAd();
         bannerAd.loadAd();
+        rewardedVideoAd.loadAd();
     }
 
     public void onStop()
     {
 
+    }
+
+    public void showRewardedVideoAd()
+    {
+        Log.e("RWAd","Will Show");
+        rewardedVideoAd.showAd();
     }
 
     public void onDestroy()
@@ -44,8 +53,9 @@ public class NoteFieldAdController {
 
     private void initMobileAds()
     {
-        interstitialAd = new InterstitialAd(new AdMob(activity));
         bannerAd = new BannerAd(new AdMob(getBannerAdViewForAdmob(),activity));
+        interstitialAd = new InterstitialAd(new AdMob(activity));
+        rewardedVideoAd = new RewardedVideoAd(new AdMob(activity));
     }
 
     private AdView getBannerAdViewForAdmob()

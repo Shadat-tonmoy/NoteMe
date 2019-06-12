@@ -27,8 +27,8 @@
         android:icon="@drawable/audio_white"
         app:showAsAction="always"/>
 
-    <!--<item android:id="@+id/export_note_menu"
+    <item android:id="@+id/export_note_menu"
         android:title="@string/export_as"
         android:icon="@drawable/save_as_pdf_white"
-        app:showAsAction="always"/>-->
+        app:showAsAction="always"/>
 </menu>

@@ -1299,6 +1299,7 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id export_note_menu
 id favorite_button
 id fill
 id fill_horizontal
@@ -1701,6 +1702,9 @@ string admob_banner_ad_test
 string admob_interstitial_ad_id
 string admob_interstitial_ad_real
 string admob_interstitial_ad_test
+string admob_rewarded_video_ad_id
+string admob_rewarded_video_ad_real
+string admob_rewarded_video_ad_test
 string app_name
 string appbar_scrolling_view_behavior
 string audio

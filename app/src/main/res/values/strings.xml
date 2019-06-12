@@ -121,6 +121,10 @@
     <string name="admob_interstitial_ad_id">@string/admob_interstitial_ad_test</string>
     <string name="admob_interstitial_ad_test">ca-app-pub-3940256099942544/1033173712</string>
     <string name="admob_interstitial_ad_real">NA</string>
+
+    <string name="admob_rewarded_video_ad_id">@string/admob_rewarded_video_ad_test</string>
+    <string name="admob_rewarded_video_ad_test">ca-app-pub-3940256099942544/5224354917</string>
+    <string name="admob_rewarded_video_ad_real">NA</string>
     <!--admob-->
 
     <!--ad_related_ids-->

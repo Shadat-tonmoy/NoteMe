@@ -16,6 +16,7 @@ import com.stcodesapp.noteit.constants.EventTypes;
 import com.stcodesapp.noteit.constants.PermissionType;
 import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.constants.Tags;
+import com.stcodesapp.noteit.controllers.adController.NoteFieldAdController;
 import com.stcodesapp.noteit.factory.ListeningTasks;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.listeners.DatabaseInsertTasksListener;
@@ -60,6 +61,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     private VoiceInputTasks voiceInputTasks;
     private NoteComponents noteComponents;
     private boolean isUpdating = false;
+    private NoteFieldAdController noteFieldAdController;
 
     public NoteFieldController(TasksFactory tasksFactory) {
         this.tasksFactory = tasksFactory;
@@ -81,6 +83,10 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     {
         this.noteComponents = noteComponents;
         noteFieldScreenManipulationTasks.bindNoteComponents(noteComponents);
+    }
+
+    public void bindNoteFieldAdController(NoteFieldAdController noteFieldAdController) {
+        this.noteFieldAdController = noteFieldAdController;
     }
 
     public void onStart()
@@ -162,10 +168,9 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
             case R.id.add_audio_menu:
                 fileIOTasks.openFilePickerForAudio();
                 break;
-            /*case R.id.export_note_menu:
-                if(appPermissionTrackingTasks.hasWriteExternalStoragePermission())
-                    testExport();
-                break;*/
+            case R.id.export_note_menu:
+                noteFieldAdController.showRewardedVideoAd();
+                break;
 
         }
 

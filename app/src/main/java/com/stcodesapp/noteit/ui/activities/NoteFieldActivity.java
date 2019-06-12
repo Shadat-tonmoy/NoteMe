@@ -33,16 +33,17 @@ public class NoteFieldActivity extends BaseActivity {
         noteFieldController = getCompositionRoot().getActivityControllerFactory().getNoteFieldController();
         noteFieldAdController = getCompositionRoot().getActivityControllerFactory().getNoteFieldAdController();
         noteComponents = getCompositionRoot().getModelFactory().getNoteComponents();
-        bindViewToController();
+        bindComponentsToController();
         noteFieldController.bindNoteComponents(noteComponents);
         noteFieldController.checkBundleForNote(getIntent().getExtras());
         setContentView(noteFieldScreenView.getRootView());
     }
 
-    private void bindViewToController()
+    private void bindComponentsToController()
     {
         noteFieldController.bindView(noteFieldScreenView);
         noteFieldAdController.bindView(noteFieldScreenView);
+        noteFieldController.bindNoteFieldAdController(noteFieldAdController);
     }
 
     @Override
