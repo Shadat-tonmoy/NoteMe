@@ -27,6 +27,10 @@
             android:windowSoftInputMode="stateHidden" />
 
         <activity
+            android:name=".ui.activities.CheckListActivity"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
             android:name=".ui.activities.PrivacyPolicyActivity"
             android:theme="@style/AppTheme.Transparent"
             />

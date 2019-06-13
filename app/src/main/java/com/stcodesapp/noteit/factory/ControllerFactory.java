@@ -3,6 +3,7 @@ package com.stcodesapp.noteit.factory;
 import android.app.Activity;
 
 import com.stcodesapp.noteit.controllers.HomeScreenController;
+import com.stcodesapp.noteit.controllers.activityController.CheckListActivityController;
 import com.stcodesapp.noteit.controllers.activityController.MainActivityController;
 import com.stcodesapp.noteit.controllers.activityController.ManualContactController;
 import com.stcodesapp.noteit.controllers.activityController.ManualEmailActivityController;
@@ -72,6 +73,10 @@ public class ControllerFactory {
     public NoteFieldAdController getNoteFieldAdController()
     {
         return new NoteFieldAdController(activity);
+    }
+    public CheckListActivityController getCheckListActivityController()
+    {
+        return new CheckListActivityController(tasksFactory,activity);
     }
 
 

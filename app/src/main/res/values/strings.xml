@@ -53,6 +53,7 @@
     <string name="phone_no">Phone No.</string>
     <string name="ok_continue">Continue</string>
     <string name="add_contact">Add Contact</string>
+    <string name="add_check_list">Add Checklist</string>
     <string name="voice_input_not_supported">Sorry! Voice input is not supported on this device</string>
     <string name="no_phone_number">No Phone Number!! Please add a phone number and try again</string>
     <string name="no_email_address">No Email Address!! Please add an email address and try again</string>
@@ -125,6 +126,7 @@
     <string name="admob_rewarded_video_ad_id">@string/admob_rewarded_video_ad_test</string>
     <string name="admob_rewarded_video_ad_test">ca-app-pub-3940256099942544/5224354917</string>
     <string name="admob_rewarded_video_ad_real">NA</string>
+    <string name="enter_item_title">Enter Item Title</string>
     <!--admob-->
 
     <!--ad_related_ids-->

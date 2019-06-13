@@ -10,6 +10,7 @@ import com.stcodesapp.noteit.tasks.functionalTasks.PDFCreationTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.VoiceInputTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.CheckListScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.ContactScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.EmailScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.HomeScreenManipulationTasks;
@@ -125,6 +126,11 @@ public class TasksFactory {
     public ContactScreenManipulationTask getContactScreenManipulationTask()
     {
         return new ContactScreenManipulationTask(activity);
+    }
+
+    public CheckListScreenManipulationTask getCheckListScreenManipulationTask()
+    {
+        return new CheckListScreenManipulationTask(activity);
     }
 
     public PDFCreationTasks getPDFCreationTasks()

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.stcodesapp.noteit.constants.RequestCode;
+import com.stcodesapp.noteit.ui.activities.CheckListActivity;
 import com.stcodesapp.noteit.ui.activities.ManualContactActivity;
 import com.stcodesapp.noteit.ui.activities.ManualEmailActivity;
 import com.stcodesapp.noteit.ui.activities.NoteFieldActivity;
@@ -48,6 +49,13 @@ public class ActivityNavigationTasks {
         Intent intent = new Intent(activity, ManualEmailActivity.class);
         intent.putExtras(args);
         activity.startActivityForResult(intent, RequestCode.ADD_MANUAL_EMAIL);
+    }
+
+    public void toCheckListScreen(Bundle args)
+    {
+        Intent intent = new Intent(activity, CheckListActivity.class);
+        intent.putExtras(args);
+        activity.startActivityForResult(intent, RequestCode.ADD_SINGLE_CHECKLIST);
     }
 
     public void toPrivacyPolicyScreen()

@@ -169,7 +169,8 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
                 fileIOTasks.openFilePickerForAudio();
                 break;
             case R.id.export_note_menu:
-                noteFieldAdController.showRewardedVideoAd();
+                activityNavigationTasks.toCheckListScreen(new Bundle());
+//                noteFieldAdController.showRewardedVideoAd();
                 break;
 
         }

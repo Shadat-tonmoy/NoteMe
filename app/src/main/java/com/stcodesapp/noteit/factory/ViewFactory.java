@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import com.stcodesapp.noteit.adapter.NoteListAdapter;
 import com.stcodesapp.noteit.ui.commons.NavigationDrawerView;
 import com.stcodesapp.noteit.ui.views.screenViews.HomeScreenView;
+import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.CheckListScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.ManualContactScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.ManualEmailScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
@@ -72,6 +73,10 @@ public class ViewFactory {
     public PrivacyPolicyScreenView getPrivacyPolicyScreenView(ViewGroup parent)
     {
         return new PrivacyPolicyScreenView(layoutInflater,parent);
+    }
+    public CheckListScreenView getCheckListScreenView(ViewGroup parent)
+    {
+        return new CheckListScreenView(layoutInflater,parent);
     }
 
 }

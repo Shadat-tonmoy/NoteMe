@@ -16,4 +16,5 @@ public class RequestCode {
     public static final int READ_EXTERNAL_STORAGE_PERMISSION = 10;
     public static final int ADD_NEW_NOTE = 11;
     public static final int UPDATE_NOTE = 12;
+    public static final int ADD_SINGLE_CHECKLIST = 13;
 }
