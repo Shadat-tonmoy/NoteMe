@@ -1,9 +1,12 @@
 package com.stcodesapp.noteit.controllers.activityController;
 
 import android.app.Activity;
+import android.view.MenuItem;
 
+import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.factory.TasksFactory;
-import com.stcodesapp.noteit.models.SingleCheckList;
+import com.stcodesapp.noteit.models.ChecklistItem;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.CheckListScreenManipulationTask;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.CheckListScreenView;
 import com.stcodesapp.noteit.ui.views.screens.activityScreen.CheckListScreen;
@@ -49,17 +52,34 @@ public class CheckListActivityController implements CheckListScreen.Listener {
 
     public void fetchCheckListItems()
     {
-        List<SingleCheckList> singleCheckLists = new ArrayList<>();
-        singleCheckLists.add(new SingleCheckList("test1",false));
-        singleCheckLists.add(new SingleCheckList("test2",true));
-        singleCheckLists.add(new SingleCheckList("test3",true));
-        singleCheckLists.add(new SingleCheckList("test4",false));
-        singleCheckLists.add(new SingleCheckList("test5",true));
-        checkListScreenManipulationTask.bindCheckListObject(singleCheckLists);
+        List<ChecklistItem> checklistItems = new ArrayList<>();
+        checklistItems.add(new ChecklistItem(Constants.EMPTY_STRING,false));
+        checkListScreenManipulationTask.bindCheckListObject(checklistItems);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case R.id.check_item_add:
+                return addCheckItem();
+        }
+        return false;
+    }
+
+    private boolean addCheckItem()
+    {
+        checkListScreenManipulationTask.addEmptyChecklistItem();
+        return true;
     }
 
     @Override
     public void onNavigateUp() {
         activity.finish();
+    }
+
+    @Override
+    public void onCheckListDoneButtonClicked() {
+
     }
 }

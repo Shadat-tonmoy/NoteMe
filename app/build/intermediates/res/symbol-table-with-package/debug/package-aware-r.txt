@@ -1192,6 +1192,7 @@ id actions
 id activity_chooser_view_content
 id add
 id add_audio_menu
+id add_checklist_menu
 id add_email_menu
 id add_image_menu
 id add_phone_no_menu
@@ -1220,8 +1221,10 @@ id center
 id center_horizontal
 id center_vertical
 id chains
+id check_item_add
 id check_item_checkbox
 id check_item_title_field
+id check_list_done_button
 id checkbox
 id checklist_item_list
 id choose_color_menu
@@ -1277,6 +1280,7 @@ id dimensions
 id direct
 id disableHome
 id divider
+id divider2
 id drawer_layout
 id edit_query
 id email_badge
@@ -1302,7 +1306,6 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
-id export_note_menu
 id favorite_button
 id fill
 id fill_horizontal
@@ -1643,6 +1646,7 @@ layout suggest_item
 layout support_simple_spinner_dropdown_item
 layout toolbar
 layout toolbar_layout
+menu checklist_menu
 menu contact_menu
 menu email_menu
 menu home_menu
@@ -1695,6 +1699,7 @@ string add_check_list
 string add_contact
 string add_email
 string add_image
+string add_item
 string add_phone_no
 string add_phone_number_manually
 string add_tag
@@ -1758,6 +1763,7 @@ string enter_item_title
 string export_as
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string field1
 string hide_bottom_view_on_scroll_behavior
 string home
 string home_screen
@@ -1770,6 +1776,7 @@ string menu_3
 string more
 string mtrl_chip_close_icon_content_description
 string name
+string new_item_added
 string no_contact_found
 string no_email_address
 string no_email_found
@@ -1830,7 +1837,6 @@ string test
 string test_contact
 string test_num
 string text_copied
-string title
 string voice_input_not_supported
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light

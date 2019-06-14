@@ -130,7 +130,7 @@ public class TasksFactory {
 
     public CheckListScreenManipulationTask getCheckListScreenManipulationTask()
     {
-        return new CheckListScreenManipulationTask(activity);
+        return new CheckListScreenManipulationTask(activity,getClipboardTasks());
     }
 
     public PDFCreationTasks getPDFCreationTasks()

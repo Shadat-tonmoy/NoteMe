@@ -38,6 +38,8 @@ public class Constants {
     public static final int MAX_NOTE_TEXT_LENGTH = 35;
     public static final int ZERO = 0;
     public static boolean IS_SUBSCRIBED_USER = false;
+    public static final int CHECKLIST_FIELD_1 = 1;
+    public static final int CHECKLIST_FIELD_2 = 2;
 
 }
 

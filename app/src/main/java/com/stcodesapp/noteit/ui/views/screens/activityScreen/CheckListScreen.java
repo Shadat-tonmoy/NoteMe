@@ -8,6 +8,7 @@ public interface CheckListScreen extends BaseObservableScreen<CheckListScreen.Li
 
         void onNavigateUp();
 
+        void onCheckListDoneButtonClicked();
 
     }
 }

@@ -2,7 +2,10 @@ package com.stcodesapp.noteit.ui.activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.Menu;
+import android.view.MenuItem;
 
+import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.controllers.activityController.CheckListActivityController;
 import com.stcodesapp.noteit.controllers.activityController.ManualContactController;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.CheckListScreenView;
@@ -27,6 +30,17 @@ public class CheckListActivity extends BaseActivity {
         setContentView(checkListScreenView.getRootView());
         checkListActivityController = getCompositionRoot().getActivityControllerFactory().getCheckListActivityController();
         checkListActivityController.bindView(checkListScreenView);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.checklist_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return checkListActivityController.onOptionsItemSelected(item);
     }
 
     @Override

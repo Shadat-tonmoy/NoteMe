@@ -37,7 +37,7 @@
     <string name="share_note">Share Note</string>
     <string name="choose_background_color">Choose Background Color</string>
     <string name="empty_string">""</string>
-    <string name="title">Title</string>
+    <string name="field1">Title</string>
     <string name="note">Note</string>
     <string name="test">This is a test image</string>
     <string name="add_phone_number_manually">Add Phone Number Manually</string>
@@ -127,6 +127,8 @@
     <string name="admob_rewarded_video_ad_test">ca-app-pub-3940256099942544/5224354917</string>
     <string name="admob_rewarded_video_ad_real">NA</string>
     <string name="enter_item_title">Enter Item Title</string>
+    <string name="add_item">Add Item\\</string>
+    <string name="new_item_added">New Item Added!</string>
     <!--admob-->
 
     <!--ad_related_ids-->

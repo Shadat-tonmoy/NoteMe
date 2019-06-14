@@ -16,9 +16,9 @@ import static android.arch.persistence.room.ForeignKey.CASCADE;
         childColumns = {"note_id"},
         onDelete = CASCADE
 ))
-public class SingleCheckList implements Serializable {
+public class ChecklistItem implements Serializable{
 
-    private String title;
+    private String field1,field2;
     private boolean isChecked;
 
     @PrimaryKey(autoGenerate = true)
@@ -29,29 +29,35 @@ public class SingleCheckList implements Serializable {
     private long noteId;
 
 
-    public SingleCheckList() {
+    public ChecklistItem() {
 
     }
 
-    public SingleCheckList(String title, boolean isChecked) {
-        this.title = title;
+    public ChecklistItem(String field1, String field2, boolean isChecked) {
+        this.field1 = field1;
+        this.field2 = field2;
         this.isChecked = isChecked;
     }
 
-    public SingleCheckList(String title, boolean isChecked, long id, long noteId) {
-        this.title = title;
+    public ChecklistItem(String field1, boolean isChecked) {
+        this.field1 = field1;
+        this.isChecked = isChecked;
+    }
+
+    public ChecklistItem(String field1, boolean isChecked, long id, long noteId) {
+        this.field1 = field1;
         this.isChecked = isChecked;
         this.id = id;
         this.noteId = noteId;
     }
 
 
-    public String getTitle() {
-        return title;
+    public String getField1() {
+        return field1;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setField1(String field1) {
+        this.field1 = field1;
     }
 
     public boolean isChecked() {
@@ -78,10 +84,19 @@ public class SingleCheckList implements Serializable {
         this.noteId = noteId;
     }
 
+    public String getField2() {
+        return field2;
+    }
+
+    public void setField2(String field2) {
+        this.field2 = field2;
+    }
+
     @Override
     public String toString() {
-        return "SingleCheckList{" +
-                "title='" + title + '\'' +
+        return "ChecklistItem{" +
+                "field1='" + field1 + '\'' +
+                ", field2='" + field2 + '\'' +
                 ", isChecked=" + isChecked +
                 ", id=" + id +
                 ", noteId=" + noteId +

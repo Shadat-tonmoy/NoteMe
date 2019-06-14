@@ -10,7 +10,7 @@
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:text="@string/title"
+        android:text="@string/field1"
         style="@style/sorting_option_text_style" />
 
     <Spinner
