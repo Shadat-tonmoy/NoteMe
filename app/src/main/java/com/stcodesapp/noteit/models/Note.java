@@ -25,7 +25,7 @@ public class Note implements Serializable {
 
     private int priority = 0;
 
-    private int contactPriority, emailPriority, audioPriority, imagePriority;
+    private int contactPriority, emailPriority, audioPriority, imagePriority,checkListPriority;
 
     public Note() {
         this.isImportant = false;
@@ -115,6 +115,14 @@ public class Note implements Serializable {
         }
     }
 
+    public void updateCheckListPriority() {
+        if(getCheckListPriority() == Constants.ZERO)
+        {
+            incrementPriority();
+            setCheckListPriority(getPriority());
+        }
+    }
+
     public void setEmailPriority(int emailPriority) {
         this.emailPriority = emailPriority;
     }
@@ -163,6 +171,15 @@ public class Note implements Serializable {
     public void incrementPriority()
     {
         this.priority++;
+    }
+
+
+    public int getCheckListPriority() {
+        return checkListPriority;
+    }
+
+    public void setCheckListPriority(int checkListPriority) {
+        this.checkListPriority = checkListPriority;
     }
 
     @Override

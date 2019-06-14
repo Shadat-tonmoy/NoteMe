@@ -1,6 +1,8 @@
 package com.stcodesapp.noteit.tasks.screenManipulationTasks;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 
 import com.stcodesapp.noteit.R;
@@ -9,6 +11,7 @@ import com.stcodesapp.noteit.models.ChecklistItem;
 import com.stcodesapp.noteit.tasks.utilityTasks.ClipboardTasks;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.CheckListScreenView;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class CheckListScreenManipulationTask {
@@ -46,6 +49,22 @@ public class CheckListScreenManipulationTask {
 
 
     }
+
+    public boolean sendResultBack()
+    {
+        Intent resultIntent = new Intent();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(Constants.SINGLE_CHECKLIST, (Serializable) grabCheckListValue());
+        resultIntent.putExtra(Constants.SINGLE_CHECKLIST,bundle);
+        activity.setResult(Activity.RESULT_OK, resultIntent);
+        return grabCheckListValue() != null;
+    }
+
+    private List<ChecklistItem>  grabCheckListValue()
+    {
+        return checkListScreenView.getCheckListAdapter().getCheckListObjects();
+    }
+
 
 
     public void initToolbar() {

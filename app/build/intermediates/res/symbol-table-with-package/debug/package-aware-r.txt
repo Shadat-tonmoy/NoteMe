@@ -1066,6 +1066,7 @@ drawable avd_hide_password
 drawable avd_show_password
 drawable back_white
 drawable call_black
+drawable check_list_black
 drawable close_black
 drawable color_cursor_white
 drawable contact_badge
@@ -1224,7 +1225,11 @@ id chains
 id check_item_add
 id check_item_checkbox
 id check_item_title_field
+id check_list_container
+id check_list_desc
 id check_list_done_button
+id check_list_remove_btn
+id check_list_title
 id checkbox
 id checklist_item_list
 id choose_color_menu
@@ -1342,6 +1347,7 @@ id left
 id line1
 id line3
 id listMode
+id list_icon
 id list_item
 id loading_view
 id main_layout
@@ -1570,6 +1576,9 @@ layout abc_tooltip
 layout audio_container
 layout audio_holder
 layout audio_option_layout
+layout check_list_container
+layout check_list_holder
+layout check_list_option_layout
 layout checklist_sceen_view
 layout color_pallete_layout
 layout contact_badge
@@ -1724,6 +1733,8 @@ string bottom_sheet_behavior
 string call
 string character_counter_content_description
 string character_counter_pattern
+string check_list
+string check_list_desc
 string choose_an_option_to_continue
 string choose_background_color
 string choose_color

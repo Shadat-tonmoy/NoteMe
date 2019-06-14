@@ -10,6 +10,7 @@ public class Constants {
     public static final String EMPTY_STRING = "";
     public static final String MANUAL_CONTACT = "manual_contact";
     public static final String MANUAL_EMAIL = "manual_email";
+    public static final String SINGLE_CHECKLIST= "single_checklist";
     public static final String AUDIO_DATA_TYPE = "audio/*";
     public static final int BACKGROUND_OPACITY= 75;
     public static final int MEGABYTE_DIVISOR= 1048576;

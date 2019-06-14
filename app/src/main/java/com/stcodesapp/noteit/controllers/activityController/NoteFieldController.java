@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.stcodesapp.noteit.R;
@@ -21,6 +22,7 @@ import com.stcodesapp.noteit.factory.ListeningTasks;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.listeners.DatabaseInsertTasksListener;
 import com.stcodesapp.noteit.models.Audio;
+import com.stcodesapp.noteit.models.ChecklistItem;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.Image;
@@ -46,7 +48,11 @@ import com.stcodesapp.noteit.ui.fragments.PhoneNoOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
 import com.stcodesapp.noteit.ui.views.screens.activityScreen.NoteFieldScreen;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static android.app.Activity.RESULT_OK;
+import static com.stcodesapp.noteit.constants.Constants.SINGLE_CHECKLIST;
 
 public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener,NoteComponentSelectionTask.Listener, ContactDeleteTask.Listener, EmailDeleteTask.Listener, ImageDeleteTask.Listener, AudioDeleteTask.Listener, DialogInterface.OnClickListener
 {
@@ -210,12 +216,16 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
                 case RequestCode.NOTE_TEXT_VOICE_INPUT:
                     handleNoteTextVoiceInput(data);
                     break;
+                case RequestCode.ADD_SINGLE_CHECKLIST:
+                    handleSingleCheckList(data);
+                    break;
             }
 
         }
 
 
     }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -381,6 +391,26 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
                 addChosenEmailToDB(email);
         }
     }
+
+
+    private void handleSingleCheckList(Intent intent)
+    {
+        Bundle bundle = intent.getBundleExtra(Constants.SINGLE_CHECKLIST);
+        ArrayList<ChecklistItem> checklistItems = (ArrayList<ChecklistItem>) bundle.getSerializable(SINGLE_CHECKLIST);
+        Log.e("CheckListResult",checklistItems+" is not nnn");
+        if(checklistItems!=null)
+        {
+            noteComponents.getNote().updateCheckListPriority();
+            noteComponents.setChecklistItems(checklistItems);
+            for(ChecklistItem checklistItem:checklistItems)
+                checklistItem.setNoteId(noteComponents.getNote().getId());
+            noteFieldScreenManipulationTasks.addCheckListToCheclistContainer(checklistItems.get(0));
+            /*if(isUpdating)
+                addChosenEmailToDB(email);*/
+        }
+
+    }
+
 
     private void addChosenEmailToDB(Email email)
     {

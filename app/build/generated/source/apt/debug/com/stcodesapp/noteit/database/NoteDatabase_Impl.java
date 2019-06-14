@@ -44,16 +44,16 @@ public class NoteDatabase_Impl extends NoteDatabase {
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(6) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(7) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `notes` (`note_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `noteTitle` TEXT, `noteText` TEXT, `backgroundColor` TEXT, `creationTime` INTEGER NOT NULL, `isImportant` INTEGER NOT NULL, `priority` INTEGER NOT NULL, `contactPriority` INTEGER NOT NULL, `emailPriority` INTEGER NOT NULL, `audioPriority` INTEGER NOT NULL, `imagePriority` INTEGER NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `notes` (`note_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `noteTitle` TEXT, `noteText` TEXT, `backgroundColor` TEXT, `creationTime` INTEGER NOT NULL, `isImportant` INTEGER NOT NULL, `priority` INTEGER NOT NULL, `contactPriority` INTEGER NOT NULL, `emailPriority` INTEGER NOT NULL, `audioPriority` INTEGER NOT NULL, `imagePriority` INTEGER NOT NULL, `checkListPriority` INTEGER NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `email` (`email_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `note_id` INTEGER NOT NULL, `emailName` TEXT, `emailID` TEXT, FOREIGN KEY(`note_id`) REFERENCES `notes`(`note_id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `contact` (`contact_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `note_id` INTEGER NOT NULL, `phoneNumber` TEXT, `displayName` TEXT, FOREIGN KEY(`note_id`) REFERENCES `notes`(`note_id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `audio` (`audio_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `note_id` INTEGER NOT NULL, `uri` TEXT, FOREIGN KEY(`note_id`) REFERENCES `notes`(`note_id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `images` (`image_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `note_id` INTEGER NOT NULL, `uri` TEXT, FOREIGN KEY(`note_id`) REFERENCES `notes`(`note_id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"1433d9f45ad058d0daa4a60ebad53c78\")");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"7df28ba2dbf613beef483d65b103d3db\")");
       }
 
       @Override
@@ -88,7 +88,7 @@ public class NoteDatabase_Impl extends NoteDatabase {
 
       @Override
       protected void validateMigration(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsNotes = new HashMap<String, TableInfo.Column>(11);
+        final HashMap<String, TableInfo.Column> _columnsNotes = new HashMap<String, TableInfo.Column>(12);
         _columnsNotes.put("note_id", new TableInfo.Column("note_id", "INTEGER", true, 1));
         _columnsNotes.put("noteTitle", new TableInfo.Column("noteTitle", "TEXT", false, 0));
         _columnsNotes.put("noteText", new TableInfo.Column("noteText", "TEXT", false, 0));
@@ -100,6 +100,7 @@ public class NoteDatabase_Impl extends NoteDatabase {
         _columnsNotes.put("emailPriority", new TableInfo.Column("emailPriority", "INTEGER", true, 0));
         _columnsNotes.put("audioPriority", new TableInfo.Column("audioPriority", "INTEGER", true, 0));
         _columnsNotes.put("imagePriority", new TableInfo.Column("imagePriority", "INTEGER", true, 0));
+        _columnsNotes.put("checkListPriority", new TableInfo.Column("checkListPriority", "INTEGER", true, 0));
         final HashSet<TableInfo.ForeignKey> _foreignKeysNotes = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesNotes = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoNotes = new TableInfo("notes", _columnsNotes, _foreignKeysNotes, _indicesNotes);
@@ -168,7 +169,7 @@ public class NoteDatabase_Impl extends NoteDatabase {
                   + " Found:\n" + _existingImages);
         }
       }
-    }, "1433d9f45ad058d0daa4a60ebad53c78", "ead91366e15115fc6c5929cecb639f99");
+    }, "7df28ba2dbf613beef483d65b103d3db", "0f92dbf94851a676c9cf7d83ad0d78c4");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

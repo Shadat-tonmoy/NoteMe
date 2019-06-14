@@ -113,9 +113,9 @@ public class CheckListAdapter extends RecyclerView.Adapter<CheckListAdapter.View
 
     }
 
-
-
-
+    public List<ChecklistItem> getCheckListObjects() {
+        return checkListObjects;
+    }
 
     private void setClickListener(final Object object, View... views)
     {

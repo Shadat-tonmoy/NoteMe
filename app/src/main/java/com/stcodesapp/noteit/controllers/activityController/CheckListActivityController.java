@@ -8,6 +8,7 @@ import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.models.ChecklistItem;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.CheckListScreenManipulationTask;
+import com.stcodesapp.noteit.tasks.utilityTasks.ClipboardTasks;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.CheckListScreenView;
 import com.stcodesapp.noteit.ui.views.screens.activityScreen.CheckListScreen;
 
@@ -20,12 +21,14 @@ public class CheckListActivityController implements CheckListScreen.Listener {
     private TasksFactory tasksFactory;
     private Activity activity;
     private CheckListScreenView checkListScreenView;
+    private ClipboardTasks clipboardTasks;
     private CheckListScreenManipulationTask checkListScreenManipulationTask;
 
     public CheckListActivityController(TasksFactory tasksFactory, Activity activity) {
         this.tasksFactory = tasksFactory;
         this.activity = activity;
         this.checkListScreenManipulationTask = tasksFactory.getCheckListScreenManipulationTask();
+        this.clipboardTasks = tasksFactory.getClipboardTasks();
     }
 
     public void bindView(CheckListScreenView checkListScreenView) {
@@ -80,6 +83,9 @@ public class CheckListActivityController implements CheckListScreen.Listener {
 
     @Override
     public void onCheckListDoneButtonClicked() {
+        clipboardTasks.hideKeyBoard();
+        if(checkListScreenManipulationTask.sendResultBack())
+            activity.finish();
 
     }
 }

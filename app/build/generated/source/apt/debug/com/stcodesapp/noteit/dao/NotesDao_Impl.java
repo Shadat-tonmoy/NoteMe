@@ -31,7 +31,7 @@ public class NotesDao_Impl implements NotesDao {
     this.__insertionAdapterOfNote = new EntityInsertionAdapter<Note>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `notes`(`note_id`,`noteTitle`,`noteText`,`backgroundColor`,`creationTime`,`isImportant`,`priority`,`contactPriority`,`emailPriority`,`audioPriority`,`imagePriority`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?,?,?)";
+        return "INSERT OR ABORT INTO `notes`(`note_id`,`noteTitle`,`noteText`,`backgroundColor`,`creationTime`,`isImportant`,`priority`,`contactPriority`,`emailPriority`,`audioPriority`,`imagePriority`,`checkListPriority`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -61,6 +61,7 @@ public class NotesDao_Impl implements NotesDao {
         stmt.bindLong(9, value.getEmailPriority());
         stmt.bindLong(10, value.getAudioPriority());
         stmt.bindLong(11, value.getImagePriority());
+        stmt.bindLong(12, value.getCheckListPriority());
       }
     };
     this.__deletionAdapterOfNote = new EntityDeletionOrUpdateAdapter<Note>(__db) {
@@ -77,7 +78,7 @@ public class NotesDao_Impl implements NotesDao {
     this.__updateAdapterOfNote = new EntityDeletionOrUpdateAdapter<Note>(__db) {
       @Override
       public String createQuery() {
-        return "UPDATE OR ABORT `notes` SET `note_id` = ?,`noteTitle` = ?,`noteText` = ?,`backgroundColor` = ?,`creationTime` = ?,`isImportant` = ?,`priority` = ?,`contactPriority` = ?,`emailPriority` = ?,`audioPriority` = ?,`imagePriority` = ? WHERE `note_id` = ?";
+        return "UPDATE OR ABORT `notes` SET `note_id` = ?,`noteTitle` = ?,`noteText` = ?,`backgroundColor` = ?,`creationTime` = ?,`isImportant` = ?,`priority` = ?,`contactPriority` = ?,`emailPriority` = ?,`audioPriority` = ?,`imagePriority` = ?,`checkListPriority` = ? WHERE `note_id` = ?";
       }
 
       @Override
@@ -107,7 +108,8 @@ public class NotesDao_Impl implements NotesDao {
         stmt.bindLong(9, value.getEmailPriority());
         stmt.bindLong(10, value.getAudioPriority());
         stmt.bindLong(11, value.getImagePriority());
-        stmt.bindLong(12, value.getId());
+        stmt.bindLong(12, value.getCheckListPriority());
+        stmt.bindLong(13, value.getId());
       }
     };
     this.__preparedStmtOfDeleteAllNote = new SharedSQLiteStatement(__db) {
@@ -184,6 +186,7 @@ public class NotesDao_Impl implements NotesDao {
       final int _cursorIndexOfEmailPriority = _cursor.getColumnIndexOrThrow("emailPriority");
       final int _cursorIndexOfAudioPriority = _cursor.getColumnIndexOrThrow("audioPriority");
       final int _cursorIndexOfImagePriority = _cursor.getColumnIndexOrThrow("imagePriority");
+      final int _cursorIndexOfCheckListPriority = _cursor.getColumnIndexOrThrow("checkListPriority");
       final List<Note> _result = new ArrayList<Note>(_cursor.getCount());
       while(_cursor.moveToNext()) {
         final Note _item;
@@ -223,6 +226,9 @@ public class NotesDao_Impl implements NotesDao {
         final int _tmpImagePriority;
         _tmpImagePriority = _cursor.getInt(_cursorIndexOfImagePriority);
         _item.setImagePriority(_tmpImagePriority);
+        final int _tmpCheckListPriority;
+        _tmpCheckListPriority = _cursor.getInt(_cursorIndexOfCheckListPriority);
+        _item.setCheckListPriority(_tmpCheckListPriority);
         _result.add(_item);
       }
       return _result;
@@ -249,6 +255,7 @@ public class NotesDao_Impl implements NotesDao {
       final int _cursorIndexOfEmailPriority = _cursor.getColumnIndexOrThrow("emailPriority");
       final int _cursorIndexOfAudioPriority = _cursor.getColumnIndexOrThrow("audioPriority");
       final int _cursorIndexOfImagePriority = _cursor.getColumnIndexOrThrow("imagePriority");
+      final int _cursorIndexOfCheckListPriority = _cursor.getColumnIndexOrThrow("checkListPriority");
       final List<Note> _result = new ArrayList<Note>(_cursor.getCount());
       while(_cursor.moveToNext()) {
         final Note _item;
@@ -288,6 +295,9 @@ public class NotesDao_Impl implements NotesDao {
         final int _tmpImagePriority;
         _tmpImagePriority = _cursor.getInt(_cursorIndexOfImagePriority);
         _item.setImagePriority(_tmpImagePriority);
+        final int _tmpCheckListPriority;
+        _tmpCheckListPriority = _cursor.getInt(_cursorIndexOfCheckListPriority);
+        _item.setCheckListPriority(_tmpCheckListPriority);
         _result.add(_item);
       }
       return _result;

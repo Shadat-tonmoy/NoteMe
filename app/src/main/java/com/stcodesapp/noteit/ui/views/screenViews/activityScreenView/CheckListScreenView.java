@@ -1,6 +1,7 @@
 package com.stcodesapp.noteit.ui.views.screenViews.activityScreenView;
 
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -19,6 +20,7 @@ public class CheckListScreenView  extends BaseObservableScreenView<CheckListScre
     private RecyclerView checkList;
     private CheckListAdapter checkListAdapter;
     private Toolbar toolbar;
+    private FloatingActionButton doneButton;
 
 
     public CheckListScreenView(LayoutInflater inflater, @Nullable ViewGroup viewGroup)
@@ -39,6 +41,15 @@ public class CheckListScreenView  extends BaseObservableScreenView<CheckListScre
                 }
             }
         });
+        doneButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for(Listener listener:getListeners())
+                {
+                    listener.onCheckListDoneButtonClicked();
+                }
+            }
+        });
 
 
     }
@@ -49,12 +60,12 @@ public class CheckListScreenView  extends BaseObservableScreenView<CheckListScre
         toolbar = findViewById(R.id.app_toolbar);
         toolbar.setTitle(getContext().getResources().getString(R.string.add_check_list));
         toolbar.setNavigationIcon(getContext().getResources().getDrawable(R.drawable.back_white));
-
         checkList = findViewById(R.id.checklist_item_list);
         checkListAdapter = new CheckListAdapter(getContext(),false);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         checkList.setLayoutManager(layoutManager);
         checkList.setAdapter(checkListAdapter);
+        doneButton = findViewById(R.id.check_list_done_button);
 
     }
 

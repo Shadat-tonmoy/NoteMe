@@ -27,6 +27,7 @@ import com.stcodesapp.noteit.listeners.ContactListener;
 import com.stcodesapp.noteit.listeners.EmailListener;
 import com.stcodesapp.noteit.listeners.ImageListener;
 import com.stcodesapp.noteit.models.Audio;
+import com.stcodesapp.noteit.models.ChecklistItem;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.Image;
@@ -296,6 +297,45 @@ public class NoteFieldScreenManipulationTasks {
                 }
             });
         }
+    }
+
+
+    public void addCheckListToCheclistContainer(final ChecklistItem checklistItem)
+    {
+        LinearLayout checkListContainer = noteFieldScreenView.getRootView().findViewById(R.id.check_list_container);
+        if(checkListContainer==null)
+        {
+            checkListContainer = (activity.getLayoutInflater().inflate(R.layout.check_list_container,null,false)).findViewById(R.id.check_list_container);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            params.setMargins(0, 16, 0, 0);
+            checkListContainer.setLayoutParams(params);
+            noteFieldScreenView.getUiComponentContainer().addView(checkListContainer);
+        }
+        if(checkListContainer.getVisibility()==View.GONE)
+            checkListContainer.setVisibility(View.VISIBLE);
+        final View checkListHolder = activity.getLayoutInflater().inflate(R.layout.check_list_holder,null,false);
+        TextView removeButton = checkListHolder.findViewById(R.id.check_list_remove_btn);
+        TextView checkListName = checkListHolder.findViewById(R.id.check_list_title);
+        checkListName.setText(checklistItem.getField1());
+        checkListContainer.addView(checkListHolder);
+
+       /* EmailListener emailListener = listeningTasks.getEmailListener(email,emailHolder);
+        sendButton.setOnClickListener(emailListener);
+        copyButton.setOnClickListener(emailListener);
+        if(email.getNoteId()!=Constants.ZERO)
+        {
+            removeButton.setOnClickListener(emailListener);
+        }
+        else
+        {
+            removeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    removeEmailComponent(emailHolder,email);
+
+                }
+            });
+        }*/
     }
 
     public void addAudioToChosenContactContainer(Audio audio,Uri audioUri, FileIOTasks fileIOTasks)
