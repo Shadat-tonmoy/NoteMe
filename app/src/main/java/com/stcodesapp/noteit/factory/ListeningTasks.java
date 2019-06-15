@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.google.android.flexbox.FlexboxLayout;
 import com.stcodesapp.noteit.listeners.AudioListener;
+import com.stcodesapp.noteit.listeners.CheckListListener;
 import com.stcodesapp.noteit.listeners.ContactListener;
 import com.stcodesapp.noteit.listeners.DatabaseSelectionTasksListener;
 import com.stcodesapp.noteit.listeners.EmailListener;
@@ -13,6 +14,7 @@ import com.stcodesapp.noteit.listeners.ImageListener;
 import com.stcodesapp.noteit.listeners.RemoveImageListener;
 import com.stcodesapp.noteit.listeners.DatabaseInsertTasksListener;
 import com.stcodesapp.noteit.models.Audio;
+import com.stcodesapp.noteit.models.CheckList;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.Image;
@@ -24,10 +26,12 @@ public class ListeningTasks {
 
     private Activity activity;
     private DatabaseTasks databaseTasks;
+    private TasksFactory tasksFactory;
 
-    public ListeningTasks(Activity activity, DatabaseTasks databaseTasks) {
+    public ListeningTasks(Activity activity, DatabaseTasks databaseTasks, TasksFactory tasksFactory) {
         this.activity = activity;
         this.databaseTasks = databaseTasks;
+        this.tasksFactory = tasksFactory;
     }
 
     public RemoveImageListener getRemoveImageListener(FlexboxLayout container, View image)
@@ -43,6 +47,11 @@ public class ListeningTasks {
     public EmailListener getEmailListener(Email email,View emailHolder)
     {
         return new EmailListener(email, activity,databaseTasks,emailHolder);
+    }
+
+    public CheckListListener getCheckListListener(CheckList checkList, View checkListHolder)
+    {
+        return new CheckListListener(checkList, activity,databaseTasks,checkListHolder,tasksFactory);
     }
 
     public ImageListener getImageListener(Image image, View imageHolder)

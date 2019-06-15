@@ -1,11 +1,14 @@
 package com.stcodesapp.noteit.controllers.activityController;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.view.MenuItem;
 
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.Constants;
+import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.factory.TasksFactory;
+import com.stcodesapp.noteit.models.CheckList;
 import com.stcodesapp.noteit.models.ChecklistItem;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.CheckListScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.utilityTasks.ClipboardTasks;
@@ -50,7 +53,6 @@ public class CheckListActivityController implements CheckListScreen.Listener {
     public  void onPostCreate()
     {
         checkListScreenManipulationTask.initToolbar();
-        fetchCheckListItems();
     }
 
     public void fetchCheckListItems()
@@ -86,6 +88,17 @@ public class CheckListActivityController implements CheckListScreen.Listener {
         clipboardTasks.hideKeyBoard();
         if(checkListScreenManipulationTask.sendResultBack())
             activity.finish();
+
+    }
+
+    public void checkIntentForExtra(Intent intent) {
+        CheckList checkList = (CheckList) intent.getSerializableExtra(Tags.CHECK_LIST);
+        if(checkList!=null)
+        {
+            checkListScreenManipulationTask.bindCheckListTitle(checkList.getCheckListTitle());
+            checkListScreenManipulationTask.bindCheckListObject(checkList.getChecklistItems());
+        }
+        else fetchCheckListItems();
 
     }
 }

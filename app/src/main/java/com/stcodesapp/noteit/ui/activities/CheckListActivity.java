@@ -47,6 +47,7 @@ public class CheckListActivity extends BaseActivity {
     protected void onStart() {
         super.onStart();
         checkListActivityController.onStart();
+        checkListActivityController.checkIntentForExtra(getIntent());
     }
 
     @Override

@@ -11,6 +11,36 @@
         <include
             layout="@layout/toolbar" />
 
+        <LinearLayout
+            android:id="@+id/check_list_title_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_toolbar">
+
+
+            <EditText
+                android:id="@+id/check_item_title_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/check_list_name"
+                android:inputType="textAutoComplete"
+                android:background="@drawable/edit_text_bg"
+                android:padding="8dp"
+                android:layout_margin="8dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="?android:attr/listDivider" />
+
+
+        </LinearLayout>
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/checklist_item_list"
             android:layout_width="match_parent"
@@ -20,7 +50,7 @@
             android:clipToPadding="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/app_toolbar"/>
+            app:layout_constraintTop_toBottomOf="@id/check_list_title_container"/>
 
     </android.support.constraint.ConstraintLayout>
 

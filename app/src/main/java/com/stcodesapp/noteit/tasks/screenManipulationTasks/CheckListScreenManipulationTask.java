@@ -7,6 +7,7 @@ import android.os.Handler;
 
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.Constants;
+import com.stcodesapp.noteit.models.CheckList;
 import com.stcodesapp.noteit.models.ChecklistItem;
 import com.stcodesapp.noteit.tasks.utilityTasks.ClipboardTasks;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.CheckListScreenView;
@@ -36,6 +37,10 @@ public class CheckListScreenManipulationTask {
         }
     }
 
+    public void bindCheckListTitle(String checkListTitle) {
+        checkListScreenView.getCheckListTitleField().setText(checkListTitle);
+    }
+
     public void addEmptyChecklistItem() {
             checkListScreenView.getCheckListAdapter().addEmptyChecklistItem();
             final int lastIndex = checkListScreenView.getCheckListAdapter().getItemCount()-1;
@@ -60,9 +65,11 @@ public class CheckListScreenManipulationTask {
         return grabCheckListValue() != null;
     }
 
-    private List<ChecklistItem>  grabCheckListValue()
+    private CheckList grabCheckListValue()
     {
-        return checkListScreenView.getCheckListAdapter().getCheckListObjects();
+        CheckList checkList = new CheckList(checkListScreenView.getCheckListTitleField().getText().toString());
+        checkList.setChecklistItems(checkListScreenView.getCheckListAdapter().getCheckListObjects());
+        return checkList;
     }
 
 

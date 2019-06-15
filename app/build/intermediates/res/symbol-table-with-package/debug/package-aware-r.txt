@@ -1230,7 +1230,9 @@ id check_list_desc
 id check_list_done_button
 id check_list_remove_btn
 id check_list_title
+id check_list_title_container
 id checkbox
+id checklist_holder_main_layout
 id checklist_item_list
 id choose_color_menu
 id chosen_audio_container
@@ -1735,6 +1737,7 @@ string character_counter_content_description
 string character_counter_pattern
 string check_list
 string check_list_desc
+string check_list_name
 string choose_an_option_to_continue
 string choose_background_color
 string choose_color

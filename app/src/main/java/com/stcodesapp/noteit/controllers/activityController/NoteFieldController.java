@@ -22,6 +22,7 @@ import com.stcodesapp.noteit.factory.ListeningTasks;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.listeners.DatabaseInsertTasksListener;
 import com.stcodesapp.noteit.models.Audio;
+import com.stcodesapp.noteit.models.CheckList;
 import com.stcodesapp.noteit.models.ChecklistItem;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
@@ -48,7 +49,6 @@ import com.stcodesapp.noteit.ui.fragments.PhoneNoOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
 import com.stcodesapp.noteit.ui.views.screens.activityScreen.NoteFieldScreen;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
@@ -396,15 +396,13 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     private void handleSingleCheckList(Intent intent)
     {
         Bundle bundle = intent.getBundleExtra(Constants.SINGLE_CHECKLIST);
-        ArrayList<ChecklistItem> checklistItems = (ArrayList<ChecklistItem>) bundle.getSerializable(SINGLE_CHECKLIST);
-        Log.e("CheckListResult",checklistItems+" is not nnn");
-        if(checklistItems!=null)
+        CheckList checkList = (CheckList) bundle.getSerializable(SINGLE_CHECKLIST);
+        if(checkList!=null)
         {
             noteComponents.getNote().updateCheckListPriority();
-            noteComponents.setChecklistItems(checklistItems);
-            for(ChecklistItem checklistItem:checklistItems)
-                checklistItem.setNoteId(noteComponents.getNote().getId());
-            noteFieldScreenManipulationTasks.addCheckListToCheclistContainer(checklistItems.get(0));
+            noteComponents.getCheckLists().add(checkList);
+            checkList.setNoteId(noteComponents.getNote().getId());
+            noteFieldScreenManipulationTasks.addCheckListToCheckListContainer(checkList);
             /*if(isUpdating)
                 addChosenEmailToDB(email);*/
         }

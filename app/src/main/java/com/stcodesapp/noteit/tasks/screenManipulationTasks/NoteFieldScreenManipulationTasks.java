@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -23,10 +24,12 @@ import com.stcodesapp.noteit.constants.PermissionType;
 import com.stcodesapp.noteit.factory.ListeningTasks;
 import com.stcodesapp.noteit.factory.UIComponentFatory;
 import com.stcodesapp.noteit.listeners.AudioListener;
+import com.stcodesapp.noteit.listeners.CheckListListener;
 import com.stcodesapp.noteit.listeners.ContactListener;
 import com.stcodesapp.noteit.listeners.EmailListener;
 import com.stcodesapp.noteit.listeners.ImageListener;
 import com.stcodesapp.noteit.models.Audio;
+import com.stcodesapp.noteit.models.CheckList;
 import com.stcodesapp.noteit.models.ChecklistItem;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
@@ -192,6 +195,13 @@ public class NoteFieldScreenManipulationTasks {
         removeEmailContainer();
     }
 
+    private void removeCheckListComponent(View view,CheckList checkList)
+    {
+        noteComponents.getCheckLists().remove(checkList);
+        view.setVisibility(View.GONE);
+        removeCheckListContainer();
+    }
+
     private void removeImageComponent(View view,Image image)
     {
         noteComponents.getChosenImages().remove(image);
@@ -215,6 +225,18 @@ public class NoteFieldScreenManipulationTasks {
             if(emailContainer!=null)
             {
                 emailContainer.setVisibility(View.GONE);
+            }
+        }
+    }
+
+    public void removeCheckListContainer()
+    {
+        if(noteComponents.getCheckLists().size()==0)
+        {
+            LinearLayout checkListContainer = noteFieldScreenView.getRootView().findViewById(R.id.check_list_container);
+            if(checkListContainer!=null)
+            {
+                checkListContainer.setVisibility(View.GONE);
             }
         }
     }
@@ -300,7 +322,7 @@ public class NoteFieldScreenManipulationTasks {
     }
 
 
-    public void addCheckListToCheclistContainer(final ChecklistItem checklistItem)
+    public void addCheckListToCheckListContainer(final CheckList checklist)
     {
         LinearLayout checkListContainer = noteFieldScreenView.getRootView().findViewById(R.id.check_list_container);
         if(checkListContainer==null)
@@ -314,28 +336,28 @@ public class NoteFieldScreenManipulationTasks {
         if(checkListContainer.getVisibility()==View.GONE)
             checkListContainer.setVisibility(View.VISIBLE);
         final View checkListHolder = activity.getLayoutInflater().inflate(R.layout.check_list_holder,null,false);
+        ConstraintLayout mainLayout = checkListHolder.findViewById(R.id.checklist_holder_main_layout);
         TextView removeButton = checkListHolder.findViewById(R.id.check_list_remove_btn);
         TextView checkListName = checkListHolder.findViewById(R.id.check_list_title);
-        checkListName.setText(checklistItem.getField1());
+        checkListName.setText(checklist.getCheckListTitle());
         checkListContainer.addView(checkListHolder);
 
-       /* EmailListener emailListener = listeningTasks.getEmailListener(email,emailHolder);
-        sendButton.setOnClickListener(emailListener);
-        copyButton.setOnClickListener(emailListener);
-        if(email.getNoteId()!=Constants.ZERO)
+        CheckListListener checkListListener = listeningTasks.getCheckListListener(checklist,checkListHolder);
+        mainLayout.setOnClickListener(checkListListener);
+        if(checklist.getNoteId()!=Constants.ZERO)
         {
-            removeButton.setOnClickListener(emailListener);
+            removeButton.setOnClickListener(checkListListener);
         }
         else
         {
             removeButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    removeEmailComponent(emailHolder,email);
+                    removeCheckListComponent(checkListHolder,checklist);
 
                 }
             });
-        }*/
+        }
     }
 
     public void addAudioToChosenContactContainer(Audio audio,Uri audioUri, FileIOTasks fileIOTasks)

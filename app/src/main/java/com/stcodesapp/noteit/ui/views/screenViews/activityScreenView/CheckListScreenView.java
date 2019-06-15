@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.adapter.CheckListAdapter;
@@ -20,6 +21,7 @@ public class CheckListScreenView  extends BaseObservableScreenView<CheckListScre
     private RecyclerView checkList;
     private CheckListAdapter checkListAdapter;
     private Toolbar toolbar;
+    private EditText checkListTitleField, checkListTitle2ndField;
     private FloatingActionButton doneButton;
 
 
@@ -66,6 +68,7 @@ public class CheckListScreenView  extends BaseObservableScreenView<CheckListScre
         checkList.setLayoutManager(layoutManager);
         checkList.setAdapter(checkListAdapter);
         doneButton = findViewById(R.id.check_list_done_button);
+        checkListTitleField = findViewById(R.id.check_item_title_field);
 
     }
 
@@ -79,5 +82,9 @@ public class CheckListScreenView  extends BaseObservableScreenView<CheckListScre
 
     public Toolbar getToolbar() {
         return toolbar;
+    }
+
+    public EditText getCheckListTitleField() {
+        return checkListTitleField;
     }
 }

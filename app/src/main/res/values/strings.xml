@@ -131,6 +131,7 @@
     <string name="new_item_added">New Item Added!</string>
     <string name="check_list">Check List</string>
     <string name="check_list_desc">Tap to see full list</string>
+    <string name="check_list_name">Check List Title</string>
     <!--admob-->
 
     <!--ad_related_ids-->
