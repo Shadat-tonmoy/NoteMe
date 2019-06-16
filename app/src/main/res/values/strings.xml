@@ -77,6 +77,7 @@
     <string name="contact_inserted">Contact Added!</string>
     <string name="audio_inserted">Audio Added!</string>
     <string name="image_inserted">Image Added!</string>
+    <string name="check_list_inserted">Check List Added!</string>
     <string name="note_component_updated">Note Component Updated</string>
     <string name="created">Created</string>
     <string name="emails">Emails</string>

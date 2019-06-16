@@ -1,0 +1,65 @@
+package com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks;
+
+import android.content.Context;
+import android.os.AsyncTask;
+
+import com.stcodesapp.noteit.database.NoteDatabase;
+import com.stcodesapp.noteit.models.Audio;
+import com.stcodesapp.noteit.models.CheckList;
+import com.stcodesapp.noteit.models.ChecklistItem;
+
+import java.util.List;
+
+public class CheckListInsertTask extends AsyncTask<CheckList, Void, Integer> {
+
+    public interface Listener{
+        void onCheckListInserted(int numberOfCheckList);
+    }
+
+
+    private final Context context;
+    private NoteDatabase noteDatabase;
+    private Listener listener;
+
+
+    public CheckListInsertTask(Context context) {
+        this.context = context;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        noteDatabase = NoteDatabase.getInstance(context);
+    }
+
+    @Override
+    protected Integer doInBackground(CheckList... checkLists) {
+        if(checkLists.length==1)
+            checkLists[0].setCheckListId(noteDatabase.checkListDao().insertSingleCheckList(checkLists[0]));
+        else
+        {
+            long[] checkListIds = noteDatabase.checkListDao().insertCheckList(checkLists);
+            for(int i=0;i<checkListIds.length;i++)
+            {
+                checkLists[i].setCheckListId(checkListIds[i]);
+                List<ChecklistItem> checklistItems = checkLists[i].getChecklistItems();
+                for(ChecklistItem checklistItem:checklistItems)
+                {
+                    checklistItem.setCheckListId(checkListIds[i]);
+                }
+            }
+        }
+        return checkLists.length;
+    }
+
+    @Override
+    protected void onPostExecute(Integer numberOfCheckList) {
+        super.onPostExecute(numberOfCheckList);
+        listener.onCheckListInserted(numberOfCheckList);
+
+    }
+
+    public void setListener(Listener listener) {
+        this.listener = listener;
+    }
+}

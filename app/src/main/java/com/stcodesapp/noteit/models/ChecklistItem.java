@@ -11,10 +11,10 @@ import java.io.Serializable;
 
 import static android.arch.persistence.room.ForeignKey.CASCADE;
 
-@Entity(tableName = "single_check_list", foreignKeys = @ForeignKey(
-        entity = Note.class,
-        parentColumns = {"note_id"},
-        childColumns = {"note_id"},
+@Entity(foreignKeys = @ForeignKey(
+        entity = CheckList.class,
+        parentColumns = {"checkListId"},
+        childColumns = {"checkListId"},
         onDelete = CASCADE
 ))
 public class ChecklistItem implements Serializable{
@@ -23,11 +23,10 @@ public class ChecklistItem implements Serializable{
     private boolean isChecked;
 
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "single_checklist_id")
+    @ColumnInfo(name = "checkListItemId")
     private long id;
+    private long checkListId;
 
-    @ColumnInfo(name = "note_id")
-    private long noteId;
 
 
     public ChecklistItem() {
@@ -43,13 +42,6 @@ public class ChecklistItem implements Serializable{
     public ChecklistItem(String field1, boolean isChecked) {
         this.field1 = field1;
         this.isChecked = isChecked;
-    }
-
-    public ChecklistItem(String field1, boolean isChecked, long id, long noteId) {
-        this.field1 = field1;
-        this.isChecked = isChecked;
-        this.id = id;
-        this.noteId = noteId;
     }
 
 
@@ -77,20 +69,21 @@ public class ChecklistItem implements Serializable{
         this.id = id;
     }
 
-    public long getNoteId() {
-        return noteId;
-    }
-
-    public void setNoteId(long noteId) {
-        this.noteId = noteId;
-    }
-
     public String getField2() {
         return field2;
     }
 
     public void setField2(String field2) {
         this.field2 = field2;
+    }
+
+
+    public long getCheckListId() {
+        return checkListId;
+    }
+
+    public void setCheckListId(long checkListId) {
+        this.checkListId = checkListId;
     }
 
     @Override
@@ -100,7 +93,6 @@ public class ChecklistItem implements Serializable{
                 ", field2='" + field2 + '\'' +
                 ", isChecked=" + isChecked +
                 ", id=" + id +
-                ", noteId=" + noteId +
                 '}';
     }
 }

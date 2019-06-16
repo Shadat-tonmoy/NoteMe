@@ -12,6 +12,8 @@ import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTas
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.ImageDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.NoteDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.AudioInsertTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.CheckListInsertTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.CheckListItemInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ContactInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.EmailInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ImageInsertTask;
@@ -71,6 +73,20 @@ public class DatabaseTasks {
         ImageInsertTask imageInsertTask = new ImageInsertTask(context);
         imageInsertTask.setListener(listener);
         return imageInsertTask;
+    }
+
+    public CheckListInsertTask getCheckListInsertTask(CheckListInsertTask.Listener listener)
+    {
+        CheckListInsertTask checkListInsertTask = new CheckListInsertTask(context);
+        checkListInsertTask.setListener(listener);
+        return checkListInsertTask;
+    }
+
+    public CheckListItemInsertTask getCheckListItemInsertTask(CheckListItemInsertTask.Listener listener)
+    {
+        CheckListItemInsertTask checkListItemInsertTask = new CheckListItemInsertTask(context);
+        checkListItemInsertTask.setListener(listener);
+        return checkListItemInsertTask;
     }
 
 

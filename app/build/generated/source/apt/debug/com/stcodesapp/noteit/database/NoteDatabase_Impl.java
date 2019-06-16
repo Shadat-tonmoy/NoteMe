@@ -14,6 +14,10 @@ import android.arch.persistence.room.util.TableInfo.ForeignKey;
 import android.arch.persistence.room.util.TableInfo.Index;
 import com.stcodesapp.noteit.dao.AudioDao;
 import com.stcodesapp.noteit.dao.AudioDao_Impl;
+import com.stcodesapp.noteit.dao.CheckListDao;
+import com.stcodesapp.noteit.dao.CheckListDao_Impl;
+import com.stcodesapp.noteit.dao.CheckListItemDao;
+import com.stcodesapp.noteit.dao.CheckListItemDao_Impl;
 import com.stcodesapp.noteit.dao.ContactDao;
 import com.stcodesapp.noteit.dao.ContactDao_Impl;
 import com.stcodesapp.noteit.dao.EmailDao;
@@ -42,9 +46,13 @@ public class NoteDatabase_Impl extends NoteDatabase {
 
   private volatile ImageDao _imageDao;
 
+  private volatile CheckListDao _checkListDao;
+
+  private volatile CheckListItemDao _checkListItemDao;
+
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(8) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(11) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `notes` (`note_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `noteTitle` TEXT, `noteText` TEXT, `backgroundColor` TEXT, `creationTime` INTEGER NOT NULL, `isImportant` INTEGER NOT NULL, `priority` INTEGER NOT NULL, `contactPriority` INTEGER NOT NULL, `emailPriority` INTEGER NOT NULL, `audioPriority` INTEGER NOT NULL, `imagePriority` INTEGER NOT NULL, `checkListPriority` INTEGER NOT NULL)");
@@ -52,8 +60,10 @@ public class NoteDatabase_Impl extends NoteDatabase {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `contact` (`contact_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `note_id` INTEGER NOT NULL, `phoneNumber` TEXT, `displayName` TEXT, FOREIGN KEY(`note_id`) REFERENCES `notes`(`note_id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `audio` (`audio_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `note_id` INTEGER NOT NULL, `uri` TEXT, FOREIGN KEY(`note_id`) REFERENCES `notes`(`note_id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `images` (`image_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `note_id` INTEGER NOT NULL, `uri` TEXT, FOREIGN KEY(`note_id`) REFERENCES `notes`(`note_id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `CheckList` (`checkListId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `note_id` INTEGER NOT NULL, `checkListTitle` TEXT, `checkListSecondFieldTitle` TEXT, FOREIGN KEY(`note_id`) REFERENCES `notes`(`note_id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `ChecklistItem` (`field1` TEXT, `field2` TEXT, `isChecked` INTEGER NOT NULL, `checkListItemId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `checkListId` INTEGER NOT NULL, FOREIGN KEY(`checkListId`) REFERENCES `CheckList`(`checkListId`) ON UPDATE NO ACTION ON DELETE CASCADE )");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"7df28ba2dbf613beef483d65b103d3db\")");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"aa5e3e3af103a9cddff2e37492df7cd1\")");
       }
 
       @Override
@@ -63,6 +73,8 @@ public class NoteDatabase_Impl extends NoteDatabase {
         _db.execSQL("DROP TABLE IF EXISTS `contact`");
         _db.execSQL("DROP TABLE IF EXISTS `audio`");
         _db.execSQL("DROP TABLE IF EXISTS `images`");
+        _db.execSQL("DROP TABLE IF EXISTS `CheckList`");
+        _db.execSQL("DROP TABLE IF EXISTS `ChecklistItem`");
       }
 
       @Override
@@ -168,8 +180,39 @@ public class NoteDatabase_Impl extends NoteDatabase {
                   + " Expected:\n" + _infoImages + "\n"
                   + " Found:\n" + _existingImages);
         }
+        final HashMap<String, TableInfo.Column> _columnsCheckList = new HashMap<String, TableInfo.Column>(4);
+        _columnsCheckList.put("checkListId", new TableInfo.Column("checkListId", "INTEGER", true, 1));
+        _columnsCheckList.put("note_id", new TableInfo.Column("note_id", "INTEGER", true, 0));
+        _columnsCheckList.put("checkListTitle", new TableInfo.Column("checkListTitle", "TEXT", false, 0));
+        _columnsCheckList.put("checkListSecondFieldTitle", new TableInfo.Column("checkListSecondFieldTitle", "TEXT", false, 0));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysCheckList = new HashSet<TableInfo.ForeignKey>(1);
+        _foreignKeysCheckList.add(new TableInfo.ForeignKey("notes", "CASCADE", "NO ACTION",Arrays.asList("note_id"), Arrays.asList("note_id")));
+        final HashSet<TableInfo.Index> _indicesCheckList = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoCheckList = new TableInfo("CheckList", _columnsCheckList, _foreignKeysCheckList, _indicesCheckList);
+        final TableInfo _existingCheckList = TableInfo.read(_db, "CheckList");
+        if (! _infoCheckList.equals(_existingCheckList)) {
+          throw new IllegalStateException("Migration didn't properly handle CheckList(com.stcodesapp.noteit.models.CheckList).\n"
+                  + " Expected:\n" + _infoCheckList + "\n"
+                  + " Found:\n" + _existingCheckList);
+        }
+        final HashMap<String, TableInfo.Column> _columnsChecklistItem = new HashMap<String, TableInfo.Column>(5);
+        _columnsChecklistItem.put("field1", new TableInfo.Column("field1", "TEXT", false, 0));
+        _columnsChecklistItem.put("field2", new TableInfo.Column("field2", "TEXT", false, 0));
+        _columnsChecklistItem.put("isChecked", new TableInfo.Column("isChecked", "INTEGER", true, 0));
+        _columnsChecklistItem.put("checkListItemId", new TableInfo.Column("checkListItemId", "INTEGER", true, 1));
+        _columnsChecklistItem.put("checkListId", new TableInfo.Column("checkListId", "INTEGER", true, 0));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysChecklistItem = new HashSet<TableInfo.ForeignKey>(1);
+        _foreignKeysChecklistItem.add(new TableInfo.ForeignKey("CheckList", "CASCADE", "NO ACTION",Arrays.asList("checkListId"), Arrays.asList("checkListId")));
+        final HashSet<TableInfo.Index> _indicesChecklistItem = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoChecklistItem = new TableInfo("ChecklistItem", _columnsChecklistItem, _foreignKeysChecklistItem, _indicesChecklistItem);
+        final TableInfo _existingChecklistItem = TableInfo.read(_db, "ChecklistItem");
+        if (! _infoChecklistItem.equals(_existingChecklistItem)) {
+          throw new IllegalStateException("Migration didn't properly handle ChecklistItem(com.stcodesapp.noteit.models.ChecklistItem).\n"
+                  + " Expected:\n" + _infoChecklistItem + "\n"
+                  + " Found:\n" + _existingChecklistItem);
+        }
       }
-    }, "7df28ba2dbf613beef483d65b103d3db", "0f92dbf94851a676c9cf7d83ad0d78c4");
+    }, "aa5e3e3af103a9cddff2e37492df7cd1", "a14342f370e7aabe7c4baa05e66da59b");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -180,7 +223,7 @@ public class NoteDatabase_Impl extends NoteDatabase {
 
   @Override
   protected InvalidationTracker createInvalidationTracker() {
-    return new InvalidationTracker(this, "notes","email","contact","audio","images");
+    return new InvalidationTracker(this, "notes","email","contact","audio","images","CheckList","ChecklistItem");
   }
 
   @Override
@@ -201,6 +244,8 @@ public class NoteDatabase_Impl extends NoteDatabase {
       _db.execSQL("DELETE FROM `contact`");
       _db.execSQL("DELETE FROM `audio`");
       _db.execSQL("DELETE FROM `images`");
+      _db.execSQL("DELETE FROM `CheckList`");
+      _db.execSQL("DELETE FROM `ChecklistItem`");
       super.setTransactionSuccessful();
     } finally {
       super.endTransaction();
@@ -280,6 +325,34 @@ public class NoteDatabase_Impl extends NoteDatabase {
           _imageDao = new ImageDao_Impl(this);
         }
         return _imageDao;
+      }
+    }
+  }
+
+  @Override
+  public CheckListDao checkListDao() {
+    if (_checkListDao != null) {
+      return _checkListDao;
+    } else {
+      synchronized(this) {
+        if(_checkListDao == null) {
+          _checkListDao = new CheckListDao_Impl(this);
+        }
+        return _checkListDao;
+      }
+    }
+  }
+
+  @Override
+  public CheckListItemDao checkListItemDao() {
+    if (_checkListItemDao != null) {
+      return _checkListItemDao;
+    } else {
+      synchronized(this) {
+        if(_checkListItemDao == null) {
+          _checkListItemDao = new CheckListItemDao_Impl(this);
+        }
+        return _checkListItemDao;
       }
     }
   }

@@ -1737,6 +1737,7 @@ string character_counter_content_description
 string character_counter_pattern
 string check_list
 string check_list_desc
+string check_list_inserted
 string check_list_name
 string choose_an_option_to_continue
 string choose_background_color
