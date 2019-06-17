@@ -2,6 +2,7 @@ package com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.stcodesapp.noteit.database.NoteDatabase;
 import com.stcodesapp.noteit.models.CheckList;
@@ -34,6 +35,7 @@ public class CheckListItemInsertTask extends AsyncTask<ChecklistItem, Void, Inte
         if(checklistItems.length==1)
             checklistItems[0].setId(noteDatabase.checkListItemDao().insertSingleCheckListItem(checklistItems[0]));
         else noteDatabase.checkListItemDao().insertCheckListItem(checklistItems);
+
         return checklistItems.length;
     }
 

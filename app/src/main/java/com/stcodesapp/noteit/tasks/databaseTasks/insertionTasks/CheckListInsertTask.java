@@ -2,6 +2,7 @@ package com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.stcodesapp.noteit.database.NoteDatabase;
 import com.stcodesapp.noteit.models.Audio;
@@ -35,7 +36,15 @@ public class CheckListInsertTask extends AsyncTask<CheckList, Void, Integer> {
     @Override
     protected Integer doInBackground(CheckList... checkLists) {
         if(checkLists.length==1)
+        {
             checkLists[0].setCheckListId(noteDatabase.checkListDao().insertSingleCheckList(checkLists[0]));
+            List<ChecklistItem> checklistItems = checkLists[0].getChecklistItems();
+            long checkListId = checkLists[0].getCheckListId();
+            for(ChecklistItem checklistItem:checklistItems)
+            {
+                checklistItem.setCheckListId(checkListId);
+            }
+        }
         else
         {
             long[] checkListIds = noteDatabase.checkListDao().insertCheckList(checkLists);
@@ -51,6 +60,7 @@ public class CheckListInsertTask extends AsyncTask<CheckList, Void, Integer> {
         }
         return checkLists.length;
     }
+
 
     @Override
     protected void onPostExecute(Integer numberOfCheckList) {
