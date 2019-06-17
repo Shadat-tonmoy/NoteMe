@@ -35,6 +35,7 @@ import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTas
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.EmailDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.ImageDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.AudioInsertTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.CheckListInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ContactInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.EmailInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ImageInsertTask;
@@ -403,8 +404,8 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
             noteComponents.getCheckLists().add(checkList);
             checkList.setNoteId(noteComponents.getNote().getId());
             noteFieldScreenManipulationTasks.addCheckListToCheckListContainer(checkList);
-            /*if(isUpdating)
-                addChosenEmailToDB(email);*/
+            if(isUpdating)
+                addCheckListToDB(checkList);
         }
 
     }
@@ -417,6 +418,15 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         DatabaseInsertTasksListener databaseInsertTasksListener = listeningTasks.getDBInsertTasksListener(databaseTasks,noteComponents,true);
         EmailInsertTask emailInsertTask = tasksFactory.getDatabaseTasks().getEmailInsertTask(databaseInsertTasksListener);
         emailInsertTask.execute(email);
+    }
+
+    private void addCheckListToDB(CheckList checkList)
+    {
+        checkList.setNoteId(noteComponents.getNote().getId());
+        DatabaseTasks databaseTasks = tasksFactory.getDatabaseTasks();
+        DatabaseInsertTasksListener databaseInsertTasksListener = listeningTasks.getDBInsertTasksListener(databaseTasks,noteComponents,true);
+        CheckListInsertTask checkListInsertTask = tasksFactory.getDatabaseTasks().getCheckListInsertTask(databaseInsertTasksListener);
+        checkListInsertTask.execute(checkList);
     }
 
     private void handleNoteTitleVoiceInput(Intent intent)

@@ -1,19 +1,23 @@
 package com.stcodesapp.noteit.listeners;
 
+import android.util.Log;
+
 import com.stcodesapp.noteit.models.Audio;
+import com.stcodesapp.noteit.models.CheckList;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.Image;
 import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AudioSelectTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.CheckListSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.ContactSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.EmailSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.ImageSelectTask;
 
 import java.util.List;
 
-public class DatabaseSelectionTasksListener implements EmailSelectTask.Listener, AudioSelectTask.Listener, ImageSelectTask.Listener, ContactSelectTask.Listener {
+public class DatabaseSelectionTasksListener implements EmailSelectTask.Listener, AudioSelectTask.Listener, ImageSelectTask.Listener, ContactSelectTask.Listener, CheckListSelectTask.Listener {
 
 
     public interface Listener{
@@ -57,6 +61,18 @@ public class DatabaseSelectionTasksListener implements EmailSelectTask.Listener,
     @Override
     public void onImageFetched(List<Image> fetchedImage) {
         noteComponents.setChosenImages(fetchedImage);
+        startFetchingChekList();
+
+    }
+
+    @Override
+    public void onCheckListFetched(List<CheckList> fetchedCheckList) {
+        noteComponents.setCheckLists(fetchedCheckList);
+        for(CheckList checkList:fetchedCheckList)
+        {
+            Log.e("FetchedCehckList",checkList.toString());
+        }
+
         listener.onNoteComponentsFetched(noteComponents);
 
     }
@@ -74,6 +90,11 @@ public class DatabaseSelectionTasksListener implements EmailSelectTask.Listener,
     private void startFetchingAudio()
     {
         databaseTasks.getAudioSelectTask(this).execute(noteId);
+    }
+
+    private void startFetchingChekList()
+    {
+        databaseTasks.getCheckListSelectTask(this).execute(noteId);
     }
 
     public void setListener(Listener listener) {

@@ -90,4 +90,15 @@ public class CheckList implements Serializable {
     public void setCheckListSecondFieldTitle(String checkListSecondFieldTitle) {
         this.checkListSecondFieldTitle = checkListSecondFieldTitle;
     }
+
+    @Override
+    public String toString() {
+        return "CheckList{" +
+                "checkListId=" + checkListId +
+                ", noteId=" + noteId +
+                ", checklistItems=" + checklistItems +
+                ", checkListTitle='" + checkListTitle + '\'' +
+                ", checkListSecondFieldTitle='" + checkListSecondFieldTitle + '\'' +
+                '}';
+    }
 }

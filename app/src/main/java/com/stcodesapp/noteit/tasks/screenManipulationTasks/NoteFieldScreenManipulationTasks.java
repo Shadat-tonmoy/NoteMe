@@ -466,6 +466,7 @@ public class NoteFieldScreenManipulationTasks {
         addComponentByPriority(2);
         addComponentByPriority(3);
         addComponentByPriority(4);
+        addComponentByPriority(5);
     }
 
     private void addComponentByPriority(int priority)
@@ -478,6 +479,8 @@ public class NoteFieldScreenManipulationTasks {
             addAudioToField();
         else if(noteComponents.getNote().getImagePriority()==priority)
             addImageToFields();
+        else if(noteComponents.getNote().getCheckListPriority()==priority)
+            addCheckListToFields();
     }
 
 
@@ -485,6 +488,13 @@ public class NoteFieldScreenManipulationTasks {
     {
         for(Email email:noteComponents.getEmails())
             addEmailToChosenEmailContainer(email);
+    }
+
+
+    private void addCheckListToFields()
+    {
+        for(CheckList checkList:noteComponents.getCheckLists())
+            addCheckListToCheckListContainer(checkList);
     }
 
     private void addContactsToField()

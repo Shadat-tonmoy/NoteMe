@@ -22,7 +22,7 @@ public interface CheckListItemDao {
     @Delete
     void deleteCheckListItem(ChecklistItem checklistItem);
 
-    /*@Query("select * from checklistitem where checkListItemId=:checkListId")
-    List<CheckList> getCheckListItems(long checkListId);*/
+    @Query("select * from checklistitem where checkListId=:checkListId")
+    List<ChecklistItem> getCheckListItems(long checkListId);
 
 }

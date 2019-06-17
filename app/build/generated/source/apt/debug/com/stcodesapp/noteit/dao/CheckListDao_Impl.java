@@ -94,7 +94,7 @@ public class CheckListDao_Impl implements CheckListDao {
   }
 
   @Override
-  public List<CheckList> getCheckListForNote(long noteId) {
+  public List<CheckList> getAllCheckListForNote(long noteId) {
     final String _sql = "select * from checklist where note_id=?";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;

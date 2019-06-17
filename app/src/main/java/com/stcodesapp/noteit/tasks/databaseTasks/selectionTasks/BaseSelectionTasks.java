@@ -5,7 +5,7 @@ import android.os.AsyncTask;
 
 import com.stcodesapp.noteit.constants.ComponentType;
 import com.stcodesapp.noteit.database.NoteDatabase;
-import com.stcodesapp.noteit.models.Email;
+import com.stcodesapp.noteit.models.CheckList;
 
 import java.util.List;
 
@@ -52,6 +52,13 @@ public class BaseSelectionTasks<ReturnTye> extends AsyncTask<Long, Void, List<Re
                 return (List<ReturnTye>) noteDatabase.emailDao().getAllEmailForNote(noteId);
             case CONTACT:
                 return (List<ReturnTye>) noteDatabase.contactDao().getAllContactsForNote(noteId);
+            case CHECKLIST:
+                List<CheckList> checkLists = noteDatabase.checkListDao().getAllCheckListForNote(noteId);
+                for(CheckList checkList:checkLists)
+                {
+                    checkList.setChecklistItems(noteDatabase.checkListItemDao().getCheckListItems(checkList.getCheckListId()));
+                }
+                return (List<ReturnTye>) checkLists;
             default:
                 return null;
         }

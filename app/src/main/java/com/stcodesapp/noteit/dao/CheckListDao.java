@@ -22,5 +22,5 @@ public interface CheckListDao {
     void deleteCheckList(CheckList checkList);
 
     @Query("select * from checklist where note_id=:noteId")
-    List<CheckList> getCheckListForNote(long noteId);
+    List<CheckList> getAllCheckListForNote(long noteId);
 }

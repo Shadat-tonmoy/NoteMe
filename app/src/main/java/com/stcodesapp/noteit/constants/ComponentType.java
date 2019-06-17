@@ -5,6 +5,8 @@ public enum ComponentType {
     AUDIO,
     IMAGE,
     CONTACT,
+    CHECKLIST,
+    CHECKLIST_ITEM,
     NOTE,
     ALL_NOTE
 }
