@@ -58,6 +58,9 @@ public class CheckListActivityController implements CheckListScreen.Listener {
     public void fetchCheckListItems()
     {
         List<ChecklistItem> checklistItems = new ArrayList<>();
+        /*for(char a = 'a';a<='z';a++)
+            checklistItems.add(new ChecklistItem(Constants.EMPTY_STRING+a,false));*/
+
         checklistItems.add(new ChecklistItem(Constants.EMPTY_STRING,false));
         checkListScreenManipulationTask.bindCheckListObject(checklistItems);
     }

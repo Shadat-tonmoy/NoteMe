@@ -28,7 +28,7 @@
 
         <activity
             android:name=".ui.activities.CheckListActivity"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="stateVisible|adjustResize" />
 
         <activity
             android:name=".ui.activities.PrivacyPolicyActivity"

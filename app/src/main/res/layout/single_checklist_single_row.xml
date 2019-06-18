@@ -1,39 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-        <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp">
-
-        <EditText
-            android:id="@+id/check_item_title_field"
-            android:layout_width="0dp"
-            android:layout_weight="8"
-            android:layout_height="wrap_content"
-            android:hint="@string/enter_item_title"
-            android:inputType="textAutoComplete"
-            android:background="@drawable/edit_text_bg"
-            android:padding="8dp"
-            android:layout_margin="8dp"
-            />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
 
 
         <CheckBox
             android:id="@+id/check_item_checkbox"
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:padding="8dp"
+            android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:layout_height="wrap_content" />
+            android:layout_weight="1"
+            android:padding="8dp" />
+
+        <EditText
+            android:id="@+id/check_item_title_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="8"
+            android:background="@drawable/edit_text_bg"
+            android:hint="@string/enter_item_title"
+            android:inputType="textAutoComplete"
+            android:padding="8dp" />
     </LinearLayout>
+
     <View
         android:id="@+id/divider2"
         android:layout_width="match_parent"

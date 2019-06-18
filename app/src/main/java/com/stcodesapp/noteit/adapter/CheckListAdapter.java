@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ public class CheckListAdapter extends RecyclerView.Adapter<CheckListAdapter.View
     private Context context;
     private boolean doubleColumn;
     private Map<Integer,String> fieldValues;
+    private Map<Integer,Boolean> checkedValues;
 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -48,6 +50,7 @@ public class CheckListAdapter extends RecyclerView.Adapter<CheckListAdapter.View
         this.context = context;
         this.doubleColumn= doubleColumn;
         this.fieldValues = new HashMap<>();
+        this.checkedValues = new HashMap<>();
 
     }
 
@@ -71,21 +74,18 @@ public class CheckListAdapter extends RecyclerView.Adapter<CheckListAdapter.View
         }
         else
         {
-            ChecklistItem checklistItem = checkListObjects.get(i);
+            final ChecklistItem checklistItem = checkListObjects.get(i);
             String fieldValue = checklistItem.getField1();
-            Log.e("DebFieldValue",fieldValue+" @ position "+i);
-            /*if(fieldValues.get(i)!=null)
-            {
-                fieldValue = fieldValues.get(i);
-                checklistItem.setField1(fieldValue);
-                Log.e("DebBindingFieldValue","At Postion "+i+" Value "+fieldValue+" Frin Map");
-            }
-            Log.e("DebBindingFieldValue","At Postion "+i+" Value "+fieldValue);*/
             viewHolder.itemTitleField.setText(fieldValue);
             viewHolder.itemCheckBox.setChecked(checklistItem.isChecked());
             viewHolder.itemTitleField.addTextChangedListener(new CheckListItemTextChangeListener(checklistItem,Constants.CHECKLIST_FIELD_1, i, fieldValues));
+            viewHolder.itemCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    checklistItem.setChecked(isChecked);
+                }
+            });
         }
-        /*setClickListener(objects.get(i),viewHolder.copyMenu, viewHolder.sendMenu*//*, viewHolder.editNote, viewHolder.deleteNote, viewHolder.moreOption*//*);*/
 
     }
 
@@ -120,5 +120,15 @@ public class CheckListAdapter extends RecyclerView.Adapter<CheckListAdapter.View
     private void setClickListener(final Object object, View... views)
     {
 
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 }

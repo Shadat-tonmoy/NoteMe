@@ -39,7 +39,7 @@
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name="com.stcodesapp.noteit.ui.activities.CheckListActivity"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
             android:name="com.stcodesapp.noteit.ui.activities.PrivacyPolicyActivity"
             android:theme="@style/AppTheme.Transparent" />
