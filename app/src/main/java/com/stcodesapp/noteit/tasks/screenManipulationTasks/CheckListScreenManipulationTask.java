@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
+import android.widget.EditText;
 
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.Constants;
@@ -69,6 +71,14 @@ public class CheckListScreenManipulationTask {
     {
         CheckList checkList = new CheckList(checkListScreenView.getCheckListTitleField().getText().toString());
         checkList.setChecklistItems(checkListScreenView.getCheckListAdapter().getCheckListObjects());
+        int totalItems = checkListScreenView.getCheckListAdapter().getItemCount();
+        try {
+            String lastFieldValue = ((EditText)checkListScreenView.getLayoutManager().findViewByPosition(totalItems-1).findViewById(R.id.check_item_title_field)).getText().toString();
+            checkListScreenView.getCheckListAdapter().getCheckListObjects().get(totalItems-1).setField1(lastFieldValue);
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
         return checkList;
     }
 

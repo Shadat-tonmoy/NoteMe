@@ -1484,6 +1484,7 @@ id submit_area
 id suggestion_icon
 id suggestion_list
 id suggestion_text
+id swipe_reveal_root
 id tabMode
 id tag_transition_group
 id tag_unhandled_key_event_manager

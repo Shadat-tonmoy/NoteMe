@@ -107,10 +107,10 @@ public final class R {
         public static final int right_icon = 0x7f090102;
         public static final int right_side = 0x7f090103;
         public static final int status_bar_latest_event_content = 0x7f09013a;
-        public static final int text = 0x7f090145;
-        public static final int text2 = 0x7f090146;
-        public static final int time = 0x7f09014f;
-        public static final int title = 0x7f090150;
+        public static final int text = 0x7f090146;
+        public static final int text2 = 0x7f090147;
+        public static final int time = 0x7f090150;
+        public static final int title = 0x7f090151;
     }
     public static final class integer {
         private integer() {}

@@ -1,6 +1,8 @@
 package com.stcodesapp.noteit.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,9 +15,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.chauthai.swipereveallayout.SwipeRevealLayout;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.Constants;
-import com.stcodesapp.noteit.listeners.CheckListItemTextChangeListener;
 import com.stcodesapp.noteit.models.CheckList;
 import com.stcodesapp.noteit.models.ChecklistItem;
 
@@ -24,7 +26,6 @@ import java.util.List;
 import java.util.Map;
 
 public class CheckListAdapter extends RecyclerView.Adapter<CheckListAdapter.ViewHolder> {
-
 
     private List<ChecklistItem> checkListObjects;
     private Context context;
@@ -38,6 +39,7 @@ public class CheckListAdapter extends RecyclerView.Adapter<CheckListAdapter.View
         EditText itemTitleField;
         CheckBox itemCheckBox;
         TextView checkListItemRemoveButton;
+        SwipeRevealLayout swipeRevealLayout;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -45,6 +47,7 @@ public class CheckListAdapter extends RecyclerView.Adapter<CheckListAdapter.View
             itemTitleField = itemView.findViewById(R.id.check_item_title_field);
             itemCheckBox = itemView.findViewById(R.id.check_item_checkbox);
             checkListItemRemoveButton = itemView.findViewById(R.id.check_list_remove_btn);
+            swipeRevealLayout = itemView.findViewById(R.id.swipe_reveal_root);
 
         }
     }
@@ -71,7 +74,7 @@ public class CheckListAdapter extends RecyclerView.Adapter<CheckListAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CheckListAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull final CheckListAdapter.ViewHolder viewHolder, final int i) {
         if(doubleColumn)
         {
             //set double column logics
@@ -80,9 +83,20 @@ public class CheckListAdapter extends RecyclerView.Adapter<CheckListAdapter.View
         {
             final ChecklistItem checklistItem = checkListObjects.get(i);
             String fieldValue = checklistItem.getField1();
+            Log.e("Binding",checkListObjects.toString()+"Size "+checkListObjects.size()+" Position "+i);
+            viewHolder.swipeRevealLayout.close(false);
             viewHolder.itemTitleField.setText(fieldValue);
             viewHolder.itemCheckBox.setChecked(checklistItem.isChecked());
-            viewHolder.itemTitleField.addTextChangedListener(new CheckListItemTextChangeListener(checklistItem,Constants.CHECKLIST_FIELD_1, i, fieldValues));
+            viewHolder.itemTitleField.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if(!hasFocus)
+                    {
+                        String data = viewHolder.itemTitleField.getText().toString();
+                        checklistItem.setField1(data);
+                    }
+                }
+            });
             viewHolder.itemCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -128,9 +142,8 @@ public class CheckListAdapter extends RecyclerView.Adapter<CheckListAdapter.View
             @Override
             public void onClick(View v) {
                 ChecklistItem checklistItem = (ChecklistItem) object;
-                Log.e("WillRemove",checklistItem.toString());
                 checkListObjects.remove(object);
-                notifyDataSetChanged();
+                notifyItemRemoved(position);
             }
         });
 

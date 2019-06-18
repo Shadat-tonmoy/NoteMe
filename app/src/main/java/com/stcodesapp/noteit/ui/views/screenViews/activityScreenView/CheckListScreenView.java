@@ -16,14 +16,14 @@ import com.stcodesapp.noteit.ui.views.baseScreens.BaseObservableScreenView;
 import com.stcodesapp.noteit.ui.views.screens.activityScreen.CheckListScreen;
 import com.stcodesapp.noteit.ui.views.screens.activityScreen.ManualContactScreen;
 
-public class CheckListScreenView  extends BaseObservableScreenView<CheckListScreen.Listener> implements CheckListScreen {
+public class CheckListScreenView  extends BaseObservableScreenView<CheckListScreen.Listener> implements CheckListScreen{
 
     private RecyclerView checkList;
     private CheckListAdapter checkListAdapter;
     private Toolbar toolbar;
     private EditText checkListTitleField, checkListTitle2ndField;
     private FloatingActionButton doneButton;
-
+    private RecyclerView.LayoutManager layoutManager;
 
     public CheckListScreenView(LayoutInflater inflater, @Nullable ViewGroup viewGroup)
     {
@@ -64,7 +64,7 @@ public class CheckListScreenView  extends BaseObservableScreenView<CheckListScre
         toolbar.setNavigationIcon(getContext().getResources().getDrawable(R.drawable.back_white));
         checkList = findViewById(R.id.checklist_item_list);
         checkListAdapter = new CheckListAdapter(getContext(),false);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        layoutManager = new LinearLayoutManager(getContext());
         checkList.setLayoutManager(layoutManager);
         checkList.setAdapter(checkListAdapter);
         doneButton = findViewById(R.id.check_list_done_button);
@@ -86,5 +86,9 @@ public class CheckListScreenView  extends BaseObservableScreenView<CheckListScre
 
     public EditText getCheckListTitleField() {
         return checkListTitleField;
+    }
+
+    public RecyclerView.LayoutManager getLayoutManager() {
+        return layoutManager;
     }
 }

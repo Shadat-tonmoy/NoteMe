@@ -102,9 +102,21 @@ public class CheckListActivityController implements CheckListScreen.Listener, Ch
         CheckList checkList = (CheckList) intent.getSerializableExtra(Tags.CHECK_LIST);
         if(checkList!=null)
         {
-            CheckListItemSelectTask checkListItemSelectTask = tasksFactory.getDatabaseTasks().getCheckListItemSelectTask(this);
-            checkListItemSelectTask.execute(checkList.getCheckListId());
-            checkListScreenManipulationTask.bindCheckListTitle(checkList.getCheckListTitle());
+            List<ChecklistItem> checklistItems = checkList.getChecklistItems();
+            if(checklistItems!=null && checklistItems.size()>Constants.ZERO)
+            {
+                Log.e("FetchingItems","FromComponents");
+                checkListScreenManipulationTask.bindCheckListObject(checklistItems);
+
+            }
+            else
+            {
+                Log.e("FetchingItems","FromDataase");
+                CheckListItemSelectTask checkListItemSelectTask = tasksFactory.getDatabaseTasks().getCheckListItemSelectTask(this);
+                checkListItemSelectTask.execute(checkList.getCheckListId());
+                checkListScreenManipulationTask.bindCheckListTitle(checkList.getCheckListTitle());
+            }
+
         }
         else fetchCheckListItems();
 

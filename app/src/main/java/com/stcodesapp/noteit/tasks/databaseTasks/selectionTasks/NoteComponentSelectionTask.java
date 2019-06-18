@@ -44,11 +44,11 @@ public class NoteComponentSelectionTask extends AsyncTask<Long, Void, NoteCompon
         noteComponents.setChosenContacts(noteDatabase.contactDao().getAllContactsForNote(noteId));
         List<CheckList> checkLists = noteDatabase.checkListDao().getAllCheckListForNote(noteId);
         Log.e("CheckList",checkLists.size()+" is totalCheckList");
-        for(CheckList checkList:checkLists)
+        /*for(CheckList checkList:checkLists)
         {
             checkList.setChecklistItems(noteDatabase.checkListItemDao().getCheckListItems(checkList.getCheckListId()));
             Log.e("CheckList",checkList.toString());
-        }
+        }*/
         noteComponents.setCheckLists(checkLists);
         return noteComponents;
     }
