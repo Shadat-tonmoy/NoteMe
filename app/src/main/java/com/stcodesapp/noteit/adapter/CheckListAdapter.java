@@ -6,9 +6,11 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -24,6 +26,8 @@ import com.stcodesapp.noteit.models.ChecklistItem;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static android.support.constraint.Constraints.TAG;
 
 public class CheckListAdapter extends RecyclerView.Adapter<CheckListAdapter.ViewHolder> {
 
@@ -95,6 +99,15 @@ public class CheckListAdapter extends RecyclerView.Adapter<CheckListAdapter.View
                         String data = viewHolder.itemTitleField.getText().toString();
                         checklistItem.setField1(data);
                     }
+                }
+            });
+            viewHolder.itemTitleField.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
+                        String data = viewHolder.itemTitleField.getText().toString();
+                        checklistItem.setField1(data);
+                    }
+                    return false;
                 }
             });
             viewHolder.itemCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
