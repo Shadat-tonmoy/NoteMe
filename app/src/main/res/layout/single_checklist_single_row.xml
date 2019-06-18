@@ -1,43 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.chauthai.swipereveallayout.SwipeRevealLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    app:mode="same_level"
+    app:dragEdge="right">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <include layout="@layout/checklist_item_option_layout"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp">
+        android:orientation="vertical">
 
-
-        <CheckBox
-            android:id="@+id/check_item_checkbox"
-            android:layout_width="0dp"
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+
+            <CheckBox
+                android:id="@+id/check_item_checkbox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:padding="8dp" />
+
+            <EditText
+                android:id="@+id/check_item_title_field"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="8"
+                android:background="@drawable/edit_text_bg"
+                android:hint="@string/enter_item_title"
+                android:inputType="textAutoComplete"
+                android:padding="8dp" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
             android:layout_weight="1"
-            android:padding="8dp" />
+            android:background="?android:attr/listDivider" />
 
-        <EditText
-            android:id="@+id/check_item_title_field"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_weight="8"
-            android:background="@drawable/edit_text_bg"
-            android:hint="@string/enter_item_title"
-            android:inputType="textAutoComplete"
-            android:padding="8dp" />
+
     </LinearLayout>
 
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_weight="1"
-        android:background="?android:attr/listDivider" />
 
-
-</LinearLayout>
+</com.chauthai.swipereveallayout.SwipeRevealLayout>

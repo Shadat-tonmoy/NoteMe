@@ -30,6 +30,7 @@ public class CheckListActivity extends BaseActivity {
         setContentView(checkListScreenView.getRootView());
         checkListActivityController = getCompositionRoot().getActivityControllerFactory().getCheckListActivityController();
         checkListActivityController.bindView(checkListScreenView);
+        checkListActivityController.checkIntentForExtra(getIntent());
     }
 
     @Override
@@ -47,7 +48,6 @@ public class CheckListActivity extends BaseActivity {
     protected void onStart() {
         super.onStart();
         checkListActivityController.onStart();
-        checkListActivityController.checkIntentForExtra(getIntent());
     }
 
     @Override

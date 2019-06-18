@@ -380,6 +380,10 @@
         "source": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/drawable/more_black.xml"
     },
     {
+        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/layout_checklist_item_option_layout.xml.flat",
+        "source": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/layout/checklist_item_option_layout.xml"
+    },
+    {
         "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/layout_abc_action_menu_layout.xml.flat",
         "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/6909f1926778757abec6793df9ebab24/res/layout/abc_action_menu_layout.xml"
     },

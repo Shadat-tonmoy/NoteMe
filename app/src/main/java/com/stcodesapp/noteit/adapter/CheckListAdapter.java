@@ -10,11 +10,13 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.listeners.CheckListItemTextChangeListener;
+import com.stcodesapp.noteit.models.CheckList;
 import com.stcodesapp.noteit.models.ChecklistItem;
 
 import java.util.HashMap;
@@ -35,12 +37,14 @@ public class CheckListAdapter extends RecyclerView.Adapter<CheckListAdapter.View
 
         EditText itemTitleField;
         CheckBox itemCheckBox;
+        TextView checkListItemRemoveButton;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             itemTitleField = itemView.findViewById(R.id.check_item_title_field);
             itemCheckBox = itemView.findViewById(R.id.check_item_checkbox);
+            checkListItemRemoveButton = itemView.findViewById(R.id.check_list_remove_btn);
 
         }
     }
@@ -85,6 +89,7 @@ public class CheckListAdapter extends RecyclerView.Adapter<CheckListAdapter.View
                     checklistItem.setChecked(isChecked);
                 }
             });
+            setClickListener(checklistItem,i,viewHolder.checkListItemRemoveButton);
         }
 
     }
@@ -117,8 +122,17 @@ public class CheckListAdapter extends RecyclerView.Adapter<CheckListAdapter.View
         return checkListObjects;
     }
 
-    private void setClickListener(final Object object, View... views)
+    private void setClickListener(final Object object, final int position, View... views)
     {
+        views[0].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ChecklistItem checklistItem = (ChecklistItem) object;
+                Log.e("WillRemove",checklistItem.toString());
+                checkListObjects.remove(object);
+                notifyDataSetChanged();
+            }
+        });
 
     }
 

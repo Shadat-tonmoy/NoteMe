@@ -2,9 +2,11 @@ package com.stcodesapp.noteit.controllers.activityController;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.adapter.CheckListAdapter;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.factory.TasksFactory;
@@ -18,14 +20,15 @@ import com.stcodesapp.noteit.ui.views.screens.activityScreen.CheckListScreen;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CheckListActivityController implements CheckListScreen.Listener {
-
+public class CheckListActivityController implements CheckListScreen.Listener{
 
     private TasksFactory tasksFactory;
     private Activity activity;
     private CheckListScreenView checkListScreenView;
     private ClipboardTasks clipboardTasks;
     private CheckListScreenManipulationTask checkListScreenManipulationTask;
+
+
 
     public CheckListActivityController(TasksFactory tasksFactory, Activity activity) {
         this.tasksFactory = tasksFactory;
