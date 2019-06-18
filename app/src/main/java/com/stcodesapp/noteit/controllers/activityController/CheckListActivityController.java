@@ -12,6 +12,7 @@ import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.models.CheckList;
 import com.stcodesapp.noteit.models.ChecklistItem;
+import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.CheckListItemSelectTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.CheckListScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.utilityTasks.ClipboardTasks;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.CheckListScreenView;
@@ -20,7 +21,7 @@ import com.stcodesapp.noteit.ui.views.screens.activityScreen.CheckListScreen;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CheckListActivityController implements CheckListScreen.Listener{
+public class CheckListActivityController implements CheckListScreen.Listener, CheckListItemSelectTask.Listener {
 
     private TasksFactory tasksFactory;
     private Activity activity;
@@ -101,10 +102,18 @@ public class CheckListActivityController implements CheckListScreen.Listener{
         CheckList checkList = (CheckList) intent.getSerializableExtra(Tags.CHECK_LIST);
         if(checkList!=null)
         {
+            CheckListItemSelectTask checkListItemSelectTask = tasksFactory.getDatabaseTasks().getCheckListItemSelectTask(this);
+            checkListItemSelectTask.execute(checkList.getCheckListId());
             checkListScreenManipulationTask.bindCheckListTitle(checkList.getCheckListTitle());
-            checkListScreenManipulationTask.bindCheckListObject(checkList.getChecklistItems());
         }
         else fetchCheckListItems();
+
+    }
+
+    @Override
+    public void onCheckListItemFetched(List<ChecklistItem> fetchedCheckListItems)
+    {
+        checkListScreenManipulationTask.bindCheckListObject(fetchedCheckListItems);
 
     }
 }
