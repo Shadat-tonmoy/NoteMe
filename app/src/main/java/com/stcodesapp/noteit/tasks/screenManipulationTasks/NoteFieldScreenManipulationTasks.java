@@ -342,7 +342,36 @@ public class NoteFieldScreenManipulationTasks {
         checkListName.setText(checklist.getCheckListTitle());
         checkListContainer.addView(checkListHolder);
 
-        CheckListListener checkListListener = listeningTasks.getCheckListListener(checklist,checkListHolder);
+        CheckListListener checkListListener = listeningTasks.getCheckListListener(checklist,checkListHolder,checkListContainer.getChildCount()-1);
+        mainLayout.setOnClickListener(checkListListener);
+        if(checklist.getNoteId()!=Constants.ZERO)
+        {
+            removeButton.setOnClickListener(checkListListener);
+        }
+        else
+        {
+            removeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    removeCheckListComponent(checkListHolder,checklist);
+
+                }
+            });
+        }
+    }
+
+
+
+    public void updateCheckListAtPosition(final CheckList checklist,int position)
+    {
+        LinearLayout checkListContainer = noteFieldScreenView.getRootView().findViewById(R.id.check_list_container);
+        final View checkListHolder = checkListContainer.getChildAt(position);
+        ConstraintLayout mainLayout = checkListHolder.findViewById(R.id.checklist_holder_main_layout);
+        TextView removeButton = checkListHolder.findViewById(R.id.check_list_remove_btn);
+        TextView checkListName = checkListHolder.findViewById(R.id.check_list_title);
+        checkListName.setText(checklist.getCheckListTitle());
+
+        CheckListListener checkListListener = listeningTasks.getCheckListListener(checklist,checkListHolder,checkListContainer.getChildCount()-1);
         mainLayout.setOnClickListener(checkListListener);
         if(checklist.getNoteId()!=Constants.ZERO)
         {

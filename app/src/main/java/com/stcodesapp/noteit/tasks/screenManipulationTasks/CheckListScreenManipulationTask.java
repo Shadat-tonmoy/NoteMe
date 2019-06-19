@@ -5,10 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.Constants;
+import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.models.CheckList;
 import com.stcodesapp.noteit.models.ChecklistItem;
 import com.stcodesapp.noteit.tasks.utilityTasks.ClipboardTasks;
@@ -45,37 +49,35 @@ public class CheckListScreenManipulationTask {
 
     public void addEmptyChecklistItem() {
             checkListScreenView.getCheckListAdapter().addEmptyChecklistItem();
-            final int lastIndex = checkListScreenView.getCheckListAdapter().getItemCount()-1;
-            checkListScreenView.getCheckList().scrollToPosition(lastIndex);
+        final int lastIndex = checkListScreenView.getCheckListAdapter().getItemCount()-1;
+        checkListScreenView.getCheckList().scrollToPosition(lastIndex);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 checkListScreenView.getCheckList().findViewHolderForAdapterPosition(lastIndex).itemView.findViewById(R.id.check_item_title_field).requestFocus();
-                clipboardTasks.showKeyBoard();
+                activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+//                clipboardTasks.showKeyBoard();
             }
         },1);
 
 
     }
 
-    public boolean sendResultBack()
+    public boolean sendResultBack(CheckList checkList,int checkListPosition, boolean isInvalidNote)
     {
         Intent resultIntent = new Intent();
         Bundle bundle = new Bundle();
-        bundle.putSerializable(Constants.SINGLE_CHECKLIST, (Serializable) grabCheckListValue());
+        bundle.putSerializable(Constants.SINGLE_CHECKLIST, (Serializable) checkList);
         resultIntent.putExtra(Constants.SINGLE_CHECKLIST,bundle);
+        resultIntent.putExtra(Tags.CHECK_LIST_POSITION,checkListPosition);
+        resultIntent.putExtra(Tags.INVALID_NOTE,isInvalidNote);
         activity.setResult(Activity.RESULT_OK, resultIntent);
         return grabCheckListValue() != null;
     }
 
-    public boolean sendResultBack(CheckList checkList)
+    public void showCheckListUpdatedToast()
     {
-        Intent resultIntent = new Intent();
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(Constants.SINGLE_CHECKLIST, checkList);
-        resultIntent.putExtra(Constants.SINGLE_CHECKLIST,bundle);
-        activity.setResult(Activity.RESULT_OK, resultIntent);
-        return grabCheckListValue() != null;
+        Toast.makeText(activity, activity.getResources().getString(R.string.check_list_updated), Toast.LENGTH_SHORT).show();
     }
 
     public CheckList grabCheckListValue()
@@ -90,6 +92,23 @@ public class CheckListScreenManipulationTask {
         {
             e.printStackTrace();
         }
+        try {
+            for(int i=0;i<totalItems;i++)
+            {
+                String fieldValue = ((EditText)checkListScreenView.getLayoutManager().findViewByPosition(i).findViewById(R.id.check_item_title_field)).getText().toString();
+                checkListScreenView.getCheckListAdapter().getCheckListObjects().get(i).setField1(fieldValue);
+            }
+            ((EditText)checkListScreenView.getLayoutManager().getFocusedChild().findViewById(R.id.check_item_title_field)).setImeOptions(EditorInfo.IME_ACTION_DONE);
+            String currentValue = ((EditText)checkListScreenView.getLayoutManager().getFocusedChild().findViewById(R.id.check_item_title_field)).getText().toString();
+            Log.e("CurrentValue",currentValue);
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+            Log.e("Errot",e.getMessage());
+        }
+        /*((EditText)checkListScreenView.getLayoutManager().getFocusedChild().findViewById(R.id.check_item_title_field)).setImeOptions(EditorInfo.IME_ACTION_DONE);
+        String currentValue = ((EditText)checkListScreenView.getLayoutManager().getFocusedChild().findViewById(R.id.check_item_title_field)).getText().toString();
+        Log.e("CurrentValue",currentValue);*/
         return checkList;
     }
 

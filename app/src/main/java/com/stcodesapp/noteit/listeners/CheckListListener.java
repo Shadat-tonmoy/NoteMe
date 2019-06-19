@@ -8,11 +8,8 @@ import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.models.CheckList;
-import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
-import com.stcodesapp.noteit.tasks.utilityTasks.UtilityTasks;
-import com.stcodesapp.noteit.ui.activities.NoteFieldActivity;
 
 public class CheckListListener implements View.OnClickListener {
 
@@ -21,13 +18,15 @@ public class CheckListListener implements View.OnClickListener {
     private DatabaseTasks databaseTasks;
     private View checkListHolder;
     private TasksFactory tasksFactory;
+    private int checkListPosition;
 
-    public CheckListListener(CheckList checkList, Activity activity, DatabaseTasks databaseTasks, View checkListHolder, TasksFactory tasksFactory) {
+    public CheckListListener(CheckList checkList, Activity activity, DatabaseTasks databaseTasks, View checkListHolder, TasksFactory tasksFactory, int checkListPosition) {
         this.checkList = checkList;
         this.activity = activity;
         this.databaseTasks = databaseTasks;
         this.checkListHolder = checkListHolder;
         this.tasksFactory = tasksFactory;
+        this.checkListPosition = checkListPosition;
     }
 
 
@@ -51,6 +50,8 @@ public class CheckListListener implements View.OnClickListener {
         Bundle args = new Bundle();
         args.putSerializable(Tags.CHECK_LIST,checkList);
         args.putBoolean(Tags.CHECK_LIST_UPDATING,true);
+        args.putInt(Tags.CHECK_LIST_POSITION,checkListPosition);
+        args.putLong(Tags.NOTE_ID,checkList.getNoteId());
         activityNavigationTasks.toCheckListScreen(args);
     }
 

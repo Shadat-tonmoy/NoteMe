@@ -11,10 +11,10 @@ import com.stcodesapp.noteit.models.ChecklistItem;
 
 import java.util.List;
 
-public class CheckListInsertTask extends AsyncTask<CheckList, Void, Integer> {
+public class CheckListInsertTask extends AsyncTask<CheckList, Void, CheckList> {
 
     public interface Listener{
-        void onCheckListInserted(int numberOfCheckList);
+        void onCheckListInserted(CheckList checkList);
     }
 
 
@@ -34,7 +34,7 @@ public class CheckListInsertTask extends AsyncTask<CheckList, Void, Integer> {
     }
 
     @Override
-    protected Integer doInBackground(CheckList... checkLists) {
+    protected CheckList doInBackground(CheckList... checkLists) {
         Log.e("InsertingCheckList",checkLists.toString());
         if(checkLists.length==1)
         {
@@ -59,14 +59,14 @@ public class CheckListInsertTask extends AsyncTask<CheckList, Void, Integer> {
                 }
             }
         }
-        return checkLists.length;
+        return checkLists[0];
     }
 
 
     @Override
-    protected void onPostExecute(Integer numberOfCheckList) {
-        super.onPostExecute(numberOfCheckList);
-        listener.onCheckListInserted(numberOfCheckList);
+    protected void onPostExecute(CheckList result) {
+        super.onPostExecute(result);
+        listener.onCheckListInserted(result);
 
     }
 

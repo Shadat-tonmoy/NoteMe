@@ -23,6 +23,7 @@ import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.models.CheckList;
 import com.stcodesapp.noteit.models.ChecklistItem;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -138,6 +139,8 @@ public class CheckListAdapter extends RecyclerView.Adapter<CheckListAdapter.View
         if(doubleColumn)
             checklistItem = new ChecklistItem(Constants.EMPTY_STRING,Constants.EMPTY_STRING,false);
 
+        if(checkListObjects==null)
+            checkListObjects = new ArrayList<>();
         checkListObjects.add(checklistItem);
         Toast.makeText(context, context.getResources().getString(R.string.new_item_added), Toast.LENGTH_SHORT).show();
         notifyItemInserted(checkListObjects.size()-1);

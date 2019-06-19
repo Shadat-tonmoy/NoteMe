@@ -49,9 +49,9 @@ public class ListeningTasks {
         return new EmailListener(email, activity,databaseTasks,emailHolder);
     }
 
-    public CheckListListener getCheckListListener(CheckList checkList, View checkListHolder)
+    public CheckListListener getCheckListListener(CheckList checkList, View checkListHolder,int checkListPosition)
     {
-        return new CheckListListener(checkList, activity,databaseTasks,checkListHolder,tasksFactory);
+        return new CheckListListener(checkList, activity,databaseTasks,checkListHolder,tasksFactory, checkListPosition);
     }
 
     public ImageListener getImageListener(Image image, View imageHolder)

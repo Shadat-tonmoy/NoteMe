@@ -1285,17 +1285,17 @@ public final class R {
         public static final int bottom_sheet_behavior = 0x7f0f0042;
         public static final int character_counter_content_description = 0x7f0f0044;
         public static final int character_counter_pattern = 0x7f0f0045;
-        public static final int fab_transformation_scrim_behavior = 0x7f0f006f;
-        public static final int fab_transformation_sheet_behavior = 0x7f0f0070;
-        public static final int hide_bottom_view_on_scroll_behavior = 0x7f0f0072;
-        public static final int mtrl_chip_close_icon_content_description = 0x7f0f007c;
-        public static final int password_toggle_content_description = 0x7f0f0094;
-        public static final int path_password_eye = 0x7f0f0095;
-        public static final int path_password_eye_mask_strike_through = 0x7f0f0096;
-        public static final int path_password_eye_mask_visible = 0x7f0f0097;
-        public static final int path_password_strike_through = 0x7f0f0098;
-        public static final int search_menu_title = 0x7f0f00ad;
-        public static final int status_bar_notification_info_overflow = 0x7f0f00b5;
+        public static final int fab_transformation_scrim_behavior = 0x7f0f0070;
+        public static final int fab_transformation_sheet_behavior = 0x7f0f0071;
+        public static final int hide_bottom_view_on_scroll_behavior = 0x7f0f0073;
+        public static final int mtrl_chip_close_icon_content_description = 0x7f0f007d;
+        public static final int password_toggle_content_description = 0x7f0f0095;
+        public static final int path_password_eye = 0x7f0f0096;
+        public static final int path_password_eye_mask_strike_through = 0x7f0f0097;
+        public static final int path_password_eye_mask_visible = 0x7f0f0098;
+        public static final int path_password_strike_through = 0x7f0f0099;
+        public static final int search_menu_title = 0x7f0f00ae;
+        public static final int status_bar_notification_info_overflow = 0x7f0f00b6;
     }
     public static final class style {
         private style() {}

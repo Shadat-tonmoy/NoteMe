@@ -176,7 +176,9 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
                 fileIOTasks.openFilePickerForAudio();
                 break;
             case R.id.add_checklist_menu:
-                activityNavigationTasks.toCheckListScreen(new Bundle());
+                Bundle args = new Bundle();
+                args.putLong(Tags.NOTE_ID,noteComponents.getNote().getId());
+                activityNavigationTasks.toCheckListScreen(args);
                 break;
 
         }
@@ -397,15 +399,25 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     private void handleSingleCheckList(Intent intent)
     {
         Bundle bundle = intent.getBundleExtra(Constants.SINGLE_CHECKLIST);
+        int checkListPosition = intent.getIntExtra(Tags.CHECK_LIST_POSITION,Constants.ZERO);
+        boolean invalidNote = intent.getBooleanExtra(Tags.INVALID_NOTE,false);
         CheckList checkList = (CheckList) bundle.getSerializable(SINGLE_CHECKLIST);
         if(checkList!=null)
         {
-            noteComponents.getNote().updateCheckListPriority();
-            noteComponents.getCheckLists().add(checkList);
-            checkList.setNoteId(noteComponents.getNote().getId());
-            noteFieldScreenManipulationTasks.addCheckListToCheckListContainer(checkList);
-            if(isUpdating)
-                addCheckListToDB(checkList);
+            if(!invalidNote)
+            {
+                noteComponents.getNote().updateCheckListPriority();
+                noteComponents.getCheckLists().add(checkList);
+                checkList.setNoteId(noteComponents.getNote().getId());
+                noteFieldScreenManipulationTasks.addCheckListToCheckListContainer(checkList);
+                if(isUpdating)
+                    addCheckListToDB(checkList);
+            }
+            else
+            {
+                noteComponents.getCheckLists().set(checkListPosition-1,checkList);
+                noteFieldScreenManipulationTasks.updateCheckListAtPosition(checkList,checkListPosition);
+            }
         }
 
     }
