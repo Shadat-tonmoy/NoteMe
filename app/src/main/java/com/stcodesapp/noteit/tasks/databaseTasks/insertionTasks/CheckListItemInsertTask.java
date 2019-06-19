@@ -42,7 +42,8 @@ public class CheckListItemInsertTask extends AsyncTask<ChecklistItem, Void, Inte
     @Override
     protected void onPostExecute(Integer numberOfCheckListItem) {
         super.onPostExecute(numberOfCheckListItem);
-        listener.onCheckListItemInserted(numberOfCheckListItem);
+        if(listener!=null)
+            listener.onCheckListItemInserted(numberOfCheckListItem);
 
     }
 

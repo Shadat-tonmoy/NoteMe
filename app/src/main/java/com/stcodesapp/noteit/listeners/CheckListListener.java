@@ -50,6 +50,7 @@ public class CheckListListener implements View.OnClickListener {
         ActivityNavigationTasks activityNavigationTasks = tasksFactory.getActivityNavigationTasks();
         Bundle args = new Bundle();
         args.putSerializable(Tags.CHECK_LIST,checkList);
+        args.putBoolean(Tags.CHECK_LIST_UPDATING,true);
         activityNavigationTasks.toCheckListScreen(args);
     }
 

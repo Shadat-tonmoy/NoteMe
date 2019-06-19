@@ -21,6 +21,8 @@ public class CheckListDao_Impl implements CheckListDao {
 
   private final EntityDeletionOrUpdateAdapter __deletionAdapterOfCheckList;
 
+  private final EntityDeletionOrUpdateAdapter __updateAdapterOfCheckList;
+
   public CheckListDao_Impl(RoomDatabase __db) {
     this.__db = __db;
     this.__insertionAdapterOfCheckList = new EntityInsertionAdapter<CheckList>(__db) {
@@ -56,6 +58,29 @@ public class CheckListDao_Impl implements CheckListDao {
         stmt.bindLong(1, value.getCheckListId());
       }
     };
+    this.__updateAdapterOfCheckList = new EntityDeletionOrUpdateAdapter<CheckList>(__db) {
+      @Override
+      public String createQuery() {
+        return "UPDATE OR ABORT `CheckList` SET `checkListId` = ?,`note_id` = ?,`checkListTitle` = ?,`checkListSecondFieldTitle` = ? WHERE `checkListId` = ?";
+      }
+
+      @Override
+      public void bind(SupportSQLiteStatement stmt, CheckList value) {
+        stmt.bindLong(1, value.getCheckListId());
+        stmt.bindLong(2, value.getNoteId());
+        if (value.getCheckListTitle() == null) {
+          stmt.bindNull(3);
+        } else {
+          stmt.bindString(3, value.getCheckListTitle());
+        }
+        if (value.getCheckListSecondFieldTitle() == null) {
+          stmt.bindNull(4);
+        } else {
+          stmt.bindString(4, value.getCheckListSecondFieldTitle());
+        }
+        stmt.bindLong(5, value.getCheckListId());
+      }
+    };
   }
 
   @Override
@@ -87,6 +112,17 @@ public class CheckListDao_Impl implements CheckListDao {
     __db.beginTransaction();
     try {
       __deletionAdapterOfCheckList.handle(checkList);
+      __db.setTransactionSuccessful();
+    } finally {
+      __db.endTransaction();
+    }
+  }
+
+  @Override
+  public void updateCheckList(CheckList checkList) {
+    __db.beginTransaction();
+    try {
+      __updateAdapterOfCheckList.handle(checkList);
       __db.setTransactionSuccessful();
     } finally {
       __db.endTransaction();

@@ -29,6 +29,8 @@ import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.ImageSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.ImportantNoteSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteComponentSelectionTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteSelectTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.updateTasks.CheckListItemUpdateTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.updateTasks.CheckListUpdateTask;
 
 public class DatabaseTasks {
 
@@ -38,7 +40,7 @@ public class DatabaseTasks {
         this.context = context;
     }
 
-    /*
+    /**
     * List of insertion tasks
     * */
 
@@ -92,7 +94,7 @@ public class DatabaseTasks {
     }
 
 
-    /*
+    /**
      * List of selection tasks
      * */
     public NoteSelectTask getNoteSelectTask(NoteSelectTask.Listener listener)
@@ -164,9 +166,10 @@ public class DatabaseTasks {
     }
 
 
-    /*
+    /**
      * List of deletion tasks
      * */
+
     public EmailDeleteTask getEmailDeleteTask(EmailDeleteTask.Listener listener)
     {
         EmailDeleteTask emailDeleteTask = new EmailDeleteTask(context, ComponentType.EMAIL);
@@ -227,6 +230,18 @@ public class DatabaseTasks {
     {
         NoteUpdateTask noteUpdateTask = new NoteUpdateTask(context);
         return noteUpdateTask;
+    }
+
+    public CheckListUpdateTask getCheckListUpdateTask()
+    {
+        CheckListUpdateTask checkListUpdateTask= new CheckListUpdateTask(context);
+        return checkListUpdateTask;
+    }
+
+    public CheckListItemUpdateTask getCheckListItemUpdateTask()
+    {
+        CheckListItemUpdateTask checkListItemUpdateTask = new CheckListItemUpdateTask(context);
+        return checkListItemUpdateTask;
     }
 
 

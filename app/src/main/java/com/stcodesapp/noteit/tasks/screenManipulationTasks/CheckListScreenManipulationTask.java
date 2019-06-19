@@ -46,6 +46,7 @@ public class CheckListScreenManipulationTask {
     public void addEmptyChecklistItem() {
             checkListScreenView.getCheckListAdapter().addEmptyChecklistItem();
             final int lastIndex = checkListScreenView.getCheckListAdapter().getItemCount()-1;
+            checkListScreenView.getCheckList().scrollToPosition(lastIndex);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -67,7 +68,17 @@ public class CheckListScreenManipulationTask {
         return grabCheckListValue() != null;
     }
 
-    private CheckList grabCheckListValue()
+    public boolean sendResultBack(CheckList checkList)
+    {
+        Intent resultIntent = new Intent();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(Constants.SINGLE_CHECKLIST, checkList);
+        resultIntent.putExtra(Constants.SINGLE_CHECKLIST,bundle);
+        activity.setResult(Activity.RESULT_OK, resultIntent);
+        return grabCheckListValue() != null;
+    }
+
+    public CheckList grabCheckListValue()
     {
         CheckList checkList = new CheckList(checkListScreenView.getCheckListTitleField().getText().toString());
         checkList.setChecklistItems(checkListScreenView.getCheckListAdapter().getCheckListObjects());

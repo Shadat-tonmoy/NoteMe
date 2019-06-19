@@ -24,7 +24,7 @@ public class ChecklistItem implements Serializable{
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "checkListItemId")
-    private long id;
+    private long id=0;
     private long checkListId;
 
 

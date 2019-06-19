@@ -4,6 +4,7 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Update;
 
 import com.stcodesapp.noteit.models.CheckList;
 
@@ -23,4 +24,7 @@ public interface CheckListDao {
 
     @Query("select * from checklist where note_id=:noteId")
     List<CheckList> getAllCheckListForNote(long noteId);
+
+    @Update
+    void updateCheckList(CheckList checkList);
 }

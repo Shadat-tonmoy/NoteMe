@@ -140,7 +140,7 @@ public class CheckListAdapter extends RecyclerView.Adapter<CheckListAdapter.View
 
         checkListObjects.add(checklistItem);
         Toast.makeText(context, context.getResources().getString(R.string.new_item_added), Toast.LENGTH_SHORT).show();
-        notifyItemChanged(checkListObjects.size()-1);
+        notifyItemInserted(checkListObjects.size()-1);
 
 
     }

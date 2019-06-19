@@ -21,6 +21,8 @@ public class CheckListItemDao_Impl implements CheckListItemDao {
 
   private final EntityDeletionOrUpdateAdapter __deletionAdapterOfChecklistItem;
 
+  private final EntityDeletionOrUpdateAdapter __updateAdapterOfChecklistItem;
+
   public CheckListItemDao_Impl(RoomDatabase __db) {
     this.__db = __db;
     this.__insertionAdapterOfChecklistItem = new EntityInsertionAdapter<ChecklistItem>(__db) {
@@ -59,6 +61,32 @@ public class CheckListItemDao_Impl implements CheckListItemDao {
         stmt.bindLong(1, value.getId());
       }
     };
+    this.__updateAdapterOfChecklistItem = new EntityDeletionOrUpdateAdapter<ChecklistItem>(__db) {
+      @Override
+      public String createQuery() {
+        return "UPDATE OR ABORT `ChecklistItem` SET `field1` = ?,`field2` = ?,`isChecked` = ?,`checkListItemId` = ?,`checkListId` = ? WHERE `checkListItemId` = ?";
+      }
+
+      @Override
+      public void bind(SupportSQLiteStatement stmt, ChecklistItem value) {
+        if (value.getField1() == null) {
+          stmt.bindNull(1);
+        } else {
+          stmt.bindString(1, value.getField1());
+        }
+        if (value.getField2() == null) {
+          stmt.bindNull(2);
+        } else {
+          stmt.bindString(2, value.getField2());
+        }
+        final int _tmp;
+        _tmp = value.isChecked() ? 1 : 0;
+        stmt.bindLong(3, _tmp);
+        stmt.bindLong(4, value.getId());
+        stmt.bindLong(5, value.getCheckListId());
+        stmt.bindLong(6, value.getId());
+      }
+    };
   }
 
   @Override
@@ -89,6 +117,28 @@ public class CheckListItemDao_Impl implements CheckListItemDao {
     __db.beginTransaction();
     try {
       __deletionAdapterOfChecklistItem.handle(checklistItem);
+      __db.setTransactionSuccessful();
+    } finally {
+      __db.endTransaction();
+    }
+  }
+
+  @Override
+  public void updateCheckListItem(ChecklistItem checklistItem) {
+    __db.beginTransaction();
+    try {
+      __updateAdapterOfChecklistItem.handle(checklistItem);
+      __db.setTransactionSuccessful();
+    } finally {
+      __db.endTransaction();
+    }
+  }
+
+  @Override
+  public void updateCheckListItems(ChecklistItem... checklistItems) {
+    __db.beginTransaction();
+    try {
+      __updateAdapterOfChecklistItem.handleMultiple(checklistItems);
       __db.setTransactionSuccessful();
     } finally {
       __db.endTransaction();

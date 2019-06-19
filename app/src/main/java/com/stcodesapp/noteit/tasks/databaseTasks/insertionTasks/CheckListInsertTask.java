@@ -35,6 +35,7 @@ public class CheckListInsertTask extends AsyncTask<CheckList, Void, Integer> {
 
     @Override
     protected Integer doInBackground(CheckList... checkLists) {
+        Log.e("InsertingCheckList",checkLists.toString());
         if(checkLists.length==1)
         {
             checkLists[0].setCheckListId(noteDatabase.checkListDao().insertSingleCheckList(checkLists[0]));
