@@ -20,6 +20,11 @@
             android:id="@+id/email_menu"
             android:icon="@drawable/email_black"
             android:title="@string/emails" />
+
+        <item
+            android:id="@+id/check_list_menu"
+            android:icon="@drawable/check_list_black"
+            android:title="@string/check_list" />
     </group>
 
     <item android:title="@string/app_name">

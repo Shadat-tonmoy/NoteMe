@@ -15,6 +15,7 @@ import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.CheckList;
 import com.stcodesapp.noteit.models.ChecklistItem;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
+import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.CheckListItemDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.CheckListItemInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.CheckListItemSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.updateTasks.CheckListItemUpdateTask;
@@ -29,7 +30,7 @@ import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
 
-public class CheckListActivityController implements CheckListScreen.Listener, CheckListItemSelectTask.Listener {
+public class CheckListActivityController implements CheckListScreen.Listener, CheckListItemSelectTask.Listener, CheckListAdapter.Listener{
 
     private TasksFactory tasksFactory;
     private Activity activity;
@@ -52,6 +53,7 @@ public class CheckListActivityController implements CheckListScreen.Listener, Ch
 
     public void bindView(CheckListScreenView checkListScreenView) {
         this.checkListScreenView = checkListScreenView;
+        checkListScreenView.setCheckListAdapterListener(this);
         checkListScreenManipulationTask.bindView(checkListScreenView);
     }
 
@@ -107,7 +109,7 @@ public class CheckListActivityController implements CheckListScreen.Listener, Ch
         clipboardTasks.hideKeyBoard();
         if(isUpdating)
         {
-            Log.e("NoteId",noteId+" is isisisi");
+//            Log.e("NoteId",noteId+" is isisisi");
             if(noteId==Constants.ZERO)
             {
                 CheckList checkList = checkListScreenManipulationTask.grabCheckListValue();
@@ -192,6 +194,14 @@ public class CheckListActivityController implements CheckListScreen.Listener, Ch
     public void onCheckListItemFetched(List<ChecklistItem> fetchedCheckListItems)
     {
         checkListScreenManipulationTask.bindCheckListObject(fetchedCheckListItems);
+
+    }
+
+    @Override
+    public void onDeleteCheckListItemClicked(ChecklistItem checklistItem) {
+        CheckListItemDeleteTask checkListItemDeleteTask = tasksFactory.getDatabaseTasks().getCheckListItemDeleteTask(null);
+        checkListItemDeleteTask.execute(checklistItem);
+
 
     }
 }

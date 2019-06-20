@@ -91,4 +91,9 @@ public class CheckListScreenView  extends BaseObservableScreenView<CheckListScre
     public RecyclerView.LayoutManager getLayoutManager() {
         return layoutManager;
     }
+
+    public void setCheckListAdapterListener(CheckListAdapter.Listener listener)
+    {
+        checkListAdapter.setListener(listener);
+    }
 }

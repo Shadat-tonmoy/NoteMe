@@ -9,6 +9,8 @@ import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.ComponentType;
 import com.stcodesapp.noteit.database.NoteDatabase;
 import com.stcodesapp.noteit.models.Audio;
+import com.stcodesapp.noteit.models.CheckList;
+import com.stcodesapp.noteit.models.ChecklistItem;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.Image;
@@ -65,6 +67,12 @@ public class BaseDeletionTasks<Component> extends AsyncTask<Component, Void, Com
                 break;
             case CONTACT:
                 noteDatabase.contactDao().deleteContact((Contact)component);
+                break;
+            case CHECKLIST:
+                noteDatabase.checkListDao().deleteCheckList((CheckList) component);
+                break;
+            case CHECKLIST_ITEM:
+                noteDatabase.checkListItemDao().deleteCheckListItem((ChecklistItem) component);
                 break;
             case NOTE:
                 noteDatabase.notesDao().delete((Note)component);

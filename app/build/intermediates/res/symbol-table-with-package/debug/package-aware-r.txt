@@ -1229,6 +1229,7 @@ id check_item_title_field
 id check_list_container
 id check_list_desc
 id check_list_done_button
+id check_list_menu
 id check_list_remove_btn
 id check_list_title
 id check_list_title_container

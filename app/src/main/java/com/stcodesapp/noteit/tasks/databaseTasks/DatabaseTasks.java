@@ -7,6 +7,8 @@ import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.allDeletionTask.AllDeletionTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.AudioDeleteTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.CheckListDeleteTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.CheckListItemDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.ContactDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.EmailDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.ImageDeleteTask;
@@ -197,6 +199,21 @@ public class DatabaseTasks {
         ImageDeleteTask imageDeleteTask = new ImageDeleteTask(context, ComponentType.IMAGE);
         imageDeleteTask.setListener(listener);
         return imageDeleteTask;
+    }
+
+
+    public CheckListDeleteTask getCheckListDeleteTask(CheckListDeleteTask.Listener listener)
+    {
+        CheckListDeleteTask checkListDeleteTask= new CheckListDeleteTask(context, ComponentType.CHECKLIST);
+        checkListDeleteTask.setListener(listener);
+        return checkListDeleteTask;
+    }
+
+    public CheckListItemDeleteTask getCheckListItemDeleteTask(CheckListItemDeleteTask.Listener listener)
+    {
+        CheckListItemDeleteTask checkListItemDeleteTask = new CheckListItemDeleteTask(context, ComponentType.CHECKLIST_ITEM);
+        checkListItemDeleteTask.setListener(listener);
+        return checkListItemDeleteTask ;
     }
 
     public NoteDeleteTask getNoteDeleteTask(NoteDeleteTask.Listener listener)

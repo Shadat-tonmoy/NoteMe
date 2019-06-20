@@ -1,8 +1,6 @@
 package com.stcodesapp.noteit.adapter;
 
-import android.app.Activity;
 import android.content.Context;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -20,7 +18,6 @@ import android.widget.Toast;
 import com.chauthai.swipereveallayout.SwipeRevealLayout;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.Constants;
-import com.stcodesapp.noteit.models.CheckList;
 import com.stcodesapp.noteit.models.ChecklistItem;
 
 import java.util.ArrayList;
@@ -28,15 +25,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static android.support.constraint.Constraints.TAG;
-
 public class CheckListAdapter extends RecyclerView.Adapter<CheckListAdapter.ViewHolder> {
+
+    public interface Listener{
+        void onDeleteCheckListItemClicked(ChecklistItem checklistItem);
+    }
+
 
     private List<ChecklistItem> checkListObjects;
     private Context context;
     private boolean doubleColumn;
     private Map<Integer,String> fieldValues;
     private Map<Integer,Boolean> checkedValues;
+    private Listener listener;
+
+
 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -160,6 +163,7 @@ public class CheckListAdapter extends RecyclerView.Adapter<CheckListAdapter.View
                 ChecklistItem checklistItem = (ChecklistItem) object;
                 checkListObjects.remove(object);
                 notifyItemRemoved(position);
+                listener.onDeleteCheckListItemClicked(checklistItem);
             }
         });
 
@@ -173,5 +177,9 @@ public class CheckListAdapter extends RecyclerView.Adapter<CheckListAdapter.View
     @Override
     public int getItemViewType(int position) {
         return position;
+    }
+
+    public void setListener(Listener listener) {
+        this.listener = listener;
     }
 }
