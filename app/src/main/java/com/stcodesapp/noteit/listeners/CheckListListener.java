@@ -58,6 +58,7 @@ public class CheckListListener implements View.OnClickListener {
     private void removeCheckList()
     {
         checkListHolder.setVisibility(View.GONE);
+        databaseTasks.getCheckListDeleteTask(null).execute(checkList);
 //        databaseTasks.getEmailDeleteTask(((NoteFieldActivity)activity).getNoteFieldController()).execute(email);
     }
 }
