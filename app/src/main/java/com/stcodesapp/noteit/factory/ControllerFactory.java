@@ -11,6 +11,7 @@ import com.stcodesapp.noteit.controllers.activityController.NoteFieldController;
 import com.stcodesapp.noteit.controllers.adController.NoteFieldAdController;
 import com.stcodesapp.noteit.controllers.commons.NavigationDrawerController;
 import com.stcodesapp.noteit.controllers.dialogController.SortingOptionDialogController;
+import com.stcodesapp.noteit.controllers.fragmentController.CheckListFragmentController;
 import com.stcodesapp.noteit.controllers.fragmentController.ContactFragmentController;
 import com.stcodesapp.noteit.controllers.fragmentController.EmailFragmentController;
 import com.stcodesapp.noteit.ui.activities.ManualEmailActivity;
@@ -63,6 +64,11 @@ public class ControllerFactory {
     public EmailFragmentController getEmailFragmentController()
     {
         return new EmailFragmentController(tasksFactory);
+    }
+
+    public CheckListFragmentController getCheckListFragmentController()
+    {
+        return new CheckListFragmentController(tasksFactory);
     }
 
     public SortingOptionDialogController getSortingOptionDialogController()

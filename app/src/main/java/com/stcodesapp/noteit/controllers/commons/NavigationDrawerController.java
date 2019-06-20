@@ -58,6 +58,10 @@ public class NavigationDrawerController implements NavigationDrawerScreen.Listen
                 fragmentNavigationTasks.toEmailFragment();
                 updateToolbarTitle(FragmentTags.EMAILS);
                 break;
+            case R.id.check_list_menu:
+                fragmentNavigationTasks.toCheckListFragment();
+                updateToolbarTitle(FragmentTags.CHECKLIST);
+                break;
             case R.id.nav_share:
                 sharingTasks.shareApp();
                 break;

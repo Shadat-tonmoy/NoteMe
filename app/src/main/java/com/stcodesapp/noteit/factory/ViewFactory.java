@@ -13,6 +13,7 @@ import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.ManualEmail
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.PrivacyPolicyScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.dialogScreenView.SortingOptionDialogScreenView;
+import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.CheckListFragmentScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.ContactFragmentScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.EmailFragmentScreenView;
 
@@ -48,6 +49,11 @@ public class ViewFactory {
     public ContactFragmentScreenView getContactFragmentScreenView(ViewGroup parent)
     {
         return new ContactFragmentScreenView(layoutInflater,parent);
+    }
+
+    public CheckListFragmentScreenView getCheckListFragmentScreenView(ViewGroup parent)
+    {
+        return new CheckListFragmentScreenView(layoutInflater,parent);
     }
 
     public ManualContactScreenView getManualContactScreenView(ViewGroup parent)
