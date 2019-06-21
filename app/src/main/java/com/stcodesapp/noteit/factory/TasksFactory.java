@@ -5,15 +5,18 @@ import com.stcodesapp.noteit.common.FragmentFrameHelper;
 import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
+import com.stcodesapp.noteit.tasks.functionalTasks.FileMovingTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.NoteFieldValidationTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.PDFCreationTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.VoiceInputTasks;
+import com.stcodesapp.noteit.tasks.functionalTasks.VoiceRecordTask;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.CheckListActivityScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.CheckListScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.ContactScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.EmailScreenManipulationTask;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.FileSaveScreenManipulationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.HomeScreenManipulationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.ManualContactScreenManipulationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.ManualEmailScreenManipulationTasks;
@@ -145,5 +148,20 @@ public class TasksFactory {
     }
 
 
+    public VoiceRecordTask getVoiceRecordTask()
+    {
+        return new VoiceRecordTask(activity);
+    }
 
+
+    public FileSaveScreenManipulationTasks getFileSaveScreenManipulationTasks() {
+        return new FileSaveScreenManipulationTasks(activity);
+    }
+
+    public FileMovingTask getFileMovingTask(FileMovingTask.Listener listener) {
+        FileMovingTask fileMovingTask = new FileMovingTask();
+        fileMovingTask.setListener(listener);
+        return fileMovingTask;
+
+    }
 }

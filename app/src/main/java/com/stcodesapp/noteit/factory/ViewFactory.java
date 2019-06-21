@@ -12,6 +12,7 @@ import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.ManualConta
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.ManualEmailScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.PrivacyPolicyScreenView;
+import com.stcodesapp.noteit.ui.views.screenViews.dialogScreenView.FileSaveDialogScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.dialogScreenView.SortingOptionDialogScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.CheckListFragmentScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.ContactFragmentScreenView;
@@ -83,6 +84,11 @@ public class ViewFactory {
     public CheckListScreenView getCheckListScreenView(ViewGroup parent)
     {
         return new CheckListScreenView(layoutInflater,parent);
+    }
+
+    public FileSaveDialogScreenView getFileSaveDialogScreenView(ViewGroup parent)
+    {
+        return new FileSaveDialogScreenView(layoutInflater,parent);
     }
 
 }

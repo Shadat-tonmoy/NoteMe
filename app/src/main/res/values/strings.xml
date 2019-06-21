@@ -134,6 +134,15 @@
     <string name="check_list_desc">Tap to see full list</string>
     <string name="check_list_name">Check List Title</string>
     <string name="check_list_updated">Check List Updated!!</string>
+    <string name="audio_file_from_storage">Audio File From Storage</string>
+    <string name="file_save__message">File will be saved at</string>
+    <string name="file_name">Enter File Name</string>
+    <string name="file_already_exists_msg">File Already Exists!! Please choose a different name or overright it</string>
+    <string name="cancel">Cancel</string>
+    <string name="override">Override?</string>
+    <string name="open">Open?</string>
+    <string name="saved_successfully">File Saved Successfully!!</string>
+    <string name="please_wait">Please Wait....</string>
     <!--admob-->
 
     <!--ad_related_ids-->

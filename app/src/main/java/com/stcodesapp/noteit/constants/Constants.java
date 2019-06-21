@@ -3,6 +3,7 @@ package com.stcodesapp.noteit.constants;
 public class Constants {
     public static final String UNNAMED = "Unnamed";
     public static final String SPACE = " ";
+    public static final String SLASH ="/" ;
     public static String[] FULL_MONTHS = {"January","February","March","April","May","June","July","August","September","October","November","December"};
     public static String[] DAYS_OF_WEEK = {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
     public static String[] AM_PM = {"AM","PM"};
@@ -24,6 +25,7 @@ public class Constants {
     public static final String MP3_FILE_EXT = ".mp3";
     public static final String PLAYSTORE_BASE_URL = "https://play.google.com/store/apps/details?id=";
     public static final String STAPSS_BASE_URL = "https://sites.google.com/view/stcodesapp/";
+    public static final String RECORDING_FILE_PATH = "/recordings";
     public static final String PRIVACY_POLICY_URL = "https://sites.google.com/view/stcodesapp/noteit/";
     public static final String TEXT_TYPE = "text/plain";
     public static final String SHARE_SUBJECT = "Subject Here";
@@ -34,10 +36,13 @@ public class Constants {
     public static final String EMAIL_ADDRESS= "mailto:"+STAPPS_MAIL;
     public static final String MAIL_TO= "mailto:";
     public static final String EN = "en";
+    public static final String LEFT_BRACKET = "(";
+    public static final String RIGHT_BRACKET = ")";
     public static final String DOTS = "...";
     public static final int MAX_AUDIO_FILE_NAME_LENGTH = 25;
     public static final int MAX_NOTE_TEXT_LENGTH = 35;
     public static final int ZERO = 0;
+    public static final String ZERO_STRING = "0";
     public static final int INVALID = -1;
     public static boolean IS_SUBSCRIBED_USER = false;
     public static final int CHECKLIST_FIELD_1 = 1;

@@ -22,4 +22,6 @@
     <color name="gray">#6E6E6E</color>
     <color name="default_text">#808080</color>
     <color name="default_divider">#FFCCCCCC</color>
+    <color name="alizarin">#e74c3c</color>
+    <color name="lightGreen">#27ae60</color>
 </resources>

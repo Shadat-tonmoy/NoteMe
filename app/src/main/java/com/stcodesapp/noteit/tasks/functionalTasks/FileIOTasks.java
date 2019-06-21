@@ -1,10 +1,12 @@
 package com.stcodesapp.noteit.tasks.functionalTasks;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.database.Cursor;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -12,6 +14,7 @@ import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.util.Log;
 
+import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.constants.Tags;
@@ -143,7 +146,7 @@ public class FileIOTasks {
                 int sizeIndex= cursor.getColumnIndex(filePathColumn[1]);
                 String name = cursor.getString(nameIndex);
                 String size = cursor.getString(sizeIndex);
-                audio = new Audio(name,size, data.toString());
+                audio = new Audio(name,size, data.toString(),false);
             }
             cursor.close();
         }
@@ -151,6 +154,15 @@ public class FileIOTasks {
         {
             Log.e("Exception",e.getMessage());
         }
+        return audio;
+
+    }
+
+
+    public Audio getAudioFileForRecordedVoice(String fileName, Uri data)
+    {
+        Audio audio = null;
+        audio = new Audio(fileName,Constants.ZERO_STRING,data.toString(),true);
         return audio;
 
     }
@@ -178,6 +190,34 @@ public class FileIOTasks {
         File file = new File(fileURI.getPath());
         allowURIReadPermission(intent,fileURI);
         activity.startActivity(intent);
+    }
+
+    public Uri getUriForRecordedAudio(String filePath)
+    {
+        File audioFile = new File(filePath);
+        Cursor cursor = activity.getContentResolver().query(
+                MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
+                new String[] { MediaStore.Audio.Media._ID },
+                MediaStore.Audio.Media.DATA + "=? ",
+                new String[] { filePath }, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            int id = cursor.getInt(cursor.getColumnIndex(MediaStore.MediaColumns._ID));
+            cursor.close();
+
+            Uri uri = Uri.withAppendedPath(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, "" + id);
+        } else {
+            if (audioFile.exists()) {
+                ContentValues values = new ContentValues();
+                values.put(MediaStore.Audio.Media.DATA, filePath);
+                Uri uri =  activity.getContentResolver().insert(
+                        MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, values);
+                return uri;
+            } else {
+                return null;
+            }
+        }
+        return null;
+
     }
 
     public void openAudioFile(String fileId)
@@ -228,6 +268,30 @@ public class FileIOTasks {
                 }
             }
             return file;
+        }
+        return null;
+    }
+
+
+    public String getDirectoryPath()
+    {
+        if(isExternalStorageWritable())
+        {
+//            File[] drives = activity.getExternalFilesDirs(Environment.MEDIA_MOUNTED);
+            File[] drives = activity.getApplication().getExternalFilesDirs(Environment.DIRECTORY_DOCUMENTS);
+            File storage = drives[0];
+            if(drives.length>1)
+                storage = drives[1];
+            File fileDirectory = new File(storage.getAbsolutePath()+Constants.RECORDING_FILE_PATH);
+//            fileDirectory = new File(BGRemovalApplication.getInstance().getExternalFilesDir(Environment.DIRECTORY_PICTURES).getAbsolutePath()+ConstantValues.REGULAR_FILE_DIRECTORY);
+            File directory = new File(fileDirectory.getAbsolutePath());
+            if(!directory.exists())
+            {
+                boolean directryResult = directory.mkdirs();
+//                Log.e("Directory","CreationResult For "+directory.getAbsolutePath());
+
+            }
+            return directory.getAbsolutePath();
         }
         return null;
     }

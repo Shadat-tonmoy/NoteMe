@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,7 @@ import com.ravikoradiya.zoomableimageview.ZoomableImageView;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.BackgroundColors;
 import com.stcodesapp.noteit.constants.Constants;
+import com.stcodesapp.noteit.constants.FragmentTags;
 import com.stcodesapp.noteit.constants.PermissionType;
 import com.stcodesapp.noteit.factory.ListeningTasks;
 import com.stcodesapp.noteit.factory.UIComponentFatory;
@@ -39,6 +41,7 @@ import com.stcodesapp.noteit.tasks.utilityTasks.UtilityTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
 import com.stcodesapp.noteit.ui.fragments.ColorPallateBottomSheets;
+import com.stcodesapp.noteit.ui.fragments.FileSaveDialog;
 import com.stcodesapp.noteit.ui.fragments.PhoneNoOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
 
@@ -570,7 +573,12 @@ public class NoteFieldScreenManipulationTasks {
                 .setNegativeButton(android.R.string.no, listener)
                 .setIcon(activity.getResources().getDrawable(R.drawable.warning_red))
                 .show();
+    }
 
+    public void showFileSavingDialog(Bundle args)
+    {
+        FileSaveDialog fileSaveDialog = FileSaveDialog.newInstance(args);
+        fileSaveDialog.show(((AppCompatActivity)activity).getSupportFragmentManager(), FragmentTags.FILE_SAVE_DIALOG);
 
     }
 

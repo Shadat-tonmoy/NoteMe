@@ -29,7 +29,7 @@ public class AudioDao_Impl implements AudioDao {
     this.__insertionAdapterOfAudio = new EntityInsertionAdapter<Audio>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `audio`(`audio_id`,`note_id`,`uri`) VALUES (nullif(?, 0),?,?)";
+        return "INSERT OR ABORT INTO `audio`(`audio_id`,`note_id`,`uri`,`isFilePath`) VALUES (nullif(?, 0),?,?,?)";
       }
 
       @Override
@@ -41,6 +41,9 @@ public class AudioDao_Impl implements AudioDao {
         } else {
           stmt.bindString(3, value.getAudioUri());
         }
+        final int _tmp;
+        _tmp = value.isFilePath() ? 1 : 0;
+        stmt.bindLong(4, _tmp);
       }
     };
     this.__deletionAdapterOfAudio = new EntityDeletionOrUpdateAdapter<Audio>(__db) {
@@ -124,6 +127,7 @@ public class AudioDao_Impl implements AudioDao {
       final int _cursorIndexOfId = _cursor.getColumnIndexOrThrow("audio_id");
       final int _cursorIndexOfNoteId = _cursor.getColumnIndexOrThrow("note_id");
       final int _cursorIndexOfAudioUri = _cursor.getColumnIndexOrThrow("uri");
+      final int _cursorIndexOfIsFilePath = _cursor.getColumnIndexOrThrow("isFilePath");
       final List<Audio> _result = new ArrayList<Audio>(_cursor.getCount());
       while(_cursor.moveToNext()) {
         final Audio _item;
@@ -137,6 +141,11 @@ public class AudioDao_Impl implements AudioDao {
         final String _tmpAudioUri;
         _tmpAudioUri = _cursor.getString(_cursorIndexOfAudioUri);
         _item.setAudioUri(_tmpAudioUri);
+        final boolean _tmpIsFilePath;
+        final int _tmp;
+        _tmp = _cursor.getInt(_cursorIndexOfIsFilePath);
+        _tmpIsFilePath = _tmp != 0;
+        _item.setFilePath(_tmpIsFilePath);
         _result.add(_item);
       }
       return _result;

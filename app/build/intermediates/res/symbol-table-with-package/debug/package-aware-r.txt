@@ -629,6 +629,7 @@ color abc_tint_spinner
 color abc_tint_switch_track
 color accent_material_dark
 color accent_material_light
+color alizarin
 color ash
 color background_floating_material_dark
 color background_floating_material_light
@@ -682,6 +683,7 @@ color gray
 color green
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color lightGreen
 color lightRed
 color material_blue_grey_800
 color material_blue_grey_900
@@ -1081,6 +1083,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable done_green
 drawable done_white
 drawable edit_black
 drawable edit_text_bg
@@ -1218,7 +1221,9 @@ id beginning
 id blocking
 id bottom
 id buttonPanel
+id button_panel
 id cancel_action
+id cancel_button
 id center
 id center_horizontal
 id center_vertical
@@ -1287,6 +1292,7 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id dialog_header
 id dimensions
 id direct
 id disableHome
@@ -1318,6 +1324,12 @@ id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
 id favorite_button
+id field_panel
+id file_exists_text
+id file_name_field
+id file_path_text
+id file_save_done_panel
+id file_save_done_text
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1421,6 +1433,7 @@ id pin
 id policy_webview
 id progress_circular
 id progress_horizontal
+id progress_panel
 id radio
 id remove_image
 id right
@@ -1433,6 +1446,7 @@ id save_button
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
+id save_screen_layout
 id screen
 id scroll
 id scrollIndicatorDown
@@ -1487,6 +1501,7 @@ id submit_area
 id suggestion_icon
 id suggestion_list
 id suggestion_text
+id sure_text
 id swipe_reveal_root
 id tabMode
 id tag_transition_group
@@ -1616,6 +1631,7 @@ layout email_fragment_screen
 layout email_holder
 layout email_option_layout
 layout email_single_row
+layout file_save_dialog_screen
 layout fragment_container_layout
 layout home_screen
 layout image_container
@@ -1738,9 +1754,11 @@ string admob_rewarded_video_ad_test
 string app_name
 string appbar_scrolling_view_behavior
 string audio
+string audio_file_from_storage
 string audio_inserted
 string bottom_sheet_behavior
 string call
+string cancel
 string character_counter_content_description
 string character_counter_pattern
 string check_list
@@ -1788,6 +1806,9 @@ string export_as
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string field1
+string file_already_exists_msg
+string file_name
+string file_save__message
 string hide_bottom_view_on_scroll_behavior
 string home
 string home_screen
@@ -1822,6 +1843,8 @@ string note_updated
 string notes_are_sorted
 string nothing_to_save
 string ok_continue
+string open
+string override
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
@@ -1830,6 +1853,7 @@ string path_password_strike_through
 string permission_is_required
 string phone_no
 string pick_from_contact
+string please_wait
 string privacy_policy
 string pro_version
 string rate_the_app
@@ -1845,6 +1869,7 @@ string s6
 string s7
 string save
 string save_note
+string saved_successfully
 string search
 string search_hint
 string search_menu_title

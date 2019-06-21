@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    android:id="@+id/save_screen_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/dialog_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blaze_hole"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/audio_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/audio_white"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"/>
+
+        <TextView
+            android:id="@+id/sure_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/audio_icon"
+            android:text="@string/file_save__message"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/file_path_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/audio_icon"
+            android:layout_below="@id/sure_text"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/field_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/button_panel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_header">
+
+        <EditText
+            android:id="@+id/file_name_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/edit_text_bg"
+            android:hint="@string/file_name"
+            android:paddingStart="8dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp" />
+
+        <TextView
+            android:id="@+id/file_exists_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/file_already_exists_msg"
+            android:textColor="@color/red"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/button_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/cancel_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="16dp"
+            android:text="@string/cancel"
+            android:textAlignment="center"
+            android:textColor="@color/alizarin" />
+
+        <TextView
+            android:id="@+id/save_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/lightGreen"
+            android:padding="16dp"
+            android:text="@string/save"
+            android:textAlignment="center"
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/progress_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_header">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:padding="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/please_wait"
+            android:textColor="@color/colorAccent" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/file_save_done_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/button_panel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_header">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/done_green" />
+
+        <TextView
+            android:id="@+id/file_save_done_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="8dp"
+            android:textAlignment="center" />
+
+
+    </LinearLayout>
+
+
+
+
+</android.support.constraint.ConstraintLayout>
+
+

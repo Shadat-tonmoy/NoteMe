@@ -30,15 +30,18 @@ public class Audio implements Serializable {
     @ColumnInfo(name = "uri")
     private String audioUri;
 
+    private boolean isFilePath;
+
     public Audio()
     {
 
     }
 
-    public Audio(String audioTitle, String audioSize, String audioUri) {
+    public Audio(String audioTitle, String audioSize, String audioUri,boolean isFilePath) {
         this.audioTitle = audioTitle;
         this.audioSize = audioSize;
         this.audioUri = audioUri;
+        this.isFilePath= isFilePath;
     }
 
     public String getAudioTitle() {
@@ -81,6 +84,14 @@ public class Audio implements Serializable {
         this.audioUri = audioUri;
     }
 
+    public boolean isFilePath() {
+        return isFilePath;
+    }
+
+    public void setFilePath(boolean filePath) {
+        isFilePath = filePath;
+    }
+
     @Override
     public String toString() {
         return "Audio{" +
@@ -91,4 +102,6 @@ public class Audio implements Serializable {
                 ", audioUri='" + audioUri + '\'' +
                 '}';
     }
+
+
 }

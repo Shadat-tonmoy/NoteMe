@@ -10,4 +10,5 @@ public class Tags {
     public static final String CHECK_LIST_POSITION = "check_list_position";
     public static final String INVALID_NOTE = "invalid_note";
     public static final String NOTE_ID = "note_id";
+    public static final String INPUT_FILE_PATH = "input_file_path";
 }
