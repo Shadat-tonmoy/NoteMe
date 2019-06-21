@@ -27,12 +27,12 @@ public class CheckListScreenManipulationTask {
     }
 
     public void performFilter(String newText) {
-        /*try {
-            contactFragmentScreenView.getPhoneEmailListAdapter().getContactFilteringTask().getFilter().filter(newText);
+        try {
+            checkListFragmentScreenView.getPhoneEmailListAdapter().getCheckListFilteringTask().getFilter().filter(newText);
         }catch (Exception e)
         {
 
-        }*/
+        }
 
     }
 

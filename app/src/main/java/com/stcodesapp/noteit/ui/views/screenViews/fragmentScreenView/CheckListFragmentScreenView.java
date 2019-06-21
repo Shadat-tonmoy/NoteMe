@@ -66,7 +66,7 @@ public class CheckListFragmentScreenView extends BaseObservableScreenView<CheckL
     }
 
     public void onCreateOptionMenu(Menu menu, MaterialSearchView searchView) {
-        MenuItem item = menu.findItem(R.id.contact_search);
+        MenuItem item = menu.findItem(R.id.checklist_search);
         this.searchView = searchView;
         searchView.setMenuItem(item);
     }

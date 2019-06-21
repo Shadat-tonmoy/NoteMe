@@ -1,5 +1,6 @@
 package com.stcodesapp.noteit.controllers.fragmentController;
 
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.models.CheckList;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllCheckListSelectionTasks;
@@ -10,7 +11,7 @@ import com.stcodesapp.noteit.ui.views.screens.fragmentScreen.CheckListFragmentSc
 
 import java.util.List;
 
-public class CheckListFragmentController implements CheckListFragmentScreen.Listener, AllCheckListSelectionTasks.Listener {
+public class CheckListFragmentController implements CheckListFragmentScreen.Listener, AllCheckListSelectionTasks.Listener, MaterialSearchView.OnQueryTextListener  {
 
     private TasksFactory tasksFactory;
     private CheckListFragmentScreenView checkListFragmentScreenView;
@@ -52,8 +53,19 @@ public class CheckListFragmentController implements CheckListFragmentScreen.List
 
     }
 
-//    public boolean onBackPressed()
-//    {
-//        return emailScreenManipulationTask.closeSearchView();
-//    }
+    public boolean onBackPressed()
+    {
+        return checkListScreenManipulationTask.closeSearchView();
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        checkListScreenManipulationTask.performFilter(newText);
+        return false;
+    }
 }

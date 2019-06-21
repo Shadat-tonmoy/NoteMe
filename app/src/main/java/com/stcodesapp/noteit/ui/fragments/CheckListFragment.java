@@ -3,6 +3,7 @@ package com.stcodesapp.noteit.ui.fragments;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -38,8 +39,7 @@ public class CheckListFragment extends BaseFragment {
         checkListFragmentScreenView = getCompositionRoot().getViewFactory().getCheckListFragmentScreenView(null);
         checkListFragmentController = getCompositionRoot().getFragmentControllerFactory().getCheckListFragmentController();
         checkListFragmentController.bindView(checkListFragmentScreenView);
-//        ((AppCompatActivity)requireActivity()).setSupportActionBar(secondFragmentScreenView.getToolbar());
-//        setHasOptionsMenu(true);
+        setHasOptionsMenu(true);
         return checkListFragmentScreenView.getRootView();
     }
 
@@ -59,9 +59,9 @@ public class CheckListFragment extends BaseFragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-//        inflater.inflate(R.menu.email_menu,menu);
-//        emailFragmentScreenView.onCreateOptionMenu(menu, (MaterialSearchView) requireActivity().findViewById(R.id.search_view));
-//        emailFragmentScreenView.getSearchView().setOnQueryTextListener(emailFragmentController);
+        inflater.inflate(R.menu.checklist_list_menu,menu);
+        checkListFragmentScreenView.onCreateOptionMenu(menu, (MaterialSearchView) requireActivity().findViewById(R.id.search_view));
+        checkListFragmentScreenView.getSearchView().setOnQueryTextListener(checkListFragmentController);
     }
 
     @Override

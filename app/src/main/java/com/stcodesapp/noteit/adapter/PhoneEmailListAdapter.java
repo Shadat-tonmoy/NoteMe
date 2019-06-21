@@ -21,6 +21,7 @@ import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.models.CheckList;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
+import com.stcodesapp.noteit.tasks.filteringTasks.CheckListFilteringTask;
 import com.stcodesapp.noteit.tasks.utilityTasks.UtilityTasks;
 import com.stcodesapp.noteit.tasks.filteringTasks.ContactFilteringTask;
 import com.stcodesapp.noteit.tasks.filteringTasks.EmailFilteringTask;
@@ -29,7 +30,7 @@ import com.stcodesapp.noteit.ui.activities.CheckListActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PhoneEmailListAdapter extends RecyclerView.Adapter<PhoneEmailListAdapter.ViewHolder> implements EmailFilteringTask.Listener, ContactFilteringTask.Listener{
+public class PhoneEmailListAdapter extends RecyclerView.Adapter<PhoneEmailListAdapter.ViewHolder> implements EmailFilteringTask.Listener, ContactFilteringTask.Listener, CheckListFilteringTask.Listener {
 
 
     private List<? extends Object> objects,filteredObject;
@@ -37,6 +38,7 @@ public class PhoneEmailListAdapter extends RecyclerView.Adapter<PhoneEmailListAd
     private boolean isContact;
     private EmailFilteringTask emailFilteringTask;
     private ContactFilteringTask contactFilteringTask;
+    private CheckListFilteringTask checkListFilteringTask;
     private ComponentType componentType;
 
     @Override
@@ -47,6 +49,11 @@ public class PhoneEmailListAdapter extends RecyclerView.Adapter<PhoneEmailListAd
     @Override
     public void onContactFiltered(List<Contact> filteredContact) {
         bindFilteredContact(filteredContact);
+    }
+
+    @Override
+    public void onCheckListFiltered(List<CheckList> filteredCheckList) {
+        bindFilteredCheckList(filteredCheckList);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -124,6 +131,7 @@ public class PhoneEmailListAdapter extends RecyclerView.Adapter<PhoneEmailListAd
         this.filteredObject = objects;
         this.emailFilteringTask = new EmailFilteringTask((List<Email>)filteredObject,(List<Email>) objects,this);
         this.contactFilteringTask = new ContactFilteringTask((List<Contact>)filteredObject,(List<Contact>) objects,this);
+        this.checkListFilteringTask = new CheckListFilteringTask((List<CheckList>)filteredObject,(List<CheckList>) objects,this);
         notifyDataSetChanged();
     }
 
@@ -136,6 +144,12 @@ public class PhoneEmailListAdapter extends RecyclerView.Adapter<PhoneEmailListAd
     public void bindFilteredContact(List<Contact> contacts)
     {
         this.objects= new ArrayList<>(contacts);
+        notifyDataSetChanged();
+    }
+
+    public void bindFilteredCheckList(List<CheckList> checkLists)
+    {
+        this.objects= new ArrayList<>(checkLists);
         notifyDataSetChanged();
     }
 
@@ -212,5 +226,9 @@ public class PhoneEmailListAdapter extends RecyclerView.Adapter<PhoneEmailListAd
 
     public ContactFilteringTask getContactFilteringTask() {
         return contactFilteringTask;
+    }
+
+    public CheckListFilteringTask getCheckListFilteringTask() {
+        return checkListFilteringTask;
     }
 }

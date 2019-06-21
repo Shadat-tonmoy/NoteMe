@@ -1236,6 +1236,7 @@ id check_list_title_container
 id checkbox
 id checklist_holder_main_layout
 id checklist_item_list
+id checklist_search
 id cheklist_list
 id choose_color_menu
 id chosen_audio_container
@@ -1663,6 +1664,7 @@ layout suggest_item
 layout support_simple_spinner_dropdown_item
 layout toolbar
 layout toolbar_layout
+menu checklist_list_menu
 menu checklist_menu
 menu contact_menu
 menu email_menu
