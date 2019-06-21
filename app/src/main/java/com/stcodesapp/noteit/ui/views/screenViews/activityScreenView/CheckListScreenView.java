@@ -8,19 +8,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 
 import com.stcodesapp.noteit.R;
-import com.stcodesapp.noteit.adapter.CheckListAdapter;
+import com.stcodesapp.noteit.adapter.CheckListItemAdapter;
 import com.stcodesapp.noteit.ui.views.baseScreens.BaseObservableScreenView;
 import com.stcodesapp.noteit.ui.views.screens.activityScreen.CheckListScreen;
-import com.stcodesapp.noteit.ui.views.screens.activityScreen.ManualContactScreen;
 
 public class CheckListScreenView  extends BaseObservableScreenView<CheckListScreen.Listener> implements CheckListScreen{
 
     private RecyclerView checkList;
-    private CheckListAdapter checkListAdapter;
+    private CheckListItemAdapter checkListItemAdapter;
     private Toolbar toolbar;
     private EditText checkListTitleField, checkListTitle2ndField;
     private FloatingActionButton doneButton;
@@ -64,17 +62,17 @@ public class CheckListScreenView  extends BaseObservableScreenView<CheckListScre
         toolbar.setTitle(getContext().getResources().getString(R.string.add_check_list));
         toolbar.setNavigationIcon(getContext().getResources().getDrawable(R.drawable.back_white));
         checkList = findViewById(R.id.checklist_item_list);
-        checkListAdapter = new CheckListAdapter(getContext(),false);
+        checkListItemAdapter = new CheckListItemAdapter(getContext(),false);
         layoutManager = new LinearLayoutManager(getContext());
         checkList.setLayoutManager(layoutManager);
-        checkList.setAdapter(checkListAdapter);
+        checkList.setAdapter(checkListItemAdapter);
         doneButton = findViewById(R.id.check_list_done_button);
         checkListTitleField = findViewById(R.id.check_item_title_field);
 
     }
 
-    public CheckListAdapter getCheckListAdapter() {
-        return checkListAdapter;
+    public CheckListItemAdapter getCheckListItemAdapter() {
+        return checkListItemAdapter;
     }
 
     public RecyclerView getCheckList() {
@@ -93,8 +91,8 @@ public class CheckListScreenView  extends BaseObservableScreenView<CheckListScre
         return layoutManager;
     }
 
-    public void setCheckListAdapterListener(CheckListAdapter.Listener listener)
+    public void setCheckListAdapterListener(CheckListItemAdapter.Listener listener)
     {
-        checkListAdapter.setListener(listener);
+        checkListItemAdapter.setListener(listener);
     }
 }

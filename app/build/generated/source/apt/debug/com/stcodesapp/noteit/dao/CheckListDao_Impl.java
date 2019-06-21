@@ -165,4 +165,39 @@ public class CheckListDao_Impl implements CheckListDao {
       _statement.release();
     }
   }
+
+  @Override
+  public List<CheckList> getAllCheckList() {
+    final String _sql = "select * from checklist";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    final Cursor _cursor = __db.query(_statement);
+    try {
+      final int _cursorIndexOfCheckListId = _cursor.getColumnIndexOrThrow("checkListId");
+      final int _cursorIndexOfNoteId = _cursor.getColumnIndexOrThrow("note_id");
+      final int _cursorIndexOfCheckListTitle = _cursor.getColumnIndexOrThrow("checkListTitle");
+      final int _cursorIndexOfCheckListSecondFieldTitle = _cursor.getColumnIndexOrThrow("checkListSecondFieldTitle");
+      final List<CheckList> _result = new ArrayList<CheckList>(_cursor.getCount());
+      while(_cursor.moveToNext()) {
+        final CheckList _item;
+        _item = new CheckList();
+        final long _tmpCheckListId;
+        _tmpCheckListId = _cursor.getLong(_cursorIndexOfCheckListId);
+        _item.setCheckListId(_tmpCheckListId);
+        final long _tmpNoteId;
+        _tmpNoteId = _cursor.getLong(_cursorIndexOfNoteId);
+        _item.setNoteId(_tmpNoteId);
+        final String _tmpCheckListTitle;
+        _tmpCheckListTitle = _cursor.getString(_cursorIndexOfCheckListTitle);
+        _item.setCheckListTitle(_tmpCheckListTitle);
+        final String _tmpCheckListSecondFieldTitle;
+        _tmpCheckListSecondFieldTitle = _cursor.getString(_cursorIndexOfCheckListSecondFieldTitle);
+        _item.setCheckListSecondFieldTitle(_tmpCheckListSecondFieldTitle);
+        _result.add(_item);
+      }
+      return _result;
+    } finally {
+      _cursor.close();
+      _statement.release();
+    }
+  }
 }

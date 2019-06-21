@@ -1,33 +1,31 @@
 package com.stcodesapp.noteit.controllers.fragmentController;
 
-import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.stcodesapp.noteit.factory.TasksFactory;
-import com.stcodesapp.noteit.models.Email;
-import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllEmailSelectionTasks;
-import com.stcodesapp.noteit.tasks.screenManipulationTasks.EmailScreenManipulationTask;
+import com.stcodesapp.noteit.models.CheckList;
+import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllCheckListSelectionTasks;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.CheckListScreenManipulationTask;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.EmailScreenManipulationTask;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.CheckListFragmentScreenView;
-import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.EmailFragmentScreenView;
 import com.stcodesapp.noteit.ui.views.screens.fragmentScreen.CheckListFragmentScreen;
-import com.stcodesapp.noteit.ui.views.screens.fragmentScreen.EmailFragmentScreen;
 
 import java.util.List;
 
-public class CheckListFragmentController implements CheckListFragmentScreen.Listener {
+public class CheckListFragmentController implements CheckListFragmentScreen.Listener, AllCheckListSelectionTasks.Listener {
 
     private TasksFactory tasksFactory;
     private CheckListFragmentScreenView checkListFragmentScreenView;
-    private EmailScreenManipulationTask emailScreenManipulationTask;
+    private CheckListScreenManipulationTask checkListScreenManipulationTask;
 
 
     public CheckListFragmentController(TasksFactory tasksFactory) {
         this.tasksFactory = tasksFactory;
-        this.emailScreenManipulationTask = tasksFactory.getEmailScreenManipulationTask();
+        this.checkListScreenManipulationTask = tasksFactory.getCheckListScreenManipulationTask();
     }
 
     public void onStart()
     {
         checkListFragmentScreenView.registerListener(this);
-//        startFetchingEmails();
+        startFetchingChecklists();
     }
 
     public void onStop()
@@ -37,13 +35,20 @@ public class CheckListFragmentController implements CheckListFragmentScreen.List
 
     public void bindView(CheckListFragmentScreenView checkListFragmentScreenView) {
         this.checkListFragmentScreenView = checkListFragmentScreenView;
-//        emailScreenManipulationTask.bindView(checkListFragmentScreenView);
-//        emailScreenManipulationTask.loadBannerAd();
+        checkListScreenManipulationTask.bindView(checkListFragmentScreenView);
+        checkListScreenManipulationTask.loadBannerAd();
     }
 
-    private void startFetchingEmails()
+    private void startFetchingChecklists()
     {
-//        tasksFactory.getDatabaseTasks().getAllEmailSelectionTasks(this).execute();
+        tasksFactory.getDatabaseTasks().getAllCheckListSelectionTasks(this).execute();
+
+    }
+
+    @Override
+    public void onAllCheckListFetched(List<CheckList> checkLists) {
+        checkListScreenManipulationTask.bindCheckLists(checkLists);
+
 
     }
 

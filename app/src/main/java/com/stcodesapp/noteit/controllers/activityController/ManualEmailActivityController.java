@@ -1,13 +1,8 @@
 package com.stcodesapp.noteit.controllers.activityController;
 
-import android.content.Intent;
-import android.support.annotation.Nullable;
-
 import com.stcodesapp.noteit.factory.TasksFactory;
-import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
-import com.stcodesapp.noteit.tasks.screenManipulationTasks.ManualEmailScreenManipulationTasks;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.ManualEmailScreenManipulationTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.ClipboardTasks;
-import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.ManualEmailScreenView;
 import com.stcodesapp.noteit.ui.views.screens.activityScreen.ManualEmailScreen;
 
 public class ManualEmailActivityController implements ManualEmailScreen.Listener {

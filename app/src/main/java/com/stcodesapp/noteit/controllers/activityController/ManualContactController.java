@@ -2,7 +2,7 @@ package com.stcodesapp.noteit.controllers.activityController;
 
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
-import com.stcodesapp.noteit.tasks.screenManipulationTasks.ManualContactScreenManipulationTasks;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.ManualContactScreenManipulationTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.ClipboardTasks;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.ManualContactScreenView;
 import com.stcodesapp.noteit.ui.views.screens.activityScreen.ManualContactScreen;

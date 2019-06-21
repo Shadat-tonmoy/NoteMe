@@ -10,14 +10,15 @@ import com.stcodesapp.noteit.tasks.functionalTasks.PDFCreationTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.VoiceInputTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
-import com.stcodesapp.noteit.tasks.screenManipulationTasks.CheckListScreenManipulationTask;
-import com.stcodesapp.noteit.tasks.screenManipulationTasks.ContactScreenManipulationTask;
-import com.stcodesapp.noteit.tasks.screenManipulationTasks.EmailScreenManipulationTask;
-import com.stcodesapp.noteit.tasks.screenManipulationTasks.HomeScreenManipulationTasks;
-import com.stcodesapp.noteit.tasks.screenManipulationTasks.ManualContactScreenManipulationTasks;
-import com.stcodesapp.noteit.tasks.screenManipulationTasks.ManualEmailScreenManipulationTasks;
-import com.stcodesapp.noteit.tasks.screenManipulationTasks.NoteFieldScreenManipulationTasks;
-import com.stcodesapp.noteit.tasks.screenManipulationTasks.SortingDialogManipulationTask;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.CheckListActivityScreenManipulationTask;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.CheckListScreenManipulationTask;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.ContactScreenManipulationTask;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.EmailScreenManipulationTask;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.HomeScreenManipulationTasks;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.ManualContactScreenManipulationTasks;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.ManualEmailScreenManipulationTasks;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.NoteFieldScreenManipulationTasks;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.SortingDialogManipulationTask;
 import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.ClipboardTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.SharingTasks;
@@ -128,9 +129,14 @@ public class TasksFactory {
         return new ContactScreenManipulationTask(activity);
     }
 
+    public CheckListActivityScreenManipulationTask getCheckListActivityScreenManipulationTask()
+    {
+        return new CheckListActivityScreenManipulationTask(activity,getClipboardTasks());
+    }
+
     public CheckListScreenManipulationTask getCheckListScreenManipulationTask()
     {
-        return new CheckListScreenManipulationTask(activity,getClipboardTasks());
+        return new CheckListScreenManipulationTask(activity);
     }
 
     public PDFCreationTasks getPDFCreationTasks()

@@ -7,11 +7,10 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.stcodesapp.noteit.R;
-import com.stcodesapp.noteit.adapter.CheckListAdapter;
+import com.stcodesapp.noteit.adapter.CheckListItemAdapter;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.factory.TasksFactory;
-import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.CheckList;
 import com.stcodesapp.noteit.models.ChecklistItem;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
@@ -20,23 +19,21 @@ import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.CheckListItemIns
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.CheckListItemSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.updateTasks.CheckListItemUpdateTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.updateTasks.CheckListUpdateTask;
-import com.stcodesapp.noteit.tasks.screenManipulationTasks.CheckListScreenManipulationTask;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.CheckListActivityScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.utilityTasks.ClipboardTasks;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.CheckListScreenView;
 import com.stcodesapp.noteit.ui.views.screens.activityScreen.CheckListScreen;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ThreadPoolExecutor;
 
-public class CheckListActivityController implements CheckListScreen.Listener, CheckListItemSelectTask.Listener, CheckListAdapter.Listener{
+public class CheckListActivityController implements CheckListScreen.Listener, CheckListItemSelectTask.Listener, CheckListItemAdapter.Listener{
 
     private TasksFactory tasksFactory;
     private Activity activity;
     private CheckListScreenView checkListScreenView;
     private ClipboardTasks clipboardTasks;
-    private CheckListScreenManipulationTask checkListScreenManipulationTask;
+    private CheckListActivityScreenManipulationTask checkListActivityScreenManipulationTask;
     private boolean isUpdating = false;
     private CheckList checkListFromIntent;
     private long noteId;
@@ -47,14 +44,14 @@ public class CheckListActivityController implements CheckListScreen.Listener, Ch
     public CheckListActivityController(TasksFactory tasksFactory, Activity activity) {
         this.tasksFactory = tasksFactory;
         this.activity = activity;
-        this.checkListScreenManipulationTask = tasksFactory.getCheckListScreenManipulationTask();
+        this.checkListActivityScreenManipulationTask = tasksFactory.getCheckListActivityScreenManipulationTask();
         this.clipboardTasks = tasksFactory.getClipboardTasks();
     }
 
     public void bindView(CheckListScreenView checkListScreenView) {
         this.checkListScreenView = checkListScreenView;
         checkListScreenView.setCheckListAdapterListener(this);
-        checkListScreenManipulationTask.bindView(checkListScreenView);
+        checkListActivityScreenManipulationTask.bindView(checkListScreenView);
     }
 
     public void onStart()
@@ -70,7 +67,7 @@ public class CheckListActivityController implements CheckListScreen.Listener, Ch
 
     public  void onPostCreate()
     {
-        checkListScreenManipulationTask.initToolbar();
+        checkListActivityScreenManipulationTask.initToolbar();
     }
 
     public void fetchCheckListItems()
@@ -80,7 +77,7 @@ public class CheckListActivityController implements CheckListScreen.Listener, Ch
             checklistItems.add(new ChecklistItem(Constants.EMPTY_STRING+a,false));*/
 
         checklistItems.add(new ChecklistItem(Constants.EMPTY_STRING,false));
-        checkListScreenManipulationTask.bindCheckListObject(checklistItems);
+        checkListActivityScreenManipulationTask.bindCheckListObject(checklistItems);
     }
 
     public boolean onOptionsItemSelected(MenuItem item)
@@ -95,7 +92,7 @@ public class CheckListActivityController implements CheckListScreen.Listener, Ch
 
     private boolean addCheckItem()
     {
-        checkListScreenManipulationTask.addEmptyChecklistItem();
+        checkListActivityScreenManipulationTask.addEmptyChecklistItem();
         return true;
     }
 
@@ -112,21 +109,21 @@ public class CheckListActivityController implements CheckListScreen.Listener, Ch
 //            Log.e("NoteId",noteId+" is isisisi");
             if(noteId==Constants.ZERO)
             {
-                CheckList checkList = checkListScreenManipulationTask.grabCheckListValue();
-                if(checkListScreenManipulationTask.sendResultBack(checkList,checkListPosition,true))
+                CheckList checkList = checkListActivityScreenManipulationTask.grabCheckListValue();
+                if(checkListActivityScreenManipulationTask.sendResultBack(checkList,checkListPosition,true))
                     activity.finish();
                 return;
 
             }
             updateCheckList();
-            checkListScreenManipulationTask.showCheckListUpdatedToast();
+            checkListActivityScreenManipulationTask.showCheckListUpdatedToast();
             activity.finish();
             return;
         }
         else {
-            CheckList checkList = checkListScreenManipulationTask.grabCheckListValue();
+            CheckList checkList = checkListActivityScreenManipulationTask.grabCheckListValue();
             checkList.setNoteId(noteId);
-            if(checkListScreenManipulationTask.sendResultBack(checkList,checkListPosition,false))
+            if(checkListActivityScreenManipulationTask.sendResultBack(checkList,checkListPosition,false))
                 activity.finish();
         }
 
@@ -135,7 +132,7 @@ public class CheckListActivityController implements CheckListScreen.Listener, Ch
     private void updateCheckList()
     {
         DatabaseTasks databaseTasks = tasksFactory.getDatabaseTasks();
-        CheckList checkList = checkListScreenManipulationTask.grabCheckListValue();
+        CheckList checkList = checkListActivityScreenManipulationTask.grabCheckListValue();
         checkList.setCheckListId(checkListFromIntent.getCheckListId());
         checkList.setNoteId(checkListFromIntent.getNoteId());
         CheckListUpdateTask checkListUpdateTask = databaseTasks.getCheckListUpdateTask();
@@ -174,8 +171,8 @@ public class CheckListActivityController implements CheckListScreen.Listener, Ch
                 if(checklistItems!=null && checklistItems.size()>Constants.ZERO)
                 {
                     Log.e("FetchingItems","FromComponents");
-                    checkListScreenManipulationTask.bindCheckListObject(checklistItems);
-                    checkListScreenManipulationTask.bindCheckListTitle(checkList.getCheckListTitle());
+                    checkListActivityScreenManipulationTask.bindCheckListObject(checklistItems);
+                    checkListActivityScreenManipulationTask.bindCheckListTitle(checkList.getCheckListTitle());
                 }
             }
             else
@@ -183,7 +180,7 @@ public class CheckListActivityController implements CheckListScreen.Listener, Ch
                 Log.e("FetchingItems","FromDataase");
                 CheckListItemSelectTask checkListItemSelectTask = tasksFactory.getDatabaseTasks().getCheckListItemSelectTask(this);
                 checkListItemSelectTask.execute(checkList.getCheckListId());
-                checkListScreenManipulationTask.bindCheckListTitle(checkList.getCheckListTitle());
+                checkListActivityScreenManipulationTask.bindCheckListTitle(checkList.getCheckListTitle());
             }
         }
         else fetchCheckListItems();
@@ -193,7 +190,7 @@ public class CheckListActivityController implements CheckListScreen.Listener, Ch
     @Override
     public void onCheckListItemFetched(List<ChecklistItem> fetchedCheckListItems)
     {
-        checkListScreenManipulationTask.bindCheckListObject(fetchedCheckListItems);
+        checkListActivityScreenManipulationTask.bindCheckListObject(fetchedCheckListItems);
 
     }
 

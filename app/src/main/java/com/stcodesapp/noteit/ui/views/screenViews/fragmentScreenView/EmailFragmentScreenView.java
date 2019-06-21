@@ -15,6 +15,7 @@ import com.google.android.gms.ads.AdView;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.adapter.PhoneEmailListAdapter;
+import com.stcodesapp.noteit.constants.ComponentType;
 import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.ui.views.baseScreens.BaseObservableScreenView;
 import com.stcodesapp.noteit.ui.views.screens.fragmentScreen.EmailFragmentScreen;
@@ -51,7 +52,7 @@ public class EmailFragmentScreenView extends BaseObservableScreenView<EmailFragm
         notFoundContainer = findViewById(R.id.not_found_container);
         notFoundText = findViewById(R.id.not_found_text);
         notFoundImage = findViewById(R.id.not_found_image);
-        phoneEmailListAdapter = new PhoneEmailListAdapter(getContext(),false);
+        phoneEmailListAdapter = new PhoneEmailListAdapter(getContext(), ComponentType.EMAIL);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         emailList.setLayoutManager(layoutManager);
         emailList.setAdapter(phoneEmailListAdapter);

@@ -20,6 +20,7 @@ import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ContactInsertTas
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.EmailInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ImageInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.NoteInsertTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllCheckListSelectionTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllContactSelectionTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllEmailSelectionTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AudioSelectTask;
@@ -165,6 +166,12 @@ public class DatabaseTasks {
     {
         AllEmailSelectionTasks allEmailSelectionTasks = new AllEmailSelectionTasks(context,listener);
         return allEmailSelectionTasks;
+    }
+
+    public AllCheckListSelectionTasks getAllCheckListSelectionTasks(AllCheckListSelectionTasks.Listener listener)
+    {
+        AllCheckListSelectionTasks allCheckListSelectionTasks = new AllCheckListSelectionTasks(context,listener);
+        return allCheckListSelectionTasks;
     }
 
 

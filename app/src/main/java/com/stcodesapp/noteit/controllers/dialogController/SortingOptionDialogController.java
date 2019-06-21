@@ -1,10 +1,9 @@
 package com.stcodesapp.noteit.controllers.dialogController;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import com.stcodesapp.noteit.factory.TasksFactory;
-import com.stcodesapp.noteit.tasks.screenManipulationTasks.SortingDialogManipulationTask;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.SortingDialogManipulationTask;
 import com.stcodesapp.noteit.ui.views.screenViews.dialogScreenView.SortingOptionDialogScreenView;
 import com.stcodesapp.noteit.ui.views.screens.dialogScreen.SortingOptionDialogScreen;
 

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.adapter.PhoneEmailListAdapter;
+import com.stcodesapp.noteit.constants.ComponentType;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.FragmentTags;
 import com.stcodesapp.noteit.models.Contact;
@@ -81,7 +82,10 @@ public class PhoneOrEmailListBottomSheets extends BottomSheetDialogFragment impl
     private void inflateUIElements(View view)
     {
         objectList= view.findViewById(R.id.object_list);
-        phoneEmailListAdapter = new PhoneEmailListAdapter(requireActivity(),isContact);
+        ComponentType componentType = ComponentType.EMAIL;
+        if(isContact)
+            componentType = ComponentType.CONTACT;
+        phoneEmailListAdapter = new PhoneEmailListAdapter(requireActivity(),componentType);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(requireContext());
         objectList.setLayoutManager(layoutManager);
         objectList.setAdapter(phoneEmailListAdapter);

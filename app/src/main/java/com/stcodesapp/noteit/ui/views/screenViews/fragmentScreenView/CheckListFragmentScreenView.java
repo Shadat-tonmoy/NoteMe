@@ -15,6 +15,8 @@ import com.google.android.gms.ads.AdView;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.adapter.PhoneEmailListAdapter;
+import com.stcodesapp.noteit.constants.ComponentType;
+import com.stcodesapp.noteit.models.CheckList;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.ui.views.baseScreens.BaseObservableScreenView;
 import com.stcodesapp.noteit.ui.views.screens.fragmentScreen.CheckListFragmentScreen;
@@ -26,7 +28,7 @@ public class CheckListFragmentScreenView extends BaseObservableScreenView<CheckL
 
 
     private PhoneEmailListAdapter phoneEmailListAdapter;
-    private RecyclerView contactList;
+    private RecyclerView checklistList;
     private MaterialSearchView searchView;
     private ConstraintLayout notFoundContainer;
     private TextView notFoundText;
@@ -37,7 +39,7 @@ public class CheckListFragmentScreenView extends BaseObservableScreenView<CheckL
 
     public CheckListFragmentScreenView(LayoutInflater layoutInflater, @Nullable ViewGroup parent)
     {
-        setRootView(layoutInflater.inflate(R.layout.contact_fragment_screen,parent,false));
+        setRootView(layoutInflater.inflate(R.layout.checklist_fragment_screen,parent,false));
         inflateUIElements();
         initUserInteractions();
     }
@@ -49,14 +51,14 @@ public class CheckListFragmentScreenView extends BaseObservableScreenView<CheckL
 
     @Override
     public void inflateUIElements() {
-        contactList= findViewById(R.id.contact_list);
+        checklistList= findViewById(R.id.cheklist_list);
         notFoundContainer = findViewById(R.id.not_found_container);
         notFoundText = findViewById(R.id.not_found_text);
         notFoundImage = findViewById(R.id.not_found_image);
-        phoneEmailListAdapter = new PhoneEmailListAdapter(getContext(),true);
+        phoneEmailListAdapter = new PhoneEmailListAdapter(getContext(), ComponentType.CHECKLIST);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
-        contactList.setLayoutManager(layoutManager);
-        contactList.setAdapter(phoneEmailListAdapter);
+        checklistList.setLayoutManager(layoutManager);
+        checklistList.setAdapter(phoneEmailListAdapter);
         adMobBannerAdView = findViewById(R.id.admob_banner_ad_view);
         notFoundImage.setImageDrawable(getContext().getResources().getDrawable(R.drawable.no_contact));
         notFoundText.setText(getContext().getResources().getString(R.string.no_contact_found));
@@ -81,13 +83,13 @@ public class CheckListFragmentScreenView extends BaseObservableScreenView<CheckL
         return notFoundContainer;
     }
 
-    public RecyclerView getContactList() {
-        return contactList;
+    public RecyclerView getChecklistList() {
+        return checklistList;
     }
 
-    public void bindContacts(List<Contact> contacts)
+    public void bindCheckList(List<CheckList> checkLists)
     {
-        phoneEmailListAdapter.bindObjects(contacts);
+        phoneEmailListAdapter.bindObjects(checkLists);
     }
 
     public AdView getAdMobBannerAdView() {

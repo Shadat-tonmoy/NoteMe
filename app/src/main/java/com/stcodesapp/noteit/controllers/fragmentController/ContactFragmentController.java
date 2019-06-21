@@ -1,12 +1,10 @@
 package com.stcodesapp.noteit.controllers.fragmentController;
 
-import android.app.Activity;
-
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllContactSelectionTasks;
-import com.stcodesapp.noteit.tasks.screenManipulationTasks.ContactScreenManipulationTask;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.ContactScreenManipulationTask;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.ContactFragmentScreenView;
 import com.stcodesapp.noteit.ui.views.screens.fragmentScreen.ContactFragmentScreen;
 

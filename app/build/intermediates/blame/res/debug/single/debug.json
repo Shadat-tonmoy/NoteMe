@@ -48,12 +48,12 @@
         "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/6909f1926778757abec6793df9ebab24/res/drawable-xxhdpi-v4/abc_text_select_handle_right_mtrl_light.png"
     },
     {
-        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-hdpi_round_shape_pumpkin.xml.flat",
-        "source": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/drawable-hdpi/round_shape_pumpkin.xml"
-    },
-    {
         "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
         "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/6909f1926778757abec6793df9ebab24/res/drawable-xxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-hdpi_round_shape_pumpkin.xml.flat",
+        "source": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/drawable-hdpi/round_shape_pumpkin.xml"
     },
     {
         "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-mdpi_tag.png.flat",
@@ -72,28 +72,28 @@
         "source": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/layout/contact_holder.xml"
     },
     {
-        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable_abc_textfield_search_material.xml.flat",
-        "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/6909f1926778757abec6793df9ebab24/res/drawable/abc_textfield_search_material.xml"
-    },
-    {
-        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
-        "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/6909f1926778757abec6793df9ebab24/res/drawable-xxxhdpi-v4/abc_spinner_mtrl_am_alpha.9.png"
-    },
-    {
-        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/animator_design_fab_hide_motion_spec.xml.flat",
-        "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/14a140a637dbdde926d69ad9528ab35a/res/animator/design_fab_hide_motion_spec.xml"
-    },
-    {
-        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
-        "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/6909f1926778757abec6793df9ebab24/res/drawable-xhdpi-v4/abc_text_select_handle_right_mtrl_light.png"
+        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
+        "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/6909f1926778757abec6793df9ebab24/res/drawable-xxhdpi-v4/abc_list_selector_disabled_holo_dark.9.png"
     },
     {
         "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/anim_abc_grow_fade_in_from_bottom.xml.flat",
         "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/6909f1926778757abec6793df9ebab24/res/anim/abc_grow_fade_in_from_bottom.xml"
     },
     {
-        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
-        "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/6909f1926778757abec6793df9ebab24/res/drawable-xxhdpi-v4/abc_list_selector_disabled_holo_dark.9.png"
+        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
+        "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/6909f1926778757abec6793df9ebab24/res/drawable-xhdpi-v4/abc_text_select_handle_right_mtrl_light.png"
+    },
+    {
+        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/animator_design_fab_hide_motion_spec.xml.flat",
+        "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/14a140a637dbdde926d69ad9528ab35a/res/animator/design_fab_hide_motion_spec.xml"
+    },
+    {
+        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/6909f1926778757abec6793df9ebab24/res/drawable-xxxhdpi-v4/abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable_abc_textfield_search_material.xml.flat",
+        "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/6909f1926778757abec6793df9ebab24/res/drawable/abc_textfield_search_material.xml"
     },
     {
         "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/animator-v21_design_appbar_state_list_animator.xml.flat",
@@ -108,16 +108,16 @@
         "source": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/layout/sort_by_note_title.xml"
     },
     {
-        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-xhdpi_about.png.flat",
-        "source": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/drawable-xhdpi/about.png"
+        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable_abc_list_selector_holo_dark.xml.flat",
+        "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/6909f1926778757abec6793df9ebab24/res/drawable/abc_list_selector_holo_dark.xml"
     },
     {
         "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/color_abc_primary_text_disable_only_material_dark.xml.flat",
         "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/6909f1926778757abec6793df9ebab24/res/color/abc_primary_text_disable_only_material_dark.xml"
     },
     {
-        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable_abc_list_selector_holo_dark.xml.flat",
-        "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/6909f1926778757abec6793df9ebab24/res/drawable/abc_list_selector_holo_dark.xml"
+        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-xhdpi_about.png.flat",
+        "source": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/drawable-xhdpi/about.png"
     },
     {
         "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable_notification_tile_bg.xml.flat",
@@ -2782,6 +2782,10 @@
     {
         "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_action_voice_search_inverted.png.flat",
         "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/a39dd6770478fef142237d32eea254e5/res/drawable-hdpi/ic_action_voice_search_inverted.png"
+    },
+    {
+        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/layout_checklist_fragment_screen.xml.flat",
+        "source": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/layout/checklist_fragment_screen.xml"
     },
     {
         "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",

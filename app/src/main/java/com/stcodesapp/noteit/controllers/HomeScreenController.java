@@ -1,6 +1,5 @@
 package com.stcodesapp.noteit.controllers;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,7 +21,7 @@ import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.ImportantNoteSel
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteSelectTask;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
-import com.stcodesapp.noteit.tasks.screenManipulationTasks.HomeScreenManipulationTasks;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.HomeScreenManipulationTasks;
 import com.stcodesapp.noteit.ui.fragments.MoreOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.PhoneOrEmailListBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.SortingOptionDialog;
