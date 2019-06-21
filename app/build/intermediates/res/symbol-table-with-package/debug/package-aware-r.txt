@@ -1809,6 +1809,7 @@ string field1
 string file_already_exists_msg
 string file_name
 string file_save__message
+string got_it
 string hide_bottom_view_on_scroll_behavior
 string home
 string home_screen

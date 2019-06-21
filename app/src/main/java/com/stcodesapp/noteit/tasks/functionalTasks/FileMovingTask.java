@@ -15,8 +15,6 @@ public class FileMovingTask extends AsyncTask<File,Void,File>
 
     public interface Listener{
         void onFileMovingDone(File outputFile);
-        void onFileAlreadyExists();
-        void onFileSaveStarted();
     }
 
     private Listener listener;

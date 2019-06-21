@@ -167,13 +167,6 @@ public class FileIOTasks {
 
     }
 
-    public boolean isFileAlreadyExists(String fileName)
-    {
-        File storage = activity.getExternalFilesDirs(Environment.MEDIA_MOUNTED)[0];
-        File fileDirectory = new File(UtilityTasks.getStoragePath(storage.getAbsolutePath())+Constants.FILE_DIRECTORY);
-        return false;
-    }
-
 
     public String getStoragePath()
     {
@@ -294,5 +287,14 @@ public class FileIOTasks {
             return directory.getAbsolutePath();
         }
         return null;
+    }
+
+    public boolean isFileAlreadyExists(String fileName)
+    {
+        File file = new File(getDirectoryPath(), fileName+Constants.RECORDING_FILE_TYPE);
+        if(file.exists()) {
+            return true;
+        }
+        else return false;
     }
 }

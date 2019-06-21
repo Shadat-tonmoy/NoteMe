@@ -64,12 +64,12 @@ public class FileSaveScreenManipulationTasks {
         else fileSaveDialogScreenView.getSaveButton().setText(activity.getResources().getString(R.string.override));
     }
 
-    public void showFileSaveDoneMessage()
+    public void showFileSaveDoneMessage(String filePath)
     {
         hideProgressPanel();
         hideFieldPanel();
-        showSaveDone();
-        showButtonPanel(activity.getResources().getString(R.string.open));
+        showSaveDone(filePath);
+        showButtonPanel(activity.getResources().getString(R.string.got_it));
 
 
     }
@@ -105,9 +105,10 @@ public class FileSaveScreenManipulationTasks {
         fileSaveDialogScreenView.getRootView().findViewById(R.id.button_panel).setVisibility(View.VISIBLE);
     }
 
-    private void showSaveDone()
+    private void showSaveDone(String filePath)
     {
-        String doneMessage = activity.getResources().getString(R.string.saved_successfully)+fileSaveDialogScreenView.getFilePathText().getText().toString()+fileSaveDialogScreenView.getFileNameField().getText().toString()+Constants.MP3_FILE_EXT;
+        String doneMessage = activity.getResources().getString(R.string.saved_successfully)+filePath;
+//        fileSaveDialogScreenView.getFileNameField().getText().toString()+Constants.RECORDING_FILE_TYPE;
         fileSaveDialogScreenView.getFileSaveDoneText().setText(doneMessage);
 
         fileSaveDialogScreenView.getFileSaveDoneLayout().setVisibility(View.VISIBLE);
@@ -116,5 +117,10 @@ public class FileSaveScreenManipulationTasks {
     private void hideSaveDone()
     {
         fileSaveDialogScreenView.getFileSaveDoneLayout().setVisibility(View.GONE);
+    }
+
+    public String getFileName()
+    {
+        return fileSaveDialogScreenView.getFileNameField().getText().toString();
     }
 }

@@ -57,7 +57,7 @@ import java.io.File;
 import static android.app.Activity.RESULT_OK;
 import static com.stcodesapp.noteit.constants.Constants.SINGLE_CHECKLIST;
 
-public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener,NoteComponentSelectionTask.Listener, ContactDeleteTask.Listener, EmailDeleteTask.Listener, ImageDeleteTask.Listener, AudioDeleteTask.Listener, DialogInterface.OnClickListener, FileMovingTask.Listener
+public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener,NoteComponentSelectionTask.Listener, ContactDeleteTask.Listener, EmailDeleteTask.Listener, ImageDeleteTask.Listener, AudioDeleteTask.Listener, DialogInterface.OnClickListener
 {
 
     private TasksFactory tasksFactory;
@@ -244,16 +244,11 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     private void handleRecordedVoice(Intent data) {
         Uri selectedAudio = data.getData();
         Uri audioUri = Uri.parse(selectedAudio.getPath());
-//        fileIOTasks.openAudioFile(audioUri);
-//        fileIOTasks.getStoragePath();
-        File inputFile = new File(selectedAudio.getPath());
-        File outputFile = new File(fileIOTasks.getDirectoryPath()+"/test.amr");
-        FileMovingTask fileMovingTask = tasksFactory.getFileMovingTask(this);
         Bundle args = new Bundle();
         args.putString(Tags.INPUT_FILE_PATH,selectedAudio.getPath());
         noteFieldScreenManipulationTasks.showFileSavingDialog(args);
-        Log.e("OutputPath",fileIOTasks.getDirectoryPath());//fileIOTasks.getStoragePath();
-        Log.e("InputPath",selectedAudio.getPath());//fileIOTasks.getStoragePath();
+//        Log.e("OutputPath",fileIOTasks.getDirectoryPath());//fileIOTasks.getStoragePath();
+//        Log.e("InputPath",selectedAudio.getPath());//fileIOTasks.getStoragePath();
 //        fileMovingTask.execute(inputFile,outputFile);
         /*if(audioUri!=null)
         {
@@ -582,19 +577,4 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
 
     }
 
-    @Override
-    public void onFileMovingDone(File outputFile) {
-        Log.e("FileMoving","Done to "+outputFile);
-
-    }
-
-    @Override
-    public void onFileAlreadyExists() {
-
-    }
-
-    @Override
-    public void onFileSaveStarted() {
-
-    }
 }

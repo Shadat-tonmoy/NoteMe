@@ -679,6 +679,7 @@
     <string name="file_already_exists_msg">File Already Exists!! Please choose a different name or overright it</string>
     <string name="file_name">Enter File Name</string>
     <string name="file_save__message">File will be saved at</string>
+    <string name="got_it">Got It!</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">android.support.design.behavior.HideBottomViewOnScrollBehavior</string>
     <string name="home">Home</string>
     <string name="home_screen">Home Screen</string>
@@ -739,7 +740,7 @@
     <string name="s7">Test Ad</string>
     <string name="save">Save</string>
     <string name="save_note">Save Note?</string>
-    <string name="saved_successfully">File Saved Successfully!!</string>
+    <string name="saved_successfully">File Saved Successfully at\n</string>
     <string name="search">Search</string>
     <string name="search_hint">Search</string>
     <string name="search_menu_title">Search</string>

@@ -26,6 +26,8 @@ public class Constants {
     public static final String PLAYSTORE_BASE_URL = "https://play.google.com/store/apps/details?id=";
     public static final String STAPSS_BASE_URL = "https://sites.google.com/view/stcodesapp/";
     public static final String RECORDING_FILE_PATH = "/recordings";
+    public static final String RECORDING_FILE_TYPE = ".amr";
+    public static final String GOT_IT = "Got It!";
     public static final String PRIVACY_POLICY_URL = "https://sites.google.com/view/stcodesapp/noteit/";
     public static final String TEXT_TYPE = "text/plain";
     public static final String SHARE_SUBJECT = "Subject Here";

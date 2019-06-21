@@ -2,6 +2,7 @@ package com.stcodesapp.noteit.controllers.fragmentController;
 
 import android.util.Log;
 
+import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileMovingTask;
@@ -60,19 +61,36 @@ public class FileSaveScreenController implements FileSaveDialogScreen.Listener, 
         fileSaveScreenManipulationTasks.bindFileSavePath(inputFile.getAbsolutePath());
     }
 
-    private void insertTTSHistory()
+    private void startMovingFile()
     {
-//        Text2SpeechInsertTask text2SpeechInsertTask = tasksFactory.getText2SpeechInsertTask();
-//        text2SpeechInsertTask.execute(text2SpeechModel);
+
+
+        File outputFile = new File(fileIOTasks.getDirectoryPath()+ Constants.SLASH +fileSaveScreenManipulationTasks.getFileName()+Constants.RECORDING_FILE_TYPE);
+        FileMovingTask fileMovingTask = tasksFactory.getFileMovingTask(this);
+        fileSaveScreenManipulationTasks.showSavingProgress();
+        fileMovingTask.execute(inputFile,outputFile);
+
     }
 
     @Override
     public void onPositiveButtonClicked() {
-//        String label = fileSaveDialogScreenView.getSaveButton().getText().toString();
-//        text2SpeechTask.saveFileFromTTS(fileSaveDialogScreenView.getFileNameField().getText().toString(),label,listener);
-//        if(label.equals(Constants.OPEN))
-//            onNegativeButtonClicked();
-        insertTTSHistory();
+        String label = fileSaveDialogScreenView.getSaveButton().getText().toString();
+        if(label.equals(Constants.GOT_IT))
+            onNegativeButtonClicked();
+        else
+        {
+            if(fileIOTasks.isFileAlreadyExists(fileSaveScreenManipulationTasks.getFileName()))
+            {
+                fileSaveScreenManipulationTasks.toggleFileExistsText(true);
+                fileSaveScreenManipulationTasks.toggleSaveButtonText(false);
+            }
+            else
+            {
+                fileSaveScreenManipulationTasks.toggleFileExistsText(false);
+                startMovingFile();
+            }
+        }
+
     }
 
     @Override
@@ -89,19 +107,7 @@ public class FileSaveScreenController implements FileSaveDialogScreen.Listener, 
     @Override
     public void onFileMovingDone(File outputFile) {
         Log.e("FileSaved","Successfully@ "+outputFile.getAbsolutePath());
-
-    }
-
-    @Override
-    public void onFileAlreadyExists() {
-        fileSaveScreenManipulationTasks.toggleFileExistsText(true);
-        fileSaveScreenManipulationTasks.toggleSaveButtonText(false);
-
-    }
-
-    @Override
-    public void onFileSaveStarted() {
-        fileSaveScreenManipulationTasks.showSavingProgress();
+        fileSaveScreenManipulationTasks.showFileSaveDoneMessage(outputFile.getAbsolutePath());
 
     }
 }

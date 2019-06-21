@@ -141,7 +141,8 @@
     <string name="cancel">Cancel</string>
     <string name="override">Override?</string>
     <string name="open">Open?</string>
-    <string name="saved_successfully">File Saved Successfully!!</string>
+    <string name="got_it">Got It!</string>
+    <string name="saved_successfully">File Saved Successfully at\n</string>
     <string name="please_wait">Please Wait....</string>
     <!--admob-->
 
