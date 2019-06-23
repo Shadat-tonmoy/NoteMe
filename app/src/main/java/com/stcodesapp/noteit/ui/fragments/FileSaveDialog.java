@@ -12,6 +12,7 @@ import android.support.v7.app.AlertDialog;
 import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.controllers.fragmentController.FileSaveScreenController;
 import com.stcodesapp.noteit.ui.activities.BaseActivity;
+import com.stcodesapp.noteit.ui.activities.NoteFieldActivity;
 import com.stcodesapp.noteit.ui.views.screenViews.dialogScreenView.FileSaveDialogScreenView;
 import com.stcodesapp.noteit.ui.views.screens.dialogScreen.FileSaveDialogScreen;
 
@@ -23,6 +24,7 @@ public class FileSaveDialog extends DialogFragment implements FileSaveScreenCont
     private Activity activity;
     private FileSaveDialogScreenView fileSaveDialogScreenView;
     private FileSaveScreenController fileSaveScreenController;
+    private File inputFile;
 
 
     public static FileSaveDialog newInstance(Bundle args) {
@@ -50,7 +52,8 @@ public class FileSaveDialog extends DialogFragment implements FileSaveScreenCont
         if(args!=null)
         {
             String inputFilePath = args.getString(Tags.INPUT_FILE_PATH);
-            fileSaveScreenController.bindInputFile(new File(inputFilePath));
+            inputFile = new File(inputFilePath);
+            fileSaveScreenController.bindInputFile(inputFile);
         }
         builder.setView(fileSaveDialogScreenView.getRootView());
         return builder.create();
@@ -83,5 +86,11 @@ public class FileSaveDialog extends DialogFragment implements FileSaveScreenCont
     public void onDisableCancellable()
     {
         this.setCancelable(false);
+    }
+
+    @Override
+    public void onFileSaved(File file) {
+        ((NoteFieldActivity)requireActivity()).getNoteFieldController().saveRecordedAudioFileToDB(file);
+
     }
 }

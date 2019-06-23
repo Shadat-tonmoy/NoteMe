@@ -45,6 +45,7 @@ import com.stcodesapp.noteit.ui.fragments.FileSaveDialog;
 import com.stcodesapp.noteit.ui.fragments.PhoneNoOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
 
+import java.io.File;
 import java.io.IOException;
 
 
@@ -396,13 +397,23 @@ public class NoteFieldScreenManipulationTasks {
     {
         LinearLayout audioContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_audio_container);
         Audio audioFromUri = fileIOTasks.getAudioFileFromURI(audioUri);
-        if(audioFromUri==null)
+        if(audioFromUri==null && !audio.isFilePath())
         {
             return;
         }
-        audioFromUri.setId(audio.getId());
-        audioFromUri.setNoteId(audio.getNoteId());
-        audio = audioFromUri;
+        if(!audio.isFilePath())
+        {
+            audioFromUri.setId(audio.getId());
+            audioFromUri.setNoteId(audio.getNoteId());
+            audio = audioFromUri;
+        }
+        else
+        {
+            File audioFile = new File(audio.getAudioUri());
+            audio.setAudioTitle(audioFile.getName());
+            audio.setAudioSize(String.valueOf(audioFile.length()));
+
+        }
         if(audioContainer==null)
         {
             audioContainer = (activity.getLayoutInflater().inflate(R.layout.audio_container,null,false)).findViewById(R.id.chosen_audio_container);

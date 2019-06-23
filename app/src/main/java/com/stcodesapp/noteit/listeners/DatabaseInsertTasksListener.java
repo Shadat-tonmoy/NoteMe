@@ -77,7 +77,8 @@ public class DatabaseInsertTasksListener implements EmailInsertTask.Listener, No
 
     @Override
     public void onCheckListInserted(CheckList checkList) {
-        insertCheckListItems(checkList);
+        if(checkList!=null)
+            insertCheckListItems(checkList);
         if(isUpdating)
             Toast.makeText(activity,activity.getResources().getString(R.string.check_list_inserted),Toast.LENGTH_SHORT).show();
 

@@ -12,7 +12,7 @@ public interface FileSaveDialogScreen extends BaseObservableScreen<FileSaveDialo
     {
         void onPositiveButtonClicked();
 
-        void onNegativeButtonClicked();
+        void onNegativeButtonClicked(boolean saveFileToDB);
 
         void onEditTextChanged(String text);
     }

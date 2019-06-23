@@ -17,6 +17,8 @@ public class FileSaveScreenController implements FileSaveDialogScreen.Listener, 
     public interface Listener{
         void onDismissDialog();
 
+        void onFileSaved(File file);
+
         void onDisableCancellable();
     }
 
@@ -76,7 +78,9 @@ public class FileSaveScreenController implements FileSaveDialogScreen.Listener, 
     public void onPositiveButtonClicked() {
         String label = fileSaveDialogScreenView.getSaveButton().getText().toString();
         if(label.equals(Constants.GOT_IT))
-            onNegativeButtonClicked();
+        {
+            onNegativeButtonClicked(true);
+        }
         else
         {
             if(fileIOTasks.isFileAlreadyExists(fileSaveScreenManipulationTasks.getFileName()))
@@ -94,8 +98,10 @@ public class FileSaveScreenController implements FileSaveDialogScreen.Listener, 
     }
 
     @Override
-    public void onNegativeButtonClicked() {
+    public void onNegativeButtonClicked(boolean saveFileToDB) {
         clipboardTasks.hideKeyBoard(fileSaveDialogScreenView.getFileNameField());
+        if(saveFileToDB)
+            listener.onFileSaved(inputFile);
         listener.onDismissDialog();
     }
 
@@ -107,6 +113,7 @@ public class FileSaveScreenController implements FileSaveDialogScreen.Listener, 
     @Override
     public void onFileMovingDone(File outputFile) {
         Log.e("FileSaved","Successfully@ "+outputFile.getAbsolutePath());
+        bindInputFile(outputFile);
         fileSaveScreenManipulationTasks.showFileSaveDoneMessage(outputFile.getAbsolutePath());
 
     }

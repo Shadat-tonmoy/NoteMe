@@ -269,6 +269,22 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
 
     }
 
+    public void saveRecordedAudioFileToDB(File file)
+    {
+//        Log.e("SavedFile",inputFile.getAbsolutePath()+" Name "+inputFile.getName());
+        Audio audio = new Audio(file.getName(),String.valueOf(file.length()), file.getAbsolutePath(), true);
+        audio.setNoteId(noteComponents.getNote().getId());
+        noteFieldScreenManipulationTasks.addAudioToChosenContactContainer(audio,Uri.parse(audio.getAudioUri()),fileIOTasks);
+        if(audio!=null)
+        {
+            noteComponents.getNote().updateAudioPriority();
+            noteComponents.getChosenAudios().add(audio);
+            if(isUpdating)
+                addChosenAudioToDB(audio);
+        }
+
+    }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

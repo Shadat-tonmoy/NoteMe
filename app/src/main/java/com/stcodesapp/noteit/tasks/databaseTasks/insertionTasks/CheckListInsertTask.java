@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.database.NoteDatabase;
 import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.CheckList;
@@ -35,7 +36,8 @@ public class CheckListInsertTask extends AsyncTask<CheckList, Void, CheckList> {
 
     @Override
     protected CheckList doInBackground(CheckList... checkLists) {
-        Log.e("InsertingCheckList",checkLists.toString());
+        if(checkLists.length== Constants.ZERO)
+            return null;
         if(checkLists.length==1)
         {
             checkLists[0].setCheckListId(noteDatabase.checkListDao().insertSingleCheckList(checkLists[0]));

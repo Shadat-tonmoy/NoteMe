@@ -61,7 +61,7 @@ public class FileSaveDialogScreenView extends BaseObservableScreenView<FileSaveD
                     switch (eventType)
                     {
                         case EventTypes.SAVE_DIALOG_CANCEL_BUTTON_CLICKED:
-                            listener.onNegativeButtonClicked();
+                            listener.onNegativeButtonClicked(false);
                             break;
                         case EventTypes.SAVE_DIALOG_SAVE_BUTTON_CLICKED:
                             listener.onPositiveButtonClicked();
