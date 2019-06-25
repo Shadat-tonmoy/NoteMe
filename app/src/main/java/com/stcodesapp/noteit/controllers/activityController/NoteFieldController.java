@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -42,11 +43,13 @@ import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ImageInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteComponentSelectionTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileMovingTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.ImageCapturingTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.VoiceInputTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.VoiceRecordTask;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.NoteFieldScreenManipulationTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
+import com.stcodesapp.noteit.ui.fragments.AudioOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.ColorPallateBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.PhoneNoOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
@@ -57,7 +60,7 @@ import java.io.File;
 import static android.app.Activity.RESULT_OK;
 import static com.stcodesapp.noteit.constants.Constants.SINGLE_CHECKLIST;
 
-public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener,NoteComponentSelectionTask.Listener, ContactDeleteTask.Listener, EmailDeleteTask.Listener, ImageDeleteTask.Listener, AudioDeleteTask.Listener, DialogInterface.OnClickListener
+public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener,NoteComponentSelectionTask.Listener, ContactDeleteTask.Listener, EmailDeleteTask.Listener, ImageDeleteTask.Listener, AudioDeleteTask.Listener, DialogInterface.OnClickListener, AudioOptionsBottomSheets.Listener
 {
 
     private TasksFactory tasksFactory;
@@ -70,6 +73,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     private VoiceInputTasks voiceInputTasks;
     private NoteComponents noteComponents;
     private boolean isUpdating = false;
+    ImageCapturingTask imageCapturingTask;
     private NoteFieldAdController noteFieldAdController;
 
     public NoteFieldController(TasksFactory tasksFactory) {
@@ -80,6 +84,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         appPermissionTrackingTasks = tasksFactory.getAppPermissionTrackingTasks();
         voiceInputTasks = tasksFactory.getVoiceInputTasks();
         listeningTasks = tasksFactory.getListeningTasks();
+        imageCapturingTask = tasksFactory.getImageCapturingTask();
 
     }
 
@@ -166,7 +171,8 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
                 noteFieldScreenManipulationTasks.showColorPalate(this);
                 break;
             case R.id.add_image_menu:
-                fileIOTasks.openFilePickerForImage();
+                openCameraToTakeImage();
+//                fileIOTasks.openFilePickerForImage();
                 break;
             case R.id.add_phone_no_menu:
                 noteFieldScreenManipulationTasks.showPhoneNoOptions(this);
@@ -175,8 +181,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
                 activityNavigationTasks.toManualEmailScreen(new Bundle());
                 break;
             case R.id.add_audio_menu:
-                startVoiceRecorder();
-//                fileIOTasks.openFilePickerForAudio();
+                noteFieldScreenManipulationTasks.showAudioOptions(this);
                 break;
             case R.id.add_checklist_menu:
                 Bundle args = new Bundle();
@@ -209,6 +214,9 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
             {
                 case RequestCode.OPEN_IMAGE_FILE:
                     handleChosenImage(data);
+                    break;
+                case RequestCode.OPEN_CAMERA_TO_TAKE_IMAGE:
+                    handleCapturedImage(data);
                     break;
                 case RequestCode.OPEN_CONTACT_LIST:
                     handleChosenContact(data);
@@ -243,35 +251,14 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
 
     private void handleRecordedVoice(Intent data) {
         Uri selectedAudio = data.getData();
-        Uri audioUri = Uri.parse(selectedAudio.getPath());
         Bundle args = new Bundle();
         args.putString(Tags.INPUT_FILE_PATH,selectedAudio.getPath());
         noteFieldScreenManipulationTasks.showFileSavingDialog(args);
-//        Log.e("OutputPath",fileIOTasks.getDirectoryPath());//fileIOTasks.getStoragePath();
-//        Log.e("InputPath",selectedAudio.getPath());//fileIOTasks.getStoragePath();
-//        fileMovingTask.execute(inputFile,outputFile);
-        /*if(audioUri!=null)
-        {
-//            Uri recordedAudioURI = Uri.fromFile(new File(selectedAudio.toString()));
-            Audio audio = fileIOTasks.getAudioFileFromURI(audioUri);
-//            Log.e("RecordedAudio",recordedAudioURI.toString());
-
-        }*/
-        /*audio.setNoteId(noteComponents.getNote().getId());
-        noteFieldScreenManipulationTasks.addAudioToChosenContactContainer(audio,selectedAudio,fileIOTasks);
-        if(audio!=null)
-        {
-            noteComponents.getNote().updateAudioPriority();
-            noteComponents.getChosenAudios().add(audio);
-            if(isUpdating)
-                addChosenAudioToDB(audio);
-        }*/
 
     }
 
     public void saveRecordedAudioFileToDB(File file)
     {
-//        Log.e("SavedFile",inputFile.getAbsolutePath()+" Name "+inputFile.getName());
         Audio audio = new Audio(file.getName(),String.valueOf(file.length()), file.getAbsolutePath(), true);
         audio.setNoteId(noteComponents.getNote().getId());
         noteFieldScreenManipulationTasks.addAudioToChosenContactContainer(audio,Uri.parse(audio.getAudioUri()),fileIOTasks);
@@ -296,6 +283,13 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
                noteFieldScreenManipulationTasks.showPermissionRequiredMessage(PermissionType.CONTACT_READ_PERMISSION);
        }
        else if(requestCode == RequestCode.READ_EXTERNAL_STORAGE_PERMISSION)
+       {
+           if(grantResults[0]==PackageManager.PERMISSION_GRANTED)
+               noteFieldScreenManipulationTasks.addImageToFields();
+           else
+               noteFieldScreenManipulationTasks.showPermissionRequiredMessage(PermissionType.IMAGE_READ_PERMISSION);
+       }
+       else if(requestCode == RequestCode.OPEN_CAMERA_PERMISSION)
        {
            if(grantResults[0]==PackageManager.PERMISSION_GRANTED)
                noteFieldScreenManipulationTasks.addImageToFields();
@@ -354,6 +348,24 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     {
         Uri selectedImage = intent.getData();
         Image image = fileIOTasks.getImageFromURI(selectedImage);
+        if(image!=null)
+        {
+            noteComponents.getChosenImages().add(image);
+            noteComponents.getNote().updateImagePriority();
+            image.setNoteId(noteComponents.getNote().getId());
+            noteFieldScreenManipulationTasks.addImageToChosenImageContainer(image);
+            if(isUpdating)
+                addChosenImageToDB(image);
+        }
+    }
+
+    private void handleCapturedImage(Intent intent)
+    {
+//        Uri selectedImage = (Uri) intent.getExtras().get(MediaStore.EXTRA_OUTPUT);
+        Uri selectedImage = imageCapturingTask.getCapturedImageURI();
+        Log.e("CapturedImage",selectedImage.toString());
+        Image image = fileIOTasks.getImageFromURI(selectedImage);
+        Log.e("CapturedImage"," File "+selectedImage.toString());
         if(image!=null)
         {
             noteComponents.getChosenImages().add(image);
@@ -535,6 +547,11 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         }
     }
 
+    private void openCameraToTakeImage()
+    {
+        imageCapturingTask.openCameraToTakeImage();
+    }
+
     @Override
     public void onNoteComponentFetched(NoteComponents noteComponents) {
         noteFieldScreenManipulationTasks.bindNoteComponents(noteComponents);
@@ -593,4 +610,17 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
 
     }
 
+    @Override
+    public void onAudioOptionSelected(int audioOption) {
+        noteFieldScreenManipulationTasks.dismissAudioOptions();
+        switch (audioOption)
+        {
+            case EventTypes.RECORD_AUDIO_OPTION_CLICKED:
+                startVoiceRecorder();
+                break;
+            case EventTypes.PICK_AUDIO_FROM_FILE_OPTION_CLICKED:
+                fileIOTasks.openFilePickerForAudio();
+                break;
+        }
+    }
 }

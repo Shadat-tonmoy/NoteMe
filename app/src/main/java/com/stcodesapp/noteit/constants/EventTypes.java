@@ -13,8 +13,9 @@ public class EventTypes {
     public static final int DELETE_IMAGE_BUTTON_CLICKED = 10;
     public static final int DELETE_AUDIO_BUTTON_CLICKED = 11;
     public static final int DELETE_NOTE_BUTTON_CLICKED = 12;
-
     public static final int SAVE_DIALOG_CANCEL_BUTTON_CLICKED= 13;
     public static final int SAVE_DIALOG_SAVE_BUTTON_CLICKED= 14;
+    public static final int RECORD_AUDIO_OPTION_CLICKED= 15;
+    public static final int PICK_AUDIO_FROM_FILE_OPTION_CLICKED= 16;
 
 }

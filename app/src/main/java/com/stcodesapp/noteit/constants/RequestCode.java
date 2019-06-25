@@ -18,4 +18,6 @@ public class RequestCode {
     public static final int UPDATE_NOTE = 12;
     public static final int ADD_SINGLE_CHECKLIST = 13;
     public static final int OPEN_VOICE_RECORDER= 14;
+    public static final int OPEN_CAMERA_PERMISSION = 15;
+    public static final int OPEN_CAMERA_TO_TAKE_IMAGE = 16;
 }

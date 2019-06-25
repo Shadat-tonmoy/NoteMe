@@ -628,6 +628,7 @@
     <string name="audio_inserted">Audio Added!</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="call">Call</string>
+    <string name="camera_permission_is_required">Permission is required to capture image. Please allow permission and try again</string>
     <string name="cancel">Cancel</string>
     <string name="character_counter_content_description">Character limit exceeded %1$d of %2$d</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
@@ -724,10 +725,12 @@
     <string name="permission_is_required">Permission is required to enable this feature. Please allow permission and try again</string>
     <string name="phone_no">Phone No.</string>
     <string name="pick_from_contact">Pick From Contact</string>
+    <string name="pick_from_files">Pick From Files</string>
     <string name="please_wait">Please Wait....</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="pro_version">Pro Version</string>
     <string name="rate_the_app">Rate The App</string>
+    <string name="record_audio">Record Audio</string>
     <string name="remove">Remove</string>
     <string name="remove_all_note">Remove All Notes</string>
     <string name="removed_from_favorite">Note is removed from important</string>

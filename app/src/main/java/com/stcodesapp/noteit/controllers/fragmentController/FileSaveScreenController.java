@@ -65,8 +65,6 @@ public class FileSaveScreenController implements FileSaveDialogScreen.Listener, 
 
     private void startMovingFile()
     {
-
-
         File outputFile = new File(fileIOTasks.getDirectoryPath()+ Constants.SLASH +fileSaveScreenManipulationTasks.getFileName()+Constants.RECORDING_FILE_TYPE);
         FileMovingTask fileMovingTask = tasksFactory.getFileMovingTask(this);
         fileSaveScreenManipulationTasks.showSavingProgress();

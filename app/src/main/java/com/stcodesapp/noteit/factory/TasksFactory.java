@@ -6,6 +6,7 @@ import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileMovingTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.ImageCapturingTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.NoteFieldValidationTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.PDFCreationTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.VoiceInputTasks;
@@ -163,5 +164,10 @@ public class TasksFactory {
         fileMovingTask.setListener(listener);
         return fileMovingTask;
 
+    }
+
+    public ImageCapturingTask getImageCapturingTask()
+    {
+        return new ImageCapturingTask(activity,this);
     }
 }

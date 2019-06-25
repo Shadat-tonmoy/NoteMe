@@ -1063,6 +1063,7 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable about
+drawable audio_black
 drawable audio_gray
 drawable audio_white
 drawable avd_hide_password
@@ -1142,6 +1143,7 @@ drawable plus
 drawable privacy_policy
 drawable pro_version
 drawable rate
+drawable record_voice_black
 drawable round_shape_black
 drawable round_shape_blaze_hole
 drawable round_shape_blue
@@ -1429,12 +1431,14 @@ id parentPanel
 id parent_matrix
 id percent
 id pick_from_contact_option
+id pick_from_files_option
 id pin
 id policy_webview
 id progress_circular
 id progress_horizontal
 id progress_panel
 id radio
+id record_audio_option
 id remove_image
 id right
 id right_icon
@@ -1597,6 +1601,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout audio_container
 layout audio_holder
+layout audio_option_bottom_sheet_layout
 layout audio_option_layout
 layout check_list_container
 layout check_list_holder
@@ -1758,6 +1763,7 @@ string audio_file_from_storage
 string audio_inserted
 string bottom_sheet_behavior
 string call
+string camera_permission_is_required
 string cancel
 string character_counter_content_description
 string character_counter_pattern
@@ -1854,10 +1860,12 @@ string path_password_strike_through
 string permission_is_required
 string phone_no
 string pick_from_contact
+string pick_from_files
 string please_wait
 string privacy_policy
 string pro_version
 string rate_the_app
+string record_audio
 string remove
 string remove_all_note
 string removed_from_favorite

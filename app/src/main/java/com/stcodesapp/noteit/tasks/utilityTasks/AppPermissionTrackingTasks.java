@@ -14,6 +14,7 @@ public class AppPermissionTrackingTasks {
     private final String WRITE_EXTERNAL_STORAGE = Manifest.permission.WRITE_EXTERNAL_STORAGE;
     private final String READ_CONTACT = Manifest.permission.READ_CONTACTS;
     private static final String READ_EXTERNAL_STORAGE = Manifest.permission.READ_EXTERNAL_STORAGE;
+    private static final String ACCESS_CAMERA = Manifest.permission.CAMERA;
 
 
     public AppPermissionTrackingTasks(Activity activity) {
@@ -71,6 +72,27 @@ public class AppPermissionTrackingTasks {
             else
             {
                 ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.READ_CONTACTS}, RequestCode.READ_CONTACT_PERMISSION);
+                return false;
+            }
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+
+    public boolean hasCameraAccessPermission()
+    {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+        {
+            if (activity.checkSelfPermission(ACCESS_CAMERA) == PackageManager.PERMISSION_GRANTED)
+            {
+                return true;
+            }
+            else
+            {
+                ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.CAMERA}, RequestCode.READ_CONTACT_PERMISSION);
                 return false;
             }
         }

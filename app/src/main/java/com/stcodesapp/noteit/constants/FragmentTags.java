@@ -18,4 +18,6 @@ public class FragmentTags {
     public static final String TIME_ASC = "time_a";
     public static final String IMPORTANT_ASC = "impor_a";
     public static final String FILE_SAVE_DIALOG = "file_save_dialog";
+    public static final String CONTACT_OPTIONS = "contact_options";
+    public static final String AUDIO_OPTIONS = "audio_options";
 }

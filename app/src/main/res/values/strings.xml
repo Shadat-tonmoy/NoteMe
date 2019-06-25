@@ -42,10 +42,12 @@
     <string name="test">This is a test image</string>
     <string name="add_phone_number_manually">Add Phone Number Manually</string>
     <string name="pick_from_contact">Pick From Contact</string>
+    <string name="pick_from_files">Pick From Files</string>
     <string name="choose_an_option_to_continue">Choose an Option to Continue</string>
     <string name="permission_is_required">Permission is required to enable this feature. Please allow permission and try again</string>
     <string name="contact_permission_is_required">Permission is required to read contact. Please allow permission and try again</string>
     <string name="storage_permission_is_required">Permission is required to load images. Please allow permission and try again</string>
+    <string name="camera_permission_is_required">Permission is required to capture image. Please allow permission and try again</string>
     <string name="test_contact">Test Contact</string>
     <string name="test_num">+8801521445110</string>
     <string name="text_copied">Text is copied to clipboard</string>
@@ -144,6 +146,7 @@
     <string name="got_it">Got It!</string>
     <string name="saved_successfully">File Saved Successfully at\n</string>
     <string name="please_wait">Please Wait....</string>
+    <string name="record_audio">Record Audio</string>
     <!--admob-->
 
     <!--ad_related_ids-->

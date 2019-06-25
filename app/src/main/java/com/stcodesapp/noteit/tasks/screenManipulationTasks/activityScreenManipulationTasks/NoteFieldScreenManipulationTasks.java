@@ -3,6 +3,7 @@ package com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipu
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ import com.stcodesapp.noteit.constants.BackgroundColors;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.FragmentTags;
 import com.stcodesapp.noteit.constants.PermissionType;
+import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.factory.ListeningTasks;
 import com.stcodesapp.noteit.factory.UIComponentFatory;
 import com.stcodesapp.noteit.listeners.AudioListener;
@@ -40,6 +42,7 @@ import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.utilityTasks.UtilityTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
+import com.stcodesapp.noteit.ui.fragments.AudioOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.ColorPallateBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.FileSaveDialog;
 import com.stcodesapp.noteit.ui.fragments.PhoneNoOptionsBottomSheets;
@@ -55,6 +58,7 @@ public class NoteFieldScreenManipulationTasks {
     private NoteFieldScreenView noteFieldScreenView;
     private ColorPallateBottomSheets colorPallateBottomSheets;
     private PhoneNoOptionsBottomSheets phoneNoOptionsBottomSheets;
+    private AudioOptionsBottomSheets audioOptionsBottomSheets;
     private ListeningTasks listeningTasks;
     private UIComponentFatory uiComponentFatory;
     private NoteComponents noteComponents;
@@ -455,12 +459,26 @@ public class NoteFieldScreenManipulationTasks {
     {
         phoneNoOptionsBottomSheets =  uiComponentFatory.getphoneNoOptionsBottomSheets();
         phoneNoOptionsBottomSheets.setListener(listener);
-        phoneNoOptionsBottomSheets.show(((AppCompatActivity)activity).getSupportFragmentManager(),"TAG");
+        phoneNoOptionsBottomSheets.show(((AppCompatActivity)activity).getSupportFragmentManager(),FragmentTags.CONTACT_OPTIONS);
     }
     public void dismissPhoneNoOptions()
     {
         if(phoneNoOptionsBottomSheets!=null && phoneNoOptionsBottomSheets.isVisible())
             phoneNoOptionsBottomSheets.dismiss();
+    }
+
+
+    public void showAudioOptions(AudioOptionsBottomSheets.Listener listener)
+    {
+        audioOptionsBottomSheets =  uiComponentFatory.getAudioOptionsBottomSheets();
+        audioOptionsBottomSheets.setListener(listener);
+        audioOptionsBottomSheets.show(((AppCompatActivity)activity).getSupportFragmentManager(),FragmentTags.AUDIO_OPTIONS);
+    }
+
+    public void dismissAudioOptions()
+    {
+        if(audioOptionsBottomSheets!=null && audioOptionsBottomSheets.isVisible())
+            audioOptionsBottomSheets.dismiss();
     }
 
     public void showPermissionRequiredMessage(PermissionType permissionType)
@@ -473,6 +491,9 @@ public class NoteFieldScreenManipulationTasks {
                 break;
             case IMAGE_READ_PERMISSION:
                 message = activity.getResources().getString(R.string.storage_permission_is_required);
+                break;
+            case CAMERA_ACCESS_PERMISSION:
+                message = activity.getResources().getString(R.string.camera_permission_is_required);
                 break;
         }
         Toast.makeText(activity, message, Toast.LENGTH_SHORT).show();
@@ -595,5 +616,11 @@ public class NoteFieldScreenManipulationTasks {
 
     public void hideDoneButton() {
         noteFieldScreenView.getSaveBtton().setVisibility(View.GONE);
+    }
+
+    public void openCamera() {
+        Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        activity.startActivityForResult(cameraIntent, RequestCode.OPEN_CAMERA_TO_TAKE_IMAGE);
+
     }
 }

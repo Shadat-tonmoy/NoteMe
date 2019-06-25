@@ -21,7 +21,8 @@ public class NoteFieldValidationTask {
         int images = noteComponents.getChosenImages().size();
         int contact = noteComponents.getChosenContacts().size();
         int emails = noteComponents.getEmails().size();
-        if(audio>0 || images>0 || contact>0 || emails>0)
+        int checkLists = noteComponents.getCheckLists().size();
+        if(audio>0 || images>0 || contact>0 || emails>0 || checkLists>0)
             return true;
         String title = noteComponents.getNote().getNoteTitle();
         String text = noteComponents.getNote().getNoteText();
