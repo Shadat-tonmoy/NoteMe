@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_an_option_to_continue"
+        android:layout_margin="16dp"
+        />
+
+    <TextView
+        android:id="@+id/capture_image_option"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/take_photo"
+        android:textSize="16sp"
+        android:padding="16dp"
+        android:drawableLeft="@drawable/record_voice_black"
+        android:drawablePadding="8dp"
+        android:foreground="?attr/selectableItemBackground"
+        />
+
+    <TextView
+        android:id="@+id/pick_from_files_option"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pick_from_files"
+        android:textSize="16sp"
+        android:padding="16dp"
+        android:drawableLeft="@drawable/audio_black"
+        android:drawablePadding="8dp"
+        android:foreground="?attr/selectableItemBackground"
+        />
+
+</LinearLayout>

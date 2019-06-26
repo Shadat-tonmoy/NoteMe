@@ -1226,6 +1226,7 @@ id buttonPanel
 id button_panel
 id cancel_action
 id cancel_button
+id capture_image_option
 id center
 id center_horizontal
 id center_vertical
@@ -1641,6 +1642,7 @@ layout fragment_container_layout
 layout home_screen
 layout image_container
 layout image_holder
+layout image_option_bottom_sheet_layout
 layout main_activity_layout
 layout manual_contact_screen
 layout manual_email_screen
@@ -1891,6 +1893,7 @@ string sort
 string sort_by
 string status_bar_notification_info_overflow
 string storage_permission_is_required
+string take_photo
 string test
 string test_contact
 string test_num

@@ -20,4 +20,5 @@ public class FragmentTags {
     public static final String FILE_SAVE_DIALOG = "file_save_dialog";
     public static final String CONTACT_OPTIONS = "contact_options";
     public static final String AUDIO_OPTIONS = "audio_options";
+    public static final String IMAGE_OPTIONS = "image_options";
 }

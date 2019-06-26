@@ -45,6 +45,7 @@ import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
 import com.stcodesapp.noteit.ui.fragments.AudioOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.ColorPallateBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.FileSaveDialog;
+import com.stcodesapp.noteit.ui.fragments.ImageOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.PhoneNoOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
 
@@ -59,6 +60,7 @@ public class NoteFieldScreenManipulationTasks {
     private ColorPallateBottomSheets colorPallateBottomSheets;
     private PhoneNoOptionsBottomSheets phoneNoOptionsBottomSheets;
     private AudioOptionsBottomSheets audioOptionsBottomSheets;
+    private ImageOptionsBottomSheets imageOptionsBottomSheets;
     private ListeningTasks listeningTasks;
     private UIComponentFatory uiComponentFatory;
     private NoteComponents noteComponents;
@@ -479,6 +481,19 @@ public class NoteFieldScreenManipulationTasks {
     {
         if(audioOptionsBottomSheets!=null && audioOptionsBottomSheets.isVisible())
             audioOptionsBottomSheets.dismiss();
+    }
+
+    public void showImageOptions(ImageOptionsBottomSheets.Listener listener)
+    {
+        imageOptionsBottomSheets =  uiComponentFatory.getImageOptionsBottomSheets();
+        imageOptionsBottomSheets.setListener(listener);
+        imageOptionsBottomSheets.show(((AppCompatActivity)activity).getSupportFragmentManager(),FragmentTags.AUDIO_OPTIONS);
+    }
+
+    public void dismissImageOptions()
+    {
+        if(imageOptionsBottomSheets!=null && imageOptionsBottomSheets.isVisible())
+            imageOptionsBottomSheets.dismiss();
     }
 
     public void showPermissionRequiredMessage(PermissionType permissionType)

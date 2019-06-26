@@ -17,5 +17,7 @@ public class EventTypes {
     public static final int SAVE_DIALOG_SAVE_BUTTON_CLICKED= 14;
     public static final int RECORD_AUDIO_OPTION_CLICKED= 15;
     public static final int PICK_AUDIO_FROM_FILE_OPTION_CLICKED= 16;
+    public static final int TAKE_PHOTO_OPTION_CLICKED= 17;
+    public static final int PICK_IMAGE_FROM_FILE_OPTION_CLICKED= 18;
 
 }

@@ -756,6 +756,7 @@
     <string name="sort_by">Sort By</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="storage_permission_is_required">Permission is required to load images. Please allow permission and try again</string>
+    <string name="take_photo">Take Photo</string>
     <string name="test">This is a test image</string>
     <string name="test_contact">Test Contact</string>
     <string name="test_num">+8801521445110</string>

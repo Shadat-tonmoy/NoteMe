@@ -51,6 +51,7 @@ import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipul
 import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
 import com.stcodesapp.noteit.ui.fragments.AudioOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.ColorPallateBottomSheets;
+import com.stcodesapp.noteit.ui.fragments.ImageOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.PhoneNoOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
 import com.stcodesapp.noteit.ui.views.screens.activityScreen.NoteFieldScreen;
@@ -60,7 +61,7 @@ import java.io.File;
 import static android.app.Activity.RESULT_OK;
 import static com.stcodesapp.noteit.constants.Constants.SINGLE_CHECKLIST;
 
-public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener,NoteComponentSelectionTask.Listener, ContactDeleteTask.Listener, EmailDeleteTask.Listener, ImageDeleteTask.Listener, AudioDeleteTask.Listener, DialogInterface.OnClickListener, AudioOptionsBottomSheets.Listener
+public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener,NoteComponentSelectionTask.Listener, ContactDeleteTask.Listener, EmailDeleteTask.Listener, ImageDeleteTask.Listener, AudioDeleteTask.Listener, DialogInterface.OnClickListener, AudioOptionsBottomSheets.Listener, ImageOptionsBottomSheets.Listener
 {
 
     private TasksFactory tasksFactory;
@@ -171,8 +172,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
                 noteFieldScreenManipulationTasks.showColorPalate(this);
                 break;
             case R.id.add_image_menu:
-                openCameraToTakeImage();
-//                fileIOTasks.openFilePickerForImage();
+                noteFieldScreenManipulationTasks.showImageOptions(this);
                 break;
             case R.id.add_phone_no_menu:
                 noteFieldScreenManipulationTasks.showPhoneNoOptions(this);
@@ -622,5 +622,20 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
                 fileIOTasks.openFilePickerForAudio();
                 break;
         }
+    }
+
+    @Override
+    public void onImageOptionSelected(int imageOption) {
+        noteFieldScreenManipulationTasks.dismissImageOptions();
+        switch (imageOption)
+        {
+            case EventTypes.TAKE_PHOTO_OPTION_CLICKED:
+                openCameraToTakeImage();
+                break;
+            case EventTypes.PICK_IMAGE_FROM_FILE_OPTION_CLICKED:
+                fileIOTasks.openFilePickerForImage();
+                break;
+        }
+
     }
 }
