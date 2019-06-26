@@ -638,6 +638,7 @@ color background_material_light
 color black
 color blackTrans
 color blaze_hole
+color blaze_hole_trans
 color blue
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
@@ -735,6 +736,7 @@ color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
 color pumpkin
+color pumpkin_transparent
 color purple700
 color red
 color ripple_material_dark
@@ -750,6 +752,8 @@ color switch_thumb_material_dark
 color switch_thumb_material_light
 color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
+color text_default
+color text_default_trans
 color tooltip_background_dark
 color tooltip_background_light
 color transparent
@@ -970,6 +974,7 @@ dimen notification_top_pad
 dimen notification_top_pad_large_text
 dimen search_icon_padding
 dimen search_view_text_padding
+dimen tab_item_padding
 dimen toolbarTitle
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
@@ -1077,6 +1082,7 @@ drawable color_cursor_white
 drawable contact_badge
 drawable contacts_gray
 drawable copy_black
+drawable default_package_fg
 drawable delete_black
 drawable delete_red
 drawable design_bottom_navigation_item_background
@@ -1143,6 +1149,8 @@ drawable phone_ring_white_xs
 drawable placeholder_image
 drawable plus
 drawable privacy_policy
+drawable pro_bg
+drawable pro_done_button_bg
 drawable pro_version
 drawable rate
 drawable rate_us_bg
@@ -1159,6 +1167,7 @@ drawable round_shape_purple
 drawable round_shape_white
 drawable save_as_pdf_white
 drawable search_white
+drawable selected_package_fg
 drawable send_black
 drawable settings
 drawable share
@@ -1219,10 +1228,12 @@ id audio_size
 id audio_title
 id auto
 id back_button
+id back_icon
 id badge_holder
 id barrier
 id baseline
 id beginning
+id bg_image
 id blocking
 id bottom
 id buttonPanel
@@ -1351,7 +1362,10 @@ id ghost_view
 id gone
 id group_divider
 id groups
+id half_yearly_subs_btn
 id hamburger_button
+id header_container
+id header_text
 id home
 id homeAsUp
 id home_menu
@@ -1359,6 +1373,7 @@ id icon
 id icon_group
 id ifRoom
 id image
+id imageView
 id imageView3
 id important_menu
 id info
@@ -1369,6 +1384,8 @@ id labeled
 id largeLabel
 id last_modified_text
 id left
+id life_time_subs_btn
+id life_time_text
 id line1
 id line3
 id listMode
@@ -1376,6 +1393,7 @@ id list_icon
 id list_item
 id loading_view
 id love_text
+id mainHolder
 id main_layout
 id manual_phone_number_option
 id masked
@@ -1383,6 +1401,7 @@ id media_actions
 id message
 id middle
 id mini
+id monthly_subs_btn
 id more_button
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
@@ -1430,7 +1449,9 @@ id notification_main_column_container
 id nowrap
 id number
 id object_list
+id one_month_text
 id outline
+id package_container
 id packed
 id parallax
 id parent
@@ -1441,6 +1462,9 @@ id pick_from_contact_option
 id pick_from_files_option
 id pin
 id policy_webview
+id pro_close_btn
+id pro_continue_btn
+id pro_features
 id progress_circular
 id progress_horizontal
 id progress_panel
@@ -1489,6 +1513,7 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
+id six_month_text
 id smallLabel
 id snackbar_action
 id snackbar_text
@@ -1648,6 +1673,7 @@ layout email_option_layout
 layout email_single_row
 layout file_save_dialog_screen
 layout fragment_container_layout
+layout fragment_dialog_iap
 layout home_screen
 layout image_container
 layout image_holder
@@ -1794,6 +1820,7 @@ string common_google_play_services_unknown_issue
 string contact_inserted
 string contact_permission_is_required
 string contacts
+string continue_
 string copy
 string copy_note
 string created
@@ -1834,6 +1861,8 @@ string home_screen
 string image_inserted
 string important
 string last_modified
+string life_time
+string life_time_price
 string love_note_it
 string menu_1
 string menu_2
@@ -1861,9 +1890,14 @@ string note_text
 string note_time
 string note_title
 string note_updated
+string noteit_pro
 string notes_are_sorted
 string nothing_to_save
 string ok_continue
+string one_month
+string one_month_price
+string one_year
+string one_year_price
 string open
 string override
 string password_toggle_content_description
@@ -1877,6 +1911,7 @@ string pick_from_contact
 string pick_from_files
 string please_wait
 string privacy_policy
+string pro_features
 string pro_version
 string rate
 string rate_the_app
@@ -1903,6 +1938,8 @@ string secondary_fragment
 string settings
 string share_note
 string share_the_app
+string six_month
+string six_month_price
 string sort
 string sort_by
 string status_bar_notification_info_overflow
@@ -2422,6 +2459,11 @@ style noteHeaderContainer
 style noteHeaderStyle
 style noteTextStyle
 style noteTextStyleSmall
+style pro_card_style
+style pro_features_style
+style pro_header_style
+style pro_period_style
+style pro_price_style
 style sorting_option_spinner_style
 style sorting_option_text_style
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle

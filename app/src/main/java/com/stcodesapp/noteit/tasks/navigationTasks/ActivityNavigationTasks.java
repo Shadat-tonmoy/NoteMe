@@ -10,6 +10,7 @@ import com.stcodesapp.noteit.ui.activities.ManualContactActivity;
 import com.stcodesapp.noteit.ui.activities.ManualEmailActivity;
 import com.stcodesapp.noteit.ui.activities.NoteFieldActivity;
 import com.stcodesapp.noteit.ui.activities.PrivacyPolicyActivity;
+import com.stcodesapp.noteit.ui.activities.InAppPurchaseActivity;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -73,5 +74,10 @@ public class ActivityNavigationTasks {
     {
         activity.setResult(RESULT_OK, result);
         activity.finish();
+    }
+
+    public void showIAPDialog() {
+        Intent intent = new Intent(activity, InAppPurchaseActivity.class);
+        activity.startActivity(intent);
     }
 }

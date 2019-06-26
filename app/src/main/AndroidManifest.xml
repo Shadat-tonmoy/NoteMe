@@ -37,6 +37,10 @@
             android:theme="@style/AppTheme.Transparent"
             />
         <activity
+            android:name=".ui.activities.InAppPurchaseActivity"
+            android:theme="@style/AppTheme.Transparent"
+            />
+        <activity
             android:name=".ui.activities.MainActivity"
             android:theme="@style/AppTheme.TransparentActionBar">
             <intent-filter>

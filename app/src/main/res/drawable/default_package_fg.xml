@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_enabled="true">
+        <shape
+            android:shape="rectangle">
+
+            <solid android:color="@color/text_default_trans"/>
+
+            <corners android:radius="7dp"/>
+
+            <padding android:left="@dimen/tab_item_padding"
+                     android:right="@dimen/tab_item_padding"
+                     android:top="@dimen/tab_item_padding"
+                     android:bottom="@dimen/tab_item_padding"/>
+
+        </shape>
+    </item>
+    <item>
+        <shape
+            android:shape="rectangle">
+
+            <solid android:color="@color/text_default_trans"/>
+
+            <corners android:radius="7dp"/>
+
+            <padding android:left="@dimen/tab_item_padding"
+                     android:right="@dimen/tab_item_padding"
+                     android:top="@dimen/tab_item_padding"
+                     android:bottom="@dimen/tab_item_padding"/>
+
+        </shape>
+    </item>
+</selector>

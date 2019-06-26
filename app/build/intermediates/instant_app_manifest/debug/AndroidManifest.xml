@@ -49,6 +49,9 @@
             android:name="com.stcodesapp.noteit.ui.activities.PrivacyPolicyActivity"
             android:theme="@style/AppTheme.Transparent" />
         <activity
+            android:name="com.stcodesapp.noteit.ui.activities.InAppPurchaseActivity"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity
             android:name="com.stcodesapp.noteit.ui.activities.MainActivity"
             android:theme="@style/AppTheme.TransparentActionBar" >
             <intent-filter>

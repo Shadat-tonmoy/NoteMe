@@ -3,5 +3,6 @@
     <dimen name="hamburgerPadding">16dp</dimen>
     <dimen name="toolbarTitle">16sp</dimen>
     <dimen name="badgeRadius">8dp</dimen>
-    <dimen name="homeScreenBottomPadding">150dp</dimen>
+    <dimen name="homeScreenBottomPadding">150dp</dimen>\
+    <dimen name="tab_item_padding">5dp</dimen>
 </resources>

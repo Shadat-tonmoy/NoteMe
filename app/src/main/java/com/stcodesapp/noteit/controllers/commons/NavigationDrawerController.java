@@ -54,6 +54,9 @@ public class NavigationDrawerController implements NavigationDrawerScreen.Listen
                 fragmentNavigationTasks.toContactFragment();
                 updateToolbarTitle(FragmentTags.CONTACTS);
                 break;
+            case R.id.nav_pro_version:
+                activityNavigationTasks.showIAPDialog();
+                break;
             case R.id.email_menu:
                 fragmentNavigationTasks.toEmailFragment();
                 updateToolbarTitle(FragmentTags.EMAILS);

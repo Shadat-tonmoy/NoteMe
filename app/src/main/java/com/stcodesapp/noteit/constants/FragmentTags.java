@@ -21,4 +21,5 @@ public class FragmentTags {
     public static final String CONTACT_OPTIONS = "contact_options";
     public static final String AUDIO_OPTIONS = "audio_options";
     public static final String IMAGE_OPTIONS = "image_options";
+    public static final String IAP_DIALOG = "iap_dialog";
 }

@@ -1,20 +1,20 @@
 -- Merging decision tree log ---
 provider#android.support.v4.content.FileProvider
-INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:49:9-57:20
+INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:53:9-61:20
 	android:grantUriPermissions
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:53:13-47
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:57:13-47
 	android:authorities
 		INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:51:13-60
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:55:13-60
 	android:exported
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:52:13-37
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:56:13-37
 	android:name
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:50:13-67
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:54:13-67
 manifest
-ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-60:12
-INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-60:12
-INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-60:12
-INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-60:12
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-64:12
 MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a39dd6770478fef142237d32eea254e5/AndroidManifest.xml:2:1-13:12
 MERGED from [com.android.support:design:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/14a140a637dbdde926d69ad9528ab35a/AndroidManifest.xml:17:1-24:12
 MERGED from [com.github.RaviKoradiya:ZoomableImageView:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/cfc0485e1712a2f993766bd33246f0b8/AndroidManifest.xml:2:1-16:12
@@ -62,20 +62,20 @@ MERGED from [com.android.support:print:28.0.0] /home/shadat/android/.gradle/cach
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/5d2672263dc11d03ee3c3a2cf6f2aa81/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:interpolator:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/7478b9dc88645b07a968c7fc2f158d0d/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-ads-base:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a9fcc48dba0acd9673fe32a47234230f/AndroidManifest.xml:17:1-24:12
-INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-60:12
-INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-60:12
-INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-60:12
+INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-64:12
 	package
 		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:3:5-36
 		INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
 		INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-60:12
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-64:12
 		INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-60:12
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-64:12
 		INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:11-69
@@ -116,7 +116,7 @@ ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/Android
 	android:name
 		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:12:22-62
 application
-ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:14:5-58:19
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:14:5-62:19
 MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a39dd6770478fef142237d32eea254e5/AndroidManifest.xml:11:5-20
 MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a39dd6770478fef142237d32eea254e5/AndroidManifest.xml:11:5-20
 MERGED from [com.android.support:design:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/14a140a637dbdde926d69ad9528ab35a/AndroidManifest.xml:22:5-20
@@ -193,22 +193,28 @@ ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/Android
 		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:37:13-56
 	android:name
 		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:36:13-64
-activity#com.stcodesapp.noteit.ui.activities.MainActivity
-ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:39:9-47:20
+activity#com.stcodesapp.noteit.ui.activities.InAppPurchaseActivity
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:39:9-42:15
 	android:theme
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:41:13-65
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:41:13-56
 	android:name
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:40:13-55
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:40:13-64
+activity#com.stcodesapp.noteit.ui.activities.MainActivity
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:43:9-51:20
+	android:theme
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:45:13-65
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:44:13-55
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:42:13-46:29
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:46:13-50:29
 action#android.intent.action.MAIN
-ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:43:17-69
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:47:17-69
 	android:name
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:43:25-66
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:47:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:45:17-77
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:49:17-77
 	android:name
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:45:27-74
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:49:27-74
 uses-sdk
 INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
@@ -320,11 +326,11 @@ INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/Andr
 		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
 		INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:54:13-56:58
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:58:13-60:58
 	android:resource
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:56:17-55
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:60:17-55
 	android:name
-		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:55:17-67
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:59:17-67
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/5c714424d24073e50f6d73682788eb65/AndroidManifest.xml:24:5-79
 	android:name

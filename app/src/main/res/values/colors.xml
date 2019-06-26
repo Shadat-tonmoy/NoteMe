@@ -14,7 +14,6 @@
     <color name="purple700">#6A1B9A</color>
     <color name="green">#27ae60</color>
     <color name="blaze_hole">#2980b9</color>
-    <color name="pumpkin">#d35400</color>
     <color name="carrot">#e67e22</color>
     <color name="lightRed">#DA5F6A</color>
     <color name="red">#FF0000</color>
@@ -25,4 +24,9 @@
     <color name="alizarin">#e74c3c</color>
     <color name="lightGreen">#27ae60</color>
     <color name="transparentBlack70">#B3000000</color>
+    <color name="text_default_trans">#14757575</color>
+    <color name="blaze_hole_trans">#142980B9</color>
+    <color name="text_default">#757575</color>
+    <color name="pumpkin">#d35400</color>
+    <color name="pumpkin_transparent">#14D35400</color>
 </resources>

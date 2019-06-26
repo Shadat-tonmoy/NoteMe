@@ -109,6 +109,18 @@
     <string name="note_is_removed">Note is removed!</string>
     <string name="remove_all_note">Remove All Notes</string>
 
+    <string name="pro_features">No Ads, No Interruptions\nNo Watermark</string>
+    <string name="one_month">1\nMonth</string>
+    <string name="six_month">6\nMonths</string>
+    <string name="one_year">12\nMonths</string>
+    <string name="one_month_price">0.99$</string>
+    <string name="six_month_price">4.99$</string>
+    <string name="one_year_price">5.99$</string>
+    <string name="life_time_price">7.99$</string>
+    <string name="continue_">Continue</string>
+    <string name="life_time">Life\nTime</string>
+
+
 
 
     <!--ad_related_ids-->
@@ -156,6 +168,7 @@
     <string name="rate_us_message">Please rate us 5 - stars and good review. Your ratings and review will help us to grow and make the app even better</string>
     <string name="rate">Rate</string>
     <string name="no_thanks">No Thanks</string>
+    <string name="noteit_pro">Noteit Premium</string>
 
     <!--ad_related_ids-->
 
