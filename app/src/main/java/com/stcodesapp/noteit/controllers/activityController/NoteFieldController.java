@@ -352,7 +352,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     private void handleChosenImage(Intent intent)
     {
         Uri selectedImage = intent.getData();
-        Image image = fileIOTasks.getImageFromURI(selectedImage);
+        Image image = fileIOTasks.getImageFromURI(selectedImage,false);
         if(image!=null)
         {
             noteComponents.getChosenImages().add(image);
@@ -369,7 +369,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
 //        Uri selectedImage = (Uri) intent.getExtras().get(MediaStore.EXTRA_OUTPUT);
         Uri selectedImage = imageCapturingTask.getCapturedImageURI();
         Log.e("CapturedImage",selectedImage.toString());
-        Image image = fileIOTasks.getImageFromURI(selectedImage);
+        Image image = fileIOTasks.getImageFromURI(selectedImage,true);
         Log.e("CapturedImage"," File "+selectedImage.toString());
         if(image!=null)
         {

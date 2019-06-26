@@ -1,6 +1,7 @@
 package com.stcodesapp.noteit.listeners;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.View;
 
 import com.stcodesapp.noteit.R;

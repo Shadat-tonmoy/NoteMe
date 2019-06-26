@@ -26,10 +26,8 @@
     <com.ravikoradiya.zoomableimageview.ZoomableImageView
         android:id="@+id/image"
         android:scaleType="centerCrop"
-        android:maxWidth="150dp"
-        android:maxHeight="150dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,18 +35,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:adjustViewBounds="true"
-        android:foreground="@drawable/placeholder_image"
-        android:src="@drawable/test"
+        android:src="@drawable/placeholder_image"
         app:background_color="@color/black" />
 
 
     <ImageView
         android:id="@+id/remove_image"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:src="@drawable/close_black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/image"

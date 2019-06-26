@@ -21,7 +21,7 @@ import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.Image;
 import com.stcodesapp.noteit.models.Note;
 
-@Database(entities = {Note.class, Email.class, Contact.class, Audio.class, Image.class, CheckList.class, ChecklistItem.class},version = 12,exportSchema = false )
+@Database(entities = {Note.class, Email.class, Contact.class, Audio.class, Image.class, CheckList.class, ChecklistItem.class},version = 13,exportSchema = false )
 public abstract class NoteDatabase extends RoomDatabase {
 
     public abstract NotesDao notesDao();

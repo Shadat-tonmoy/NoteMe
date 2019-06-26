@@ -29,7 +29,7 @@ public class ImageDao_Impl implements ImageDao {
     this.__insertionAdapterOfImage = new EntityInsertionAdapter<Image>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `images`(`image_id`,`note_id`,`uri`) VALUES (nullif(?, 0),?,?)";
+        return "INSERT OR ABORT INTO `images`(`image_id`,`note_id`,`uri`,`isCaptured`) VALUES (nullif(?, 0),?,?,?)";
       }
 
       @Override
@@ -41,6 +41,9 @@ public class ImageDao_Impl implements ImageDao {
         } else {
           stmt.bindString(3, value.getImageURI());
         }
+        final int _tmp;
+        _tmp = value.isCaptured() ? 1 : 0;
+        stmt.bindLong(4, _tmp);
       }
     };
     this.__deletionAdapterOfImage = new EntityDeletionOrUpdateAdapter<Image>(__db) {
@@ -124,6 +127,7 @@ public class ImageDao_Impl implements ImageDao {
       final int _cursorIndexOfId = _cursor.getColumnIndexOrThrow("image_id");
       final int _cursorIndexOfNoteId = _cursor.getColumnIndexOrThrow("note_id");
       final int _cursorIndexOfImageURI = _cursor.getColumnIndexOrThrow("uri");
+      final int _cursorIndexOfIsCaptured = _cursor.getColumnIndexOrThrow("isCaptured");
       final List<Image> _result = new ArrayList<Image>(_cursor.getCount());
       while(_cursor.moveToNext()) {
         final Image _item;
@@ -137,6 +141,11 @@ public class ImageDao_Impl implements ImageDao {
         final String _tmpImageURI;
         _tmpImageURI = _cursor.getString(_cursorIndexOfImageURI);
         _item.setImageURI(_tmpImageURI);
+        final boolean _tmpIsCaptured;
+        final int _tmp;
+        _tmp = _cursor.getInt(_cursorIndexOfIsCaptured);
+        _tmpIsCaptured = _tmp != 0;
+        _item.setCaptured(_tmpIsCaptured);
         _result.add(_item);
       }
       return _result;

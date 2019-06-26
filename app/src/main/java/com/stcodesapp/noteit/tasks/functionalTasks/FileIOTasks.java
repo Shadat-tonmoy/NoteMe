@@ -126,11 +126,11 @@ public class FileIOTasks {
         return false;
     }
 
-    public Image getImageFromURI(Uri data)
+    public Image getImageFromURI(Uri data,boolean isCaptured)
     {
         Image image = null;
         if(data!=null)
-            image = new Image(data.toString());
+            image = new Image(data.toString(),isCaptured);
         return image;
 
     }

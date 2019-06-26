@@ -130,6 +130,7 @@ public class NoteFieldScreenManipulationTasks {
             imageView.setImageBitmap(bitmap);
         } catch (IOException e) {
             e.printStackTrace();
+            Log.e("Exception",e.getMessage());
         }
         imageContainer.addView(imageHolder);
         ImageListener imageListener = listeningTasks.getImageListener(image,imageHolder);
@@ -216,6 +217,7 @@ public class NoteFieldScreenManipulationTasks {
     {
         noteComponents.getChosenImages().remove(image);
         view.setVisibility(View.GONE);
+
         removeImageContainer();
     }
 

@@ -22,9 +22,15 @@ public class Image {
     private long noteId;
     @ColumnInfo(name = "uri")
     private String imageURI;
+    private boolean isCaptured;
 
     public Image(String imageURI) {
         this.imageURI = imageURI;
+    }
+
+    public Image(String imageURI,boolean isCaptured) {
+        this.imageURI = imageURI;
+        this.isCaptured = isCaptured;
     }
 
     public Image() {
@@ -55,12 +61,21 @@ public class Image {
     }
 
 
+    public boolean isCaptured() {
+        return isCaptured;
+    }
+
+    public void setCaptured(boolean captured) {
+        isCaptured = captured;
+    }
+
     @Override
     public String toString() {
         return "Image{" +
                 "id=" + id +
                 ", noteId=" + noteId +
                 ", imageURI='" + imageURI + '\'' +
+                ", isCaptured=" + isCaptured +
                 '}';
     }
 }
