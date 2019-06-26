@@ -65,7 +65,7 @@ public class FileSaveScreenController implements FileSaveDialogScreen.Listener, 
 
     private void startMovingFile()
     {
-        File outputFile = new File(fileIOTasks.getDirectoryPath()+ Constants.SLASH +fileSaveScreenManipulationTasks.getFileName()+Constants.RECORDING_FILE_TYPE);
+        File outputFile = new File(fileIOTasks.getDirectoryPath(Constants.RECORDING_FILE_PATH)+ Constants.SLASH +fileSaveScreenManipulationTasks.getFileName()+Constants.RECORDING_FILE_TYPE);
         FileMovingTask fileMovingTask = tasksFactory.getFileMovingTask(this);
         fileSaveScreenManipulationTasks.showSavingProgress();
         fileMovingTask.execute(inputFile,outputFile);
@@ -81,7 +81,7 @@ public class FileSaveScreenController implements FileSaveDialogScreen.Listener, 
         }
         else
         {
-            if(fileIOTasks.isFileAlreadyExists(fileSaveScreenManipulationTasks.getFileName()))
+            if(fileIOTasks.isRecordedAudioFileAlreadyExists(fileSaveScreenManipulationTasks.getFileName()))
             {
                 fileSaveScreenManipulationTasks.toggleFileExistsText(true);
                 fileSaveScreenManipulationTasks.toggleSaveButtonText(false);

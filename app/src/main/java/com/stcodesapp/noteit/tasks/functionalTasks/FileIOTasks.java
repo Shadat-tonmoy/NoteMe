@@ -266,7 +266,7 @@ public class FileIOTasks {
     }
 
 
-    public String getDirectoryPath()
+    public String getDirectoryPath(String pathType)
     {
         if(isExternalStorageWritable())
         {
@@ -276,7 +276,8 @@ public class FileIOTasks {
             if(drives.length>1)
                 storage = drives[1];
             File fileDirectory = new File(storage.getAbsolutePath()+Constants.RECORDING_FILE_PATH);
-//            fileDirectory = new File(BGRemovalApplication.getInstance().getExternalFilesDir(Environment.DIRECTORY_PICTURES).getAbsolutePath()+ConstantValues.REGULAR_FILE_DIRECTORY);
+            if(pathType.equals(Constants.IMAGE_FILE_PATH))
+                fileDirectory = new File(storage.getAbsolutePath()+Constants.IMAGE_FILE_PATH);
             File directory = new File(fileDirectory.getAbsolutePath());
             if(!directory.exists())
             {
@@ -289,9 +290,9 @@ public class FileIOTasks {
         return null;
     }
 
-    public boolean isFileAlreadyExists(String fileName)
+    public boolean isRecordedAudioFileAlreadyExists(String fileName)
     {
-        File file = new File(getDirectoryPath(), fileName+Constants.RECORDING_FILE_TYPE);
+        File file = new File(getDirectoryPath(Constants.RECORDING_FILE_PATH), fileName+Constants.RECORDING_FILE_TYPE);
         if(file.exists()) {
             return true;
         }

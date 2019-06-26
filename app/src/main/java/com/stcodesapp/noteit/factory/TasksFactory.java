@@ -4,6 +4,7 @@ import android.support.v4.app.FragmentActivity;
 import com.stcodesapp.noteit.common.FragmentFrameHelper;
 import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
+import com.stcodesapp.noteit.tasks.functionalTasks.DialogManagementTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileMovingTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.ImageCapturingTask;
@@ -13,6 +14,7 @@ import com.stcodesapp.noteit.tasks.functionalTasks.VoiceInputTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.VoiceRecordTask;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
+import com.stcodesapp.noteit.tasks.promotionalTask.RateUSPopupTrackingTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.CheckListActivityScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.CheckListScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.ContactScreenManipulationTask;
@@ -169,5 +171,15 @@ public class TasksFactory {
     public ImageCapturingTask getImageCapturingTask()
     {
         return new ImageCapturingTask(activity,this);
+    }
+
+    public RateUSPopupTrackingTasks getRateUSPopupTrackingTasks()
+    {
+        return new RateUSPopupTrackingTasks(activity);
+    }
+
+    public DialogManagementTask getDialogManagementTask()
+    {
+        return new DialogManagementTask(activity,this);
     }
 }

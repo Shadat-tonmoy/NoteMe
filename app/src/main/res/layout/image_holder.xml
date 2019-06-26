@@ -37,7 +37,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:adjustViewBounds="true"
-        android:foreground="@drawable/image_foreground"
+        android:foreground="@drawable/placeholder_image"
         android:src="@drawable/test"
         app:background_color="@color/black" />
 

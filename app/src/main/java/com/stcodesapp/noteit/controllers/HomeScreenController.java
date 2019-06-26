@@ -7,6 +7,7 @@ import android.util.Log;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.adapter.NoteListAdapter;
+import com.stcodesapp.noteit.constants.AppMetadata;
 import com.stcodesapp.noteit.constants.ComponentType;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.FragmentTags;
@@ -19,8 +20,10 @@ import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.allDeletionTask.A
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.NoteDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.ImportantNoteSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteSelectTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.DialogManagementTask;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
+import com.stcodesapp.noteit.tasks.promotionalTask.RateUSPopupTrackingTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.HomeScreenManipulationTasks;
 import com.stcodesapp.noteit.ui.fragments.MoreOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.PhoneOrEmailListBottomSheets;
@@ -141,7 +144,20 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
 
     public boolean onBackPressed()
     {
-        return homeScreenManipulationTasks.closeSearchView();
+        boolean searchViewClosed = homeScreenManipulationTasks.closeSearchView();
+        if(searchViewClosed)
+            return true;
+        else {
+            RateUSPopupTrackingTasks rateUSPopupTrackingTasks = tasksFactory.getRateUSPopupTrackingTasks();
+            if (!rateUSPopupTrackingTasks.isRateUsClicked() && rateUSPopupTrackingTasks.getTotalNote() >= AppMetadata.MAX_NOTE_TO_SHOW_RATEUS_POPUP)
+            {
+                DialogManagementTask dialogManagementTask = tasksFactory.getDialogManagementTask();
+                dialogManagementTask.showRateUsDialog(true);
+                return true;
+            }
+            else return false;
+
+        }
     }
 
     private void updateNote(Note note)

@@ -3,10 +3,8 @@ package com.stcodesapp.noteit.controllers.activityController;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -42,11 +40,11 @@ import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.EmailInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ImageInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteComponentSelectionTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
-import com.stcodesapp.noteit.tasks.functionalTasks.FileMovingTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.ImageCapturingTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.VoiceInputTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.VoiceRecordTask;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
+import com.stcodesapp.noteit.tasks.promotionalTask.RateUSPopupTrackingTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.NoteFieldScreenManipulationTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
 import com.stcodesapp.noteit.ui.fragments.AudioOptionsBottomSheets;
@@ -320,11 +318,18 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
             Intent result = new Intent();
             result.putExtra(Tags.NOTE_ADDED,true);
             activityNavigationTasks.sendResultBack(result);
+
         }
         else
         {
             noteFieldScreenManipulationTasks.showInvalidNoteToast();
         }
+    }
+
+    private void updateRateUSTrackingCount()
+    {
+        RateUSPopupTrackingTasks rateUSPopupTrackingTasks = tasksFactory.getRateUSPopupTrackingTasks();
+        rateUSPopupTrackingTasks.updateTotalNoteCount();
     }
 
     @Override

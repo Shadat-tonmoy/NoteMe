@@ -8,6 +8,7 @@ import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.util.Log;
 
+import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.models.Image;
@@ -47,16 +48,13 @@ public class ImageCapturingTask {
 
 
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        // Ensure that there's a camera activity to handle the intent
         if (takePictureIntent.resolveActivity(activity.getPackageManager()) != null) {
-            // Create the File where the photo should go
             File photoFile = null;
             try {
                 photoFile = createImageFile();
             } catch (IOException ex) {
                 // Error occurred while creating the File
             }
-            // Continue only if the File was successfully created
             if (photoFile != null) {
                 photoURI = FileProvider.getUriForFile(activity,
                         activity.getApplication().getPackageName()+".provider",
@@ -66,24 +64,34 @@ public class ImageCapturingTask {
                 addImageToGellary();
             }
         }
-
-
     }
 
     private File createImageFile() throws IOException {
-        // Create an image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = activity.getApplication().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+
+        String timeStamp = new SimpleDateFormat(Constants.DATE_FORMAT_FOR_IMAGE_NAME).format(new Date());
+        String imageFileName = Constants.IMAGE + timeStamp + Constants.UNDERSCORE;
+        File storageDir = new File(fileIOTasks.getDirectoryPath(Constants.IMAGE_FILE_PATH));
         File image = File.createTempFile(
                 imageFileName,  /* prefix */
-                ".jpg",         /* suffix */
+                Constants.JPG_FILE_EXT,         /* suffix */
                 storageDir      /* directory */
         );
-
-        // Save a file: path for use with ACTION_VIEW intents
         capturedImagePath = image.getAbsolutePath();
         return image;
+    }
+
+    public void deleteCapturedImage(File imageFile) throws IOException {
+
+        String timeStamp = new SimpleDateFormat(Constants.DATE_FORMAT_FOR_IMAGE_NAME).format(new Date());
+        String imageFileName = Constants.IMAGE + timeStamp + Constants.UNDERSCORE;
+        File storageDir = new File(fileIOTasks.getDirectoryPath(Constants.IMAGE_FILE_PATH));
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                Constants.JPG_FILE_EXT,         /* suffix */
+                storageDir      /* directory */
+        );
+        capturedImagePath = image.getAbsolutePath();
+
     }
 
     public Uri getCapturedImageURI()

@@ -24,4 +24,5 @@
     <color name="default_divider">#FFCCCCCC</color>
     <color name="alizarin">#e74c3c</color>
     <color name="lightGreen">#27ae60</color>
+    <color name="transparentBlack70">#B3000000</color>
 </resources>

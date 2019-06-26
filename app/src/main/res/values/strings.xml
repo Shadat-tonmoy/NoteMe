@@ -129,6 +129,9 @@
     <string name="admob_rewarded_video_ad_id">@string/admob_rewarded_video_ad_test</string>
     <string name="admob_rewarded_video_ad_test">ca-app-pub-3940256099942544/5224354917</string>
     <string name="admob_rewarded_video_ad_real">NA</string>
+    <!--admob-->
+
+
     <string name="enter_item_title">Enter Item Title</string>
     <string name="add_item">Add Item\\</string>
     <string name="new_item_added">New Item Added!</string>
@@ -148,7 +151,11 @@
     <string name="please_wait">Please Wait....</string>
     <string name="record_audio">Record Audio</string>
     <string name="take_photo">Take Photo</string>
-    <!--admob-->
+    <string name="love_note_it">Love Noteit?</string>
+
+    <string name="rate_us_message">Please rate us 5 - stars and good review. Your ratings and review will help us to grow and make the app even better</string>
+    <string name="rate">Rate</string>
+    <string name="no_thanks">No Thanks</string>
 
     <!--ad_related_ids-->
 

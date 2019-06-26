@@ -753,6 +753,7 @@ color switch_thumb_normal_material_light
 color tooltip_background_dark
 color tooltip_background_light
 color transparent
+color transparentBlack70
 color transparent_ash
 color transparent_ash30
 color white
@@ -1092,6 +1093,7 @@ drawable email_badge
 drawable email_black
 drawable email_white
 drawable email_white_xs
+drawable five_star
 drawable folder_image
 drawable home_gray
 drawable ic_action_action_search
@@ -1107,7 +1109,6 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_suggestion
-drawable image_foreground
 drawable list_white
 drawable menu
 drawable mic_black
@@ -1139,10 +1140,12 @@ drawable person_add_black
 drawable person_black
 drawable phone
 drawable phone_ring_white_xs
+drawable placeholder_image
 drawable plus
 drawable privacy_policy
 drawable pro_version
 drawable rate
+drawable rate_us_bg
 drawable record_voice_black
 drawable round_shape_black
 drawable round_shape_blaze_hole
@@ -1356,6 +1359,7 @@ id icon
 id icon_group
 id ifRoom
 id image
+id imageView3
 id important_menu
 id info
 id invisible
@@ -1371,6 +1375,7 @@ id listMode
 id list_icon
 id list_item
 id loading_view
+id love_text
 id main_layout
 id manual_phone_number_option
 id masked
@@ -1391,6 +1396,7 @@ id nav_share
 id navigation_header_container
 id navigation_view
 id never
+id no_thanks_button
 id none
 id normal
 id not_found_container
@@ -1439,6 +1445,9 @@ id progress_circular
 id progress_horizontal
 id progress_panel
 id radio
+id rate_button
+id rate_us_header
+id rate_us_message
 id record_audio_option
 id remove_image
 id right
@@ -1672,6 +1681,7 @@ layout notification_template_part_time
 layout phone_no_list_bottom_sheet_layout
 layout phone_no_option_bottom_sheet_layout
 layout privacy_policy_layout
+layout rate_app_popup_dialog
 layout rounded_view
 layout search_view
 layout select_dialog_item_material
@@ -1824,6 +1834,7 @@ string home_screen
 string image_inserted
 string important
 string last_modified
+string love_note_it
 string menu_1
 string menu_2
 string menu_3
@@ -1837,6 +1848,7 @@ string no_email_found
 string no_important_note_found
 string no_note_found
 string no_phone_number
+string no_thanks
 string note
 string note_added
 string note_component_deleted
@@ -1866,7 +1878,9 @@ string pick_from_files
 string please_wait
 string privacy_policy
 string pro_version
+string rate
 string rate_the_app
+string rate_us_message
 string record_audio
 string remove
 string remove_all_note
