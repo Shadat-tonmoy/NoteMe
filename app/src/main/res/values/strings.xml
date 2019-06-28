@@ -48,6 +48,7 @@
     <string name="contact_permission_is_required">Permission is required to read contact. Please allow permission and try again</string>
     <string name="storage_permission_is_required">Permission is required to load images. Please allow permission and try again</string>
     <string name="camera_permission_is_required">Permission is required to capture image. Please allow permission and try again</string>
+    <string name="write_storage_permission_is_required">Permission is required to write file on storage. Please allow permission and try again</string>
     <string name="test_contact">Test Contact</string>
     <string name="test_num">+8801521445110</string>
     <string name="text_copied">Text is copied to clipboard</string>

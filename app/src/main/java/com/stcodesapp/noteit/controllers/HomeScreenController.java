@@ -1,6 +1,7 @@
 package com.stcodesapp.noteit.controllers;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -14,13 +15,18 @@ import com.stcodesapp.noteit.constants.FragmentTags;
 import com.stcodesapp.noteit.constants.SortingType;
 import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.factory.TasksFactory;
+import com.stcodesapp.noteit.models.Audio;
+import com.stcodesapp.noteit.models.Image;
 import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.allDeletionTask.AllDeletionTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.NoteDeleteTask;
+import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllAudioSelectionTasks;
+import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllImageSelectionTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.ImportantNoteSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteSelectTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.DialogManagementTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileDeletingTask;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
 import com.stcodesapp.noteit.tasks.promotionalTask.RateUSPopupTrackingTasks;
@@ -30,11 +36,13 @@ import com.stcodesapp.noteit.ui.fragments.PhoneOrEmailListBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.SortingOptionDialog;
 import com.stcodesapp.noteit.ui.views.screens.HomeScreen;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
-public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask.Listener, NoteListAdapter.Listener, ImportantNoteSelectTask.Listener, MaterialSearchView.OnQueryTextListener, SortingOptionDialog.Listener, MoreOptionsBottomSheets.Listener, AllDeletionTasks.Listener, NoteDeleteTask.Listener, HomeScreenManipulationTasks.Listener{
+public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask.Listener, NoteListAdapter.Listener, ImportantNoteSelectTask.Listener, MaterialSearchView.OnQueryTextListener, SortingOptionDialog.Listener, MoreOptionsBottomSheets.Listener, AllDeletionTasks.Listener, NoteDeleteTask.Listener, HomeScreenManipulationTasks.Listener,AllImageSelectionTasks.Listener,AllAudioSelectionTasks.Listener,FileDeletingTask.Listener{
 
 
     private TasksFactory tasksFactory;
@@ -293,6 +301,10 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
         databaseTasks
                 .getNoteDeleteTask(this)
                 .execute(note);
+        AllAudioSelectionTasks allAudioSelectionTasks = tasksFactory.getAllAudioSelectionTasks(this,Constants.FOR_DELETING_AUDIOS);
+        allAudioSelectionTasks.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,note.getId());
+        AllImageSelectionTasks allImageSelectionTasks = tasksFactory.getAllImageSelectionTasks(this,Constants.FOR_DELETING_IMAGES);
+        allImageSelectionTasks.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,note.getId());
         homeScreenManipulationTasks.hideMoreOptionBottomSheet();
     }
 
@@ -356,5 +368,45 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     @Override
     public void onClearNoteClicked() {
         clearNote();
+    }
+
+    @Override
+    public void onAllAudioFetchedFetched(List<Audio> audios, int purpose) {
+        if(purpose==Constants.FOR_DELETING_AUDIOS)
+        {
+            List<File> audioToBeDeleted = new ArrayList<>();
+            for(Audio audio:audios)
+            {
+                if(audio.isFilePath())
+                    audioToBeDeleted.add(new File(audio.getAudioUri()));
+            }
+            File[] audioArray = audioToBeDeleted.toArray(new File[0]);
+            FileDeletingTask fileDeletingTask = tasksFactory.getFileDeletingTask(this);
+            fileDeletingTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,audioArray);
+        }
+    }
+
+    @Override
+    public void onAllImageFetchedFetched(List<Image> images, int purpose)
+    {
+        if(purpose==Constants.FOR_DELETING_IMAGES)
+        {
+            List<File> imageToBeDeleted = new ArrayList<>();
+            for(Image image:images)
+            {
+                if(image.isCaptured())
+                    imageToBeDeleted.add(new File(image.getImageFilePath()));
+            }
+            File[] imageArray = imageToBeDeleted.toArray(new File[0]);
+            FileDeletingTask fileDeletingTask = tasksFactory.getFileDeletingTask(this);
+            fileDeletingTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,imageArray);
+        }
+
+    }
+
+    @Override
+    public void onFileDeleted(File file) {
+
+
     }
 }

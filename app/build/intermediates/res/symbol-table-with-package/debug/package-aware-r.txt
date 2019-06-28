@@ -1948,6 +1948,7 @@ string test_contact
 string test_num
 string text_copied
 string voice_input_not_supported
+string write_storage_permission_is_required
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

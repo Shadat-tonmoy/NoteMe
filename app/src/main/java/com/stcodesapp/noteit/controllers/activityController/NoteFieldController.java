@@ -194,8 +194,11 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
 
     private void startVoiceRecorder()
     {
-        VoiceRecordTask voiceRecordTask = tasksFactory.getVoiceRecordTask();
-        voiceRecordTask.startVoiceRecorder();
+        if(appPermissionTrackingTasks.hasWriteExternalStoragePermission())
+        {
+            VoiceRecordTask voiceRecordTask = tasksFactory.getVoiceRecordTask();
+            voiceRecordTask.startVoiceRecorder();
+        }
     }
 
     private void testExport()
@@ -290,9 +293,16 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
        else if(requestCode == RequestCode.OPEN_CAMERA_PERMISSION)
        {
            if(grantResults[0]==PackageManager.PERMISSION_GRANTED)
-               noteFieldScreenManipulationTasks.addImageToFields();
+               openCameraToTakeImage();
            else
-               noteFieldScreenManipulationTasks.showPermissionRequiredMessage(PermissionType.IMAGE_READ_PERMISSION);
+               noteFieldScreenManipulationTasks.showPermissionRequiredMessage(PermissionType.CAMERA_ACCESS_PERMISSION);
+       }
+       else if(requestCode == RequestCode.WRITE_EXTERNAL_STORAGE_PERMISSION)
+       {
+           if(grantResults[0]==PackageManager.PERMISSION_GRANTED)
+               startVoiceRecorder();
+           else
+               noteFieldScreenManipulationTasks.showPermissionRequiredMessage(PermissionType.WRITE_EXTERNAL_STORAGE);
        }
 
     }

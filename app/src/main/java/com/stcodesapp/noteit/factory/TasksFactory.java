@@ -2,8 +2,11 @@ package com.stcodesapp.noteit.factory;
 
 import android.support.v4.app.FragmentActivity;
 import com.stcodesapp.noteit.common.FragmentFrameHelper;
+import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
+import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllAudioSelectionTasks;
+import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllImageSelectionTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.DialogManagementTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileDeletingTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileIOTasks;
@@ -189,5 +192,15 @@ public class TasksFactory {
     public DialogManagementTask getDialogManagementTask()
     {
         return new DialogManagementTask(activity,this);
+    }
+
+    public AllImageSelectionTasks getAllImageSelectionTasks(AllImageSelectionTasks.Listener listener,int purpose)
+    {
+        return new AllImageSelectionTasks(activity,listener, purpose);
+    }
+
+    public AllAudioSelectionTasks getAllAudioSelectionTasks(AllAudioSelectionTasks.Listener listener, int purpose)
+    {
+        return new AllAudioSelectionTasks(activity,listener, purpose);
     }
 }

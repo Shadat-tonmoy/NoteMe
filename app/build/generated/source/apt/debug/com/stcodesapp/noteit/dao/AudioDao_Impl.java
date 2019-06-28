@@ -154,4 +154,41 @@ public class AudioDao_Impl implements AudioDao {
       _statement.release();
     }
   }
+
+  @Override
+  public List<Audio> getAllAudio() {
+    final String _sql = "select * from audio";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    final Cursor _cursor = __db.query(_statement);
+    try {
+      final int _cursorIndexOfId = _cursor.getColumnIndexOrThrow("audio_id");
+      final int _cursorIndexOfNoteId = _cursor.getColumnIndexOrThrow("note_id");
+      final int _cursorIndexOfAudioUri = _cursor.getColumnIndexOrThrow("uri");
+      final int _cursorIndexOfIsFilePath = _cursor.getColumnIndexOrThrow("isFilePath");
+      final List<Audio> _result = new ArrayList<Audio>(_cursor.getCount());
+      while(_cursor.moveToNext()) {
+        final Audio _item;
+        _item = new Audio();
+        final long _tmpId;
+        _tmpId = _cursor.getLong(_cursorIndexOfId);
+        _item.setId(_tmpId);
+        final long _tmpNoteId;
+        _tmpNoteId = _cursor.getLong(_cursorIndexOfNoteId);
+        _item.setNoteId(_tmpNoteId);
+        final String _tmpAudioUri;
+        _tmpAudioUri = _cursor.getString(_cursorIndexOfAudioUri);
+        _item.setAudioUri(_tmpAudioUri);
+        final boolean _tmpIsFilePath;
+        final int _tmp;
+        _tmp = _cursor.getInt(_cursorIndexOfIsFilePath);
+        _tmpIsFilePath = _tmp != 0;
+        _item.setFilePath(_tmpIsFilePath);
+        _result.add(_item);
+      }
+      return _result;
+    } finally {
+      _cursor.close();
+      _statement.release();
+    }
+  }
 }

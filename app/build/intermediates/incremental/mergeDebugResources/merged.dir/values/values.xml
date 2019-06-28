@@ -783,6 +783,7 @@
     <string name="test_num">+8801521445110</string>
     <string name="text_copied">Text is copied to clipboard</string>
     <string name="voice_input_not_supported">Sorry! Voice input is not supported on this device</string>
+    <string name="write_storage_permission_is_required">Permission is required to write file on storage. Please allow permission and try again</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>

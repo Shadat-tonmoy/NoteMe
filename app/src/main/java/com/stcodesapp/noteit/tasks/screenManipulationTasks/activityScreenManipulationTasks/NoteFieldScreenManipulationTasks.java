@@ -532,6 +532,9 @@ public class NoteFieldScreenManipulationTasks {
             case CAMERA_ACCESS_PERMISSION:
                 message = activity.getResources().getString(R.string.camera_permission_is_required);
                 break;
+            case WRITE_EXTERNAL_STORAGE:
+                message = activity.getResources().getString(R.string.write_storage_permission_is_required);
+                break;
         }
         Toast.makeText(activity, message, Toast.LENGTH_SHORT).show();
     }

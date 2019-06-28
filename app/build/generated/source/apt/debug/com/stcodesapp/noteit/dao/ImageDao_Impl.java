@@ -154,4 +154,41 @@ public class ImageDao_Impl implements ImageDao {
       _statement.release();
     }
   }
+
+  @Override
+  public List<Image> getAllImage() {
+    final String _sql = "select * from images";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    final Cursor _cursor = __db.query(_statement);
+    try {
+      final int _cursorIndexOfId = _cursor.getColumnIndexOrThrow("image_id");
+      final int _cursorIndexOfNoteId = _cursor.getColumnIndexOrThrow("note_id");
+      final int _cursorIndexOfImageURI = _cursor.getColumnIndexOrThrow("uri");
+      final int _cursorIndexOfIsCaptured = _cursor.getColumnIndexOrThrow("isCaptured");
+      final List<Image> _result = new ArrayList<Image>(_cursor.getCount());
+      while(_cursor.moveToNext()) {
+        final Image _item;
+        _item = new Image();
+        final long _tmpId;
+        _tmpId = _cursor.getLong(_cursorIndexOfId);
+        _item.setId(_tmpId);
+        final long _tmpNoteId;
+        _tmpNoteId = _cursor.getLong(_cursorIndexOfNoteId);
+        _item.setNoteId(_tmpNoteId);
+        final String _tmpImageURI;
+        _tmpImageURI = _cursor.getString(_cursorIndexOfImageURI);
+        _item.setImageURI(_tmpImageURI);
+        final boolean _tmpIsCaptured;
+        final int _tmp;
+        _tmp = _cursor.getInt(_cursorIndexOfIsCaptured);
+        _tmpIsCaptured = _tmp != 0;
+        _item.setCaptured(_tmpIsCaptured);
+        _result.add(_item);
+      }
+      return _result;
+    } finally {
+      _cursor.close();
+      _statement.release();
+    }
+  }
 }

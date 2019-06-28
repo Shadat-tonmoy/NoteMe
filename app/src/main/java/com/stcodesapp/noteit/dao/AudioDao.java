@@ -27,6 +27,10 @@ public interface AudioDao {
     List<Audio> getAllAudioForNote(long noteId);
 
 
+    @Query("select * from audio")
+    List<Audio> getAllAudio();
+
+
     @Query("delete from audio where note_id = :noteId")
     int deleteAllAudioForNote(long noteId);
 

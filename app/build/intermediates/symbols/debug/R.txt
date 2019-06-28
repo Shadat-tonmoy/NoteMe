@@ -1947,6 +1947,7 @@ int string test_contact 0x7f0f00d6
 int string test_num 0x7f0f00d7
 int string text_copied 0x7f0f00d8
 int string voice_input_not_supported 0x7f0f00d9
+int string write_storage_permission_is_required 0x7f0f00da
 int style AlertDialog_AppCompat 0x7f100000
 int style AlertDialog_AppCompat_Light 0x7f100001
 int style Animation_AppCompat_Dialog 0x7f100002

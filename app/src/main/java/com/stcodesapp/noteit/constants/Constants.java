@@ -55,6 +55,10 @@ public class Constants {
     public static boolean IS_SUBSCRIBED_USER = false;
     public static final int CHECKLIST_FIELD_1 = 1;
     public static final int CHECKLIST_FIELD_2 = 2;
+    public static final int FOR_DELETING_IMAGES = 1;
+    public static final int FOR_SHOWING_IMAGES = 2;
+    public static final int FOR_DELETING_AUDIOS = 3;
+    public static final int FOR_SHOWING_AUDIOS = 4;
 
 }
 

@@ -5880,6 +5880,7 @@ public final class R {
     public static final int test_num=0x7f0f00d7;
     public static final int text_copied=0x7f0f00d8;
     public static final int voice_input_not_supported=0x7f0f00d9;
+    public static final int write_storage_permission_is_required=0x7f0f00da;
   }
   public static final class style {
     public static final int AlertDialog_AppCompat=0x7f100000;
