@@ -23,8 +23,6 @@ public interface FileSaveDialogScreen extends BaseObservableScreen<FileSaveDialo
 
     TextView getFileExistsText();
 
-    TextView getFilePathText();
-
     TextView getFileSaveDoneText();
 
     LinearLayout getFileSaveDoneLayout();

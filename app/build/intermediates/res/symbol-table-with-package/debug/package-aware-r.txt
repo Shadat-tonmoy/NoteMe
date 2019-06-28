@@ -1153,7 +1153,6 @@ drawable pro_bg
 drawable pro_done_button_bg
 drawable pro_version
 drawable rate
-drawable rate_us_bg
 drawable record_voice_black
 drawable round_shape_black
 drawable round_shape_blaze_hole
@@ -1344,7 +1343,6 @@ id favorite_button
 id field_panel
 id file_exists_text
 id file_name_field
-id file_path_text
 id file_save_done_panel
 id file_save_done_text
 id fill

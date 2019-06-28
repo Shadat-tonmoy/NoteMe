@@ -60,7 +60,6 @@ public class FileSaveScreenController implements FileSaveDialogScreen.Listener, 
 
     public void bindInputFile(File inputFile) {
         this.inputFile = inputFile;
-        fileSaveScreenManipulationTasks.bindFileSavePath(inputFile.getAbsolutePath());
     }
 
     private void startMovingFile()
@@ -98,8 +97,8 @@ public class FileSaveScreenController implements FileSaveDialogScreen.Listener, 
     @Override
     public void onNegativeButtonClicked(boolean saveFileToDB) {
         clipboardTasks.hideKeyBoard(fileSaveDialogScreenView.getFileNameField());
-        if(saveFileToDB)
-            listener.onFileSaved(inputFile);
+        /*if(saveFileToDB)
+            listener.onFileSaved(inputFile);*/
         listener.onDismissDialog();
     }
 
@@ -112,6 +111,7 @@ public class FileSaveScreenController implements FileSaveDialogScreen.Listener, 
     public void onFileMovingDone(File outputFile) {
         Log.e("FileSaved","Successfully@ "+outputFile.getAbsolutePath());
         bindInputFile(outputFile);
+        listener.onFileSaved(inputFile);
         fileSaveScreenManipulationTasks.showFileSaveDoneMessage(outputFile.getAbsolutePath());
 
     }

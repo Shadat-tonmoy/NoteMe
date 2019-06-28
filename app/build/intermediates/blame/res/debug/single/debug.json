@@ -1776,10 +1776,6 @@
         "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/a39dd6770478fef142237d32eea254e5/res/drawable-xxxhdpi/ic_suggestion.png"
     },
     {
-        "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-hdpi_rate_us_bg.webp.flat",
-        "source": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/drawable-hdpi/rate_us_bg.webp"
-    },
-    {
         "merged": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-hdpi_round_shape_light_red.xml.flat",
         "source": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/drawable-hdpi/round_shape_light_red.xml"
     },

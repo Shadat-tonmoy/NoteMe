@@ -19,7 +19,7 @@ import com.stcodesapp.noteit.ui.views.screens.dialogScreen.FileSaveDialogScreen;
 
 public class FileSaveDialogScreenView extends BaseObservableScreenView<FileSaveDialogScreen.Listener> implements FileSaveDialogScreen {
 
-    private TextView cancelButton,saveButton,fileExistsText,filePathText,fileSaveDoneText;
+    private TextView cancelButton,saveButton,fileExistsText,fileSaveDoneText;
     private EditText fileNameField;
     private LinearLayout fileSaveDoneLayout;
 
@@ -45,7 +45,6 @@ public class FileSaveDialogScreenView extends BaseObservableScreenView<FileSaveD
         saveButton = findViewById(R.id.save_button);
         fileNameField = findViewById(R.id.file_name_field);
         fileExistsText = findViewById(R.id.file_exists_text);
-        filePathText = findViewById(R.id.file_path_text);
         fileSaveDoneLayout = findViewById(R.id.file_save_done_panel);
         fileSaveDoneText = findViewById(R.id.file_save_done_text);
 
@@ -108,11 +107,6 @@ public class FileSaveDialogScreenView extends BaseObservableScreenView<FileSaveD
     @Override
     public TextView getFileExistsText() {
         return fileExistsText;
-    }
-
-    @Override
-    public TextView getFilePathText() {
-        return filePathText;
     }
 
     @Override

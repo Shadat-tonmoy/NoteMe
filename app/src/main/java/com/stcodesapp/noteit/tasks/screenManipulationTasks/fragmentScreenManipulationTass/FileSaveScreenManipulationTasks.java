@@ -21,11 +21,6 @@ public class FileSaveScreenManipulationTasks {
         this.fileSaveDialogScreenView = fileSaveDialogScreenView;
     }
 
-    public void bindFileSavePath(String path)
-    {
-        fileSaveDialogScreenView.getFilePathText().setText(path+ Constants.SLASH);
-    }
-
     public void showSavingProgress()
     {
         activity.runOnUiThread(new Runnable() {
