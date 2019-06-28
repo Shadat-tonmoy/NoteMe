@@ -26,6 +26,7 @@ import com.stcodesapp.noteit.constants.FragmentTags;
 import com.stcodesapp.noteit.constants.PermissionType;
 import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.factory.ListeningTasks;
+import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.factory.UIComponentFatory;
 import com.stcodesapp.noteit.listeners.AudioListener;
 import com.stcodesapp.noteit.listeners.CheckListListener;
@@ -34,13 +35,13 @@ import com.stcodesapp.noteit.listeners.EmailListener;
 import com.stcodesapp.noteit.listeners.ImageListener;
 import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.CheckList;
-import com.stcodesapp.noteit.models.ChecklistItem;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.Image;
 import com.stcodesapp.noteit.models.NoteComponents;
+import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileDeletingTask;
 import com.stcodesapp.noteit.tasks.utilityTasks.UtilityTasks;
-import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
+import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileIOTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
 import com.stcodesapp.noteit.ui.fragments.AudioOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.ColorPallateBottomSheets;
@@ -65,11 +66,13 @@ public class NoteFieldScreenManipulationTasks {
     private UIComponentFatory uiComponentFatory;
     private NoteComponents noteComponents;
     private FileIOTasks fileIOTasks;
+    private TasksFactory tasksFactory;
 
-    public NoteFieldScreenManipulationTasks(Activity activity, ListeningTasks listeningTasks, UIComponentFatory uiComponentFatory) {
+    public NoteFieldScreenManipulationTasks(Activity activity, ListeningTasks listeningTasks, UIComponentFatory uiComponentFatory, TasksFactory tasksFactory) {
         this.activity = activity;
         this.listeningTasks = listeningTasks;
         this.uiComponentFatory = uiComponentFatory;
+        this.tasksFactory= tasksFactory;
     }
 
     public void bindView(NoteFieldScreenView noteFieldScreenView) {
@@ -144,6 +147,16 @@ public class NoteFieldScreenManipulationTasks {
                 @Override
                 public void onClick(View v) {
                     removeImageComponent(imageHolder,image);
+                    if(image.isCaptured())
+                    {
+                        FileDeletingTask fileDeletingTask = tasksFactory.getFileDeletingTask(new FileDeletingTask.Listener() {
+                            @Override
+                            public void onFileDeleted(File file) {
+                                Log.e("FileDeletedImage", file.getAbsolutePath());
+                            }
+                        });
+                        fileDeletingTask.execute(new File(image.getImageFilePath()));
+                    }
 
                 }
             });
@@ -438,7 +451,7 @@ public class NoteFieldScreenManipulationTasks {
         audioTitle.setText(UtilityTasks.truncateText(audio.getAudioTitle(),Constants.MAX_AUDIO_FILE_NAME_LENGTH,Constants.MP3_FILE_EXT));
         audioSize.setText(UtilityTasks.getFileSizeString(Double.parseDouble(audio.getAudioSize())));
         audioContainer.addView(audioHolder);
-        AudioListener audioListener = listeningTasks.getAudioListener(audio,fileIOTasks,audioUri,audioHolder);
+        AudioListener audioListener = listeningTasks.getAudioListener(audio,audioUri,audioHolder);
         audioHolderRow.setOnClickListener(audioListener);
         if(audio.getNoteId()!=Constants.ZERO)
         {
@@ -451,12 +464,19 @@ public class NoteFieldScreenManipulationTasks {
                 @Override
                 public void onClick(View v) {
                     removeAudioComponent(audioHolder, finalAudio);
-
+                    if(finalAudio.isFilePath())
+                    {
+                        FileDeletingTask fileDeletingTask = tasksFactory.getFileDeletingTask(new FileDeletingTask.Listener() {
+                            @Override
+                            public void onFileDeleted(File file) {
+                                Log.e("FileDeletedAudio", file.getAbsolutePath());
+                            }
+                        });
+                        fileDeletingTask.execute(new File(finalAudio.getAudioUri()));
+                    }
                 }
             });
         }
-
-
     }
 
     public void showPhoneNoOptions(PhoneNoOptionsBottomSheets.Listener listener)

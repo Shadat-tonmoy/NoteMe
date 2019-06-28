@@ -2,13 +2,18 @@ package com.stcodesapp.noteit.listeners;
 
 import android.app.Activity;
 import android.net.Uri;
+import android.util.Log;
 import android.view.View;
 
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
-import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
+import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileDeletingTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileIOTasks;
 import com.stcodesapp.noteit.ui.activities.NoteFieldActivity;
+
+import java.io.File;
 
 public class AudioListener implements View.OnClickListener {
 
@@ -18,13 +23,15 @@ public class AudioListener implements View.OnClickListener {
     private Activity activity;
     private DatabaseTasks databaseTasks;
     private View audioHolder;
+    private TasksFactory tasksFactory;
 
-    public AudioListener(Audio audio, FileIOTasks fileIOTasks, Uri audioUri, Activity activity, DatabaseTasks databaseTasks, View audioHolder) {
+    public AudioListener(Audio audio, Uri audioUri, Activity activity,View audioHolder,TasksFactory tasksFactory) {
         this.audio = audio;
-        this.fileIOTasks = fileIOTasks;
+        this.fileIOTasks = tasksFactory.getFileIOTasks();
         this.audioUri = audioUri;
         this.activity = activity;
-        this.databaseTasks = databaseTasks;
+        this.databaseTasks = tasksFactory.getDatabaseTasks();
+        this.tasksFactory = tasksFactory;
         this.audioHolder = audioHolder;
     }
 
@@ -46,6 +53,16 @@ public class AudioListener implements View.OnClickListener {
     {
         audioHolder.setVisibility(View.GONE);
         databaseTasks.getAudioDeleteTask(((NoteFieldActivity)activity).getNoteFieldController()).execute(audio);
+        if(audio.isFilePath())
+        {
+            FileDeletingTask fileDeletingTask = tasksFactory.getFileDeletingTask(new FileDeletingTask.Listener() {
+                @Override
+                public void onFileDeleted(File file) {
+                    Log.e("FileDeleted", file.getAbsolutePath());
+                }
+            });
+            fileDeletingTask.execute(new File(audio.getAudioUri()));
+        }
     }
 
     private void openAudio()

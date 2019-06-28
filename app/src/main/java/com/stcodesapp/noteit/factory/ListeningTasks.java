@@ -20,7 +20,7 @@ import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.Image;
 import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
-import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
+import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileIOTasks;
 
 public class ListeningTasks {
 
@@ -56,12 +56,12 @@ public class ListeningTasks {
 
     public ImageListener getImageListener(Image image, View imageHolder)
     {
-        return new ImageListener(image, activity,databaseTasks,imageHolder);
+        return new ImageListener(image, activity,imageHolder,tasksFactory);
     }
 
-    public AudioListener getAudioListener(Audio audio, FileIOTasks fileIOTasks, Uri audioUri,View audioHolder)
+    public AudioListener getAudioListener(Audio audio, Uri audioUri,View audioHolder)
     {
-        return new AudioListener(audio, fileIOTasks, audioUri, activity, databaseTasks, audioHolder);
+        return new AudioListener(audio, audioUri, activity, audioHolder,tasksFactory);
     }
 
     public DatabaseInsertTasksListener getDBInsertTasksListener(DatabaseTasks databaseTasks, NoteComponents noteComponents, boolean isUpdating){

@@ -4,8 +4,8 @@ import android.util.Log;
 
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.factory.TasksFactory;
-import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
-import com.stcodesapp.noteit.tasks.functionalTasks.FileMovingTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileIOTasks;
+import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileMovingTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.FileSaveScreenManipulationTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.ClipboardTasks;
 import com.stcodesapp.noteit.ui.views.screenViews.dialogScreenView.FileSaveDialogScreenView;

@@ -1,4 +1,4 @@
-package com.stcodesapp.noteit.tasks.functionalTasks;
+package com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks;
 
 import android.app.Activity;
 import android.content.ContentValues;

@@ -9,6 +9,7 @@ public class Constants {
     public static String[] AM_PM = {"AM","PM"};
 
     public static final String EMPTY_STRING = "";
+    public static final String STORAGE = "storage";
     public static final String MANUAL_CONTACT = "manual_contact";
     public static final String MANUAL_EMAIL = "manual_email";
     public static final String SINGLE_CHECKLIST= "single_checklist";

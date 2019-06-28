@@ -1,17 +1,12 @@
 package com.stcodesapp.noteit.tasks.functionalTasks;
 
 import android.app.Activity;
-import android.text.Html;
 import android.util.Log;
 
 import com.itextpdf.text.Chunk;
-import com.itextpdf.text.DocListener;
 import com.itextpdf.text.Document;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Font;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.html.HtmlEncoder;
 import com.itextpdf.text.html.HtmlParser;
 import com.itextpdf.text.html.simpleparser.HTMLWorker;
 import com.itextpdf.text.pdf.BaseFont;
@@ -24,12 +19,11 @@ import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.models.NoteComponents;
+import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileIOTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.StringReader;
 import java.util.List;
 

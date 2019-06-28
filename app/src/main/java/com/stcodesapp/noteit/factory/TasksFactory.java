@@ -5,8 +5,9 @@ import com.stcodesapp.noteit.common.FragmentFrameHelper;
 import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.DialogManagementTask;
-import com.stcodesapp.noteit.tasks.functionalTasks.FileIOTasks;
-import com.stcodesapp.noteit.tasks.functionalTasks.FileMovingTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileDeletingTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileIOTasks;
+import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileMovingTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.ImageCapturingTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.NoteFieldValidationTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.PDFCreationTasks;
@@ -56,7 +57,7 @@ public class TasksFactory {
 
     public NoteFieldScreenManipulationTasks getNoteFieldScreenManipulationTasks()
     {
-        return new NoteFieldScreenManipulationTasks(activity,getListeningTasks(), getUiComponentFactory());
+        return new NoteFieldScreenManipulationTasks(activity,getListeningTasks(), getUiComponentFactory(),this);
     }
 
 
@@ -165,6 +166,13 @@ public class TasksFactory {
         FileMovingTask fileMovingTask = new FileMovingTask();
         fileMovingTask.setListener(listener);
         return fileMovingTask;
+
+    }
+
+    public FileDeletingTask getFileDeletingTask(FileDeletingTask.Listener listener) {
+        FileDeletingTask fileDeletingTask = new FileDeletingTask();
+        fileDeletingTask.setListener(listener);
+        return fileDeletingTask;
 
     }
 

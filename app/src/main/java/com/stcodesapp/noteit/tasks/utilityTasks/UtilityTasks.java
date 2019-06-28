@@ -90,6 +90,11 @@ public class UtilityTasks {
         else return text;
     }
 
+    public static String getFilePathFromURI(String uriPath)
+    {
+        return uriPath.substring(uriPath.indexOf(Constants.STORAGE));
+    }
+
     public static boolean isValidString(String text)
     {
         return text!=null && !text.isEmpty() && text.length()>Constants.ZERO && !text.equals(Constants.EMPTY_STRING);

@@ -6,6 +6,8 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 
+import com.stcodesapp.noteit.tasks.utilityTasks.UtilityTasks;
+
 @Entity(tableName = "images", foreignKeys = @ForeignKey(
         entity = Note.class,
         parentColumns = {"note_id"},
@@ -54,6 +56,11 @@ public class Image {
 
     public String getImageURI() {
         return imageURI;
+    }
+
+    public String getImageFilePath()
+    {
+       return UtilityTasks.getFilePathFromURI(imageURI);
     }
 
     public void setImageURI(String imageURI) {
