@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.factory.TasksFactory;
-import com.stcodesapp.noteit.tasks.promotionalTask.RateUSPopupTrackingTasks;
+import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.RateUSPopupTrackingTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.SharingTasks;
 
 public class DialogManagementTask {

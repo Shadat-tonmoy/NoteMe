@@ -39,12 +39,13 @@ import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ContactInsertTas
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.EmailInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ImageInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteComponentSelectionTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.AdStrategyTrackingTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileIOTasks;
-import com.stcodesapp.noteit.tasks.functionalTasks.ImageCapturingTask;
-import com.stcodesapp.noteit.tasks.functionalTasks.VoiceInputTasks;
-import com.stcodesapp.noteit.tasks.functionalTasks.VoiceRecordTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.phoneFunctionAccessTasks.ImageCapturingTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.phoneFunctionAccessTasks.VoiceInputTasks;
+import com.stcodesapp.noteit.tasks.functionalTasks.phoneFunctionAccessTasks.VoiceRecordTask;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
-import com.stcodesapp.noteit.tasks.promotionalTask.RateUSPopupTrackingTasks;
+import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.RateUSPopupTrackingTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.NoteFieldScreenManipulationTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
 import com.stcodesapp.noteit.ui.fragments.AudioOptionsBottomSheets;
@@ -72,7 +73,8 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     private VoiceInputTasks voiceInputTasks;
     private NoteComponents noteComponents;
     private boolean isUpdating = false;
-    ImageCapturingTask imageCapturingTask;
+    private ImageCapturingTask imageCapturingTask;
+    private AdStrategyTrackingTask adStrategyTrackingTask;
     private NoteFieldAdController noteFieldAdController;
 
     public NoteFieldController(TasksFactory tasksFactory) {
@@ -84,6 +86,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         voiceInputTasks = tasksFactory.getVoiceInputTasks();
         listeningTasks = tasksFactory.getListeningTasks();
         imageCapturingTask = tasksFactory.getImageCapturingTask();
+        adStrategyTrackingTask = tasksFactory.getAdStrategyTrackingTask();
 
     }
 
@@ -280,22 +283,19 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
        {
            if(grantResults[0]==PackageManager.PERMISSION_GRANTED)
                executeReadingContact();
-           else
-               noteFieldScreenManipulationTasks.showPermissionRequiredMessage(PermissionType.CONTACT_READ_PERMISSION);
+           else noteFieldScreenManipulationTasks.showPermissionRequiredMessage(PermissionType.CONTACT_READ_PERMISSION);
        }
        else if(requestCode == RequestCode.READ_EXTERNAL_STORAGE_PERMISSION)
        {
            if(grantResults[0]==PackageManager.PERMISSION_GRANTED)
                noteFieldScreenManipulationTasks.addImageToFields();
-           else
-               noteFieldScreenManipulationTasks.showPermissionRequiredMessage(PermissionType.IMAGE_READ_PERMISSION);
+           else noteFieldScreenManipulationTasks.showPermissionRequiredMessage(PermissionType.IMAGE_READ_PERMISSION);
        }
        else if(requestCode == RequestCode.OPEN_CAMERA_PERMISSION)
        {
            if(grantResults[0]==PackageManager.PERMISSION_GRANTED)
                openCameraToTakeImage();
-           else
-               noteFieldScreenManipulationTasks.showPermissionRequiredMessage(PermissionType.CAMERA_ACCESS_PERMISSION);
+           else noteFieldScreenManipulationTasks.showPermissionRequiredMessage(PermissionType.CAMERA_ACCESS_PERMISSION);
        }
        else if(requestCode == RequestCode.WRITE_EXTERNAL_STORAGE_PERMISSION)
        {

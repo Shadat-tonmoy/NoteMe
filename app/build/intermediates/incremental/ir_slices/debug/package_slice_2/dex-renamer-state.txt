@@ -1,4 +1,4 @@
-#Fri Jun 28 19:20:31 BDT 2019
+#Sat Jun 29 22:03:23 BDT 2019
 base.0=/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/transforms/dexMerger/debug/2
 path.0=classes.dex
 renamed.0=classes.dex

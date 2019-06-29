@@ -15,7 +15,6 @@ import com.stcodesapp.noteit.controllers.fragmentController.CheckListFragmentCon
 import com.stcodesapp.noteit.controllers.fragmentController.ContactFragmentController;
 import com.stcodesapp.noteit.controllers.fragmentController.EmailFragmentController;
 import com.stcodesapp.noteit.controllers.fragmentController.FileSaveScreenController;
-import com.stcodesapp.noteit.ui.activities.ManualEmailActivity;
 
 public class ControllerFactory {
 
@@ -79,7 +78,7 @@ public class ControllerFactory {
 
     public NoteFieldAdController getNoteFieldAdController()
     {
-        return new NoteFieldAdController(activity);
+        return new NoteFieldAdController(activity, tasksFactory);
     }
     public CheckListActivityController getCheckListActivityController()
     {

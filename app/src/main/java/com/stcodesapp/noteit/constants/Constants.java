@@ -59,6 +59,7 @@ public class Constants {
     public static final int FOR_SHOWING_IMAGES = 2;
     public static final int FOR_DELETING_AUDIOS = 3;
     public static final int FOR_SHOWING_AUDIOS = 4;
+    public static final String BASE_64_ENCODED_PUBLIC_KEY ="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA9hIFhQwVFWsNchKZyN9hgqN7hkHoLsD22WG9ZLWu2QAhI/srqMCcDwfo8FkFv/g6/gZh3TsrB/vSsSa9vzfgHaYcVmreCUhjt/lcRyrnv0k8i9zRwaEWCDj1YvTvNLm7o+vf3tkBpLYhEybsmnANxwSXH0sBsrsDX6xs6RbyZ2PjFkk6cfEkpMaEdFr2gwBM7gorPmKLjg88ot7W5akxm8/huyB0hTP5kYjtQIf72q16V935mI7qv4DL7rEShQJQK71pwTGthJAyFKqc9+GFdzlkKjXmUYPFV9fER472bh7J+TsDohbyZjCiJ7DVhiBZxvuzxwoH2T9QuYWhgXCMhwIDAQAB";
 
 }
 

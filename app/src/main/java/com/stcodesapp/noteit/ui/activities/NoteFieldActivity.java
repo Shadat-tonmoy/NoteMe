@@ -36,6 +36,7 @@ public class NoteFieldActivity extends BaseActivity {
         bindComponentsToController();
         noteFieldController.bindNoteComponents(noteComponents);
         noteFieldController.checkBundleForNote(getIntent().getExtras());
+        noteFieldAdController.updateAdShowingStrategy();
         setContentView(noteFieldScreenView.getRootView());
     }
 

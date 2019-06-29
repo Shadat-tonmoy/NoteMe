@@ -2,23 +2,23 @@ package com.stcodesapp.noteit.factory;
 
 import android.support.v4.app.FragmentActivity;
 import com.stcodesapp.noteit.common.FragmentFrameHelper;
-import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllAudioSelectionTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllImageSelectionTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.DialogManagementTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.AdStrategyTrackingTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileDeletingTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileIOTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileMovingTask;
-import com.stcodesapp.noteit.tasks.functionalTasks.ImageCapturingTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.phoneFunctionAccessTasks.ImageCapturingTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.NoteFieldValidationTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.PDFCreationTasks;
-import com.stcodesapp.noteit.tasks.functionalTasks.VoiceInputTasks;
-import com.stcodesapp.noteit.tasks.functionalTasks.VoiceRecordTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.phoneFunctionAccessTasks.VoiceInputTasks;
+import com.stcodesapp.noteit.tasks.functionalTasks.phoneFunctionAccessTasks.VoiceRecordTask;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
-import com.stcodesapp.noteit.tasks.promotionalTask.RateUSPopupTrackingTasks;
+import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.RateUSPopupTrackingTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.CheckListActivityScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.CheckListScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.ContactScreenManipulationTask;
@@ -202,5 +202,10 @@ public class TasksFactory {
     public AllAudioSelectionTasks getAllAudioSelectionTasks(AllAudioSelectionTasks.Listener listener, int purpose)
     {
         return new AllAudioSelectionTasks(activity,listener, purpose);
+    }
+
+    public AdStrategyTrackingTask getAdStrategyTrackingTask()
+    {
+        return new AdStrategyTrackingTask(activity);
     }
 }

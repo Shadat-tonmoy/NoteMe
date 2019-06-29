@@ -29,7 +29,7 @@ import com.stcodesapp.noteit.tasks.functionalTasks.DialogManagementTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileDeletingTask;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
-import com.stcodesapp.noteit.tasks.promotionalTask.RateUSPopupTrackingTasks;
+import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.RateUSPopupTrackingTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.HomeScreenManipulationTasks;
 import com.stcodesapp.noteit.ui.fragments.MoreOptionsBottomSheets;
 import com.stcodesapp.noteit.ui.fragments.PhoneOrEmailListBottomSheets;

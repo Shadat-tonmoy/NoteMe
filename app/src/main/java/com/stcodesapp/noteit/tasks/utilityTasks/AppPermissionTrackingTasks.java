@@ -92,7 +92,7 @@ public class AppPermissionTrackingTasks {
             }
             else
             {
-                ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.CAMERA}, RequestCode.READ_CONTACT_PERMISSION);
+                ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.CAMERA}, RequestCode.OPEN_CAMERA_PERMISSION);
                 return false;
             }
         }
