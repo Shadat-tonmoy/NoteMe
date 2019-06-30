@@ -76,7 +76,7 @@ public class ActivityNavigationTasks {
         activity.finish();
     }
 
-    public void showIAPDialog() {
+    public void toProVersionScreen() {
         Intent intent = new Intent(activity, InAppPurchaseActivity.class);
         activity.startActivity(intent);
     }

@@ -191,10 +191,12 @@ public class Note implements Serializable {
                 ", backgroundColor='" + backgroundColor + '\'' +
                 ", creationTime=" + creationTime +
                 ", isImportant=" + isImportant +
+                ", priority=" + priority +
                 ", contactPriority=" + contactPriority +
                 ", emailPriority=" + emailPriority +
                 ", audioPriority=" + audioPriority +
                 ", imagePriority=" + imagePriority +
+                ", checkListPriority=" + checkListPriority +
                 '}';
     }
 }

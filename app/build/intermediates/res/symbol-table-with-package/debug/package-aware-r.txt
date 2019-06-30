@@ -1577,9 +1577,12 @@ id ui_root
 id uniform
 id unlabeled
 id up
+id upgrade_button
+id upgrade_header
 id useLogo
 id view_offset_helper
 id visible
+id watch_add_button
 id withText
 id wrap
 id wrap_content
@@ -1721,6 +1724,7 @@ layout suggest_item
 layout support_simple_spinner_dropdown_item
 layout toolbar
 layout toolbar_layout
+layout upgrade_to_pro_popup_dialog
 menu checklist_list_menu
 menu checklist_menu
 menu contact_menu
@@ -1947,7 +1951,9 @@ string test
 string test_contact
 string test_num
 string text_copied
+string upgrade
 string voice_input_not_supported
+string watch_ad
 string write_storage_permission_is_required
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light

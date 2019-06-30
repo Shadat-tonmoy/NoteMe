@@ -170,6 +170,8 @@
     <string name="rate">Rate</string>
     <string name="no_thanks">No Thanks</string>
     <string name="noteit_pro">Noteit Premium</string>
+    <string name="upgrade">Buy Pro Version</string>
+    <string name="watch_ad">Watch ad to unlock for free</string>
 
     <!--ad_related_ids-->
 

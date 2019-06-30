@@ -5497,13 +5497,16 @@ public final class R {
     public static final int uniform=0x7f09018b;
     public static final int unlabeled=0x7f09018c;
     public static final int up=0x7f09018d;
-    public static final int useLogo=0x7f09018e;
-    public static final int view_offset_helper=0x7f09018f;
-    public static final int visible=0x7f090190;
-    public static final int withText=0x7f090191;
-    public static final int wrap=0x7f090192;
-    public static final int wrap_content=0x7f090193;
-    public static final int wrap_reverse=0x7f090194;
+    public static final int upgrade_button=0x7f09018e;
+    public static final int upgrade_header=0x7f09018f;
+    public static final int useLogo=0x7f090190;
+    public static final int view_offset_helper=0x7f090191;
+    public static final int visible=0x7f090192;
+    public static final int watch_add_button=0x7f090193;
+    public static final int withText=0x7f090194;
+    public static final int wrap=0x7f090195;
+    public static final int wrap_content=0x7f090196;
+    public static final int wrap_reverse=0x7f090197;
   }
   public static final class integer {
     public static final int abc_config_activityDefaultDur=0x7f0a0000;
@@ -5647,6 +5650,7 @@ public final class R {
     public static final int support_simple_spinner_dropdown_item=0x7f0c0072;
     public static final int toolbar=0x7f0c0073;
     public static final int toolbar_layout=0x7f0c0074;
+    public static final int upgrade_to_pro_popup_dialog=0x7f0c0075;
   }
   public static final class menu {
     public static final int checklist_list_menu=0x7f0d0000;
@@ -5879,8 +5883,10 @@ public final class R {
     public static final int test_contact=0x7f0f00d6;
     public static final int test_num=0x7f0f00d7;
     public static final int text_copied=0x7f0f00d8;
-    public static final int voice_input_not_supported=0x7f0f00d9;
-    public static final int write_storage_permission_is_required=0x7f0f00da;
+    public static final int upgrade=0x7f0f00d9;
+    public static final int voice_input_not_supported=0x7f0f00da;
+    public static final int watch_ad=0x7f0f00db;
+    public static final int write_storage_permission_is_required=0x7f0f00dc;
   }
   public static final class style {
     public static final int AlertDialog_AppCompat=0x7f100000;

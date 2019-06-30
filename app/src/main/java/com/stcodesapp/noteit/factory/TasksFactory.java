@@ -8,6 +8,7 @@ import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllAudioSelectio
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllImageSelectionTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.DialogManagementTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.AdStrategyTrackingTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.IAPTrackingTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileDeletingTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileIOTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileMovingTask;
@@ -207,5 +208,10 @@ public class TasksFactory {
     public AdStrategyTrackingTask getAdStrategyTrackingTask()
     {
         return new AdStrategyTrackingTask(activity);
+    }
+
+    public IAPTrackingTasks getIAPTrackingTasks()
+    {
+        return new IAPTrackingTasks(activity);
     }
 }

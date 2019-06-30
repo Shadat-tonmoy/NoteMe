@@ -8,6 +8,12 @@ public class AppMetadata {
     public static final int MAX_NOTE_TO_SHOW_RATEUS_POPUP = 3;
     public static final int MAX_NOTE_OPEN_TO_SHOW_FULL_SCREEN_AD = 3;
     public static final int MAX_CHECK_LIST_OPEN_TO_SHOW_FULL_SCREEN_AD = 3;
+    public static final int MAX_FREE_CONTACT = 5;
+    public static final int MAX_FREE_EMAIL = 5;
+    public static final int MAX_FREE_AUDIO= 5;
+    public static final int MAX_FREE_IMAGE= 5;
+    public static final int MAX_FREE_CHECKLIST= 5;
+    public static final int MAX_FREE_COMPONENTS = 2;
     private static boolean USAGE_BALANCE_UPDATED = false;
     private static boolean NEW_BALANCE_ADDED = false;
     private static boolean BROADCAST_RECEIVER_SET = false;

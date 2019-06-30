@@ -1,6 +1,5 @@
 package com.stcodesapp.noteit.controllers.commons;
 import com.stcodesapp.noteit.R;
-import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.FragmentTags;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
@@ -55,7 +54,7 @@ public class NavigationDrawerController implements NavigationDrawerScreen.Listen
                 updateToolbarTitle(FragmentTags.CONTACTS);
                 break;
             case R.id.nav_pro_version:
-                activityNavigationTasks.showIAPDialog();
+                activityNavigationTasks.toProVersionScreen();
                 break;
             case R.id.email_menu:
                 fragmentNavigationTasks.toEmailFragment();

@@ -52,8 +52,8 @@ public final class R {
         public static final int space_between = 0x7f090155;
         public static final int space_evenly = 0x7f090156;
         public static final int stretch = 0x7f090161;
-        public static final int wrap = 0x7f090192;
-        public static final int wrap_reverse = 0x7f090194;
+        public static final int wrap = 0x7f090195;
+        public static final int wrap_reverse = 0x7f090197;
     }
     public static final class styleable {
         private styleable() {}

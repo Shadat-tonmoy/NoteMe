@@ -39,6 +39,7 @@ import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.Image;
 import com.stcodesapp.noteit.models.NoteComponents;
+import com.stcodesapp.noteit.tasks.functionalTasks.DialogManagementTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileDeletingTask;
 import com.stcodesapp.noteit.tasks.utilityTasks.UtilityTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileIOTasks;
@@ -662,5 +663,10 @@ public class NoteFieldScreenManipulationTasks {
         Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         activity.startActivityForResult(cameraIntent, RequestCode.OPEN_CAMERA_TO_TAKE_IMAGE);
 
+    }
+
+    public void showUpgradeDialog() {
+        DialogManagementTask dialogManagementTask = tasksFactory.getDialogManagementTask();
+        dialogManagementTask.showUpgradeDialog();
     }
 }

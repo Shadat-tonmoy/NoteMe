@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.constants.AppMetadata;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.EventTypes;
 import com.stcodesapp.noteit.constants.PermissionType;
@@ -40,6 +41,7 @@ import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.EmailInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ImageInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteComponentSelectionTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.AdStrategyTrackingTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.IAPTrackingTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileIOTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.phoneFunctionAccessTasks.ImageCapturingTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.phoneFunctionAccessTasks.VoiceInputTasks;
@@ -75,6 +77,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     private boolean isUpdating = false;
     private ImageCapturingTask imageCapturingTask;
     private AdStrategyTrackingTask adStrategyTrackingTask;
+    private IAPTrackingTasks iapTrackingTasks;
     private NoteFieldAdController noteFieldAdController;
 
     public NoteFieldController(TasksFactory tasksFactory) {
@@ -87,6 +90,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         listeningTasks = tasksFactory.getListeningTasks();
         imageCapturingTask = tasksFactory.getImageCapturingTask();
         adStrategyTrackingTask = tasksFactory.getAdStrategyTrackingTask();
+        iapTrackingTasks = tasksFactory.getIAPTrackingTasks();
 
     }
 
@@ -144,6 +148,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     public void checkBundleForNote(Bundle args)
     {
         Note note = (Note) args.getSerializable(Tags.NOTE);
+        Log.e("Note","note "+note.toString());
         if(note!=null)
         {
             noteComponents.setNote(note);
@@ -173,25 +178,93 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
                 noteFieldScreenManipulationTasks.showColorPalate(this);
                 break;
             case R.id.add_image_menu:
-                noteFieldScreenManipulationTasks.showImageOptions(this);
+                showImageOptions();
                 break;
             case R.id.add_phone_no_menu:
-                noteFieldScreenManipulationTasks.showPhoneNoOptions(this);
+                showContactOptions();
                 break;
             case R.id.add_email_menu:
-                activityNavigationTasks.toManualEmailScreen(new Bundle());
+                showEmailOptions();
                 break;
             case R.id.add_audio_menu:
-                noteFieldScreenManipulationTasks.showAudioOptions(this);
+                showAudioOptions();
                 break;
             case R.id.add_checklist_menu:
-                Bundle args = new Bundle();
-                args.putLong(Tags.NOTE_ID,noteComponents.getNote().getId());
-                activityNavigationTasks.toCheckListScreen(args);
+                showCheckListOptions();
                 break;
 
         }
+    }
 
+    private void showAudioOptions()
+    {
+        if(noteComponents.getChosenAudios().size()>=AppMetadata.MAX_FREE_COMPONENTS && !iapTrackingTasks.isPaidUser())
+        {
+            noteFieldScreenManipulationTasks.showUpgradeDialog();
+        }
+        else
+        {
+            noteFieldScreenManipulationTasks.showAudioOptions(this);
+        }
+
+    }
+
+    private void showImageOptions()
+    {
+        if(noteComponents.getChosenImages().size()>=AppMetadata.MAX_FREE_COMPONENTS && !iapTrackingTasks.isPaidUser())
+        {
+            noteFieldScreenManipulationTasks.showUpgradeDialog();
+        }
+        else
+        {
+            noteFieldScreenManipulationTasks.showImageOptions(this);
+        }
+
+    }
+
+    private void showContactOptions()
+    {
+        Log.e("ChosenContacts",noteComponents.getChosenContacts().size()+" is aai");
+        if(noteComponents.getChosenContacts().size()>=AppMetadata.MAX_FREE_COMPONENTS && !iapTrackingTasks.isPaidUser())
+        {
+            noteFieldScreenManipulationTasks.showUpgradeDialog();
+            for(Contact contact:noteComponents.getChosenContacts())
+            {
+                Log.e("ChosenContact",contact.toString());
+            }
+        }
+        else
+        {
+            noteFieldScreenManipulationTasks.showPhoneNoOptions(this);
+        }
+    }
+
+    private void showCheckListOptions()
+    {
+        if(noteComponents.getCheckLists().size()>=AppMetadata.MAX_FREE_COMPONENTS && !iapTrackingTasks.isPaidUser())
+        {
+            noteFieldScreenManipulationTasks.showUpgradeDialog();
+        }
+        else
+        {
+            Bundle args = new Bundle();
+            args.putLong(Tags.NOTE_ID,noteComponents.getNote().getId());
+            activityNavigationTasks.toCheckListScreen(args);
+        }
+
+    }
+
+    private void showEmailOptions()
+    {
+
+        if(noteComponents.getEmails().size()>=AppMetadata.MAX_FREE_COMPONENTS && !iapTrackingTasks.isPaidUser())
+        {
+            noteFieldScreenManipulationTasks.showUpgradeDialog();
+        }
+        else
+        {
+            activityNavigationTasks.toManualEmailScreen(new Bundle());
+        }
 
     }
 
