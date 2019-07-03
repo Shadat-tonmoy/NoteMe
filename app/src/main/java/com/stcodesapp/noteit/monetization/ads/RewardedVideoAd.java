@@ -11,11 +11,11 @@ public class RewardedVideoAd implements MobileAd{
     @Override
     public void loadAd() {
         adNetwork.loadRewardedVideoAd();
-
     }
 
     @Override
     public void showAd() {
         adNetwork.showRewardedVideoAd();
     }
+
 }

@@ -20,6 +20,11 @@ public class DialogManagementTask {
     private RateUSPopupTrackingTasks rateUSPopupTrackingTasks;
     private ActivityNavigationTasks activityNavigationTasks;
 
+    public interface DialogOptionListener{
+        void onWatchAdClicked();
+    }
+
+
     public DialogManagementTask(Activity activity, TasksFactory tasksFactory) {
         this.activity = activity;
         this.tasksFactory = tasksFactory;
@@ -55,7 +60,7 @@ public class DialogManagementTask {
         alertDialog.show();
     }
 
-    public void showUpgradeDialog() {
+    public void showUpgradeDialog(final DialogOptionListener listener) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(activity);
         LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.upgrade_to_pro_popup_dialog,null,false);
@@ -68,6 +73,14 @@ public class DialogManagementTask {
             @Override
             public void onClick(View v) {
                 alertDialog.dismiss();
+            }
+        });
+        watchAdButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onWatchAdClicked();
+                alertDialog.dismiss();
+
             }
         });
         upgradeButton.setOnClickListener(new View.OnClickListener() {

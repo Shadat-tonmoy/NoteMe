@@ -15,10 +15,16 @@ import com.stcodesapp.noteit.R;
 
 public class AdMob implements AdNetwork, RewardedVideoAdListener {
 
+    public interface Listener{
+        void onRewardedFromVideoAd();
+    }
+
+
     private AdView adView;
     private Activity activity;
     private InterstitialAd interstitialAd;
     private RewardedVideoAd rewardedVideoAd;
+    private Listener listener;
 
     public AdMob(AdView adView, Activity activity) {
         this.adView = adView;
@@ -102,6 +108,7 @@ public class AdMob implements AdNetwork, RewardedVideoAdListener {
 
     @Override
     public void onRewarded(RewardItem rewardItem) {
+        listener.onRewardedFromVideoAd();
 
     }
 
@@ -119,5 +126,9 @@ public class AdMob implements AdNetwork, RewardedVideoAdListener {
     @Override
     public void onRewardedVideoCompleted() {
 
+    }
+
+    public void setListener(Listener listener) {
+        this.listener = listener;
     }
 }

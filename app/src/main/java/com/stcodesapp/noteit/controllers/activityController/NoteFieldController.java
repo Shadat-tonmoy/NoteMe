@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.common.Logger;
 import com.stcodesapp.noteit.constants.AppMetadata;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.EventTypes;
@@ -29,6 +30,7 @@ import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.Image;
 import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.models.NoteComponents;
+import com.stcodesapp.noteit.monetization.ads.RewardedVideoAd;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.AudioDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.ContactDeleteTask;
@@ -40,6 +42,7 @@ import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ContactInsertTas
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.EmailInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.insertionTasks.ImageInsertTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteComponentSelectionTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.DialogManagementTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.AdStrategyTrackingTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.IAPTrackingTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileIOTasks;
@@ -62,7 +65,7 @@ import java.io.File;
 import static android.app.Activity.RESULT_OK;
 import static com.stcodesapp.noteit.constants.Constants.SINGLE_CHECKLIST;
 
-public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener,NoteComponentSelectionTask.Listener, ContactDeleteTask.Listener, EmailDeleteTask.Listener, ImageDeleteTask.Listener, AudioDeleteTask.Listener, DialogInterface.OnClickListener, AudioOptionsBottomSheets.Listener, ImageOptionsBottomSheets.Listener
+public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallateBottomSheets.Listener, PhoneNoOptionsBottomSheets.Listener,NoteComponentSelectionTask.Listener, ContactDeleteTask.Listener, EmailDeleteTask.Listener, ImageDeleteTask.Listener, AudioDeleteTask.Listener, DialogInterface.OnClickListener, AudioOptionsBottomSheets.Listener, ImageOptionsBottomSheets.Listener, DialogManagementTask.DialogOptionListener, NoteFieldAdController.Listener
 {
 
     private TasksFactory tasksFactory;
@@ -74,7 +77,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     private AppPermissionTrackingTasks appPermissionTrackingTasks;
     private VoiceInputTasks voiceInputTasks;
     private NoteComponents noteComponents;
-    private boolean isUpdating = false;
+    private boolean isUpdating = false,isRewarded = false;
     private ImageCapturingTask imageCapturingTask;
     private AdStrategyTrackingTask adStrategyTrackingTask;
     private IAPTrackingTasks iapTrackingTasks;
@@ -148,7 +151,6 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     public void checkBundleForNote(Bundle args)
     {
         Note note = (Note) args.getSerializable(Tags.NOTE);
-        Log.e("Note","note "+note.toString());
         if(note!=null)
         {
             noteComponents.setNote(note);
@@ -198,9 +200,9 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
 
     private void showAudioOptions()
     {
-        if(noteComponents.getChosenAudios().size()>=AppMetadata.MAX_FREE_COMPONENTS && !iapTrackingTasks.isPaidUser())
+        if(noteComponents.getChosenAudios().size()>=AppMetadata.MAX_FREE_COMPONENTS && !iapTrackingTasks.isPaidUser() && !isRewarded)
         {
-            noteFieldScreenManipulationTasks.showUpgradeDialog();
+            noteFieldScreenManipulationTasks.showUpgradeDialog(this);
         }
         else
         {
@@ -211,9 +213,9 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
 
     private void showImageOptions()
     {
-        if(noteComponents.getChosenImages().size()>=AppMetadata.MAX_FREE_COMPONENTS && !iapTrackingTasks.isPaidUser())
+        if(noteComponents.getChosenImages().size()>=AppMetadata.MAX_FREE_COMPONENTS && !iapTrackingTasks.isPaidUser() && !isRewarded)
         {
-            noteFieldScreenManipulationTasks.showUpgradeDialog();
+            noteFieldScreenManipulationTasks.showUpgradeDialog(this);
         }
         else
         {
@@ -224,14 +226,9 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
 
     private void showContactOptions()
     {
-        Log.e("ChosenContacts",noteComponents.getChosenContacts().size()+" is aai");
-        if(noteComponents.getChosenContacts().size()>=AppMetadata.MAX_FREE_COMPONENTS && !iapTrackingTasks.isPaidUser())
+        if(noteComponents.getChosenContacts().size()>=AppMetadata.MAX_FREE_COMPONENTS && !iapTrackingTasks.isPaidUser() && !isRewarded)
         {
-            noteFieldScreenManipulationTasks.showUpgradeDialog();
-            for(Contact contact:noteComponents.getChosenContacts())
-            {
-                Log.e("ChosenContact",contact.toString());
-            }
+            noteFieldScreenManipulationTasks.showUpgradeDialog(this);
         }
         else
         {
@@ -241,9 +238,9 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
 
     private void showCheckListOptions()
     {
-        if(noteComponents.getCheckLists().size()>=AppMetadata.MAX_FREE_COMPONENTS && !iapTrackingTasks.isPaidUser())
+        if(noteComponents.getCheckLists().size()>=AppMetadata.MAX_FREE_COMPONENTS && !iapTrackingTasks.isPaidUser() && !isRewarded)
         {
-            noteFieldScreenManipulationTasks.showUpgradeDialog();
+            noteFieldScreenManipulationTasks.showUpgradeDialog(this);
         }
         else
         {
@@ -257,9 +254,9 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     private void showEmailOptions()
     {
 
-        if(noteComponents.getEmails().size()>=AppMetadata.MAX_FREE_COMPONENTS && !iapTrackingTasks.isPaidUser())
+        if(noteComponents.getEmails().size()>=AppMetadata.MAX_FREE_COMPONENTS && !iapTrackingTasks.isPaidUser() && !isRewarded)
         {
-            noteFieldScreenManipulationTasks.showUpgradeDialog();
+            noteFieldScreenManipulationTasks.showUpgradeDialog(this);
         }
         else
         {
@@ -449,11 +446,8 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
 
     private void handleCapturedImage(Intent intent)
     {
-//        Uri selectedImage = (Uri) intent.getExtras().get(MediaStore.EXTRA_OUTPUT);
         Uri selectedImage = imageCapturingTask.getCapturedImageURI();
-        Log.e("CapturedImage",selectedImage.toString());
         Image image = fileIOTasks.getImageFromURI(selectedImage,true);
-        Log.e("CapturedImage"," File "+selectedImage.toString());
         if(image!=null)
         {
             noteComponents.getChosenImages().add(image);
@@ -724,6 +718,20 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
                 fileIOTasks.openFilePickerForImage();
                 break;
         }
+
+    }
+
+    @Override
+    public void onWatchAdClicked() {
+        noteFieldAdController.showRewardedVideoAd();
+        noteFieldAdController.setListener(this);
+
+    }
+
+    @Override
+    public void onRewardedFromVideoAd() {
+        isRewarded = true;
+        Logger.logMessage("isRewarded","true");
 
     }
 }

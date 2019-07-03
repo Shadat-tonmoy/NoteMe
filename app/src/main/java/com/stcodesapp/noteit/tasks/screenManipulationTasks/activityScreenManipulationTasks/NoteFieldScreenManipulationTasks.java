@@ -567,6 +567,7 @@ public class NoteFieldScreenManipulationTasks {
     {
         this.fileIOTasks = fileIOTasks;
         setNoteFieldValue();
+        addComponentByPriority(0);
         addComponentByPriority(1);
         addComponentByPriority(2);
         addComponentByPriority(3);
@@ -665,8 +666,8 @@ public class NoteFieldScreenManipulationTasks {
 
     }
 
-    public void showUpgradeDialog() {
+    public void showUpgradeDialog(DialogManagementTask.DialogOptionListener dialogOptionListener) {
         DialogManagementTask dialogManagementTask = tasksFactory.getDialogManagementTask();
-        dialogManagementTask.showUpgradeDialog();
+        dialogManagementTask.showUpgradeDialog(dialogOptionListener);
     }
 }

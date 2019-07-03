@@ -1733,6 +1733,7 @@ menu home_menu
 menu navigation_drawer_menu
 menu note_add_menu
 mipmap ic_launcher
+mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 string abc_action_bar_home_description
 string abc_action_bar_up_description
