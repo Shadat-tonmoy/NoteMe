@@ -759,6 +759,7 @@ color tooltip_background_dark
 color tooltip_background_light
 color transparent
 color transparentBlack70
+color transparentBlack80
 color transparent_ash
 color transparent_ash30
 color white
@@ -1070,6 +1071,7 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable about
+drawable animated_person
 drawable audio_black
 drawable audio_gray
 drawable audio_white
@@ -1367,6 +1369,7 @@ id half_yearly_subs_btn
 id hamburger_button
 id header_container
 id header_text
+id hi_there
 id home
 id homeAsUp
 id home_menu
@@ -1584,10 +1587,13 @@ id unlabeled
 id up
 id upgrade_button
 id upgrade_header
+id upgrade_msg
 id useLogo
 id view_offset_helper
 id visible
 id watch_add_button
+id why_message
+id why_text
 id withText
 id wrap
 id wrap_content
@@ -1866,6 +1872,7 @@ string file_already_exists_msg
 string file_name
 string file_save__message
 string got_it
+string hi_there
 string hide_bottom_view_on_scroll_behavior
 string home
 string home_screen
@@ -1882,6 +1889,7 @@ string more
 string mtrl_chip_close_icon_content_description
 string name
 string new_item_added
+string no_check_list_found
 string no_contact_found
 string no_email_address
 string no_email_found
@@ -1961,8 +1969,11 @@ string test_contact
 string test_num
 string text_copied
 string upgrade
+string upgrade_msg
 string voice_input_not_supported
 string watch_ad
+string why_msg
+string why_upgrade
 string write_storage_permission_is_required
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light

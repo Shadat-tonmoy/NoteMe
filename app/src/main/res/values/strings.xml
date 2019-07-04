@@ -173,6 +173,10 @@
     <string name="noteit_pro">Noteit Premium</string>
     <string name="upgrade">Buy Pro Version</string>
     <string name="watch_ad">Watch ad to unlock for free</string>
+    <string name="hi_there">Hi There!</string>
+    <string name="upgrade_msg">Please upgrade to one of our premium plan. Or you can unlock it by watching video ad for free!!</string>
+    <string name="why_msg">We developers really work hard to provide you the best content. Please support us by spending some little bucks so that we can make it even better</string>
+    <string name="why_upgrade">Why Upgrade?</string>
 
     <!--ad_related_ids-->
 

@@ -24,6 +24,7 @@
     <color name="alizarin">#e74c3c</color>
     <color name="lightGreen">#27ae60</color>
     <color name="transparentBlack70">#B3000000</color>
+    <color name="transparentBlack80">#CC000000</color>
     <color name="text_default_trans">#14757575</color>
     <color name="blaze_hole_trans">#142980B9</color>
     <color name="text_default">#757575</color>
