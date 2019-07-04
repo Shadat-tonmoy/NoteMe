@@ -19,5 +19,12 @@ public class EventTypes {
     public static final int PICK_AUDIO_FROM_FILE_OPTION_CLICKED= 16;
     public static final int TAKE_PHOTO_OPTION_CLICKED= 17;
     public static final int PICK_IMAGE_FROM_FILE_OPTION_CLICKED= 18;
+    public static final int MONTHLY_SUBSCRIPTION_CLICKED= 19;
+    public static final int HALF_YEARLY_SUBSCRIPTION_CLICKED= 20;
+    public static final int YEARLY_SUBSCRIPTION_CLICKED= 21;
+    public static final int LIFETIME_SUBSCRIPTION_CLICKED= 22;
+    public static final int IAP_BACK_BUTTON_CLICKED= 23;
+    public static final int IAP_DONE_BUTTON_CLICKED= 24;
+
 
 }

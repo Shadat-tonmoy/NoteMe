@@ -81,35 +81,14 @@ public class IAPBillingTasks implements PurchasesUpdatedListener {
             case IAPTypes.MONTHLY_SUBS:
                 skuList.add(IAPIDs.MONTHLY_SUBS);
                 break;
+            case IAPTypes.HALF_YEARLY_SUBS:
+                skuList.add(IAPIDs.HALF_YEARLY_SUBS);
+                break;
             case IAPTypes.YEARLY_SUBS:
                 skuList.add(IAPIDs.YEARLY_SUBS);
                 break;
-            case IAPTypes.FIVE_K_CHARS:
-                skuList.add(IAPIDs.FIVE_K_CHARS);
-                break;
-            case IAPTypes.TEN_K_CHARS:
-                skuList.add(IAPIDs.TEN_K_CHARS);
-                break;
-            case IAPTypes.THIRTY_K_CHARS:
-                skuList.add(IAPIDs.THIRTY_K_CHARS);
-                break;
-            case IAPTypes.FIFTY_K_CHARS:
-                skuList.add(IAPIDs.FIFTY_K_CHARS);
-                break;
-            case IAPTypes.HUNDRED_K_CHARS:
-                skuList.add(IAPIDs.HUNDRED_K_CHARS);
-                break;
-            case IAPTypes.TWO_HUNDRED_K_CHARS:
-                skuList.add(IAPIDs.TWO_HUNDRED_K_CHARS);
-                break;
-            case IAPTypes.FIVE_HUNDRED_K_CHARS:
-                skuList.add(IAPIDs.FIVE_HUNDRED_K_CHARS);
-                break;
-            case IAPTypes.WATCH_REWARDED_VIDEO:
-                onRewardedVideoShowListener.onShowRewardedVideo();
-                return;
         }
-        if(IAPType == IAPTypes.MONTHLY_SUBS || IAPType == IAPTypes.YEARLY_SUBS)
+        if(IAPType == IAPTypes.MONTHLY_SUBS || IAPType == IAPTypes.HALF_YEARLY_SUBS || IAPType == IAPTypes.YEARLY_SUBS)
             fetchSKUList(skuList,IAPTypes.SUBSCRIPTIONS);
         else fetchSKUList(skuList,IAPTypes.IN_APP_PURCHASE);
     }
@@ -271,20 +250,6 @@ public class IAPBillingTasks implements PurchasesUpdatedListener {
     private boolean isConsumableProduct(String skuID)
     {
         switch (skuID){
-            case IAPIDs.FIVE_K_CHARS:
-                return true;
-            case IAPIDs.TEN_K_CHARS:
-                return true;
-            case IAPIDs.THIRTY_K_CHARS:
-                return true;
-            case IAPIDs.FIFTY_K_CHARS:
-                return true;
-            case IAPIDs.HUNDRED_K_CHARS:
-                return true;
-            case IAPIDs.TWO_HUNDRED_K_CHARS:
-                return true;
-            case IAPIDs.FIVE_HUNDRED_K_CHARS:
-                return true;
             default:
                 return false;
         }

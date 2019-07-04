@@ -1674,8 +1674,8 @@ layout email_option_layout
 layout email_single_row
 layout file_save_dialog_screen
 layout fragment_container_layout
-layout fragment_dialog_iap
 layout home_screen
+layout iap_screen_layout
 layout image_container
 layout image_holder
 layout image_option_bottom_sheet_layout

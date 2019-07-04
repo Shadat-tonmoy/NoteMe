@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import com.stcodesapp.noteit.controllers.HomeScreenController;
 import com.stcodesapp.noteit.controllers.activityController.CheckListActivityController;
+import com.stcodesapp.noteit.controllers.activityController.IAPActivityController;
 import com.stcodesapp.noteit.controllers.activityController.MainActivityController;
 import com.stcodesapp.noteit.controllers.activityController.ManualContactController;
 import com.stcodesapp.noteit.controllers.activityController.ManualEmailActivityController;
@@ -88,6 +89,11 @@ public class ControllerFactory {
     public FileSaveScreenController getFileSaveScreenController()
     {
         return new FileSaveScreenController(tasksFactory);
+    }
+
+    public IAPActivityController getIAPActivityController()
+    {
+        return new IAPActivityController(activity,tasksFactory);
     }
 
 

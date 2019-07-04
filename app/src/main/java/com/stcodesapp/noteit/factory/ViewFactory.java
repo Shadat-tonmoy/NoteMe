@@ -2,12 +2,14 @@ package com.stcodesapp.noteit.factory;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.stcodesapp.noteit.adapter.NoteListAdapter;
 import com.stcodesapp.noteit.ui.commons.NavigationDrawerView;
 import com.stcodesapp.noteit.ui.views.screenViews.HomeScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.CheckListScreenView;
+import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.IAPScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.ManualContactScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.ManualEmailScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldScreenView;
@@ -89,6 +91,11 @@ public class ViewFactory {
     public FileSaveDialogScreenView getFileSaveDialogScreenView(ViewGroup parent)
     {
         return new FileSaveDialogScreenView(layoutInflater,parent);
+    }
+
+    public IAPScreenView getIAPScreenView(ViewGroup parent)
+    {
+        return new IAPScreenView(layoutInflater,parent);
     }
 
 }

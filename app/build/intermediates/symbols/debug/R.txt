@@ -1673,8 +1673,8 @@ int layout email_option_layout 0x7f0c003f
 int layout email_single_row 0x7f0c0040
 int layout file_save_dialog_screen 0x7f0c0041
 int layout fragment_container_layout 0x7f0c0042
-int layout fragment_dialog_iap 0x7f0c0043
-int layout home_screen 0x7f0c0044
+int layout home_screen 0x7f0c0043
+int layout iap_screen_layout 0x7f0c0044
 int layout image_container 0x7f0c0045
 int layout image_holder 0x7f0c0046
 int layout image_option_bottom_sheet_layout 0x7f0c0047

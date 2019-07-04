@@ -59,7 +59,7 @@ public class Constants {
     public static final int FOR_SHOWING_IMAGES = 2;
     public static final int FOR_DELETING_AUDIOS = 3;
     public static final int FOR_SHOWING_AUDIOS = 4;
-    public static final String BASE_64_ENCODED_PUBLIC_KEY ="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA9hIFhQwVFWsNchKZyN9hgqN7hkHoLsD22WG9ZLWu2QAhI/srqMCcDwfo8FkFv/g6/gZh3TsrB/vSsSa9vzfgHaYcVmreCUhjt/lcRyrnv0k8i9zRwaEWCDj1YvTvNLm7o+vf3tkBpLYhEybsmnANxwSXH0sBsrsDX6xs6RbyZ2PjFkk6cfEkpMaEdFr2gwBM7gorPmKLjg88ot7W5akxm8/huyB0hTP5kYjtQIf72q16V935mI7qv4DL7rEShQJQK71pwTGthJAyFKqc9+GFdzlkKjXmUYPFV9fER472bh7J+TsDohbyZjCiJ7DVhiBZxvuzxwoH2T9QuYWhgXCMhwIDAQAB";
+    public static final String BASE_64_ENCODED_PUBLIC_KEY ="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhr31qIBJoSpD7HJCOyXbS9Kp13V2VFnDS/OojXfThuiJYJMugvpE90OvpnUKnwcpSZKGCvp3ktD2e5j35Ov6vVowkiQaxXQqChLG7uWQJmsbCS+FwjLWQFriqQKhsEtx5pSvsV+Ewxen8rlfMmuOUDx/32rVuw3mNWH2FSIqs6aH+eWf3FaMu3Bi1TYRaioauxufvaJ7STQt8K5jeVXM3dp+7MzHt1F+CL2nVe0vZXDq//HnzhC1fjaqxrJmhDEzTaKpDJIqELnwJpKluMia5hHumWAxB3qEWYR0avzaLdY50Jgg9m0NpGrcnFYLor/amGlt1Gy5LFVLOwtxSv6lfQIDAQAB";
 
 }
 

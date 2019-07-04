@@ -1,0 +1,4 @@
+#Wed Jul 03 21:45:44 BDT 2019
+base.0=/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/dex/release/mergeDexRelease/out
+path.0=classes.dex
+renamed.0=classes.dex

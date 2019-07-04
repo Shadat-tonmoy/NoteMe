@@ -5600,8 +5600,8 @@ public final class R {
     public static final int email_single_row=0x7f0c0040;
     public static final int file_save_dialog_screen=0x7f0c0041;
     public static final int fragment_container_layout=0x7f0c0042;
-    public static final int fragment_dialog_iap=0x7f0c0043;
-    public static final int home_screen=0x7f0c0044;
+    public static final int home_screen=0x7f0c0043;
+    public static final int iap_screen_layout=0x7f0c0044;
     public static final int image_container=0x7f0c0045;
     public static final int image_holder=0x7f0c0046;
     public static final int image_option_bottom_sheet_layout=0x7f0c0047;

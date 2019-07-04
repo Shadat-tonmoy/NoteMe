@@ -7,6 +7,7 @@ import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllAudioSelectionTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllImageSelectionTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.DialogManagementTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.IAPBillingTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.AdStrategyTrackingTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.IAPTrackingTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.fileRelatedTasks.FileDeletingTask;
@@ -21,6 +22,7 @@ import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.RateUSPopupTrackingTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.CheckListActivityScreenManipulationTask;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.IAPScreenManipulationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.CheckListScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.ContactScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.EmailScreenManipulationTask;
@@ -33,6 +35,7 @@ import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipul
 import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.ClipboardTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.SharingTasks;
+import com.stcodesapp.noteit.ui.views.screens.activityScreen.IAPScreen;
 
 public class TasksFactory {
 
@@ -213,5 +216,15 @@ public class TasksFactory {
     public IAPTrackingTasks getIAPTrackingTasks()
     {
         return new IAPTrackingTasks(activity);
+    }
+
+    public IAPBillingTasks getIAPBillingTasks()
+    {
+        return new IAPBillingTasks(activity);
+    }
+
+    public IAPScreenManipulationTasks getIAPScreenManipulationTasks()
+    {
+        return new IAPScreenManipulationTasks(activity);
     }
 }
