@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.constants.IAPIDs;
+import com.stcodesapp.noteit.constants.IAPTypes;
+import com.stcodesapp.noteit.models.ProductDetail;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.IAPScreenView;
 
 public class IAPScreenManipulationTasks {
@@ -41,7 +44,6 @@ public class IAPScreenManipulationTasks {
         clearAllForeground();
         iapScreenView.getMonthlySubsBtn().setForeground(activity.getResources().getDrawable(R.drawable.selected_package_fg));
         setChildTextColor(iapScreenView.getMonthlySubsBtn(),activity.getResources().getColor(R.color.pumpkin));
-//        subscriptionType = SubscriptionType.MONTHLY_SUBS;
     }
 
     public void setHalfYearlyForeground()
@@ -49,7 +51,13 @@ public class IAPScreenManipulationTasks {
         clearAllForeground();
         iapScreenView.getHalfYearlySubsBtn().setForeground(activity.getResources().getDrawable(R.drawable.selected_package_fg));
         setChildTextColor(iapScreenView.getHalfYearlySubsBtn(),activity.getResources().getColor(R.color.pumpkin));
-//        subscriptionType = SubscriptionType.HALF_YEARLY_SUBS;
+    }
+
+    public void setYearlyForeground()
+    {
+        clearAllForeground();
+        iapScreenView.getYearlySubsBtn().setForeground(activity.getResources().getDrawable(R.drawable.selected_package_fg));
+        setChildTextColor(iapScreenView.getYearlySubsBtn(),activity.getResources().getColor(R.color.pumpkin));
     }
 
     public void setLifeTimeForeground()
@@ -57,14 +65,33 @@ public class IAPScreenManipulationTasks {
         clearAllForeground();
         iapScreenView.getLifeTimeSubsBtn().setForeground(activity.getResources().getDrawable(R.drawable.selected_package_fg));
         setChildTextColor(iapScreenView.getLifeTimeSubsBtn(),activity.getResources().getColor(R.color.pumpkin));
-//        subscriptionType = SubscriptionType.LIFETIME_SUBS;
+    }
+
+    public void updateIAPPrice(ProductDetail productDetail)
+    {
+        String iapID = productDetail.getProductId();
+        String price = productDetail.getProductPrice();
+        switch (iapID)
+        {
+            case IAPIDs.MONTHLY_SUBS:
+                iapScreenView.getMonthlyPrice().setText(price);
+                break;
+            case IAPIDs.HALF_YEARLY_SUBS:
+                iapScreenView.getHalfYearlyPrice().setText(price);
+                break;
+            case IAPIDs.YEARLY_SUBS:
+                iapScreenView.getYearlyPrice().setText(price);
+                break;
+            case IAPIDs.LIFE_TIME_PURCHASE:
+                iapScreenView.getLifeTimePrice().setText(price);
+                break;
+        }
     }
 
 
     private void setChildTextColor(CardView rootView, int color)
     {
         ConstraintLayout container = (ConstraintLayout) rootView.getChildAt(0);
-        Log.e("TotalChild", container.getChildCount()+" ");
         for(int i=0;i<container.getChildCount();i++)
         {
             View view = container.getChildAt(i);

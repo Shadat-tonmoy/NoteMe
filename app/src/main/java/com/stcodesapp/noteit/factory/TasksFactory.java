@@ -35,7 +35,6 @@ import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipul
 import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.ClipboardTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.SharingTasks;
-import com.stcodesapp.noteit.ui.views.screens.activityScreen.IAPScreen;
 
 public class TasksFactory {
 
@@ -220,7 +219,7 @@ public class TasksFactory {
 
     public IAPBillingTasks getIAPBillingTasks()
     {
-        return new IAPBillingTasks(activity);
+        return new IAPBillingTasks(activity, getIAPTrackingTasks());
     }
 
     public IAPScreenManipulationTasks getIAPScreenManipulationTasks()

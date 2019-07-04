@@ -61,7 +61,7 @@ public class CheckListFragmentScreenView extends BaseObservableScreenView<CheckL
         checklistList.setAdapter(phoneEmailListAdapter);
         adMobBannerAdView = findViewById(R.id.admob_banner_ad_view);
         notFoundImage.setImageDrawable(getContext().getResources().getDrawable(R.drawable.no_contact));
-        notFoundText.setText(getContext().getResources().getString(R.string.no_contact_found));
+        notFoundText.setText(getContext().getResources().getString(R.string.no_check_list_found));
 
     }
 

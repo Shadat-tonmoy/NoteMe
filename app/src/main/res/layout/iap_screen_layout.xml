@@ -11,7 +11,7 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/header_container"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="220dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -51,9 +51,9 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/premium"
             app:layout_constraintBottom_toTopOf="@+id/pro_features"
             app:layout_constraintEnd_toEndOf="@+id/header_text"
             app:layout_constraintStart_toStartOf="@+id/header_text"
@@ -72,310 +72,238 @@
 
     </android.support.constraint.ConstraintLayout>
 
-    <LinearLayout
-        android:id="@+id/package_container"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header_container">
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/monthly_subs_btn"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            app:cardElevation="0dp"
-            style="@style/pro_card_style"
-            android:layout_height="wrap_content">
-
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/one_month_text"
-                    style="@style/pro_period_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="@string/one_month"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    style="@style/pro_price_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="@string/one_month_price"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/one_month_text" />
-
-
-            </android.support.constraint.ConstraintLayout>
-
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/half_yearly_subs_btn"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            app:cardElevation="0dp"
-            style="@style/pro_card_style"
-            android:foreground="@drawable/selected_package_fg"
-            android:layout_height="wrap_content">
-
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/six_month_text"
-                    style="@style/pro_period_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="@string/six_month"
-                    android:textColor="@color/pumpkin"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    style="@style/pro_price_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="@string/six_month_price"
-                    android:textColor="@color/pumpkin"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/six_month_text" />
-
-
-            </android.support.constraint.ConstraintLayout>
-
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/life_time_subs_btn"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            app:cardElevation="0dp"
-            style="@style/pro_card_style"
-            android:layout_height="wrap_content">
-
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/life_time_text"
-                    style="@style/pro_period_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="@string/life_time"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    style="@style/pro_price_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="@string/life_time_price"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/life_time_text" />
-
-
-            </android.support.constraint.ConstraintLayout>
-
-        </android.support.v7.widget.CardView>
-
-    </LinearLayout>
-
-    <!--<android.support.v7.widget.CardView
-        android:id="@+id/life_time_subs_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardElevation="0dp"
-        style="@style/pro_card_style"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/package_container">
-
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/life_time_text"
-                style="@style/pro_period_style"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/package_container"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:text="@string/life_time"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/monthly_subs_btn"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    app:cardElevation="0dp"
+                    style="@style/pro_card_style"
+                    android:layout_height="wrap_content">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/one_month_text"
+                            style="@style/pro_period_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="@string/one_month"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/monthly_price"
+                            style="@style/pro_price_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:text="@string/one_month_price"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/one_month_text" />
+
+
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/half_yearly_subs_btn"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    app:cardElevation="0dp"
+                    style="@style/pro_card_style"
+                    android:foreground="@drawable/selected_package_fg"
+                    android:layout_height="wrap_content">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/six_month_text"
+                            style="@style/pro_period_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="@string/six_month"
+                            android:textColor="@color/pumpkin"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/half_yearly_price"
+                            style="@style/pro_price_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:text="@string/six_month_price"
+                            android:textColor="@color/pumpkin"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/six_month_text" />
+
+
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/yearly_subs_btn"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    app:cardElevation="0dp"
+                    style="@style/pro_card_style"
+                    android:layout_height="wrap_content">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/yearly_subs_text"
+                            style="@style/pro_period_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="@string/one_year"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/yearly_price"
+                            style="@style/pro_price_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:text="@string/one_year_price"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/yearly_subs_text" />
+
+
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/life_time_subs_btn"
+                android:layout_width="120dp"
+                android:minWidth="120dp"
+                android:layout_height="wrap_content"
+                app:cardElevation="0dp"
+                style="@style/pro_card_style"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/package_container">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/life_time_text"
+                        style="@style/pro_period_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="@string/life_time"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/life_time_price"
+                        style="@style/pro_price_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/life_time_price"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/life_time_text" />
+
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
 
             <TextView
-                style="@style/pro_price_style"
+                android:id="@+id/pro_continue_btn"
+                style="@style/pro_period_style"
+                android:layout_width="wrap_content"
+                android:minWidth="250dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textColor="@color/white"
+                android:background="@drawable/pro_done_button_bg"
+                android:text="@string/continue_"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/life_time_subs_btn" />
+
+            <TextView
+                android:id="@+id/pro_close_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/life_time_price"
+                android:layout_margin="16dp"
+                android:padding="8dp"
+                android:text="@string/no_thanks"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/life_time_text" />
+                app:layout_constraintTop_toBottomOf="@id/pro_continue_btn" />
 
 
         </android.support.constraint.ConstraintLayout>
 
-    </android.support.v7.widget.CardView>-->
 
-    <TextView
-        android:id="@+id/pro_continue_btn"
-        style="@style/pro_period_style"
-        android:layout_width="wrap_content"
-        android:minWidth="250dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:textColor="@color/white"
-        android:background="@drawable/pro_done_button_bg"
-        android:text="@string/continue_"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/package_container" />
-
-    <TextView
-        android:id="@+id/pro_close_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:padding="8dp"
-        android:text="@string/no_thanks"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pro_continue_btn" />
-
-   <!-- <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minWidth="250.0dp"
-        android:minHeight="200.0dip"
-        android:orientation="vertical"
-        android:background="@drawable/bg_iap_dialog"
-        android:gravity="center"
-        android:layout_gravity="center">
-
-        <TextView
-            android:layout_width="210dip"
-            android:layout_height="65dip"
-            android:id="@+id/monthly_subs_btn"
-            android:background="@drawable/bg_remove_ad"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:drawableLeft="@drawable/remove_ad_icon"
-            android:paddingLeft="15dip"
-            android:paddingStart="15dip"
-            android:paddingRight="35dip"
-            android:paddingEnd="35dip"
-            android:layout_margin="5dip"
-            android:textColor="#212121"
-            android:textSize="13sp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:layout_width="210dip"
-            android:layout_height="65dip"
-            android:id="@+id/half_yearly_subs_btn"
-            android:background="@drawable/bg_remove_ad"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:drawableLeft="@drawable/remove_ad_icon"
-            android:paddingLeft="15dip"
-            android:paddingStart="15dip"
-            android:paddingRight="35dip"
-            android:paddingEnd="35dip"
-            android:layout_margin="5dip"
-            android:textColor="#212121"
-            android:textSize="13sp"
-            android:textStyle="bold"/>
+    </ScrollView>
 
 
-        <TextView
-            android:layout_width="210dip"
-            android:layout_height="65dip"
-            android:id="@+id/yearly_subs_btn"
-            android:background="@drawable/bg_remove_ad"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:drawableLeft="@drawable/remove_ad_icon"
-            android:paddingLeft="15dip"
-            android:paddingStart="15dip"
-            android:paddingRight="35dip"
-            android:paddingEnd="35dip"
-            android:layout_margin="5dip"
-            android:textColor="#212121"
-            android:textSize="13sp"
-            android:textStyle="bold"/>
 
-       &lt;!&ndash; <TextView
-            android:layout_width="210dip"
-            android:layout_height="65dip"
-            android:id="@+id/btnRemoveWatermark"
-            android:background="@drawable/bg_remove_watermark"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:drawableLeft="@drawable/remove_watermark_ic"
-            android:paddingLeft="15dip"
-            android:paddingStart="15dip"
-            android:paddingRight="35dip"
-            android:paddingEnd="35dip"
-            android:layout_margin="5dip"
-            android:textColor="#212121"
-            android:textSize="13sp"
-            android:textStyle="bold"/>&ndash;&gt;
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dip"
-            android:textAllCaps="false"
-            android:textSize="13sp"
-            android:id="@+id/btnCombo"
-            android:visibility="gone"/>
-    </LinearLayout>
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/bg_iap_dialog_cancel"
-        android:scaleType="fitCenter"
-        android:background="@null"
-        android:layout_gravity="center|bottom"
-        android:id="@+id/btnClose"/>-->
 </android.support.constraint.ConstraintLayout>

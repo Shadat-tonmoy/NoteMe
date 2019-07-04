@@ -16,7 +16,7 @@ import com.stcodesapp.noteit.ui.views.screens.activityScreen.IAPScreen;
 public class IAPScreenView extends BaseObservableScreenView<IAPScreen.Listener> implements IAPScreen {
 
     private CardView monthlySubsBtn, halfYearlySubsBtn, yearlySubsBtn, lifeTimeSubsBtn;
-    private TextView doneButton,closeButton;
+    private TextView doneButton,closeButton,monthlyPrice,halfYearlyPrice,yearlyPrice,lifeTimePrice;
     private ImageView backButton;
 
     public IAPScreenView(LayoutInflater layoutInflater, @Nullable ViewGroup parent)
@@ -31,6 +31,7 @@ public class IAPScreenView extends BaseObservableScreenView<IAPScreen.Listener> 
     public void initUserInteractions() {
         setClickListener(monthlySubsBtn,EventTypes.MONTHLY_SUBSCRIPTION_CLICKED);
         setClickListener(halfYearlySubsBtn,EventTypes.HALF_YEARLY_SUBSCRIPTION_CLICKED);
+        setClickListener(yearlySubsBtn,EventTypes.YEARLY_SUBSCRIPTION_CLICKED);
         setClickListener(lifeTimeSubsBtn,EventTypes.LIFETIME_SUBSCRIPTION_CLICKED);
         setClickListener(doneButton,EventTypes.IAP_DONE_BUTTON_CLICKED);
         setClickListener(backButton,EventTypes.IAP_BACK_BUTTON_CLICKED);
@@ -42,7 +43,12 @@ public class IAPScreenView extends BaseObservableScreenView<IAPScreen.Listener> 
     public void inflateUIElements() {
         monthlySubsBtn = findViewById(R.id.monthly_subs_btn);
         halfYearlySubsBtn = findViewById(R.id.half_yearly_subs_btn);
+        yearlySubsBtn = findViewById(R.id.yearly_subs_btn);
         lifeTimeSubsBtn = findViewById(R.id.life_time_subs_btn);
+        monthlyPrice = findViewById(R.id.monthly_price);
+        halfYearlyPrice = findViewById(R.id.half_yearly_price);
+        yearlyPrice = findViewById(R.id.yearly_price);
+        lifeTimePrice = findViewById(R.id.life_time_price);
         doneButton = findViewById(R.id.pro_continue_btn);
         closeButton = findViewById(R.id.pro_close_btn);
         backButton = findViewById(R.id.back_icon);
@@ -100,7 +106,19 @@ public class IAPScreenView extends BaseObservableScreenView<IAPScreen.Listener> 
     }
 
 
+    public TextView getMonthlyPrice() {
+        return monthlyPrice;
+    }
 
+    public TextView getHalfYearlyPrice() {
+        return halfYearlyPrice;
+    }
 
+    public TextView getYearlyPrice() {
+        return yearlyPrice;
+    }
 
+    public TextView getLifeTimePrice() {
+        return lifeTimePrice;
+    }
 }

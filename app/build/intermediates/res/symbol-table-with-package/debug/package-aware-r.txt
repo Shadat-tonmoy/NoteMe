@@ -684,6 +684,7 @@ color gray
 color green
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color ic_launcher_background
 color lightGreen
 color lightRed
 color material_blue_grey_800
@@ -1148,6 +1149,7 @@ drawable phone
 drawable phone_ring_white_xs
 drawable placeholder_image
 drawable plus
+drawable premium
 drawable privacy_policy
 drawable pro_bg
 drawable pro_done_button_bg
@@ -1360,6 +1362,7 @@ id ghost_view
 id gone
 id group_divider
 id groups
+id half_yearly_price
 id half_yearly_subs_btn
 id hamburger_button
 id header_container
@@ -1382,6 +1385,7 @@ id labeled
 id largeLabel
 id last_modified_text
 id left
+id life_time_price
 id life_time_subs_btn
 id life_time_text
 id line1
@@ -1399,6 +1403,7 @@ id media_actions
 id message
 id middle
 id mini
+id monthly_price
 id monthly_subs_btn
 id more_button
 id mtrl_child_content_container
@@ -1587,6 +1592,9 @@ id withText
 id wrap
 id wrap_content
 id wrap_reverse
+id yearly_price
+id yearly_subs_btn
+id yearly_subs_text
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
 integer app_bar_elevation_anim_duration

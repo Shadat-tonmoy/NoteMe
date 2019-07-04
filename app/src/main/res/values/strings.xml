@@ -101,6 +101,7 @@
     <string name="no_note_found">No Note Found!!\n Tap the \'+\' button to add new note</string>
     <string name="no_important_note_found">No Note is marked as important!!</string>
     <string name="no_contact_found">No Contact Found!!</string>
+    <string name="no_check_list_found">No Check List Found!!</string>
     <string name="no_email_found">No Email Found!!</string>
     <string name="delete_contacts">Delete All Contacts</string>
     <string name="delete_emails">Delete All Emails</string>
@@ -110,14 +111,14 @@
     <string name="note_is_removed">Note is removed!</string>
     <string name="remove_all_note">Remove All Notes</string>
 
-    <string name="pro_features">No Ads, No Interruptions\nNo Watermark</string>
+    <string name="pro_features">No Ads, No Interruptions\nAdd Unlimited Components To Note</string>
     <string name="one_month">1\nMonth</string>
     <string name="six_month">6\nMonths</string>
     <string name="one_year">12\nMonths</string>
     <string name="one_month_price">0.99$</string>
-    <string name="six_month_price">4.99$</string>
-    <string name="one_year_price">5.99$</string>
-    <string name="life_time_price">7.99$</string>
+    <string name="six_month_price">2.99$</string>
+    <string name="one_year_price">4.99$</string>
+    <string name="life_time_price">6.99$</string>
     <string name="continue_">Continue</string>
     <string name="life_time">Life\nTime</string>
 

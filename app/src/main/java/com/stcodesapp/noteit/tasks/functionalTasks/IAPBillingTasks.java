@@ -9,11 +9,17 @@ import com.android.billingclient.api.BillingFlowParams;
 import com.android.billingclient.api.ConsumeResponseListener;
 import com.android.billingclient.api.Purchase;
 import com.android.billingclient.api.PurchasesUpdatedListener;
+import com.android.billingclient.api.SkuDetails;
 import com.android.billingclient.api.SkuDetailsParams;
+import com.android.billingclient.api.SkuDetailsResponseListener;
+import com.stcodesapp.noteit.common.Logger;
 import com.stcodesapp.noteit.common.Security;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.IAPIDs;
 import com.stcodesapp.noteit.constants.IAPTypes;
+import com.stcodesapp.noteit.models.ProductDetail;
+import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.IAPTrackingTasks;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -34,21 +40,24 @@ public class IAPBillingTasks implements PurchasesUpdatedListener {
         void onExistingSubscriptionFetched(Set<Purchase> purchases);
     }
 
-    public interface onRewardedVideoShowListener {
-        void onShowRewardedVideo();
+    public interface onProductDetailFetchListener
+    {
+        void onProductDetailFetched(List<ProductDetail> productDetails);
 
     }
 
     private Activity activity;
     private OnPurchaseSuccessListener onPurchaseSuccessListener;
     private OnExistingPurchaseFetchListener onExistingPurchaseFetchListener;
-    private onRewardedVideoShowListener onRewardedVideoShowListener;
+    private onProductDetailFetchListener onProductDetailFetchListener;
     private BillingClient billingClient;
+    private IAPTrackingTasks iapTrackingTasks;
 
 
-    public IAPBillingTasks(Activity activity) {
+    public IAPBillingTasks(Activity activity, IAPTrackingTasks iapTrackingTasks) {
 
         this.activity = activity;
+        this.iapTrackingTasks = iapTrackingTasks;
     }
 
     public void setupBillingClient()
@@ -60,11 +69,12 @@ public class IAPBillingTasks implements PurchasesUpdatedListener {
                 if (billingResponseCode == BillingClient.BillingResponse.OK) {
                     isServiceConnected = true;
                     if(!Constants.IS_SUBSCRIBED_USER)
-                        checkExistingIAP();
+                        fetchAllProduct();
                 }
             }
             @Override
             public void onBillingServiceDisconnected() {
+
             }
         });
     }
@@ -116,6 +126,50 @@ public class IAPBillingTasks implements PurchasesUpdatedListener {
         queryPurchase();
     }
 
+    private void fetchAllProduct()
+    {
+        List<String> skuList = new ArrayList<> ();
+        skuList.add(IAPIDs.MONTHLY_SUBS);
+        skuList.add(IAPIDs.HALF_YEARLY_SUBS);
+        skuList.add(IAPIDs.YEARLY_SUBS);
+        SkuDetailsParams.Builder params = SkuDetailsParams.newBuilder();
+        final List<ProductDetail> productDetails = new ArrayList<>();
+        params.setSkusList(skuList).setType(BillingClient.SkuType.SUBS);
+        billingClient.querySkuDetailsAsync(params.build(),
+                new SkuDetailsResponseListener() {
+                    @Override
+                    public void onSkuDetailsResponse(int responseCode, List<SkuDetails> skuDetailsList) {
+                        if(responseCode==BillingClient.BillingResponse.OK && skuDetailsList!=null)
+                        {
+                            for(SkuDetails skuDetails:skuDetailsList)
+                            {
+                                productDetails.add(new ProductDetail(skuDetails.getSku(),skuDetails.getPrice()));
+                            }
+
+                        }
+
+
+                    }
+                });
+        params.setSkusList(skuList).setType(BillingClient.SkuType.INAPP);
+        billingClient.querySkuDetailsAsync(params.build(),
+                new SkuDetailsResponseListener() {
+                    @Override
+                    public void onSkuDetailsResponse(int responseCode, List<SkuDetails> skuDetailsList) {
+                        if(responseCode==BillingClient.BillingResponse.OK && skuDetailsList!=null)
+                        {
+                            for(SkuDetails skuDetails:skuDetailsList)
+                            {
+                                productDetails.add(new ProductDetail(skuDetails.getSku(),skuDetails.getPrice()));
+                            }
+                            onProductDetailFetchListener.onProductDetailFetched(productDetails);
+                        }
+
+
+                    }
+                });
+    }
+
     private void queryPurchase() {
         Runnable queryPurchaseRequest = getQueryPurchaseRequest();
         executeRequest(queryPurchaseRequest);
@@ -137,7 +191,10 @@ public class IAPBillingTasks implements PurchasesUpdatedListener {
                         for(Purchase purchase:subscriptionResult.getPurchasesList())
                         {
                             if(verifyValidSignature(purchase.getOriginalJson(),purchase.getSignature()))
+                            {
                                 purchaseSet.add(purchase);
+                                iapTrackingTasks.setSubscribedUser(true);
+                            }
                         }
                     }
                 }
@@ -230,8 +287,8 @@ public class IAPBillingTasks implements PurchasesUpdatedListener {
         this.onExistingPurchaseFetchListener = onExistingPurchaseFetchListener;
     }
 
-    public void setOnRewardedVideoShowListener(IAPBillingTasks.onRewardedVideoShowListener onRewardedVideoShowListener) {
-        this.onRewardedVideoShowListener = onRewardedVideoShowListener;
+    public void setOnProductDetailFetchListener(IAPBillingTasks.onProductDetailFetchListener onProductDetailFetchListener) {
+        this.onProductDetailFetchListener = onProductDetailFetchListener;
     }
 
     private boolean verifyValidSignature(String signedData, String signature) {

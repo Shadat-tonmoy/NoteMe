@@ -4,26 +4,33 @@ import android.app.Activity;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.stcodesapp.noteit.common.Logger;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.IAPTypes;
 import com.stcodesapp.noteit.factory.TasksFactory;
+import com.stcodesapp.noteit.models.ProductDetail;
+import com.stcodesapp.noteit.tasks.functionalTasks.IAPBillingTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.IAPScreenManipulationTasks;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.IAPScreenView;
 import com.stcodesapp.noteit.ui.views.screens.activityScreen.IAPScreen;
 
-public class IAPActivityController implements IAPScreen.Listener {
+import java.util.List;
+
+public class IAPActivityController implements IAPScreen.Listener, IAPBillingTasks.onProductDetailFetchListener {
 
     private Activity activity;
     private TasksFactory tasksFactory;
     private IAPScreenManipulationTasks iapScreenManipulationTasks;
     private IAPScreenView iapScreenView;
-    private int IAPType = Constants.INVALID;
+    private int IAPType = IAPTypes.HALF_YEARLY_SUBS;
+    private IAPBillingTasks iapBillingTasks;
 
 
     public IAPActivityController(Activity activity, TasksFactory tasksFactory) {
         this.activity = activity;
         this.tasksFactory = tasksFactory;
         this.iapScreenManipulationTasks = tasksFactory.getIAPScreenManipulationTasks();
+        this.iapBillingTasks = tasksFactory.getIAPBillingTasks();
     }
 
 
@@ -35,6 +42,8 @@ public class IAPActivityController implements IAPScreen.Listener {
     public void onStart()
     {
         iapScreenView.registerListener(this);
+        iapBillingTasks.setOnProductDetailFetchListener(this);
+        iapBillingTasks.setupBillingClient();
     }
 
     public void onStop()
@@ -63,7 +72,7 @@ public class IAPActivityController implements IAPScreen.Listener {
 
     @Override
     public void onYearlySubsClicked() {
-
+        iapScreenManipulationTasks.setYearlyForeground();
         IAPType = IAPTypes.YEARLY_SUBS;
     }
 
@@ -76,7 +85,17 @@ public class IAPActivityController implements IAPScreen.Listener {
 
     @Override
     public void onDoneButtonClicked() {
+        iapBillingTasks.setIAPModel(IAPType);
 
+
+    }
+
+    @Override
+    public void onProductDetailFetched(List<ProductDetail> productDetails) {
+        for(ProductDetail productDetail:productDetails)
+        {
+            iapScreenManipulationTasks.updateIAPPrice(productDetail);
+        }
 
     }
 }

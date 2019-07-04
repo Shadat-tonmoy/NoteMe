@@ -14,4 +14,9 @@ public class IAPTrackingTasks {
     {
         return false;
     }
+
+    public void setSubscribedUser(boolean isSubscribed)
+    {
+
+    }
 }
