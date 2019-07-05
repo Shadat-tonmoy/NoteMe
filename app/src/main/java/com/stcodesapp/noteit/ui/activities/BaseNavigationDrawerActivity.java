@@ -10,6 +10,7 @@ import com.stcodesapp.noteit.common.FragmentFrameHelper;
 import com.stcodesapp.noteit.controllers.commons.FragmentFrameWrapper;
 import com.stcodesapp.noteit.controllers.commons.NavigationDrawerController;
 import com.stcodesapp.noteit.tasks.functionalTasks.DialogManagementTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.IAPBillingTasks;
 import com.stcodesapp.noteit.ui.commons.NavigationDrawerView;
 import com.stcodesapp.noteit.ui.fragments.ContactsFragment;
 import com.stcodesapp.noteit.ui.fragments.EmailsFragment;
@@ -19,6 +20,8 @@ public class BaseNavigationDrawerActivity extends BaseActivity implements Fragme
 
     private NavigationDrawerView navigationDrawerView;
     private NavigationDrawerController navigationDrawerController;
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

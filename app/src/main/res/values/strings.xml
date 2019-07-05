@@ -179,6 +179,9 @@
     <string name="why_upgrade">Why Upgrade?</string>
     <string name="audio_record_not_supported">Sorry!! This device does not support to record audio</string>
     <string name="app_desc">Create Note With More Then Text</string>
+    <string name="purchase_is_succeeded">Your Purchase is succeeded. Thanks for your support.\nHope you will enjoy</string>
+    <string name="already_paid">You have already subscribed to us. Please try again when your subscription is finished</string>
+    <string name="back">Back</string>
 
     <!--ad_related_ids-->
 

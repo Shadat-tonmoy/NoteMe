@@ -2,6 +2,7 @@ package com.stcodesapp.noteit.controllers.activityController;
 
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.factory.TasksFactory;
+import com.stcodesapp.noteit.tasks.functionalTasks.IAPBillingTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
 import com.stcodesapp.noteit.ui.commons.NavigationDrawerView;
 import com.stcodesapp.noteit.ui.views.screens.commons.NavigationDrawerScreen;
@@ -15,6 +16,7 @@ public class MainActivityController implements NavigationDrawerScreen.Listener {
     public MainActivityController(TasksFactory tasksFactory) {
         this.tasksFactory = tasksFactory;
         this.fragmentNavigationTasks = tasksFactory.getFragmentNavigationTasks();
+
     }
 
     public void bindView(NavigationDrawerView navigationDrawerView) {

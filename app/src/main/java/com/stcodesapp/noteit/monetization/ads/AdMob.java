@@ -12,6 +12,8 @@ import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.common.Logger;
+import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.IAPTrackingTasks;
 
 public class AdMob implements AdNetwork, RewardedVideoAdListener {
 
@@ -25,21 +27,30 @@ public class AdMob implements AdNetwork, RewardedVideoAdListener {
     private InterstitialAd interstitialAd;
     private RewardedVideoAd rewardedVideoAd;
     private Listener listener;
+    private boolean showAd;
 
     public AdMob(AdView adView, Activity activity) {
         this.adView = adView;
         this.activity = activity;
+        IAPTrackingTasks iapTrackingTasks = new IAPTrackingTasks(activity);
+        this.showAd = !iapTrackingTasks.isPaidUser();
+        Logger.logMessage("ShowAd",showAd+" is result");
     }
 
     public AdMob(Activity activity) {
         this.activity = activity;
+        IAPTrackingTasks iapTrackingTasks = new IAPTrackingTasks(activity);
+        this.showAd = !iapTrackingTasks.isPaidUser();
+        Logger.logMessage("ShowAd",showAd+" is result");
     }
 
     @Override
     public void loadBannerAd() {
-
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
+        if(showAd)
+        {
+            AdRequest adRequest = new AdRequest.Builder().build();
+            adView.loadAd(adRequest);
+        }
     }
 
     @Override
@@ -49,41 +60,56 @@ public class AdMob implements AdNetwork, RewardedVideoAdListener {
 
     @Override
     public void loadInterstitialAd() {
-        interstitialAd = new InterstitialAd(activity);
-        interstitialAd.setAdUnitId(activity.getResources().getString(R.string.admob_interstitial_ad_id));
-        interstitialAd.loadAd(new AdRequest.Builder().build());
+        if(showAd)
+        {
+            interstitialAd = new InterstitialAd(activity);
+            interstitialAd.setAdUnitId(activity.getResources().getString(R.string.admob_interstitial_ad_id));
+            interstitialAd.loadAd(new AdRequest.Builder().build());
+        }
 
     }
 
     @Override
     public void showInterstitialAd() {
-        if(interstitialAd.isLoaded())
-            interstitialAd.show();
-        else loadInterstitialAd();
+        if(showAd)
+        {
+            if(interstitialAd.isLoaded())
+                interstitialAd.show();
+            else loadInterstitialAd();
+        }
+
 
     }
 
     @Override
     public void loadRewardedVideoAd() {
-        rewardedVideoAd = MobileAds.getRewardedVideoAdInstance(activity);
-        rewardedVideoAd.setRewardedVideoAdListener(this);
-        rewardedVideoAd.loadAd(activity.getResources().getString(R.string.admob_rewarded_video_ad_id),
-                new AdRequest.Builder().build());
-        Log.e("RWAd","Will Load");
+        if(showAd)
+        {
+            rewardedVideoAd = MobileAds.getRewardedVideoAdInstance(activity);
+            rewardedVideoAd.setRewardedVideoAdListener(this);
+            rewardedVideoAd.loadAd(activity.getResources().getString(R.string.admob_rewarded_video_ad_id),
+                    new AdRequest.Builder().build());
+            Log.e("RWAd","Will Load");
+        }
+
 
     }
 
     @Override
     public void showRewardedVideoAd() {
-        if(rewardedVideoAd.isLoaded())
+        if(showAd)
         {
-            Log.e("RWAd","Is Loaded");
-            rewardedVideoAd.show();
+            if(rewardedVideoAd.isLoaded())
+            {
+                Log.e("RWAd","Is Loaded");
+                rewardedVideoAd.show();
+            }
+            else {
+                Log.e("RWAd","Not Loaded");
+                loadRewardedVideoAd();
+            }
         }
-        else {
-            Log.e("RWAd","Not Loaded");
-            loadRewardedVideoAd();
-        }
+
     }
 
     @Override

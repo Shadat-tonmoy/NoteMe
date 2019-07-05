@@ -85,10 +85,10 @@ public class NoteFieldAdController implements AdMob.Listener{
 
     private void initMobileAds()
     {
-        bannerAd = new BannerAd(new AdMob(getBannerAdViewForAdmob(),activity));
-        interstitialAd = new InterstitialAd(new AdMob(activity));
-        AdMob adMob = new AdMob(activity);
+        AdMob adMob = new AdMob(getBannerAdViewForAdmob(),activity);
         adMob.setListener(this);
+        bannerAd = new BannerAd(adMob);
+        interstitialAd = new InterstitialAd(adMob);
         rewardedVideoAd = new RewardedVideoAd(adMob);
     }
 

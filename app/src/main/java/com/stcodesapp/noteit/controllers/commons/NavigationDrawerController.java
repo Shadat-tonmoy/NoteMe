@@ -2,6 +2,7 @@ package com.stcodesapp.noteit.controllers.commons;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.FragmentTags;
 import com.stcodesapp.noteit.factory.TasksFactory;
+import com.stcodesapp.noteit.tasks.functionalTasks.IAPBillingTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.SharingTasks;
@@ -15,12 +16,15 @@ public class NavigationDrawerController implements NavigationDrawerScreen.Listen
     private TasksFactory tasksFactory;
     private NavigationDrawerView navigationDrawerView;
     private SharingTasks sharingTasks;
+    private IAPBillingTasks iapBillingTasks;
+
 
     public NavigationDrawerController(TasksFactory tasksFactory) {
         this.tasksFactory= tasksFactory;
         this.fragmentNavigationTasks = tasksFactory.getFragmentNavigationTasks();
         this.activityNavigationTasks = tasksFactory.getActivityNavigationTasks();
         this.sharingTasks = tasksFactory.getSharingTasks();
+        this.iapBillingTasks = tasksFactory.getIAPBillingTasks();
     }
 
     public void bindView(NavigationDrawerView navigationDrawerView) {
@@ -30,6 +34,7 @@ public class NavigationDrawerController implements NavigationDrawerScreen.Listen
     public void onStart()
     {
         navigationDrawerView.registerListener(this);
+        iapBillingTasks.setupBillingClient();
     }
 
     public void onStop()

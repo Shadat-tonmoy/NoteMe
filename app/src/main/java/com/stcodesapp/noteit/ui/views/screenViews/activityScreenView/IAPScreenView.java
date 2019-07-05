@@ -1,11 +1,13 @@
 package com.stcodesapp.noteit.ui.views.screenViews.activityScreenView;
 
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.stcodesapp.noteit.R;
@@ -16,8 +18,10 @@ import com.stcodesapp.noteit.ui.views.screens.activityScreen.IAPScreen;
 public class IAPScreenView extends BaseObservableScreenView<IAPScreen.Listener> implements IAPScreen {
 
     private CardView monthlySubsBtn, halfYearlySubsBtn, yearlySubsBtn, lifeTimeSubsBtn;
-    private TextView doneButton,closeButton,monthlyPrice,halfYearlyPrice,yearlyPrice,lifeTimePrice;
-    private ImageView backButton;
+    private TextView doneButton,closeButton,monthlyPrice,halfYearlyPrice,yearlyPrice,lifeTimePrice,successText,backButton;
+    private ImageView backIcon,successImage;
+    private LinearLayout successLayout;
+    private ConstraintLayout iapPackageLayout;
 
     public IAPScreenView(LayoutInflater layoutInflater, @Nullable ViewGroup parent)
     {
@@ -34,8 +38,9 @@ public class IAPScreenView extends BaseObservableScreenView<IAPScreen.Listener> 
         setClickListener(yearlySubsBtn,EventTypes.YEARLY_SUBSCRIPTION_CLICKED);
         setClickListener(lifeTimeSubsBtn,EventTypes.LIFETIME_SUBSCRIPTION_CLICKED);
         setClickListener(doneButton,EventTypes.IAP_DONE_BUTTON_CLICKED);
-        setClickListener(backButton,EventTypes.IAP_BACK_BUTTON_CLICKED);
+        setClickListener(backIcon,EventTypes.IAP_BACK_BUTTON_CLICKED);
         setClickListener(closeButton,EventTypes.IAP_BACK_BUTTON_CLICKED);
+        setClickListener(backButton,EventTypes.IAP_BACK_BUTTON_CLICKED);
 
     }
 
@@ -51,7 +56,12 @@ public class IAPScreenView extends BaseObservableScreenView<IAPScreen.Listener> 
         lifeTimePrice = findViewById(R.id.life_time_price);
         doneButton = findViewById(R.id.pro_continue_btn);
         closeButton = findViewById(R.id.pro_close_btn);
-        backButton = findViewById(R.id.back_icon);
+        backIcon = findViewById(R.id.back_icon);
+        successText = findViewById(R.id.success_text);
+        backButton = findViewById(R.id.back_button);
+        successImage = findViewById(R.id.success_image);
+        successLayout = findViewById(R.id.success_layout);
+        iapPackageLayout = findViewById(R.id.iap_pack_layout);
     }
 
     private void setClickListener(View view, final int eventType)
@@ -120,5 +130,21 @@ public class IAPScreenView extends BaseObservableScreenView<IAPScreen.Listener> 
 
     public TextView getLifeTimePrice() {
         return lifeTimePrice;
+    }
+
+    public TextView getSuccessText() {
+        return successText;
+    }
+
+    public ImageView getSuccessImage() {
+        return successImage;
+    }
+
+    public LinearLayout getSuccessLayout() {
+        return successLayout;
+    }
+
+    public ConstraintLayout getIapPackageLayout() {
+        return iapPackageLayout;
     }
 }

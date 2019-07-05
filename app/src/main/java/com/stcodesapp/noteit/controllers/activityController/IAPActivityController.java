@@ -1,10 +1,8 @@
 package com.stcodesapp.noteit.controllers.activityController;
 
 import android.app.Activity;
-import android.util.Log;
-import android.widget.Toast;
 
-import com.stcodesapp.noteit.common.Logger;
+import com.android.billingclient.api.Purchase;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.IAPTypes;
 import com.stcodesapp.noteit.factory.TasksFactory;
@@ -15,8 +13,9 @@ import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.IAPScreenVi
 import com.stcodesapp.noteit.ui.views.screens.activityScreen.IAPScreen;
 
 import java.util.List;
+import java.util.Set;
 
-public class IAPActivityController implements IAPScreen.Listener, IAPBillingTasks.onProductDetailFetchListener {
+public class IAPActivityController implements IAPScreen.Listener, IAPBillingTasks.OnProductDetailFetchListener, IAPBillingTasks.OnPurchaseSuccessListener, IAPBillingTasks.OnExistingPurchaseFetchListener {
 
     private Activity activity;
     private TasksFactory tasksFactory;
@@ -43,6 +42,8 @@ public class IAPActivityController implements IAPScreen.Listener, IAPBillingTask
     {
         iapScreenView.registerListener(this);
         iapBillingTasks.setOnProductDetailFetchListener(this);
+        iapBillingTasks.setOnExistingPurchaseFetchListener(this);
+        iapBillingTasks.setOnPurchaseSuccessListener(this);
         iapBillingTasks.setupBillingClient();
     }
 
@@ -95,6 +96,29 @@ public class IAPActivityController implements IAPScreen.Listener, IAPBillingTask
         for(ProductDetail productDetail:productDetails)
         {
             iapScreenManipulationTasks.updateIAPPrice(productDetail);
+        }
+
+    }
+
+    @Override
+    public void onPurchaseSuccess(List<Purchase> purchases) {
+        if(purchases.size()> Constants.ZERO)
+        {
+            iapScreenManipulationTasks.showPurchaseSuccess();
+        }
+
+    }
+
+    @Override
+    public void onExistingSubscriptionFetched(Set<Purchase> purchases) {
+        if(purchases.size()> Constants.ZERO)
+        {
+            iapScreenManipulationTasks.showAlreadyPaidUser();
+        }
+        else
+        {
+            iapScreenManipulationTasks.showIAPPackage();
+            iapBillingTasks.fetchAllProduct();
         }
 
     }

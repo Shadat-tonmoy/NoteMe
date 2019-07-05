@@ -1,5 +1,6 @@
 package com.stcodesapp.noteit.common.dependencyInjection;
 
+import android.app.Activity;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 
@@ -27,6 +28,7 @@ public class CompositionRoot {
     public TasksFactory getTasksFactory(FragmentActivity activity) {
         return new TasksFactory(activity);
     }
+
 
     public TasksFactory getTasksFactory(FragmentActivity activity, FragmentFrameHelper fragmentFrameHelper) {
         return new TasksFactory(activity,fragmentFrameHelper);

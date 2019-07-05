@@ -40,7 +40,7 @@ public class IAPBillingTasks implements PurchasesUpdatedListener {
         void onExistingSubscriptionFetched(Set<Purchase> purchases);
     }
 
-    public interface onProductDetailFetchListener
+    public interface OnProductDetailFetchListener
     {
         void onProductDetailFetched(List<ProductDetail> productDetails);
 
@@ -49,7 +49,7 @@ public class IAPBillingTasks implements PurchasesUpdatedListener {
     private Activity activity;
     private OnPurchaseSuccessListener onPurchaseSuccessListener;
     private OnExistingPurchaseFetchListener onExistingPurchaseFetchListener;
-    private onProductDetailFetchListener onProductDetailFetchListener;
+    private OnProductDetailFetchListener onProductDetailFetchListener;
     private BillingClient billingClient;
     private IAPTrackingTasks iapTrackingTasks;
 
@@ -68,8 +68,7 @@ public class IAPBillingTasks implements PurchasesUpdatedListener {
             public void onBillingSetupFinished(@BillingClient.BillingResponse int billingResponseCode) {
                 if (billingResponseCode == BillingClient.BillingResponse.OK) {
                     isServiceConnected = true;
-                    if(!Constants.IS_SUBSCRIBED_USER)
-                        fetchAllProduct();
+                    queryPurchase();
                 }
             }
             @Override
@@ -126,7 +125,7 @@ public class IAPBillingTasks implements PurchasesUpdatedListener {
         queryPurchase();
     }
 
-    private void fetchAllProduct()
+    public void fetchAllProduct()
     {
         List<String> skuList = new ArrayList<> ();
         skuList.add(IAPIDs.MONTHLY_SUBS);
@@ -188,14 +187,19 @@ public class IAPBillingTasks implements PurchasesUpdatedListener {
                             = billingClient.queryPurchases(BillingClient.SkuType.SUBS);
 
                     if (subscriptionResult.getResponseCode() == BillingClient.BillingResponse.OK) {
+                        iapTrackingTasks.setPaidUser(false);
                         for(Purchase purchase:subscriptionResult.getPurchasesList())
                         {
                             if(verifyValidSignature(purchase.getOriginalJson(),purchase.getSignature()))
                             {
                                 purchaseSet.add(purchase);
-                                iapTrackingTasks.setSubscribedUser(true);
+                                iapTrackingTasks.setPaidUser(true);
+                                Logger.logMessage("ExistingPurchase",purchase.toString());
                             }
                         }
+                        if(onExistingPurchaseFetchListener!=null)
+                            onExistingPurchaseFetchListener.onExistingSubscriptionFetched(purchaseSet);
+                        Logger.logMessage("PaidUser",iapTrackingTasks.isPaidUser()+" is result");
                     }
                 }
                 else if(purchasesResult.getPurchasesList()!=null)
@@ -264,7 +268,8 @@ public class IAPBillingTasks implements PurchasesUpdatedListener {
                                 if(responseCode== BillingClient.BillingResponse.OK)
                                 {
                                     validPurchases.add(purchase);
-                                    onPurchaseSuccessListener.onPurchaseSuccess(validPurchases);
+                                    Logger.logMessage("PurchaseSuccess",purchase.toString());
+                                    iapTrackingTasks.setPaidUser(true);
                                 }
                             }
                         });
@@ -272,10 +277,11 @@ public class IAPBillingTasks implements PurchasesUpdatedListener {
                     else
                     {
                         validPurchases.add(purchase);
-                        onPurchaseSuccessListener.onPurchaseSuccess(validPurchases);
+
                     }
                 }
             }
+            onPurchaseSuccessListener.onPurchaseSuccess(validPurchases);
         }
     }
 
@@ -287,7 +293,7 @@ public class IAPBillingTasks implements PurchasesUpdatedListener {
         this.onExistingPurchaseFetchListener = onExistingPurchaseFetchListener;
     }
 
-    public void setOnProductDetailFetchListener(IAPBillingTasks.onProductDetailFetchListener onProductDetailFetchListener) {
+    public void setOnProductDetailFetchListener(OnProductDetailFetchListener onProductDetailFetchListener) {
         this.onProductDetailFetchListener = onProductDetailFetchListener;
     }
 

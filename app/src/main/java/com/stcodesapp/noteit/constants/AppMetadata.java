@@ -19,6 +19,8 @@ public class AppMetadata {
     private static boolean BROADCAST_RECEIVER_SET = false;
     public static final String FIRST_TIME_TRACKER_NAME = "noteit_first";
     public static final String RATE_US_POPUP_TRACKER_NAME = "rateus_popup";
+    public static final String IAP_TRACKER_NAME = "iap_track";
+    public static final String IS_PAID_USER = "ispaiduser";
     public static final String AD_SHOWING_TRACKER_NAME = "show_ad";
     public static final String IS_FIRST_TIME_LAUNCH = "IsFirstTimeLaunch";
     public static final String IS_RATE_US_CLICKED = "israteclicked";

@@ -99,4 +99,40 @@ public class IAPScreenManipulationTasks {
                 ((TextView)view).setTextColor(color);
         }
     }
+
+    public void showPurchaseSuccess()
+    {
+        showSuccessMessage();
+        iapScreenView.getSuccessImage().setImageResource(R.drawable.success);
+        iapScreenView.getSuccessText().setText(activity.getResources().getString(R.string.purchase_is_succeeded));
+    }
+
+    public void showAlreadyPaidUser()
+    {
+        showSuccessMessage();
+        iapScreenView.getSuccessImage().setImageResource(R.drawable.animated_person);
+        iapScreenView.getSuccessText().setText(activity.getResources().getString(R.string.already_paid));
+    }
+
+    public void showIAPPackage()
+    {
+        hideSuccessMessage();
+        iapScreenView.getIapPackageLayout().setVisibility(View.VISIBLE);
+    }
+
+    public void hideIAPPackage()
+    {
+        iapScreenView.getIapPackageLayout().setVisibility(View.GONE);
+    }
+
+    public void showSuccessMessage()
+    {
+        hideIAPPackage();
+        iapScreenView.getSuccessLayout().setVisibility(View.VISIBLE);
+    }
+
+    public void hideSuccessMessage()
+    {
+        iapScreenView.getSuccessLayout().setVisibility(View.GONE);
+    }
 }

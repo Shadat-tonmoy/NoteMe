@@ -674,6 +674,7 @@ color common_google_signin_btn_text_light_focused
 color common_google_signin_btn_text_light_pressed
 color common_google_signin_btn_tint
 color darkAsh
+color dark_green
 color default_divider
 color default_text
 color design_bottom_navigation_shadow_color
@@ -1216,6 +1217,7 @@ drawable sort_white
 drawable star_border
 drawable star_gold
 drawable store_logo
+drawable success
 drawable tag
 drawable test
 drawable test_2
@@ -1418,6 +1420,7 @@ id hi_there
 id home
 id homeAsUp
 id home_menu
+id iap_pack_layout
 id icon
 id icon_group
 id icon_only
@@ -1590,6 +1593,9 @@ id status_bar_latest_event_content
 id stretch
 id submenuarrow
 id submit_area
+id success_image
+id success_layout
+id success_text
 id suggestion_icon
 id suggestion_list
 id suggestion_text
@@ -1859,6 +1865,7 @@ string admob_interstitial_ad_test
 string admob_rewarded_video_ad_id
 string admob_rewarded_video_ad_real
 string admob_rewarded_video_ad_test
+string already_paid
 string app_desc
 string app_name
 string appbar_scrolling_view_behavior
@@ -1866,6 +1873,7 @@ string audio
 string audio_file_from_storage
 string audio_inserted
 string audio_record_not_supported
+string back
 string bottom_sheet_behavior
 string call
 string camera_permission_is_required
@@ -2008,6 +2016,7 @@ string privacy_policy
 string pro_features
 string pro_version
 string project_id
+string purchase_is_succeeded
 string rate
 string rate_the_app
 string rate_us_message
