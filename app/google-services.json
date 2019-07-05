@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "166760414832",
+    "firebase_url": "https://noteitapp-2443e.firebaseio.com",
+    "project_id": "noteitapp-2443e",
+    "storage_bucket": "noteitapp-2443e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:166760414832:android:64e092846638ec57",
+        "android_client_info": {
+          "package_name": "com.stcodesapp.noteit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "166760414832-jtq2r8d9ih29hs7klimu8uteqsrdmlll.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.stcodesapp.noteit",
+            "certificate_hash": "4221b855e496197055bf12543cb5bf18b70706ee"
+          }
+        },
+        {
+          "client_id": "166760414832-s8e8asjm87mmj6j8maeqi2k2emb11i60.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjhgDobl6v8Y9QrDe0LXYw92k_7xQ3ZaE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "166760414832-s8e8asjm87mmj6j8maeqi2k2emb11i60.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

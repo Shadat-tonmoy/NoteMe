@@ -12,25 +12,25 @@ public final class R {
     public static final class attr {
         private attr() {}
 
-        public static final int dragEdge = 0x7f0400be;
-        public static final int flingVelocity = 0x7f0400e3;
-        public static final int minDistRequestDisallowParent = 0x7f040180;
-        public static final int mode = 0x7f040181;
+        public static final int dragEdge = 0x7f0400c1;
+        public static final int flingVelocity = 0x7f0400e6;
+        public static final int minDistRequestDisallowParent = 0x7f040185;
+        public static final int mode = 0x7f040186;
     }
     public static final class id {
         private id() {}
 
-        public static final int bottom = 0x7f090037;
-        public static final int left = 0x7f0900cc;
-        public static final int normal = 0x7f0900f0;
-        public static final int right = 0x7f090129;
-        public static final int same_level = 0x7f09012e;
-        public static final int top = 0x7f090183;
+        public static final int bottom = 0x7f09003c;
+        public static final int left = 0x7f0900d3;
+        public static final int normal = 0x7f0900f8;
+        public static final int right = 0x7f090131;
+        public static final int same_level = 0x7f090136;
+        public static final int top = 0x7f09018b;
     }
     public static final class styleable {
         private styleable() {}
 
-        public static final int[] SwipeRevealLayout = { 0x7f0400be, 0x7f0400e3, 0x7f040180, 0x7f040181 };
+        public static final int[] SwipeRevealLayout = { 0x7f0400c1, 0x7f0400e6, 0x7f040185, 0x7f040186 };
         public static final int SwipeRevealLayout_dragEdge = 0;
         public static final int SwipeRevealLayout_flingVelocity = 1;
         public static final int SwipeRevealLayout_minDistRequestDisallowParent = 2;

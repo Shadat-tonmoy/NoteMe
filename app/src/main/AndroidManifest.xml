@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.stcodesapp.noteit">
 
     <uses-feature android:name="android.hardware.camera" android:required="true"></uses-feature>
@@ -27,7 +28,13 @@
             android:windowSoftInputMode="adjustResize"></activity>
         <activity
             android:name=".ui.activities.NoteFieldActivity"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.provider.MediaStore.RECORD_SOUND" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
 
         <activity
             android:name=".ui.activities.CheckListActivity"
@@ -60,6 +67,9 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="54ef3251610aae18b3915503cdd2ff250fdebb52" />
     </application>
 
 </manifest>

@@ -4,7 +4,7 @@
             "outputFile": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v26/values-v26.xml",
             "map": [
                 {
-                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/6909f1926778757abec6793df9ebab24/res/values-v26/values-v26.xml",
+                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/6835f74259a18a464454c88a7879d94e/res/values-v26/values-v26.xml",
                     "from": {
                         "startLines": "2,3,4,8,12,16",
                         "startColumns": "4,4,4,4,4,4",

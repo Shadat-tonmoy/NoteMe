@@ -177,6 +177,8 @@
     <string name="upgrade_msg">Please upgrade to one of our premium plan. Or you can unlock it by watching video ad for free!!</string>
     <string name="why_msg">We developers really work hard to provide you the best content. Please support us by spending some little bucks so that we can make it even better</string>
     <string name="why_upgrade">Why Upgrade?</string>
+    <string name="audio_record_not_supported">Sorry!! This device does not support to record audio</string>
+    <string name="app_desc">Create Note With More Then Text</string>
 
     <!--ad_related_ids-->
 

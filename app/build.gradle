@@ -1,4 +1,19 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
 apply plugin: 'com.android.application'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+apply plugin: 'io.fabric'
 
 
 android {
@@ -7,7 +22,7 @@ android {
         applicationId "com.stcodesapp.noteit"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 3
+        versionCode 4
         versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -32,7 +47,12 @@ dependencies {
     implementation 'com.github.RaviKoradiya:ZoomableImageView:1.1.1'
     implementation 'com.google.android.gms:play-services-ads:15.0.0'
     implementation 'com.android.billingclient:billing:1.2'
-    implementation fileTree(dir: 'lib',include: ['*.jar'])
+    implementation fileTree(dir: 'lib', include: ['*.jar'])
+    implementation 'com.google.firebase:firebase-config:16.1.0'
+    implementation 'com.google.firebase:firebase-core:16.0.7'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.9'
+
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
@@ -43,3 +63,5 @@ dependencies {
     implementation "android.arch.persistence.room:runtime:$room_version"
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
 }
+
+apply plugin: 'com.google.gms.google-services'
