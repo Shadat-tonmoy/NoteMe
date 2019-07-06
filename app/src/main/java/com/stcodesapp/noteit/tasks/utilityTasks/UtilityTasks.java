@@ -16,6 +16,8 @@ import java.util.Random;
 
 public class UtilityTasks {
 
+    private static final boolean DEBUG = false;
+
     public static String getHumanReadableTime(long timeInMillis)
     {
         Calendar calendar = Calendar.getInstance();
@@ -103,6 +105,42 @@ public class UtilityTasks {
     public static String getStoragePath(String rootPath)
     {
         return rootPath.substring(0,rootPath.indexOf(Constants.ANDROID));
+    }
+
+    public static String getBannerAdID(Activity activity)
+    {
+        if(DEBUG)
+        {
+            return activity.getResources().getString(R.string.admob_banner_ad_test);
+        }
+        else return activity.getResources().getString(R.string.admob_banner_ad_real);
+    }
+
+    public static String getInterstitialAdID(Activity activity)
+    {
+        if(DEBUG)
+        {
+            return activity.getResources().getString(R.string.admob_interstitial_ad_test);
+        }
+        else return activity.getResources().getString(R.string.admob_interstitial_ad_real);
+    }
+
+    public static String getRewardedVideAdID(Activity activity)
+    {
+        if(DEBUG)
+        {
+            return activity.getResources().getString(R.string.admob_rewarded_video_ad_test);
+        }
+        else return activity.getResources().getString(R.string.admob_rewarded_video_ad_real);
+    }
+
+    public static String getAdmobAppId(Activity activity)
+    {
+        if(DEBUG)
+        {
+            return activity.getResources().getString(R.string.admob_app_id_test);
+        }
+        else return activity.getResources().getString(R.string.admob_app_id_real);
     }
 
 }

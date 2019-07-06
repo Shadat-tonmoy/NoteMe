@@ -2,6 +2,7 @@ package com.stcodesapp.noteit.monetization.ads;
 
 import android.app.Activity;
 import android.util.Log;
+import android.view.View;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
@@ -14,6 +15,7 @@ import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.common.Logger;
 import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.IAPTrackingTasks;
+import com.stcodesapp.noteit.tasks.utilityTasks.UtilityTasks;
 
 public class AdMob implements AdNetwork, RewardedVideoAdListener {
 
@@ -44,13 +46,19 @@ public class AdMob implements AdNetwork, RewardedVideoAdListener {
         Logger.logMessage("ShowAd",showAd+" is result");
     }
 
+    public void setAdView(AdView adView) {
+        this.adView = adView;
+    }
+
     @Override
     public void loadBannerAd() {
         if(showAd)
         {
+            adView.setVisibility(View.VISIBLE);
             AdRequest adRequest = new AdRequest.Builder().build();
             adView.loadAd(adRequest);
         }
+        else adView.setVisibility(View.GONE);
     }
 
     @Override
@@ -63,7 +71,7 @@ public class AdMob implements AdNetwork, RewardedVideoAdListener {
         if(showAd)
         {
             interstitialAd = new InterstitialAd(activity);
-            interstitialAd.setAdUnitId(activity.getResources().getString(R.string.admob_interstitial_ad_id));
+            interstitialAd.setAdUnitId(UtilityTasks.getInterstitialAdID(activity));
             interstitialAd.loadAd(new AdRequest.Builder().build());
         }
 
@@ -87,7 +95,7 @@ public class AdMob implements AdNetwork, RewardedVideoAdListener {
         {
             rewardedVideoAd = MobileAds.getRewardedVideoAdInstance(activity);
             rewardedVideoAd.setRewardedVideoAdListener(this);
-            rewardedVideoAd.loadAd(activity.getResources().getString(R.string.admob_rewarded_video_ad_id),
+            rewardedVideoAd.loadAd(UtilityTasks.getRewardedVideAdID(activity),
                     new AdRequest.Builder().build());
             Log.e("RWAd","Will Load");
         }

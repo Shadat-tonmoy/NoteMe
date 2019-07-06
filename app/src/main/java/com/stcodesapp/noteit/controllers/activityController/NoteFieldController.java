@@ -398,6 +398,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
             Intent result = new Intent();
             result.putExtra(Tags.NOTE_ADDED,true);
             activityNavigationTasks.sendResultBack(result);
+            updateRateUSTrackingCount();
 
         }
         else

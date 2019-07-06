@@ -2,6 +2,7 @@ package com.stcodesapp.noteit.factory;
 
 import android.app.Activity;
 
+import com.stcodesapp.noteit.common.adController.FullScreenAdController;
 import com.stcodesapp.noteit.controllers.HomeScreenController;
 import com.stcodesapp.noteit.controllers.activityController.CheckListActivityController;
 import com.stcodesapp.noteit.controllers.activityController.IAPActivityController;
@@ -94,6 +95,11 @@ public class ControllerFactory {
     public IAPActivityController getIAPActivityController()
     {
         return new IAPActivityController(activity,tasksFactory);
+    }
+
+    public FullScreenAdController getFullScreenAdController()
+    {
+        return new FullScreenAdController(activity,tasksFactory);
     }
 
 

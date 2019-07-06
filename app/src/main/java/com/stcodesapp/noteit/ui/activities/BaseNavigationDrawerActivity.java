@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.widget.FrameLayout;
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.common.CustomApplication;
 import com.stcodesapp.noteit.common.FragmentFrameHelper;
 import com.stcodesapp.noteit.controllers.commons.FragmentFrameWrapper;
 import com.stcodesapp.noteit.controllers.commons.NavigationDrawerController;
@@ -56,6 +57,7 @@ public class BaseNavigationDrawerActivity extends BaseActivity implements Fragme
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         navigationDrawerController.onPostCreate();
+        ((CustomApplication)getApplication()).setFullScreenAdController(this);
     }
 
     @Override

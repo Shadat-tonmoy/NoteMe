@@ -128,22 +128,24 @@
     <!--ad_related_ids-->
 
     <!--admob-->
-    <string name="admob_app_id">@string/admob_app_id_test</string>
+    <string name="admob_app_id">@string/admob_app_id_real</string>
     <string name="admob_app_id_test">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="admob_app_id_real">NA</string>
+    <string name="admob_app_id_real">ca-app-pub-7505528330087753~8721763907</string>
 
-    <string name="admob_banner_ad_id">@string/admob_banner_ad_test</string>
+    <string name="admob_banner_ad_id">@string/admob_banner_ad_real</string>
     <string name="admob_banner_ad_test">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="admob_banner_ad_real">NA</string>
+    <string name="admob_banner_ad_real">ca-app-pub-7505528330087753/5392467953</string>
 
     <string name="admob_interstitial_ad_id">@string/admob_interstitial_ad_test</string>
     <string name="admob_interstitial_ad_test">ca-app-pub-3940256099942544/1033173712</string>
-    <string name="admob_interstitial_ad_real">NA</string>
+    <string name="admob_interstitial_ad_real">ca-app-pub-7505528330087753/5200896267</string>
 
     <string name="admob_rewarded_video_ad_id">@string/admob_rewarded_video_ad_test</string>
     <string name="admob_rewarded_video_ad_test">ca-app-pub-3940256099942544/5224354917</string>
-    <string name="admob_rewarded_video_ad_real">NA</string>
+    <string name="admob_rewarded_video_ad_real">ca-app-pub-7505528330087753/7856825678</string>
     <!--admob-->
+
+    <!--ad_related_ids-->
 
 
     <string name="enter_item_title">Enter Item Title</string>
@@ -179,11 +181,9 @@
     <string name="why_upgrade">Why Upgrade?</string>
     <string name="audio_record_not_supported">Sorry!! This device does not support to record audio</string>
     <string name="app_desc">Create Note With More Then Text</string>
-    <string name="purchase_is_succeeded">Your Purchase is succeeded. Thanks for your support.\nHope you will enjoy</string>
+    <string name="purchase_is_succeeded">Your Purchase is succeeded. Please restart the app to enjoy the premium version.\nThanks for your support.</string>
     <string name="already_paid">You have already subscribed to us. Please try again when your subscription is finished</string>
     <string name="back">Back</string>
-
-    <!--ad_related_ids-->
 
 
 

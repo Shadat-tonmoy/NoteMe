@@ -1,0 +1,15 @@
+#Internal package file, do not edit.
+#Fri Jul 05 22:51:50 BDT 2019
+1.base=/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/merged_assets/release/out
+2.path=crashlytics-build.properties
+0.baseType=DIRECTORY
+2.base=/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/merged_assets/release/out
+2.set=ASSET
+1.baseType=DIRECTORY
+count=3
+1.set=ASSET
+0.path=classes.dex
+0.set=DEX
+0.base=/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/dex/release/mergeDexRelease/out
+2.baseType=DIRECTORY
+1.path=fonts/roboto_black.ttf

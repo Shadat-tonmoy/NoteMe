@@ -5,7 +5,9 @@ import android.util.Log;
 
 import com.google.android.gms.ads.AdView;
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.common.CustomApplication;
 import com.stcodesapp.noteit.common.Logger;
+import com.stcodesapp.noteit.common.adController.FullScreenAdController;
 import com.stcodesapp.noteit.constants.AppMetadata;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.factory.TasksFactory;
@@ -25,12 +27,11 @@ public class NoteFieldAdController implements AdMob.Listener{
 
     private Activity activity;
     private NoteFieldScreenView noteFieldScreenView;
-    private InterstitialAd interstitialAd;
     private BannerAd bannerAd;
-    private RewardedVideoAd rewardedVideoAd;
     private AdStrategyTrackingTask adStrategyTrackingTask;
     private TasksFactory tasksFactory;
     private Listener listener;
+    private FullScreenAdController fullScreenAdController;
 
     public NoteFieldAdController(Activity activity, TasksFactory tasksFactory) {
         this.activity = activity;
@@ -44,9 +45,10 @@ public class NoteFieldAdController implements AdMob.Listener{
 
     public void onStart()
     {
-        initMobileAds();
-        rewardedVideoAd.loadAd();
-        interstitialAd.loadAd();
+        fullScreenAdController = ((CustomApplication)activity.getApplication()).getFullScreenAdController();
+        fullScreenAdController.getAdMob().setListener(this);
+        fullScreenAdController.getAdMob().setAdView(getBannerAdViewForAdmob());
+        bannerAd = new BannerAd(fullScreenAdController.getAdMob());
         bannerAd.loadAd();
     }
 
@@ -58,7 +60,7 @@ public class NoteFieldAdController implements AdMob.Listener{
     public void showRewardedVideoAd()
     {
         Log.e("RWAd","Will Show");
-        rewardedVideoAd.showAd();
+        fullScreenAdController.showRewardedVideoAd();
     }
 
     public void onDestroy()
@@ -83,25 +85,16 @@ public class NoteFieldAdController implements AdMob.Listener{
         this.listener = listener;
     }
 
-    private void initMobileAds()
-    {
-        AdMob adMob = new AdMob(getBannerAdViewForAdmob(),activity);
-        adMob.setListener(this);
-        bannerAd = new BannerAd(adMob);
-        interstitialAd = new InterstitialAd(adMob);
-        rewardedVideoAd = new RewardedVideoAd(adMob);
-    }
-
     private AdView getBannerAdViewForAdmob()
     {
         return noteFieldScreenView.getRootView().findViewById(R.id.admob_banner_ad_view);
     }
 
-
     @Override
     public void onRewardedFromVideoAd() {
         Logger.logMessage("onRewarded","donedonadone");
-        listener.onRewardedFromVideoAd();
+        if(listener!=null)
+            listener.onRewardedFromVideoAd();
 
     }
 }

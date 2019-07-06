@@ -1,0 +1,669 @@
+-- Merging decision tree log ---
+provider#android.support.v4.content.FileProvider
+INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:61:9-69:20
+	android:grantUriPermissions
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:65:13-47
+	android:authorities
+		INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:63:13-60
+	android:exported
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:64:13-37
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:62:13-67
+manifest
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-75:12
+INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-75:12
+INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-75:12
+INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-75:12
+MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/1926d2b0d0bcaec4cc2b952ff93ede39/AndroidManifest.xml:2:1-13:12
+MERGED from [com.android.support:design:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d6d74450fc24d59d150960d916c05922/AndroidManifest.xml:17:1-24:12
+MERGED from [com.github.RaviKoradiya:ZoomableImageView:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/fe5ee360bff553295aa9259c57830de5/AndroidManifest.xml:2:1-16:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6835f74259a18a464454c88a7879d94e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/740a413f38cb8ccd6e320431a96b4c16/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android:flexbox:1.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d59da4276becc8bb54ae031059ba744f/AndroidManifest.xml:17:1-27:12
+MERGED from [com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/bce30b10bfa18df411f71a3af2db4019/AndroidManifest.xml:2:1-14:12
+MERGED from [com.google.android.gms:play-services-ads:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/2b5e3e04861b61d9aaad37b12dbf4f23/AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.billingclient:billing:1.2] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b777b26aa46ad0c7045ed80a7ce18090/AndroidManifest.xml:2:1-19:12
+MERGED from [com.google.firebase:firebase-config:16.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/ac0dd6adc4df87c0404f2a9d044ff37a/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:firebase-core:16.0.7] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/1de809d472e7a4ef530752c0fa05c27f/AndroidManifest.xml:2:1-9:12
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.9] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/50b30fe127d83b3a3874e4fef158ae1c/AndroidManifest.xml:2:1-19:12
+MERGED from [android.arch.persistence.room:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/cc516e0855f7fb5d9ef889cf02db2b52/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/bbc83f522c4abdc0576a01361ca91f52/AndroidManifest.xml:17:1-36:12
+MERGED from [com.google.android.gms:play-services-gass:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c8ceb033ffd13dc3cd86d63e041c78df/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b78318a2238b8cb54d96410e5bb17d34/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:firebase-abt:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f2f43ec7061331111e539946628e21d5/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/293d3ecbbea7308a698f06815851da6a/AndroidManifest.xml:17:1-34:12
+MERGED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:17:1-55:12
+MERGED from [com.google.android.gms:play-services-measurement-api:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/824693fabb02645fb63137dde755d03d/AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/720818a64a22d6913624b8f59b51518b/AndroidManifest.xml:17:1-40:12
+MERGED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:17:1-59:12
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8d56659e24054580b96323a504f16a6a/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6e1d50db10c195cde7d0bceef2b71851/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.firebase:firebase-common:16.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6b745a4f047d227278e3c9d738ab7e3a/AndroidManifest.xml:2:1-17:12
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/648f805dc940fd687724d8a272c95ab3/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/0afc42a2537d87799e3b3b7379fd94b0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/5aceb79530c19b48259a73954181ef05/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-measurement-base:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f5432a8b93a85dd57050b6f9163df192/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a349389e4ce80bd4b909546bce0be402/AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/92e9157225f209baf58b8b2084b9d89a/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/90e389ac4ec52dd26637a195f7da4918/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-fragment:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c07cca496e642483cba9525f74f03588/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/da1d6df598332ba4b8144c3c1cd65161/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/e7062f03e6fa028dd82c061328a34fde/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b843f02e4f3d9b0fff2416604bab8833/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/64fd30c839f2ee4425d7171811a5852e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/cd29adfbf4be20f58dbb2f074cd91ef0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/9d8418babe273df9969b961f37dff352/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customtabs:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/7eca8f914e515acaa7b52157dfb738ff/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:loader:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8c64e27f26bb4b557ae74dab2dd8354c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/7af09de6d09c8fbc3720226a1465a7cb/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/bd8799950b38fbe534d34a265985e738/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d37683de10290171b4e32d5c81a998f0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6f6961aed7c217f8e7a7b4026c210050/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/393a654dba56cdf9c6e3c16865f3f94b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/e63148b67fecd777c80e24269128bddd/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f1a8c6baf20eb64633fbc6a2d414e47b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/db1bb6e5d34a49f4f9c180e06ebc2d15/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d79788962c0ca85c7ce8c26c94dc5726/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d78920c5ab8f8391634256fd216ca4ea/AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/80b820c5af5a68ee3572ed6f682db5ba/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/7e19d488352b8cc75f30c2197b8d9c16/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence:db-framework:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/7dbd77819355167f9f114a643b969c76/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence:db:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/9645078613c4cbfe8e1291dae0020bcb/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/9501a4533f6e188997114e2750740acb/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/e1f1e59eea36c2c2a763e723daa7f15c/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/5fc714523993e45c38ff3df3bd82d5d4/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8ccb9919a651893cd346f6188a1b67d1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b99796383a7616f97973f429eddbe08b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a548f0d2d9445adb62331ccaceee614b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b8a52b3b14e8f44290eff83e21689164/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/122a2c28f78e20ba94f2f6fbb16f5dd9/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/7b1ec235025e4b8ee5c45e19d6cb420d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-ads-base:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/4e00b2e7a0ed12e5f39e47e8b99875bf/AndroidManifest.xml:17:1-24:12
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.8] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f06ec65e3ecdf061f9eb54be51a0cdc2/AndroidManifest.xml:45:1-56:12
+MERGED from [com.crashlytics.sdk.android:answers:1.4.7] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/744d9b15bda937de079c84cc59bc01de/AndroidManifest.xml:2:1-13:12
+MERGED from [io.fabric.sdk.android:fabric:1.4.8] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d1d73148b96b614974305c71f6b0bca6/AndroidManifest.xml:22:1-33:12
+MERGED from [com.crashlytics.sdk.android:beta:1.2.10] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c9ef5045f1d68c37db6427a0fd476010/AndroidManifest.xml:2:1-13:12
+INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-75:12
+INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-75:12
+INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-75:12
+	package
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:4:5-36
+		INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
+		INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-75:12
+		INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:1-75:12
+		INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:2:11-69
+uses-feature#android.hardware.camera
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:6:5-97
+	android:required
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:6:58-81
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:6:19-57
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:7:5-80
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:7:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:8:5-81
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:8:22-78
+uses-permission#android.permission.WRITE_INTERNAL_STORAGE
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:9:22-78
+uses-permission#android.permission.READ_CONTACTS
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:10:5-72
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:10:22-69
+uses-permission#android.permission.CALL_PHONE
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:11:5-69
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:11:22-66
+uses-permission#android.permission.INTERNET
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:12:5-67
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.9] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/50b30fe127d83b3a3874e4fef158ae1c/AndroidManifest.xml:9:5-67
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.9] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/50b30fe127d83b3a3874e4fef158ae1c/AndroidManifest.xml:9:5-67
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/bbc83f522c4abdc0576a01361ca91f52/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/bbc83f522c4abdc0576a01361ca91f52/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/293d3ecbbea7308a698f06815851da6a/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/293d3ecbbea7308a698f06815851da6a/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/720818a64a22d6913624b8f59b51518b/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/720818a64a22d6913624b8f59b51518b/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:23:5-67
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.8] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f06ec65e3ecdf061f9eb54be51a0cdc2/AndroidManifest.xml:52:5-67
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.8] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f06ec65e3ecdf061f9eb54be51a0cdc2/AndroidManifest.xml:52:5-67
+MERGED from [com.crashlytics.sdk.android:answers:1.4.7] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/744d9b15bda937de079c84cc59bc01de/AndroidManifest.xml:9:5-67
+MERGED from [com.crashlytics.sdk.android:answers:1.4.7] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/744d9b15bda937de079c84cc59bc01de/AndroidManifest.xml:9:5-67
+MERGED from [io.fabric.sdk.android:fabric:1.4.8] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d1d73148b96b614974305c71f6b0bca6/AndroidManifest.xml:29:5-67
+MERGED from [io.fabric.sdk.android:fabric:1.4.8] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d1d73148b96b614974305c71f6b0bca6/AndroidManifest.xml:29:5-67
+MERGED from [com.crashlytics.sdk.android:beta:1.2.10] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c9ef5045f1d68c37db6427a0fd476010/AndroidManifest.xml:9:5-67
+MERGED from [com.crashlytics.sdk.android:beta:1.2.10] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c9ef5045f1d68c37db6427a0fd476010/AndroidManifest.xml:9:5-67
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:12:22-64
+uses-permission#android.permission.CAMERA
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:13:5-65
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:13:22-62
+uses-permission#com.android.vending.BILLING
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:14:5-66
+MERGED from [com.android.billingclient:billing:1.2] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b777b26aa46ad0c7045ed80a7ce18090/AndroidManifest.xml:10:5-67
+MERGED from [com.android.billingclient:billing:1.2] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b777b26aa46ad0c7045ed80a7ce18090/AndroidManifest.xml:10:5-67
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:14:22-64
+application
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:16:5-73:19
+MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/1926d2b0d0bcaec4cc2b952ff93ede39/AndroidManifest.xml:11:5-20
+MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/1926d2b0d0bcaec4cc2b952ff93ede39/AndroidManifest.xml:11:5-20
+MERGED from [com.android.support:design:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d6d74450fc24d59d150960d916c05922/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d6d74450fc24d59d150960d916c05922/AndroidManifest.xml:22:5-20
+MERGED from [com.github.RaviKoradiya:ZoomableImageView:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/fe5ee360bff553295aa9259c57830de5/AndroidManifest.xml:11:5-14:19
+MERGED from [com.github.RaviKoradiya:ZoomableImageView:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/fe5ee360bff553295aa9259c57830de5/AndroidManifest.xml:11:5-14:19
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/740a413f38cb8ccd6e320431a96b4c16/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/740a413f38cb8ccd6e320431a96b4c16/AndroidManifest.xml:9:5-20
+MERGED from [com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/bce30b10bfa18df411f71a3af2db4019/AndroidManifest.xml:12:5-20
+MERGED from [com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/bce30b10bfa18df411f71a3af2db4019/AndroidManifest.xml:12:5-20
+MERGED from [com.android.billingclient:billing:1.2] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b777b26aa46ad0c7045ed80a7ce18090/AndroidManifest.xml:12:5-17:19
+MERGED from [com.android.billingclient:billing:1.2] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b777b26aa46ad0c7045ed80a7ce18090/AndroidManifest.xml:12:5-17:19
+MERGED from [com.google.firebase:firebase-config:16.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/ac0dd6adc4df87c0404f2a9d044ff37a/AndroidManifest.xml:22:5-20
+MERGED from [com.google.firebase:firebase-config:16.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/ac0dd6adc4df87c0404f2a9d044ff37a/AndroidManifest.xml:22:5-20
+MERGED from [com.google.firebase:firebase-core:16.0.7] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/1de809d472e7a4ef530752c0fa05c27f/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-core:16.0.7] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/1de809d472e7a4ef530752c0fa05c27f/AndroidManifest.xml:7:5-20
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.9] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/50b30fe127d83b3a3874e4fef158ae1c/AndroidManifest.xml:11:5-17:19
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.9] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/50b30fe127d83b3a3874e4fef158ae1c/AndroidManifest.xml:11:5-17:19
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/bbc83f522c4abdc0576a01361ca91f52/AndroidManifest.xml:26:5-34:19
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/bbc83f522c4abdc0576a01361ca91f52/AndroidManifest.xml:26:5-34:19
+MERGED from [com.google.android.gms:play-services-gass:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c8ceb033ffd13dc3cd86d63e041c78df/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-gass:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c8ceb033ffd13dc3cd86d63e041c78df/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b78318a2238b8cb54d96410e5bb17d34/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b78318a2238b8cb54d96410e5bb17d34/AndroidManifest.xml:22:5-20
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/293d3ecbbea7308a698f06815851da6a/AndroidManifest.xml:26:5-32:19
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/293d3ecbbea7308a698f06815851da6a/AndroidManifest.xml:26:5-32:19
+MERGED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:28:5-53:19
+MERGED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:28:5-53:19
+MERGED from [com.google.android.gms:play-services-measurement-api:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/824693fabb02645fb63137dde755d03d/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-measurement-api:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/824693fabb02645fb63137dde755d03d/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/720818a64a22d6913624b8f59b51518b/AndroidManifest.xml:28:5-38:19
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/720818a64a22d6913624b8f59b51518b/AndroidManifest.xml:28:5-38:19
+MERGED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:28:5-57:19
+MERGED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:28:5-57:19
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8d56659e24054580b96323a504f16a6a/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8d56659e24054580b96323a504f16a6a/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6e1d50db10c195cde7d0bceef2b71851/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6e1d50db10c195cde7d0bceef2b71851/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.firebase:firebase-common:16.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6b745a4f047d227278e3c9d738ab7e3a/AndroidManifest.xml:9:5-15:19
+MERGED from [com.google.firebase:firebase-common:16.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6b745a4f047d227278e3c9d738ab7e3a/AndroidManifest.xml:9:5-15:19
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/648f805dc940fd687724d8a272c95ab3/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/648f805dc940fd687724d8a272c95ab3/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/0afc42a2537d87799e3b3b7379fd94b0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/0afc42a2537d87799e3b3b7379fd94b0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/5aceb79530c19b48259a73954181ef05/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/5aceb79530c19b48259a73954181ef05/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f5432a8b93a85dd57050b6f9163df192/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f5432a8b93a85dd57050b6f9163df192/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a349389e4ce80bd4b909546bce0be402/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a349389e4ce80bd4b909546bce0be402/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/92e9157225f209baf58b8b2084b9d89a/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/92e9157225f209baf58b8b2084b9d89a/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-v4:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/90e389ac4ec52dd26637a195f7da4918/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-v4:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/90e389ac4ec52dd26637a195f7da4918/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:customtabs:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/7eca8f914e515acaa7b52157dfb738ff/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:customtabs:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/7eca8f914e515acaa7b52157dfb738ff/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-media-compat:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/db1bb6e5d34a49f4f9c180e06ebc2d15/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/db1bb6e5d34a49f4f9c180e06ebc2d15/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d79788962c0ca85c7ce8c26c94dc5726/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d79788962c0ca85c7ce8c26c94dc5726/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d78920c5ab8f8391634256fd216ca4ea/AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d78920c5ab8f8391634256fd216ca4ea/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-ads-base:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/4e00b2e7a0ed12e5f39e47e8b99875bf/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-ads-base:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/4e00b2e7a0ed12e5f39e47e8b99875bf/AndroidManifest.xml:22:5-20
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.8] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f06ec65e3ecdf061f9eb54be51a0cdc2/AndroidManifest.xml:54:5-20
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.8] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f06ec65e3ecdf061f9eb54be51a0cdc2/AndroidManifest.xml:54:5-20
+MERGED from [com.crashlytics.sdk.android:answers:1.4.7] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/744d9b15bda937de079c84cc59bc01de/AndroidManifest.xml:11:5-20
+MERGED from [com.crashlytics.sdk.android:answers:1.4.7] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/744d9b15bda937de079c84cc59bc01de/AndroidManifest.xml:11:5-20
+MERGED from [io.fabric.sdk.android:fabric:1.4.8] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d1d73148b96b614974305c71f6b0bca6/AndroidManifest.xml:31:5-20
+MERGED from [io.fabric.sdk.android:fabric:1.4.8] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d1d73148b96b614974305c71f6b0bca6/AndroidManifest.xml:31:5-20
+MERGED from [com.crashlytics.sdk.android:beta:1.2.10] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c9ef5045f1d68c37db6427a0fd476010/AndroidManifest.xml:11:5-20
+MERGED from [com.crashlytics.sdk.android:beta:1.2.10] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c9ef5045f1d68c37db6427a0fd476010/AndroidManifest.xml:11:5-20
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d79788962c0ca85c7ce8c26c94dc5726/AndroidManifest.xml:22:18-91
+	android:supportsRtl
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:22:9-35
+	android:label
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:20:9-41
+	android:roundIcon
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:21:9-54
+	android:icon
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:19:9-43
+	android:allowBackup
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:18:9-35
+	android:theme
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:23:9-40
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:17:9-70
+activity#com.stcodesapp.noteit.ui.activities.ManualEmailActivity
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:24:9-25:67
+	android:windowSoftInputMode
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:25:13-55
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:24:19-68
+activity#com.stcodesapp.noteit.ui.activities.ManualContactActivity
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:26:9-28:67
+	android:windowSoftInputMode
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:28:13-55
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:27:13-64
+activity#com.stcodesapp.noteit.ui.activities.NoteFieldActivity
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:29:9-36:20
+	android:windowSoftInputMode
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:31:13-54
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:30:13-60
+intent-filter#action:name:android.provider.MediaStore.RECORD_SOUND+category:name:android.intent.category.DEFAULT
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:32:13-35:29
+action#android.provider.MediaStore.RECORD_SOUND
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:33:17-83
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:33:25-80
+category#android.intent.category.DEFAULT
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:34:17-76
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:34:27-73
+activity#com.stcodesapp.noteit.ui.activities.CheckListActivity
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:39:9-41:71
+	android:windowSoftInputMode
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:41:13-68
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:40:13-60
+activity#com.stcodesapp.noteit.ui.activities.PrivacyPolicyActivity
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:43:9-46:15
+	android:theme
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:45:13-56
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:44:13-64
+activity#com.stcodesapp.noteit.ui.activities.InAppPurchaseActivity
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:47:9-50:15
+	android:theme
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:49:13-56
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:48:13-64
+activity#com.stcodesapp.noteit.ui.activities.MainActivity
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:51:9-59:20
+	android:theme
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:53:13-65
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:52:13-55
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:54:13-58:29
+action#android.intent.action.MAIN
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:55:17-69
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:55:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:57:17-77
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:57:27-74
+meta-data#io.fabric.ApiKey
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:70:9-72:72
+	android:value
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:72:13-69
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:71:13-44
+uses-sdk
+INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
+INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
+MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/1926d2b0d0bcaec4cc2b952ff93ede39/AndroidManifest.xml:7:5-9:41
+MERGED from [com.miguelcatalan:materialsearchview:1.4.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/1926d2b0d0bcaec4cc2b952ff93ede39/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:design:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d6d74450fc24d59d150960d916c05922/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d6d74450fc24d59d150960d916c05922/AndroidManifest.xml:20:5-44
+MERGED from [com.github.RaviKoradiya:ZoomableImageView:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/fe5ee360bff553295aa9259c57830de5/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.RaviKoradiya:ZoomableImageView:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/fe5ee360bff553295aa9259c57830de5/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6835f74259a18a464454c88a7879d94e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6835f74259a18a464454c88a7879d94e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/740a413f38cb8ccd6e320431a96b4c16/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/740a413f38cb8ccd6e320431a96b4c16/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android:flexbox:1.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d59da4276becc8bb54ae031059ba744f/AndroidManifest.xml:23:5-25:41
+MERGED from [com.google.android:flexbox:1.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d59da4276becc8bb54ae031059ba744f/AndroidManifest.xml:23:5-25:41
+MERGED from [com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/bce30b10bfa18df411f71a3af2db4019/AndroidManifest.xml:8:5-10:41
+MERGED from [com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/bce30b10bfa18df411f71a3af2db4019/AndroidManifest.xml:8:5-10:41
+MERGED from [com.google.android.gms:play-services-ads:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/2b5e3e04861b61d9aaad37b12dbf4f23/AndroidManifest.xml:21:5-23:62
+MERGED from [com.google.android.gms:play-services-ads:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/2b5e3e04861b61d9aaad37b12dbf4f23/AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.billingclient:billing:1.2] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b777b26aa46ad0c7045ed80a7ce18090/AndroidManifest.xml:6:5-8:41
+MERGED from [com.android.billingclient:billing:1.2] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b777b26aa46ad0c7045ed80a7ce18090/AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.firebase:firebase-config:16.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/ac0dd6adc4df87c0404f2a9d044ff37a/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-config:16.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/ac0dd6adc4df87c0404f2a9d044ff37a/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-core:16.0.7] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/1de809d472e7a4ef530752c0fa05c27f/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-core:16.0.7] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/1de809d472e7a4ef530752c0fa05c27f/AndroidManifest.xml:5:5-44
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.9] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/50b30fe127d83b3a3874e4fef158ae1c/AndroidManifest.xml:7:5-43
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.9] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/50b30fe127d83b3a3874e4fef158ae1c/AndroidManifest.xml:7:5-43
+MERGED from [android.arch.persistence.room:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/cc516e0855f7fb5d9ef889cf02db2b52/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence.room:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/cc516e0855f7fb5d9ef889cf02db2b52/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/bbc83f522c4abdc0576a01361ca91f52/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/bbc83f522c4abdc0576a01361ca91f52/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-gass:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c8ceb033ffd13dc3cd86d63e041c78df/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-gass:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c8ceb033ffd13dc3cd86d63e041c78df/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b78318a2238b8cb54d96410e5bb17d34/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b78318a2238b8cb54d96410e5bb17d34/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-abt:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f2f43ec7061331111e539946628e21d5/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-abt:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f2f43ec7061331111e539946628e21d5/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/293d3ecbbea7308a698f06815851da6a/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/293d3ecbbea7308a698f06815851da6a/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-api:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/824693fabb02645fb63137dde755d03d/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-api:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/824693fabb02645fb63137dde755d03d/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/720818a64a22d6913624b8f59b51518b/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/720818a64a22d6913624b8f59b51518b/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8d56659e24054580b96323a504f16a6a/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8d56659e24054580b96323a504f16a6a/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6e1d50db10c195cde7d0bceef2b71851/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6e1d50db10c195cde7d0bceef2b71851/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-common:16.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6b745a4f047d227278e3c9d738ab7e3a/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.firebase:firebase-common:16.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6b745a4f047d227278e3c9d738ab7e3a/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/648f805dc940fd687724d8a272c95ab3/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/648f805dc940fd687724d8a272c95ab3/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/0afc42a2537d87799e3b3b7379fd94b0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/0afc42a2537d87799e3b3b7379fd94b0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/5aceb79530c19b48259a73954181ef05/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/5aceb79530c19b48259a73954181ef05/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f5432a8b93a85dd57050b6f9163df192/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f5432a8b93a85dd57050b6f9163df192/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a349389e4ce80bd4b909546bce0be402/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a349389e4ce80bd4b909546bce0be402/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/92e9157225f209baf58b8b2084b9d89a/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/92e9157225f209baf58b8b2084b9d89a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/90e389ac4ec52dd26637a195f7da4918/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/90e389ac4ec52dd26637a195f7da4918/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c07cca496e642483cba9525f74f03588/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c07cca496e642483cba9525f74f03588/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/da1d6df598332ba4b8144c3c1cd65161/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/da1d6df598332ba4b8144c3c1cd65161/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/e7062f03e6fa028dd82c061328a34fde/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/e7062f03e6fa028dd82c061328a34fde/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b843f02e4f3d9b0fff2416604bab8833/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b843f02e4f3d9b0fff2416604bab8833/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/64fd30c839f2ee4425d7171811a5852e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/64fd30c839f2ee4425d7171811a5852e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/cd29adfbf4be20f58dbb2f074cd91ef0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/cd29adfbf4be20f58dbb2f074cd91ef0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/9d8418babe273df9969b961f37dff352/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/9d8418babe273df9969b961f37dff352/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/7eca8f914e515acaa7b52157dfb738ff/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/7eca8f914e515acaa7b52157dfb738ff/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8c64e27f26bb4b557ae74dab2dd8354c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8c64e27f26bb4b557ae74dab2dd8354c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/7af09de6d09c8fbc3720226a1465a7cb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/7af09de6d09c8fbc3720226a1465a7cb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/bd8799950b38fbe534d34a265985e738/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/bd8799950b38fbe534d34a265985e738/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d37683de10290171b4e32d5c81a998f0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d37683de10290171b4e32d5c81a998f0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6f6961aed7c217f8e7a7b4026c210050/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6f6961aed7c217f8e7a7b4026c210050/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/393a654dba56cdf9c6e3c16865f3f94b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/393a654dba56cdf9c6e3c16865f3f94b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/e63148b67fecd777c80e24269128bddd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/e63148b67fecd777c80e24269128bddd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f1a8c6baf20eb64633fbc6a2d414e47b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f1a8c6baf20eb64633fbc6a2d414e47b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/db1bb6e5d34a49f4f9c180e06ebc2d15/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/db1bb6e5d34a49f4f9c180e06ebc2d15/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d79788962c0ca85c7ce8c26c94dc5726/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d79788962c0ca85c7ce8c26c94dc5726/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d78920c5ab8f8391634256fd216ca4ea/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d78920c5ab8f8391634256fd216ca4ea/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/80b820c5af5a68ee3572ed6f682db5ba/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/80b820c5af5a68ee3572ed6f682db5ba/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/7e19d488352b8cc75f30c2197b8d9c16/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/7e19d488352b8cc75f30c2197b8d9c16/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db-framework:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/7dbd77819355167f9f114a643b969c76/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db-framework:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/7dbd77819355167f9f114a643b969c76/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/9645078613c4cbfe8e1291dae0020bcb/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/9645078613c4cbfe8e1291dae0020bcb/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/9501a4533f6e188997114e2750740acb/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/9501a4533f6e188997114e2750740acb/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/e1f1e59eea36c2c2a763e723daa7f15c/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/e1f1e59eea36c2c2a763e723daa7f15c/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/5fc714523993e45c38ff3df3bd82d5d4/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/5fc714523993e45c38ff3df3bd82d5d4/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8ccb9919a651893cd346f6188a1b67d1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8ccb9919a651893cd346f6188a1b67d1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b99796383a7616f97973f429eddbe08b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b99796383a7616f97973f429eddbe08b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a548f0d2d9445adb62331ccaceee614b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a548f0d2d9445adb62331ccaceee614b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b8a52b3b14e8f44290eff83e21689164/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b8a52b3b14e8f44290eff83e21689164/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/122a2c28f78e20ba94f2f6fbb16f5dd9/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/122a2c28f78e20ba94f2f6fbb16f5dd9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/7b1ec235025e4b8ee5c45e19d6cb420d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/7b1ec235025e4b8ee5c45e19d6cb420d/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-base:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/4e00b2e7a0ed12e5f39e47e8b99875bf/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-base:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/4e00b2e7a0ed12e5f39e47e8b99875bf/AndroidManifest.xml:20:5-44
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.8] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f06ec65e3ecdf061f9eb54be51a0cdc2/AndroidManifest.xml:50:5-43
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.8] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f06ec65e3ecdf061f9eb54be51a0cdc2/AndroidManifest.xml:50:5-43
+MERGED from [com.crashlytics.sdk.android:answers:1.4.7] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/744d9b15bda937de079c84cc59bc01de/AndroidManifest.xml:7:5-43
+MERGED from [com.crashlytics.sdk.android:answers:1.4.7] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/744d9b15bda937de079c84cc59bc01de/AndroidManifest.xml:7:5-43
+MERGED from [io.fabric.sdk.android:fabric:1.4.8] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d1d73148b96b614974305c71f6b0bca6/AndroidManifest.xml:27:5-43
+MERGED from [io.fabric.sdk.android:fabric:1.4.8] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/d1d73148b96b614974305c71f6b0bca6/AndroidManifest.xml:27:5-43
+MERGED from [com.crashlytics.sdk.android:beta:1.2.10] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c9ef5045f1d68c37db6427a0fd476010/AndroidManifest.xml:7:5-43
+MERGED from [com.crashlytics.sdk.android:beta:1.2.10] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c9ef5045f1d68c37db6427a0fd476010/AndroidManifest.xml:7:5-43
+INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
+INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
+	tools:overrideLibrary
+		ADDED from [com.google.android.gms:play-services-ads:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/2b5e3e04861b61d9aaad37b12dbf4f23/AndroidManifest.xml:23:9-59
+	android:targetSdkVersion
+		INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
+		INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
+		INJECTED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:66:13-68:58
+	android:resource
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:68:17-55
+	android:name
+		ADDED from /media/shadat/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:67:17-67
+activity#com.android.billingclient.api.ProxyBillingActivity
+ADDED from [com.android.billingclient:billing:1.2] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b777b26aa46ad0c7045ed80a7ce18090/AndroidManifest.xml:13:9-16:75
+	android:configChanges
+		ADDED from [com.android.billingclient:billing:1.2] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b777b26aa46ad0c7045ed80a7ce18090/AndroidManifest.xml:15:13-96
+	android:theme
+		ADDED from [com.android.billingclient:billing:1.2] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b777b26aa46ad0c7045ed80a7ce18090/AndroidManifest.xml:16:13-72
+	android:name
+		ADDED from [com.android.billingclient:billing:1.2] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/b777b26aa46ad0c7045ed80a7ce18090/AndroidManifest.xml:14:13-78
+provider#com.crashlytics.android.CrashlyticsInitProvider
+ADDED from [com.crashlytics.sdk.android:crashlytics:2.9.9] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/50b30fe127d83b3a3874e4fef158ae1c/AndroidManifest.xml:12:9-16:38
+	android:authorities
+		ADDED from [com.crashlytics.sdk.android:crashlytics:2.9.9] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/50b30fe127d83b3a3874e4fef158ae1c/AndroidManifest.xml:14:13-75
+	android:exported
+		ADDED from [com.crashlytics.sdk.android:crashlytics:2.9.9] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/50b30fe127d83b3a3874e4fef158ae1c/AndroidManifest.xml:15:13-37
+	android:initOrder
+		ADDED from [com.crashlytics.sdk.android:crashlytics:2.9.9] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/50b30fe127d83b3a3874e4fef158ae1c/AndroidManifest.xml:16:13-35
+	android:name
+		ADDED from [com.crashlytics.sdk.android:crashlytics:2.9.9] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/50b30fe127d83b3a3874e4fef158ae1c/AndroidManifest.xml:13:13-75
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/bbc83f522c4abdc0576a01361ca91f52/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/293d3ecbbea7308a698f06815851da6a/AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/293d3ecbbea7308a698f06815851da6a/AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/720818a64a22d6913624b8f59b51518b/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/720818a64a22d6913624b8f59b51518b/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/bbc83f522c4abdc0576a01361ca91f52/AndroidManifest.xml:24:22-76
+activity#com.google.android.gms.ads.AdActivity
+ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/bbc83f522c4abdc0576a01361ca91f52/AndroidManifest.xml:29:9-33:64
+	android:exported
+		ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/bbc83f522c4abdc0576a01361ca91f52/AndroidManifest.xml:32:13-37
+	android:configChanges
+		ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/bbc83f522c4abdc0576a01361ca91f52/AndroidManifest.xml:31:13-122
+	android:theme
+		ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/bbc83f522c4abdc0576a01361ca91f52/AndroidManifest.xml:33:13-61
+	android:name
+		ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/bbc83f522c4abdc0576a01361ca91f52/AndroidManifest.xml:30:13-65
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/293d3ecbbea7308a698f06815851da6a/AndroidManifest.xml:24:5-68
+MERGED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:25:5-68
+MERGED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:25:5-68
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/720818a64a22d6913624b8f59b51518b/AndroidManifest.xml:25:5-68
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/720818a64a22d6913624b8f59b51518b/AndroidManifest.xml:25:5-68
+MERGED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:24:5-68
+MERGED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:24:5-68
+	android:name
+		ADDED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/293d3ecbbea7308a698f06815851da6a/AndroidManifest.xml:24:22-65
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/293d3ecbbea7308a698f06815851da6a/AndroidManifest.xml:27:9-31:19
+MERGED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:29:9-35:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:31:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/293d3ecbbea7308a698f06815851da6a/AndroidManifest.xml:27:18-89
+meta-data#com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar
+ADDED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/293d3ecbbea7308a698f06815851da6a/AndroidManifest.xml:28:13-30:85
+	android:value
+		ADDED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/293d3ecbbea7308a698f06815851da6a/AndroidManifest.xml:30:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/293d3ecbbea7308a698f06815851da6a/AndroidManifest.xml:29:17-139
+uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
+ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:26:5-110
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/720818a64a22d6913624b8f59b51518b/AndroidManifest.xml:26:5-110
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/720818a64a22d6913624b8f59b51518b/AndroidManifest.xml:26:5-110
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:26:22-107
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:29:9-33:20
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:31:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:30:13-85
+receiver#com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver
+ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:34:9-42:20
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/720818a64a22d6913624b8f59b51518b/AndroidManifest.xml:29:9-37:20
+MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/720818a64a22d6913624b8f59b51518b/AndroidManifest.xml:29:9-37:20
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:36:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:37:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:38:13-69
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:35:13-100
+intent-filter#action:name:com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:39:13-41:29
+action#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:40:17-79
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:40:25-76
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:44:9-47:40
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:46:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:47:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:45:13-84
+service#com.google.android.gms.measurement.AppMeasurementJobService
+ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:48:9-52:72
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:50:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:51:13-37
+	android:permission
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:52:13-69
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/c605de1d406a8574742d90f27504c8aa/AndroidManifest.xml:49:13-87
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:26:5-82
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:26:22-79
+meta-data#com.google.firebase.components:com.google.firebase.iid.Registrar
+ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:32:13-34:85
+	android:value
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:34:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:33:17-96
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:37:9-44:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:39:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:40:13-73
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:38:13-78
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:41:13-43:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:42:17-81
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:42:25-78
+service#com.google.firebase.iid.FirebaseInstanceIdService
+ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:50:9-56:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:52:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:51:13-77
+intent-filter#action:name:com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:53:13-55:29
+	android:priority
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:53:28-51
+action#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:54:17-80
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/855fc05227fdc8686a5082108dab7f2b/AndroidManifest.xml:54:25-77
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6e1d50db10c195cde7d0bceef2b71851/AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6e1d50db10c195cde7d0bceef2b71851/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6e1d50db10c195cde7d0bceef2b71851/AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6e1d50db10c195cde7d0bceef2b71851/AndroidManifest.xml:24:13-79
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:16.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6b745a4f047d227278e3c9d738ab7e3a/AndroidManifest.xml:10:9-14:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:16.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6b745a4f047d227278e3c9d738ab7e3a/AndroidManifest.xml:12:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:16.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6b745a4f047d227278e3c9d738ab7e3a/AndroidManifest.xml:13:13-37
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:16.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6b745a4f047d227278e3c9d738ab7e3a/AndroidManifest.xml:14:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:16.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6b745a4f047d227278e3c9d738ab7e3a/AndroidManifest.xml:11:13-77
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/92e9157225f209baf58b8b2084b9d89a/AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/92e9157225f209baf58b8b2084b9d89a/AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/92e9157225f209baf58b8b2084b9d89a/AndroidManifest.xml:24:13-58
+meta-data#android.support.VERSION
+ADDED from [com.android.support:support-v4:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/90e389ac4ec52dd26637a195f7da4918/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:customtabs:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/7eca8f914e515acaa7b52157dfb738ff/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:customtabs:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/7eca8f914e515acaa7b52157dfb738ff/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-media-compat:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/db1bb6e5d34a49f4f9c180e06ebc2d15/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/db1bb6e5d34a49f4f9c180e06ebc2d15/AndroidManifest.xml:26:9-28:38
+	android:value
+		ADDED from [com.android.support:support-v4:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/90e389ac4ec52dd26637a195f7da4918/AndroidManifest.xml:28:13-35
+	android:name
+		ADDED from [com.android.support:support-v4:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/90e389ac4ec52dd26637a195f7da4918/AndroidManifest.xml:27:13-51

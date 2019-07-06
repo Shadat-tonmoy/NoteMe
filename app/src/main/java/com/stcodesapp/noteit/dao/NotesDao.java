@@ -18,7 +18,7 @@ public interface NotesDao {
     long insert(Note note);
 
 
-    @Query("SELECT * FROM notes")
+    @Query("SELECT * FROM notes order by note_id desc")
     List<Note> getAllNoes();
 
 

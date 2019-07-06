@@ -25,6 +25,7 @@ public class FullScreenAdController {
     private RewardedVideoAd rewardedVideoAd;
     private AdStrategyTrackingTask adStrategyTrackingTask;
     private TasksFactory tasksFactory;
+    private AdMob adMob;
 
     public FullScreenAdController(Activity activity, TasksFactory tasksFactory) {
         this.activity = activity;
@@ -58,8 +59,12 @@ public class FullScreenAdController {
     }
     private void initMobileAds()
     {
-        AdMob adMob = new AdMob(activity);
+        adMob = new AdMob(activity);
         interstitialAd = new InterstitialAd(adMob);
         rewardedVideoAd = new RewardedVideoAd(adMob);
+    }
+
+    public AdMob getAdMob() {
+        return adMob;
     }
 }

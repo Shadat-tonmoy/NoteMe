@@ -1,6 +1,8 @@
 package com.stcodesapp.noteit.common;
 
+import android.app.Activity;
 import android.app.Application;
+import android.support.v4.app.FragmentActivity;
 
 import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.ads.MobileAds;
@@ -21,8 +23,19 @@ public class CustomApplication extends Application {
         Fabric.with(this, new Crashlytics());
         compositionRoot = new CompositionRoot();
         MobileAds.initialize(this, this.getResources().getString(R.string.admob_app_id));
-//        fullScreenAdController = new FullScreenAdController(this,compositionRoot.getTasksFactory(this).getAdStrategyTrackingTask());
 
+    }
+
+    public void setFullScreenAdController(FragmentActivity activity)
+    {
+        fullScreenAdController = compositionRoot.getActivityControllerFactory(activity).getFullScreenAdController();
+        fullScreenAdController.onStart();
+
+    }
+
+    public FullScreenAdController getFullScreenAdController()
+    {
+        return fullScreenAdController;
     }
 
     public CompositionRoot getCompositionRoot() {
