@@ -626,8 +626,8 @@
     <string name="add_phone_number_manually">Add Phone Number Manually</string>
     <string name="add_tag">Add Tag</string>
     <string name="added_to_favorite">Note is marked as important</string>
-    <string name="admob_app_id">@string/admob_app_id_test</string>
-    <string name="admob_app_id_real">NA</string>
+    <string name="admob_app_id">@string/admob_app_id_real</string>
+    <string name="admob_app_id_real">ca-app-pub-7505528330087753~8721763907</string>
     <string name="admob_app_id_test">ca-app-pub-3940256099942544~3347511713</string>
     <string name="admob_banner_ad_id">@string/admob_banner_ad_real</string>
     <string name="admob_banner_ad_real">ca-app-pub-7505528330087753/5392467953</string>
@@ -664,7 +664,7 @@
     <string name="clear">Clear</string>
     <string name="clear_note">Clear Note?</string>
     <string name="clear_note_msg">Are you sure to clear all note?</string>
-    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">14aae070-7f58-4dbb-9880-1bff72d589f8</string>
+    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">5a013869-9d22-4276-8912-660223a00178</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
     <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>

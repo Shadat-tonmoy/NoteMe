@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.flexbox.FlexboxLayout;
 import com.ravikoradiya.zoomableimageview.ZoomableImageView;
 import com.stcodesapp.noteit.R;
@@ -131,7 +132,12 @@ public class NoteFieldScreenManipulationTasks {
         Bitmap bitmap = null;
         try {
             bitmap = MediaStore.Images.Media.getBitmap(activity.getContentResolver(), Uri.parse(image.getImageURI()));
-            imageView.setImageBitmap(bitmap);
+            Glide.with(activity)
+                    .load(Uri.parse(image.getImageURI()))
+                    .centerCrop()
+                    .placeholder(activity.getResources().getDrawable(R.drawable.placeholder_image))
+                    .into(imageView);
+//            imageView.setImageBitmap(bitmap);
         } catch (IOException e) {
             e.printStackTrace();
             Log.e("Exception",e.getMessage());

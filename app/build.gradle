@@ -22,7 +22,7 @@ android {
         applicationId "com.stcodesapp.noteit"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 6
+        versionCode 8
         versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -43,6 +43,7 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'com.google.android:flexbox:1.0.0'
     implementation 'com.miguelcatalan:materialsearchview:1.4.0'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.1'
     implementation 'com.github.RaviKoradiya:ZoomableImageView:1.1.1'
     implementation 'com.google.android.gms:play-services-ads:15.0.0'

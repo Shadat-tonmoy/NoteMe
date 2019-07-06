@@ -13,7 +13,7 @@ public class AppMetadata {
     public static final int MAX_FREE_AUDIO= 5;
     public static final int MAX_FREE_IMAGE= 5;
     public static final int MAX_FREE_CHECKLIST= 5;
-    public static final int MAX_FREE_COMPONENTS = 2;
+    public static final int MAX_FREE_COMPONENTS = 5;
     private static boolean USAGE_BALANCE_UPDATED = false;
     private static boolean NEW_BALANCE_ADDED = false;
     private static boolean BROADCAST_RECEIVER_SET = false;

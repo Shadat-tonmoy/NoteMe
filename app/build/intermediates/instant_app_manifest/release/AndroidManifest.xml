@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.stcodesapp.noteit"
     android:targetSandboxVersion="2"
-    android:versionCode="6"
+    android:versionCode="8"
     android:versionName="1.0" >
 
     <uses-sdk
@@ -37,12 +37,15 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.stcodesapp.noteit.ui.activities.ManualEmailActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name="com.stcodesapp.noteit.ui.activities.ManualContactActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name="com.stcodesapp.noteit.ui.activities.NoteFieldActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
             <intent-filter>
                 <action android:name="android.provider.MediaStore.RECORD_SOUND" />
@@ -52,15 +55,19 @@
         </activity>
         <activity
             android:name="com.stcodesapp.noteit.ui.activities.CheckListActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
             android:name="com.stcodesapp.noteit.ui.activities.PrivacyPolicyActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Transparent" />
         <activity
             android:name="com.stcodesapp.noteit.ui.activities.InAppPurchaseActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Transparent" />
         <activity
             android:name="com.stcodesapp.noteit.ui.activities.MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.TransparentActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

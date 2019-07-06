@@ -150,20 +150,24 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
 
     public void checkBundleForNote(Bundle args)
     {
-        Note note = (Note) args.getSerializable(Tags.NOTE);
-        if(note!=null)
+        if(args!=null)
         {
-            noteComponents.setNote(note);
-            NoteComponentSelectionTask noteComponentSelectionTask = tasksFactory.getDatabaseTasks().getNoteComponentSelectionTask(this,noteComponents);
-            noteComponentSelectionTask.execute(note.getId());
-            isUpdating = true;
-            noteFieldScreenManipulationTasks.hideDoneButton();
+            Note note = (Note) args.getSerializable(Tags.NOTE);
+            if(note!=null)
+            {
+                noteComponents.setNote(note);
+                NoteComponentSelectionTask noteComponentSelectionTask = tasksFactory.getDatabaseTasks().getNoteComponentSelectionTask(this,noteComponents);
+                noteComponentSelectionTask.execute(note.getId());
+                isUpdating = true;
+                noteFieldScreenManipulationTasks.hideDoneButton();
 
             /*DatabaseTasks databaseTasks = tasksFactory.getDatabaseTasks();
             DatabaseSelectionTasksListener databaseSelectionTasksListener= listeningTasks.getDBSelectTasksListener(databaseTasks,noteComponents);
             databaseSelectionTasksListener.setListener(this);
             databaseTasks.getEmailSelectTask(databaseSelectionTasksListener).execute(note.getId());*/
+            }
         }
+
 
     }
 
@@ -325,9 +329,13 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
 
     private void handleRecordedVoice(Intent data) {
         Uri selectedAudio = data.getData();
-        Bundle args = new Bundle();
-        args.putString(Tags.INPUT_FILE_PATH,selectedAudio.getPath());
-        noteFieldScreenManipulationTasks.showFileSavingDialog(args);
+        if(selectedAudio!=null)
+        {
+            Bundle args = new Bundle();
+            args.putString(Tags.INPUT_FILE_PATH,selectedAudio.getPath());
+            noteFieldScreenManipulationTasks.showFileSavingDialog(args);
+        }
+
 
     }
 
