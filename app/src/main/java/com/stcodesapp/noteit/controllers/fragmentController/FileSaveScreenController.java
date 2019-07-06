@@ -109,7 +109,7 @@ public class FileSaveScreenController implements FileSaveDialogScreen.Listener, 
 
     @Override
     public void onFileMovingDone(File outputFile) {
-        Log.e("FileSaved","Successfully@ "+outputFile.getAbsolutePath());
+//        Log.e("FileSaved","Successfully@ "+outputFile.getAbsolutePath());
         bindInputFile(outputFile);
         listener.onFileSaved(inputFile);
         fileSaveScreenManipulationTasks.showFileSaveDoneMessage(outputFile.getAbsolutePath());

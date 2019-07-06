@@ -100,11 +100,11 @@ public class CheckListActivityScreenManipulationTask {
             }
             ((EditText)checkListScreenView.getLayoutManager().getFocusedChild().findViewById(R.id.check_item_title_field)).setImeOptions(EditorInfo.IME_ACTION_DONE);
             String currentValue = ((EditText)checkListScreenView.getLayoutManager().getFocusedChild().findViewById(R.id.check_item_title_field)).getText().toString();
-            Log.e("CurrentValue",currentValue);
+//            Log.e("CurrentValue",currentValue);
         }catch (Exception e)
         {
             e.printStackTrace();
-            Log.e("Errot",e.getMessage());
+//            Log.e("Errot",e.getMessage());
         }
         /*((EditText)checkListScreenView.getLayoutManager().getFocusedChild().findViewById(R.id.check_item_title_field)).setImeOptions(EditorInfo.IME_ACTION_DONE);
         String currentValue = ((EditText)checkListScreenView.getLayoutManager().getFocusedChild().findViewById(R.id.check_item_title_field)).getText().toString();

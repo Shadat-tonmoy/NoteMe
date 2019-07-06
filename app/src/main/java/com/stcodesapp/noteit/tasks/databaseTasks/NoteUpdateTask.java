@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.common.Logger;
 import com.stcodesapp.noteit.dao.NotesDao;
 import com.stcodesapp.noteit.database.NoteDatabase;
 import com.stcodesapp.noteit.models.Note;
@@ -30,7 +31,8 @@ public class NoteUpdateTask extends AsyncTask<Note,Void, Note> {
 
     @Override
     protected Note doInBackground(Note... notes) {
-        Log.e("Note","Updating...."+notes[0].isImportant());
+        Logger.logMessage("Note","Updating...."+notes[0].isImportant());
+//        Log.e("Note","Updating...."+notes[0].isImportant());
         notesDao.update(notes[0]);
         return notes[0];
     }

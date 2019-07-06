@@ -68,7 +68,7 @@ public class IAPBillingTasks implements PurchasesUpdatedListener {
             public void onBillingSetupFinished(@BillingClient.BillingResponse int billingResponseCode) {
                 if (billingResponseCode == BillingClient.BillingResponse.OK) {
                     isServiceConnected = true;
-                    queryPurchase();
+                    checkExistingIAP();
                 }
             }
             @Override
@@ -95,6 +95,9 @@ public class IAPBillingTasks implements PurchasesUpdatedListener {
                 break;
             case IAPTypes.YEARLY_SUBS:
                 skuList.add(IAPIDs.YEARLY_SUBS);
+                break;
+            case IAPTypes.LIFE_TIME_PURCHASE:
+                skuList.add(IAPIDs.LIFE_TIME_PURCHASE);
                 break;
         }
         if(IAPType == IAPTypes.MONTHLY_SUBS || IAPType == IAPTypes.HALF_YEARLY_SUBS || IAPType == IAPTypes.YEARLY_SUBS)
@@ -131,6 +134,7 @@ public class IAPBillingTasks implements PurchasesUpdatedListener {
         skuList.add(IAPIDs.MONTHLY_SUBS);
         skuList.add(IAPIDs.HALF_YEARLY_SUBS);
         skuList.add(IAPIDs.YEARLY_SUBS);
+        skuList.add(IAPIDs.LIFE_TIME_PURCHASE);
         SkuDetailsParams.Builder params = SkuDetailsParams.newBuilder();
         final List<ProductDetail> productDetails = new ArrayList<>();
         params.setSkusList(skuList).setType(BillingClient.SkuType.SUBS);
@@ -179,37 +183,71 @@ public class IAPBillingTasks implements PurchasesUpdatedListener {
         return new Runnable() {
             @Override
             public void run() {
-                Purchase.PurchasesResult purchasesResult = billingClient.queryPurchases(BillingClient.SkuType.SUBS);
-                final Set<Purchase> purchaseSet = new HashSet<>();
+                checkSubscription();
+                checkLifeTimePurchase();
 
-                if (isSubscriptionSupported()) {
-                    Purchase.PurchasesResult subscriptionResult
-                            = billingClient.queryPurchases(BillingClient.SkuType.SUBS);
 
-                    if (subscriptionResult.getResponseCode() == BillingClient.BillingResponse.OK) {
-                        iapTrackingTasks.setPaidUser(false);
-                        for(Purchase purchase:subscriptionResult.getPurchasesList())
-                        {
-                            if(verifyValidSignature(purchase.getOriginalJson(),purchase.getSignature()))
-                            {
-                                purchaseSet.add(purchase);
-                                iapTrackingTasks.setPaidUser(true);
-                                Logger.logMessage("ExistingPurchase",purchase.toString());
-                            }
-                        }
-                        if(onExistingPurchaseFetchListener!=null)
-                            onExistingPurchaseFetchListener.onExistingSubscriptionFetched(purchaseSet);
-                        Logger.logMessage("PaidUser",iapTrackingTasks.isPaidUser()+" is result");
-                    }
-                }
-                else if(purchasesResult.getPurchasesList()!=null)
-                {
-                        purchasesResult.getPurchasesList().clear();
-                }
+
+
+
+
             }
         };
     }
 
+    private void checkSubscription()
+    {
+        Purchase.PurchasesResult purchasesResult = billingClient.queryPurchases(BillingClient.SkuType.SUBS);
+        final Set<Purchase> purchaseSet = new HashSet<>();
+
+        if (isSubscriptionSupported()) {
+            Purchase.PurchasesResult subscriptionResult
+                    = billingClient.queryPurchases(BillingClient.SkuType.SUBS);
+
+            if (subscriptionResult.getResponseCode() == BillingClient.BillingResponse.OK) {
+                iapTrackingTasks.setPaidUser(false);
+                for(Purchase purchase:subscriptionResult.getPurchasesList())
+                {
+                    if(verifyValidSignature(purchase.getOriginalJson(),purchase.getSignature()))
+                    {
+                        purchaseSet.add(purchase);
+                        iapTrackingTasks.setPaidUser(true);
+                        Logger.logMessage("ExistingPurchase",purchase.toString());
+                    }
+                }
+                if(onExistingPurchaseFetchListener!=null)
+                    onExistingPurchaseFetchListener.onExistingSubscriptionFetched(purchaseSet);
+                Logger.logMessage("PaidUser",iapTrackingTasks.isPaidUser()+" is result");
+            }
+        }
+        else if(purchasesResult.getPurchasesList()!=null)
+        {
+            purchasesResult.getPurchasesList().clear();
+        }
+    }
+
+    private void checkLifeTimePurchase()
+    {
+        final Set<Purchase> purchaseSet = new HashSet<>();
+        Purchase.PurchasesResult subscriptionResult
+                = billingClient.queryPurchases(BillingClient.SkuType.INAPP);
+
+        if (subscriptionResult.getResponseCode() == BillingClient.BillingResponse.OK) {
+            iapTrackingTasks.setPaidUser(false);
+            for(Purchase purchase:subscriptionResult.getPurchasesList())
+            {
+                if(verifyValidSignature(purchase.getOriginalJson(),purchase.getSignature()))
+                {
+                    purchaseSet.add(purchase);
+                    iapTrackingTasks.setPaidUser(true);
+                    Logger.logMessage("ExistingPurchase",purchase.toString());
+                }
+            }
+            if(onExistingPurchaseFetchListener!=null)
+                onExistingPurchaseFetchListener.onExistingSubscriptionFetched(purchaseSet);
+            Logger.logMessage("PaidUser",iapTrackingTasks.isPaidUser()+" is result from lifetime purchase");
+        }
+    }
     private void startServiceConnection(final Runnable request) {
         billingClient.startConnection(new BillingClientStateListener() {
             @Override

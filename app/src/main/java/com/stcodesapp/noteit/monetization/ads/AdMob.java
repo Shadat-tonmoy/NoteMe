@@ -97,7 +97,7 @@ public class AdMob implements AdNetwork, RewardedVideoAdListener {
             rewardedVideoAd.setRewardedVideoAdListener(this);
             rewardedVideoAd.loadAd(UtilityTasks.getRewardedVideAdID(activity),
                     new AdRequest.Builder().build());
-            Log.e("RWAd","Will Load");
+//            Log.e("RWAd","Will Load");
         }
 
 
@@ -109,11 +109,11 @@ public class AdMob implements AdNetwork, RewardedVideoAdListener {
         {
             if(rewardedVideoAd.isLoaded())
             {
-                Log.e("RWAd","Is Loaded");
+//                Log.e("RWAd","Is Loaded");
                 rewardedVideoAd.show();
             }
             else {
-                Log.e("RWAd","Not Loaded");
+//                Log.e("RWAd","Not Loaded");
                 loadRewardedVideoAd();
             }
         }

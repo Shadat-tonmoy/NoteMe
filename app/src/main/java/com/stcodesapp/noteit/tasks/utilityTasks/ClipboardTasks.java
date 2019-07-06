@@ -48,27 +48,27 @@ public class ClipboardTasks {
 
     public void hideKeyBoard()
     {
-        Log.e("Keyboard","Hiding");
+//        Log.e("Keyboard","Hiding");
         InputMethodManager inputManager = (InputMethodManager)context
                 .getSystemService(Context.INPUT_METHOD_SERVICE);
         View focusedView = ((Activity)context).getCurrentFocus();
         if (focusedView == null)
         {
-            Log.e("FocusedView","Null");
+//            Log.e("FocusedView","Null");
 
             return;
         }
         inputManager.hideSoftInputFromWindow(focusedView.getWindowToken(), 0);
-        Log.e("Keyboard","Hidden");
+//        Log.e("Keyboard","Hidden");
     }
 
     public void hideKeyBoard(EditText editText)
     {
-        Log.e("Keyboard","Hiding");
+//        Log.e("Keyboard","Hiding");
         InputMethodManager inputManager = (InputMethodManager)context
                 .getSystemService(Context.INPUT_METHOD_SERVICE);
         inputManager.hideSoftInputFromWindow(editText.getWindowToken(), 0);
-        Log.e("Keyboard","Hidden");
+//        Log.e("Keyboard","Hidden");
     }
 
     public void showKeyBoard()

@@ -91,7 +91,7 @@ public class CheckListItemAdapter extends RecyclerView.Adapter<CheckListItemAdap
         {
             final ChecklistItem checklistItem = checkListObjects.get(i);
             String fieldValue = checklistItem.getField1();
-            Log.e("Binding",checkListObjects.toString()+"Size "+checkListObjects.size()+" Position "+i);
+//            Log.e("Binding",checkListObjects.toString()+"Size "+checkListObjects.size()+" Position "+i);
             viewHolder.swipeRevealLayout.close(false);
             viewHolder.itemTitleField.setText(fieldValue);
             viewHolder.itemCheckBox.setChecked(checklistItem.isChecked());

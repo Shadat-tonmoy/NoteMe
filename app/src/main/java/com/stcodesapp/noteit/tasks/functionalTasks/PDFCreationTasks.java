@@ -56,7 +56,7 @@ public class PDFCreationTasks {
 
             PdfWriter.getInstance(document, new FileOutputStream(file));
 
-            Log.e("CreatingPDF","Starting....");
+//            Log.e("CreatingPDF","Starting....");
 
             document.open();
 
@@ -99,7 +99,7 @@ public class PDFCreationTasks {
 
 //            Paragraph mOrderDetailsTitleParagraph = new Paragraph(mOrderDetailsTitleChunk);
 
-            Log.e("CreatingPDF","Paragraphing....");
+//            Log.e("CreatingPDF","Paragraphing....");
 
 //            mOrderDetailsTitleParagraph.setAlignment(Element.ALIGN_CENTER);
 
@@ -114,7 +114,7 @@ public class PDFCreationTasks {
             document.add(new Chunk(lineSeparator));
             document.add(new Paragraph(""));
 
-            Log.e("CreatingPDF","Closing....");
+//            Log.e("CreatingPDF","Closing....");
 
             document.close();
 
@@ -122,7 +122,7 @@ public class PDFCreationTasks {
 
         }catch (Exception e)
         {
-            Log.e("Exception",e.getMessage());
+//            Log.e("Exception",e.getMessage());
 
         }
 

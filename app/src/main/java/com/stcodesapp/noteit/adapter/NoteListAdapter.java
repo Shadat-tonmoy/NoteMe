@@ -139,7 +139,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         if(bgColor.get(i)==null)
         {
             setNoteBackgroundColor(viewHolder.noteRow, note.getBackgroundColor());
-            Log.e("BGColor","Null for postiton "+i+" Note "+note.toString());
+//            Log.e("BGColor","Null for postiton "+i+" Note "+note.toString());
             bgColor.put(i,note.getBackgroundColor());
         }
         else

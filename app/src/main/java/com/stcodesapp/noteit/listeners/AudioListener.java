@@ -58,7 +58,7 @@ public class AudioListener implements View.OnClickListener {
             FileDeletingTask fileDeletingTask = tasksFactory.getFileDeletingTask(new FileDeletingTask.Listener() {
                 @Override
                 public void onFileDeleted(File file) {
-                    Log.e("FileDeleted", file.getAbsolutePath());
+//                    Log.e("FileDeleted", file.getAbsolutePath());
                 }
             });
             fileDeletingTask.execute(new File(audio.getAudioUri()));

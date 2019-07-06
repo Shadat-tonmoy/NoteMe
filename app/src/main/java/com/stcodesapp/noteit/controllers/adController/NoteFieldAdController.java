@@ -59,7 +59,7 @@ public class NoteFieldAdController implements AdMob.Listener{
 
     public void showRewardedVideoAd()
     {
-        Log.e("RWAd","Will Show");
+//        Log.e("RWAd","Will Show");
         fullScreenAdController.showRewardedVideoAd();
     }
 

@@ -199,7 +199,7 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
 
     @Override
     public void onNoteFetched(List<Note> fetchedNotes) {
-        Log.e("NoteFetched",fetchedNotes.size()+" i sisze");
+//        Log.e("NoteFetched",fetchedNotes.size()+" i sisze");
        homeScreenManipulationTasks.bindNotes(fetchedNotes);
     }
 
@@ -214,7 +214,7 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
 
     @Override
     public void onEmailBadgeClicked(Note note) {
-        Log.e("WillFindEmailFor",note.toString());
+//        Log.e("WillFindEmailFor",note.toString());
         Bundle args = new Bundle();
         args.putBoolean(FragmentTags.IS_CONTACT,false);
         args.putLong(FragmentTags.NOTE_ID,note.getId());
@@ -261,7 +261,7 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
 
     @Override
     public void onNoteTitleOptionSelected(int position) {
-        Log.e("selected","title "+position);
+//        Log.e("selected","title "+position);
         boolean ascending = position == 0;
         titleAsc = ascending;
         homeScreenManipulationTasks.sortNote(SortingType.NOTE_TITLE,ascending);
@@ -270,7 +270,7 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
 
     @Override
     public void onNoteTextOptionSelected(int position) {
-        Log.e("selected","text "+position);
+//        Log.e("selected","text "+position);
         boolean ascending = position == 0;
         textAsc = ascending;
         homeScreenManipulationTasks.sortNote(SortingType.NOTE_TEXT,ascending);
@@ -279,7 +279,7 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
 
     @Override
     public void onNoteTimeOptionSelected(int position) {
-        Log.e("selected","time "+position);
+//        Log.e("selected","time "+position);
         boolean ascending = position == 0;
         timeAsc = ascending;
         homeScreenManipulationTasks.sortNote(SortingType.NOTE_TIME,ascending);
@@ -288,7 +288,7 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
 
     @Override
     public void onNoteImportantOptionSelected(int position) {
-        Log.e("selected","important "+position);
+//        Log.e("selected","important "+position);
         boolean ascending = position == 0;
         importantAsc = ascending;
         homeScreenManipulationTasks.sortNote(SortingType.NOTE_IMPORTANT,ascending);

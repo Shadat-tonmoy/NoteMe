@@ -70,7 +70,7 @@ public class DatabaseSelectionTasksListener implements EmailSelectTask.Listener,
         noteComponents.setCheckLists(fetchedCheckList);
         for(CheckList checkList:fetchedCheckList)
         {
-            Log.e("FetchedCehckList",checkList.toString());
+//            Log.e("FetchedCehckList",checkList.toString());
         }
 
         listener.onNoteComponentsFetched(noteComponents);

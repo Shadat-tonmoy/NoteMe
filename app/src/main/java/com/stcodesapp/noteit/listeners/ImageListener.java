@@ -50,11 +50,11 @@ public class ImageListener implements View.OnClickListener {
         databaseTasks.getImageDeleteTask(((NoteFieldActivity)activity).getNoteFieldController()).execute(image);
         if(image.isCaptured())
         {
-            Log.e("WillDeleteImage",image.getImageFilePath());
+//            Log.e("WillDeleteImage",image.getImageFilePath());
             FileDeletingTask fileDeletingTask = tasksFactory.getFileDeletingTask(new FileDeletingTask.Listener() {
                 @Override
                 public void onFileDeleted(File file) {
-                    Log.e("FileDeleted", file.getAbsolutePath());
+//                    Log.e("FileDeleted", file.getAbsolutePath());
                 }
             });
             fileDeletingTask.execute(new File(image.getImageFilePath()));

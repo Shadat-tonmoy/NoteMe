@@ -46,7 +46,7 @@ public class FullScreenAdController {
 
     public void showRewardedVideoAd()
     {
-        Log.e("RWAd","Will Show");
+        Logger.logMessage("RewardedAd","Will Show");
         rewardedVideoAd.showAd();
     }
 

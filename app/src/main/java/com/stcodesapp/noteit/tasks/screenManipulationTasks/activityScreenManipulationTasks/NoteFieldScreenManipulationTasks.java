@@ -110,13 +110,13 @@ public class NoteFieldScreenManipulationTasks {
             noteFieldScreenView.getUiRoot().getBackground().setAlpha(Constants.BACKGROUND_OPACITY);
         }catch (Exception e)
         {
-            Log.e("Exception",e.getMessage());
+//            Log.e("Exception",e.getMessage());
         }
     }
 
     public void addImageToChosenImageContainer(final Image image)
     {
-        Log.e("TryingToAdd","Image"+image.toString());
+//        Log.e("TryingToAdd","Image"+image.toString());
         FlexboxLayout imageContainer = noteFieldScreenView.getRootView().findViewById(R.id.chosen_image_container);
         if(imageContainer==null)
         {
@@ -140,7 +140,7 @@ public class NoteFieldScreenManipulationTasks {
 //            imageView.setImageBitmap(bitmap);
         } catch (IOException e) {
             e.printStackTrace();
-            Log.e("Exception",e.getMessage());
+//            Log.e("Exception",e.getMessage());
         }
         imageContainer.addView(imageHolder);
         ImageListener imageListener = listeningTasks.getImageListener(image,imageHolder);
@@ -159,7 +159,7 @@ public class NoteFieldScreenManipulationTasks {
                         FileDeletingTask fileDeletingTask = tasksFactory.getFileDeletingTask(new FileDeletingTask.Listener() {
                             @Override
                             public void onFileDeleted(File file) {
-                                Log.e("FileDeletedImage", file.getAbsolutePath());
+//                                Log.e("FileDeletedImage", file.getAbsolutePath());
                             }
                         });
                         fileDeletingTask.execute(new File(image.getImageFilePath()));
@@ -476,7 +476,7 @@ public class NoteFieldScreenManipulationTasks {
                         FileDeletingTask fileDeletingTask = tasksFactory.getFileDeletingTask(new FileDeletingTask.Listener() {
                             @Override
                             public void onFileDeleted(File file) {
-                                Log.e("FileDeletedAudio", file.getAbsolutePath());
+//                                Log.e("FileDeletedAudio", file.getAbsolutePath());
                             }
                         });
                         fileDeletingTask.execute(new File(finalAudio.getAudioUri()));

@@ -37,7 +37,7 @@ public class NoteInsertTask extends AsyncTask<Note,Void,Long> {
 
     @Override
     protected Long doInBackground(Note... notes) {
-        Log.e("Note","Inserting....");
+//        Log.e("Note","Inserting....");
         return notesDao.insert(notes[0]);
     }
 

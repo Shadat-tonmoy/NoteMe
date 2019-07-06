@@ -81,10 +81,10 @@ public class FileMovingTask extends AsyncTask<File,Void,File>
         }
 
         catch (FileNotFoundException fnfe1) {
-            Log.e("tag", fnfe1.getMessage());
+//            Log.e("tag", fnfe1.getMessage());
         }
         catch (Exception e) {
-            Log.e("tag", e.getMessage());
+//            Log.e("tag", e.getMessage());
         }
         return false;
 

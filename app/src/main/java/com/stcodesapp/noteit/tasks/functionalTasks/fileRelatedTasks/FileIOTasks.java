@@ -42,7 +42,7 @@ public class FileIOTasks {
         intent.putExtra(Tags.REQUEST_CODE, RequestCode.OPEN_IMAGE_FILE);
         intent.setType("text/plain");
         activity.startActivityForResult(intent, RequestCode.OPEN_IMAGE_FILE);
-        Log.e("DataDir",Environment.getDataDirectory().getAbsolutePath()+"");
+//        Log.e("DataDir",Environment.getDataDirectory().getAbsolutePath()+"");
     }
 
     public void openFilePickerForImage()
@@ -152,7 +152,7 @@ public class FileIOTasks {
         }
         catch (Exception e)
         {
-            Log.e("Exception",e.getMessage());
+//            Log.e("Exception",e.getMessage());
         }
         return audio;
 
@@ -220,7 +220,7 @@ public class FileIOTasks {
         intent.setAction(Intent.ACTION_VIEW);
         File file = new File("file:/"+fileId);
         Uri fileURI = Uri.parse(fileId);
-        Log.e("Audio",fileURI.getPath());
+//        Log.e("Audio",fileURI.getPath());
         intent.setDataAndType(fileURI, Constants.OPEN_AUDIO_FILE_TYPE);
         allowURIReadPermission(intent,fileURI);
         activity.startActivity(intent);
@@ -237,7 +237,7 @@ public class FileIOTasks {
 
         }catch (Exception e)
         {
-            Log.e("Exceepion",e.getMessage());
+//            Log.e("Exceepion",e.getMessage());
         }
 
     }

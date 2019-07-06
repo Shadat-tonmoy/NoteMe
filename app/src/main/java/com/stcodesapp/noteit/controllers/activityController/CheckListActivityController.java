@@ -159,7 +159,7 @@ public class CheckListActivityController implements CheckListScreen.Listener, Ch
     public void checkIntentForExtra(Intent intent) {
         CheckList checkList = (CheckList) intent.getSerializableExtra(Tags.CHECK_LIST);
         isUpdating = intent.getBooleanExtra(Tags.CHECK_LIST_UPDATING,false);
-        Log.e("ChekListUpdating",isUpdating+" is value");
+//        Log.e("ChekListUpdating",isUpdating+" is value");
         noteId = intent.getLongExtra(Tags.NOTE_ID,Constants.ZERO);
         checkListPosition = intent.getIntExtra(Tags.CHECK_LIST_POSITION,Constants.ZERO);
         if(checkList!=null)
@@ -170,14 +170,14 @@ public class CheckListActivityController implements CheckListScreen.Listener, Ch
             {
                 if(checklistItems!=null && checklistItems.size()>Constants.ZERO)
                 {
-                    Log.e("FetchingItems","FromComponents");
+//                    Log.e("FetchingItems","FromComponents");
                     checkListActivityScreenManipulationTask.bindCheckListObject(checklistItems);
                     checkListActivityScreenManipulationTask.bindCheckListTitle(checkList.getCheckListTitle());
                 }
             }
             else
             {
-                Log.e("FetchingItems","FromDataase");
+//                Log.e("FetchingItems","FromDataase");
                 CheckListItemSelectTask checkListItemSelectTask = tasksFactory.getDatabaseTasks().getCheckListItemSelectTask(this);
                 checkListItemSelectTask.execute(checkList.getCheckListId());
                 checkListActivityScreenManipulationTask.bindCheckListTitle(checkList.getCheckListTitle());

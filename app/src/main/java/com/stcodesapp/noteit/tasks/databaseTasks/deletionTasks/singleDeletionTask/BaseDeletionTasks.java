@@ -56,7 +56,7 @@ public class BaseDeletionTasks<Component> extends AsyncTask<Component, Void, Com
         switch (componentType)
         {
             case AUDIO:
-                Log.e("WillDelete",((Audio)component).toString());
+//                Log.e("WillDelete",((Audio)component).toString());
                 noteDatabase.audioDao().deleteAudio((Audio)component);
                 break;
             case IMAGE:
