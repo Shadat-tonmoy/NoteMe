@@ -6,11 +6,8 @@
     <color name="transparent">#00000000</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
-    <color name="blackTrans">#99000000</color>
-    <color name="ash">#CCBDC3C7</color>
     <color name="transparent_ash">#80BDC3C7</color>
     <color name="transparent_ash30">#33BDC3C7</color>
-    <color name="darkAsh">#ABAEB1</color>
     <color name="purple700">#6A1B9A</color>
     <color name="green">#27ae60</color>
     <color name="dark_green">#116D38</color>
@@ -20,14 +17,11 @@
     <color name="red">#FF0000</color>
     <color name="blue">#2196F3</color>
     <color name="gray">#6E6E6E</color>
-    <color name="default_text">#808080</color>
-    <color name="default_divider">#FFCCCCCC</color>
     <color name="alizarin">#e74c3c</color>
     <color name="lightGreen">#27ae60</color>
     <color name="transparentBlack70">#B3000000</color>
     <color name="transparentBlack80">#CC000000</color>
     <color name="text_default_trans">#14757575</color>
-    <color name="blaze_hole_trans">#142980B9</color>
     <color name="text_default">#757575</color>
     <color name="pumpkin">#d35400</color>
     <color name="pumpkin_transparent">#14D35400</color>

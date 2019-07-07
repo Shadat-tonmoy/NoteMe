@@ -8,6 +8,7 @@ import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import static android.arch.persistence.room.ForeignKey.CASCADE;
@@ -44,11 +45,13 @@ public class CheckList implements Serializable {
 
     public CheckList(String checkListTitle) {
         this.checkListTitle = checkListTitle;
+        this.checklistItems = new ArrayList<>();
     }
 
     public CheckList(String checkListTitle, String checkListSecondFieldTitle) {
         this.checkListTitle = checkListTitle;
         this.checkListSecondFieldTitle = checkListSecondFieldTitle;
+        this.checklistItems = new ArrayList<>();
     }
 
     public long getCheckListId() {

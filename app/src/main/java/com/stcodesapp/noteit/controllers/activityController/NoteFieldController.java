@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.view.MenuItem;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.common.Logger;
 import com.stcodesapp.noteit.constants.AppMetadata;
+import com.stcodesapp.noteit.constants.ComponentType;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.EventTypes;
 import com.stcodesapp.noteit.constants.PermissionType;
@@ -32,6 +34,7 @@ import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.monetization.ads.RewardedVideoAd;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
+import com.stcodesapp.noteit.tasks.databaseTasks.NoteUpdateTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.AudioDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.ContactDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.EmailDeleteTask;
@@ -476,6 +479,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         DatabaseInsertTasksListener databaseInsertTasksListener = listeningTasks.getDBInsertTasksListener(databaseTasks,noteComponents,true);
         ImageInsertTask imageInsertTask = tasksFactory.getDatabaseTasks().getImageInsertTask(databaseInsertTasksListener);
         imageInsertTask.execute(image);
+        updateNoteComponentPriority(ComponentType.IMAGE);
     }
 
     private void handleChosenContact(Intent intent)
@@ -514,6 +518,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         DatabaseInsertTasksListener databaseInsertTasksListener = listeningTasks.getDBInsertTasksListener(databaseTasks,noteComponents,true);
         ContactInsertTask contactInsertTask = tasksFactory.getDatabaseTasks().getContactInsertTask(databaseInsertTasksListener);
         contactInsertTask.execute(contact);
+        updateNoteComponentPriority(ComponentType.CONTACT);
     }
 
     private void handleChosenAudio(Intent data)
@@ -538,6 +543,55 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         DatabaseInsertTasksListener databaseInsertTasksListener = listeningTasks.getDBInsertTasksListener(databaseTasks,noteComponents,true);
         AudioInsertTask audioInsertTask = tasksFactory.getDatabaseTasks().getAudioInsertTask(databaseInsertTasksListener);
         audioInsertTask.execute(audio);
+        updateNoteComponentPriority(ComponentType.AUDIO);
+    }
+
+    private void updateNoteComponentPriority(ComponentType componentType)
+    {
+        boolean isUpdated = false;
+        switch (componentType)
+        {
+            case EMAIL:
+                if(noteComponents.getNote().getEmailPriority()==Constants.ZERO)
+                {
+                    noteComponents.getNote().updateEmailPriority();
+                    isUpdated = true;
+                }
+                break;
+            case AUDIO:
+                if(noteComponents.getNote().getAudioPriority()==Constants.ZERO)
+                {
+                    noteComponents.getNote().updateAudioPriority();
+                    isUpdated = true;
+                }
+                break;
+            case IMAGE:
+                if(noteComponents.getNote().getImagePriority()==Constants.ZERO)
+                {
+                    noteComponents.getNote().updateImagePriority();
+                    isUpdated = true;
+                }
+                break;
+            case CONTACT:
+                if(noteComponents.getNote().getContactPriority()==Constants.ZERO)
+                {
+                    noteComponents.getNote().updateContactPriority();
+                    isUpdated = true;
+                }
+                break;
+            case CHECKLIST:
+                if(noteComponents.getNote().getCheckListPriority()==Constants.ZERO)
+                {
+                    noteComponents.getNote().updateCheckListPriority();
+                    isUpdated = true;
+                }
+                break;
+        }
+        if(isUpdated)
+        {
+            NoteUpdateTask noteUpdateTask = tasksFactory.getDatabaseTasks().getNoteUpdateTask();
+            noteUpdateTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,noteComponents.getNote());
+        }
     }
 
     private void handleManualEmail(Intent intent)
@@ -589,6 +643,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         DatabaseInsertTasksListener databaseInsertTasksListener = listeningTasks.getDBInsertTasksListener(databaseTasks,noteComponents,true);
         EmailInsertTask emailInsertTask = tasksFactory.getDatabaseTasks().getEmailInsertTask(databaseInsertTasksListener);
         emailInsertTask.execute(email);
+        updateNoteComponentPriority(ComponentType.EMAIL);
     }
 
     private void addCheckListToDB(CheckList checkList)
@@ -598,6 +653,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
         DatabaseInsertTasksListener databaseInsertTasksListener = listeningTasks.getDBInsertTasksListener(databaseTasks,noteComponents,true);
         CheckListInsertTask checkListInsertTask = tasksFactory.getDatabaseTasks().getCheckListInsertTask(databaseInsertTasksListener);
         checkListInsertTask.execute(checkList);
+        updateNoteComponentPriority(ComponentType.CHECKLIST);
     }
 
     private void handleNoteTitleVoiceInput(Intent intent)

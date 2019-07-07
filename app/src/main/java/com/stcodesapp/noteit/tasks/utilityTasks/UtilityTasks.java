@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.widget.Toast;
 
+import com.stcodesapp.noteit.BuildConfig;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.Constants;
 
@@ -16,7 +17,7 @@ import java.util.Random;
 
 public class UtilityTasks {
 
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = BuildConfig.DEBUG;
 
     public static String getHumanReadableTime(long timeInMillis)
     {

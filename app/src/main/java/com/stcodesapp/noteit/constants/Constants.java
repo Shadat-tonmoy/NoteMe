@@ -32,7 +32,7 @@ public class Constants {
     public static final String IMAGE_FILE_PATH = "/images";
     public static final String RECORDING_FILE_TYPE = ".amr";
     public static final String GOT_IT = "Got It!";
-    public static final String PRIVACY_POLICY_URL = "https://sites.google.com/view/stcodesapp/noteit/";
+    public static final String PRIVACY_POLICY_URL = "https://sites.google.com/view/stcodesapp/noteit";
     public static final String TEXT_TYPE = "text/plain";
     public static final String SHARE_SUBJECT = "Subject Here";
     public static final String SHARE_VIA= "Subject Via";

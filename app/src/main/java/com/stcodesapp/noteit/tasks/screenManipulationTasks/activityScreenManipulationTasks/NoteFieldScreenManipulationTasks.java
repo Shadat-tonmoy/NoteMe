@@ -450,6 +450,8 @@ public class NoteFieldScreenManipulationTasks {
             audioContainer.setLayoutParams(params);
             noteFieldScreenView.getUiComponentContainer().addView(audioContainer);
         }
+        if(audioContainer.getVisibility()==View.GONE)
+            audioContainer.setVisibility(View.VISIBLE);
         final View audioHolder = activity.getLayoutInflater().inflate(R.layout.audio_holder,null,false);
         View audioHolderRow = audioHolder.findViewById(R.id.audio_holder);
         TextView audioTitle = audioHolder.findViewById(R.id.audio_title);
