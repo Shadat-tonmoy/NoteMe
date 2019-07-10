@@ -32,10 +32,12 @@ public class IAPScreenManipulationTasks {
     {
         iapScreenView.getMonthlySubsBtn().setForeground(activity.getResources().getDrawable(R.drawable.default_package_fg));
         iapScreenView.getHalfYearlySubsBtn().setForeground(activity.getResources().getDrawable(R.drawable.default_package_fg));
+        iapScreenView.getYearlySubsBtn().setForeground(activity.getResources().getDrawable(R.drawable.default_package_fg));
         iapScreenView.getLifeTimeSubsBtn().setForeground(activity.getResources().getDrawable(R.drawable.default_package_fg));
 
         setChildTextColor(iapScreenView.getMonthlySubsBtn(),activity.getResources().getColor(R.color.text_default));
         setChildTextColor(iapScreenView.getHalfYearlySubsBtn(),activity.getResources().getColor(R.color.text_default));
+        setChildTextColor(iapScreenView.getYearlySubsBtn(),activity.getResources().getColor(R.color.text_default));
         setChildTextColor(iapScreenView.getLifeTimeSubsBtn(),activity.getResources().getColor(R.color.text_default));
     }
 

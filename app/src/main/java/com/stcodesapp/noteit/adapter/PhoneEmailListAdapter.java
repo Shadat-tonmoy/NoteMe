@@ -164,9 +164,9 @@ public class PhoneEmailListAdapter extends RecyclerView.Adapter<PhoneEmailListAd
                 @Override
                 public void onClick(View v) {
                     String text = Constants.EMPTY_STRING;
-                    if(isContact)
+                    if(componentType==ComponentType.CONTACT)
                         text = ((Contact)object).getPhoneNumber();
-                    else text = ((Email)object).getEmailID();
+                    else if(componentType==ComponentType.EMAIL) text = ((Email)object).getEmailID();
                     UtilityTasks.copyToClipboard(context,text);
                 }
             });
@@ -177,12 +177,12 @@ public class PhoneEmailListAdapter extends RecyclerView.Adapter<PhoneEmailListAd
             views[1].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(isContact)
+                    if(componentType == ComponentType.CONTACT)
                     {
                         String phoneNumber= ((Contact)object).getPhoneNumber();
                         UtilityTasks.makeCall(context,phoneNumber);
                     }
-                    else
+                    else if(componentType == ComponentType.EMAIL)
                     {
                         String emailId = ((Email)object).getEmailID();
                         UtilityTasks.sendEmail((Activity) context,emailId);
