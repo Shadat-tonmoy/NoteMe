@@ -796,8 +796,8 @@ public final class R {
         public static final int abc_toolbar_collapse_description = 0x7f0f0026;
         public static final int appbar_scrolling_view_behavior = 0x7f0f003d;
         public static final int character_counter_pattern = 0x7f0f0047;
-        public static final int search_hint = 0x7f0f00ce;
-        public static final int status_bar_notification_info_overflow = 0x7f0f00d6;
+        public static final int search_hint = 0x7f0f00cf;
+        public static final int status_bar_notification_info_overflow = 0x7f0f00d7;
     }
     public static final class style {
         private style() {}

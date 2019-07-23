@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NoteIt</string>
+    <string name="app_name">Notepad - Contact, Email, Image Audio Note</string>
     <string name="drawer_open">Drawer Open</string>
     <string name="drawer_close">Drawer Close</string>
     <string name="pro_version">Pro Version</string>
@@ -154,7 +154,7 @@
     <string name="purchase_is_succeeded">Your Purchase is succeeded. Please restart the app to enjoy the premium version.\nThanks for your support.</string>
     <string name="already_paid">You have already subscribed to us. Please try again when your subscription is finished</string>
     <string name="back">Back</string>
-
+    <string name="note_pad">Note Pad</string>
 
 
     <string-array name="sorting_choices">

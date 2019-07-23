@@ -1933,6 +1933,7 @@ string note_component_deleted
 string note_is_cleared
 string note_is_not_saved
 string note_is_removed
+string note_pad
 string note_text
 string note_time
 string note_title

@@ -138,22 +138,26 @@ public class CheckListActivityController implements CheckListScreen.Listener, Ch
         CheckListUpdateTask checkListUpdateTask = databaseTasks.getCheckListUpdateTask();
         checkListUpdateTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,checkList);
         List<ChecklistItem> checklistItems = checkList.getChecklistItems();
-        List<ChecklistItem> existingChecklistItems = new ArrayList<>();
-        List<ChecklistItem> newChecklistItems = new ArrayList<>();
-        for(ChecklistItem checklistItem:checklistItems)
+        if(checklistItems!=null)
         {
-            checklistItem.setCheckListId(checkList.getCheckListId());
-            if(checklistItem.getId()==Constants.ZERO)
-                newChecklistItems.add(checklistItem);
-            else existingChecklistItems.add(checklistItem);
-        }
-        CheckListItemUpdateTask checkListItemUpdateTask = databaseTasks.getCheckListItemUpdateTask();
-        ChecklistItem[] existingChecklistItemsArray = existingChecklistItems.toArray(new ChecklistItem[0]);
-        checkListItemUpdateTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,existingChecklistItemsArray);
+            List<ChecklistItem> existingChecklistItems = new ArrayList<>();
+            List<ChecklistItem> newChecklistItems = new ArrayList<>();
+            for(ChecklistItem checklistItem:checklistItems)
+            {
+                checklistItem.setCheckListId(checkList.getCheckListId());
+                if(checklistItem.getId()==Constants.ZERO)
+                    newChecklistItems.add(checklistItem);
+                else existingChecklistItems.add(checklistItem);
+            }
+            CheckListItemUpdateTask checkListItemUpdateTask = databaseTasks.getCheckListItemUpdateTask();
+            ChecklistItem[] existingChecklistItemsArray = existingChecklistItems.toArray(new ChecklistItem[0]);
+            checkListItemUpdateTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,existingChecklistItemsArray);
 
-        CheckListItemInsertTask checkListItemInsertTask = databaseTasks.getCheckListItemInsertTask(null);
-        ChecklistItem[] newChecklistItemsArray = newChecklistItems.toArray(new ChecklistItem[0]);
-        checkListItemInsertTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,newChecklistItemsArray);
+            CheckListItemInsertTask checkListItemInsertTask = databaseTasks.getCheckListItemInsertTask(null);
+            ChecklistItem[] newChecklistItemsArray = newChecklistItems.toArray(new ChecklistItem[0]);
+            checkListItemInsertTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,newChecklistItemsArray);
+        }
+
     }
 
     public void checkIntentForExtra(Intent intent) {

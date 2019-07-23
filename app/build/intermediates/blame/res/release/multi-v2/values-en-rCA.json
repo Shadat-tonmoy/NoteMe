@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-en-rCA/values-en-rCA.xml",
+            "outputFile": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-en-rCA/values-en-rCA.xml",
             "map": [
                 {
-                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/d79788962c0ca85c7ce8c26c94dc5726/res/values-en-rCA/values-en-rCA.xml",
+                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/1be2dbe60027384f66fbab51e1a9a411/res/values-en-rCA/values-en-rCA.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/6835f74259a18a464454c88a7879d94e/res/values-en-rCA/values-en-rCA.xml",
+                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/ee3313a37ea2d72918318e725db9a4cc/res/values-en-rCA/values-en-rCA.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
