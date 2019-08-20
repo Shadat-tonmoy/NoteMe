@@ -136,7 +136,6 @@ public class HomeScreenManipulationTasks {
     public void sortNote(SortingType sortingType,boolean ascending)
     {
         homeScreenView.getNoteListAdapter().getNoteSortingTask().sortNotes(sortingType,ascending);
-
     }
 
     public void showMoreOptionBottomSheet(Note note,MoreOptionsBottomSheets.Listener listener) {

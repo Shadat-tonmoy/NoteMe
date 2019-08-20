@@ -2,6 +2,7 @@ package com.stcodesapp.noteit.tasks.navigationTasks;
 import com.stcodesapp.noteit.common.FragmentFrameHelper;
 import com.stcodesapp.noteit.constants.FragmentTags;
 import com.stcodesapp.noteit.models.Email;
+import com.stcodesapp.noteit.ui.fragments.BackupFragment;
 import com.stcodesapp.noteit.ui.fragments.CheckListFragment;
 import com.stcodesapp.noteit.ui.fragments.EmailsFragment;
 import com.stcodesapp.noteit.ui.fragments.HomeScreenFragment;
@@ -44,6 +45,12 @@ public class FragmentNavigationTasks {
     public void toCheckListFragment()
     {
         fragmentFrameHelper.replaceFragment(CheckListFragment.newInstance(), FragmentTags.CHECKLIST);
+
+    }
+
+    public void toBackupFragment()
+    {
+        fragmentFrameHelper.replaceFragment(BackupFragment.newInstance(), FragmentTags.BACKUP);
 
     }
 

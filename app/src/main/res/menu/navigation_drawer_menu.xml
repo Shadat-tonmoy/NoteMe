@@ -25,6 +25,11 @@
             android:id="@+id/check_list_menu"
             android:icon="@drawable/check_list_black"
             android:title="@string/check_list" />
+
+        <item
+            android:id="@+id/backup_menu"
+            android:icon="@drawable/backup_black"
+            android:title="@string/backup" />
     </group>
 
     <item android:title="@string/app_name">

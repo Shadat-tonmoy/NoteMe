@@ -1,11 +1,11 @@
 #Internal package file, do not edit.
-#Fri Jul 05 22:24:13 BDT 2019
-1.base=/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/merged_assets/debug/out
+#Tue Aug 20 20:15:44 BDT 2019
+1.base=/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/merged_assets/debug/out
 0.baseType=DIRECTORY
 1.baseType=DIRECTORY
 count=2
 1.set=ASSET
 0.path=crashlytics-build.properties
 0.set=ASSET
-0.base=/media/shadat/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/merged_assets/debug/out
+0.base=/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/merged_assets/debug/out
 1.path=fonts/roboto_black.ttf

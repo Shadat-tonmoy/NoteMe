@@ -6,6 +6,7 @@ import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllAudioSelectionTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllImageSelectionTasks;
+import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.BackupSelectionTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.DialogManagementTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.IAPBillingTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.AdStrategyTrackingTask;
@@ -225,5 +226,10 @@ public class TasksFactory {
     public IAPScreenManipulationTasks getIAPScreenManipulationTasks()
     {
         return new IAPScreenManipulationTasks(activity);
+    }
+
+    public BackupSelectionTask getBackupSelectionTask()
+    {
+        return new BackupSelectionTask(activity);
     }
 }

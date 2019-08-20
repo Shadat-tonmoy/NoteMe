@@ -1086,6 +1086,7 @@ drawable audio_white
 drawable avd_hide_password
 drawable avd_show_password
 drawable back_white
+drawable backup_black
 drawable call_black
 drawable check_list_black
 drawable close_black
@@ -1144,6 +1145,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_suggestion
 drawable list_white
+drawable local_backup
 drawable mic_black
 drawable more_horizontal_gray
 drawable mtrl_snackbar_background
@@ -1178,6 +1180,7 @@ drawable pro_done_button_bg
 drawable pro_version
 drawable rate
 drawable record_voice_black
+drawable restore
 drawable round_shape_black
 drawable round_shape_blaze_hole
 drawable round_shape_blue
@@ -1254,6 +1257,7 @@ id audio_title
 id auto
 id back_button
 id back_icon
+id backup_menu
 id badge_holder
 id barrier
 id baseline
@@ -1420,6 +1424,9 @@ id listMode
 id list_icon
 id list_item
 id loading_view
+id local_back_header
+id local_backup_button
+id local_restore_button
 id love_text
 id mainHolder
 id main_layout
@@ -1679,6 +1686,7 @@ layout audio_container
 layout audio_holder
 layout audio_option_bottom_sheet_layout
 layout audio_option_layout
+layout backup_fragment_layout
 layout check_list_container
 layout check_list_holder
 layout check_list_option_layout
@@ -1838,6 +1846,7 @@ string audio
 string audio_inserted
 string audio_record_not_supported
 string back
+string backup
 string bottom_sheet_behavior
 string call
 string camera_permission_is_required
@@ -1915,6 +1924,7 @@ string image_inserted
 string important
 string life_time
 string life_time_price
+string local_storage_backup
 string love_note_it
 string mtrl_chip_close_icon_content_description
 string name
@@ -1933,6 +1943,7 @@ string note_component_deleted
 string note_is_cleared
 string note_is_not_saved
 string note_is_removed
+string note_pad
 string note_text
 string note_time
 string note_title
@@ -1967,6 +1978,7 @@ string record_audio
 string remove
 string remove_all_note
 string removed_from_favorite
+string restore
 string s1
 string s2
 string s3

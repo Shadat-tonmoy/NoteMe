@@ -1,4 +1,0 @@
-#Tue Jul 23 16:12:38 BDT 2019
-base.0=/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/dex/release/mergeDexRelease/out
-path.0=classes.dex
-renamed.0=classes.dex

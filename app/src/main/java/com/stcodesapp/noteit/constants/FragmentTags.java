@@ -12,6 +12,7 @@ public class FragmentTags {
     public static final String NOTE_ID = "note_id";
     public static final String EMAILS = "EMAILS";
     public static final String CHECKLIST = "CHECKLIST";
+    public static final String BACKUP = "BACKUP";
     public static final String SORTING_OPTIONS = "so";
     public static final String TITILE_ASC= "title_a";
     public static final String TEXT_ASC = "text_a";

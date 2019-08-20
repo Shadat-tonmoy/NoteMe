@@ -69,6 +69,10 @@ public class NavigationDrawerController implements NavigationDrawerScreen.Listen
                 fragmentNavigationTasks.toCheckListFragment();
                 updateToolbarTitle(FragmentTags.CHECKLIST);
                 break;
+            case R.id.backup_menu:
+                fragmentNavigationTasks.toBackupFragment();
+                updateToolbarTitle(FragmentTags.BACKUP);
+                break;
             case R.id.nav_share:
                 sharingTasks.shareApp();
                 break;
@@ -97,6 +101,9 @@ public class NavigationDrawerController implements NavigationDrawerScreen.Listen
                 break;
             case FragmentTags.CONTACTS:
                 navigationDrawerView.checkMenuItem(R.id.contact_menu);
+                break;
+            case FragmentTags.BACKUP:
+                navigationDrawerView.checkMenuItem(R.id.backup_menu);
                 break;
         }
     }

@@ -52,6 +52,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-config:16.1.0'
     implementation 'com.google.firebase:firebase-core:16.0.7'
     implementation 'com.crashlytics.sdk.android:crashlytics:2.9.9'
+    implementation 'com.google.code.gson:gson:2.8.5'
 
 
     testImplementation 'junit:junit:4.12'

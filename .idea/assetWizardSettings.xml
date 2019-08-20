@@ -148,7 +148,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/snap/android-studio/76/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/file/ic_cloud_done_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/snap/android-studio/77/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_restore_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -158,8 +158,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="116d38" />
-                            <entry key="outputName" value="success" />
+                            <entry key="outputName" value="restore" />
+                            <entry key="overrideSize" value="true" />
                             <entry key="sourceFile" value="$USER_HOME$" />
                           </map>
                         </option>

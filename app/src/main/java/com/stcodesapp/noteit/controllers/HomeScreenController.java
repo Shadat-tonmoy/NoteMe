@@ -23,6 +23,7 @@ import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.allDeletionTask.A
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.NoteDeleteTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllAudioSelectionTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllImageSelectionTasks;
+import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.BackupSelectionTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.ImportantNoteSelectTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.NoteSelectTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.DialogManagementTask;
@@ -76,6 +77,13 @@ public class HomeScreenController implements HomeScreen.Listener, NoteSelectTask
     {
         homeScreenView.registerListener(this);
         startFetchingNote();
+        checkBackup();
+    }
+
+    private void checkBackup()
+    {
+        BackupSelectionTask backupSelectionTask = tasksFactory.getBackupSelectionTask();
+        backupSelectionTask.execute();
     }
 
     public void onStartImportant()
