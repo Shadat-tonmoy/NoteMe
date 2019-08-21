@@ -13,6 +13,7 @@ import com.stcodesapp.noteit.controllers.activityController.NoteFieldController;
 import com.stcodesapp.noteit.controllers.adController.NoteFieldAdController;
 import com.stcodesapp.noteit.controllers.commons.NavigationDrawerController;
 import com.stcodesapp.noteit.controllers.dialogController.SortingOptionDialogController;
+import com.stcodesapp.noteit.controllers.fragmentController.BackupFragmentController;
 import com.stcodesapp.noteit.controllers.fragmentController.CheckListFragmentController;
 import com.stcodesapp.noteit.controllers.fragmentController.ContactFragmentController;
 import com.stcodesapp.noteit.controllers.fragmentController.EmailFragmentController;
@@ -100,6 +101,11 @@ public class ControllerFactory {
     public FullScreenAdController getFullScreenAdController()
     {
         return new FullScreenAdController(activity,tasksFactory);
+    }
+
+    public BackupFragmentController getBackupFragmentController()
+    {
+        return new BackupFragmentController(activity,tasksFactory);
     }
 
 

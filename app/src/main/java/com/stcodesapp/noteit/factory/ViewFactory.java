@@ -16,6 +16,7 @@ import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.NoteFieldSc
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.PrivacyPolicyScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.dialogScreenView.FileSaveDialogScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.dialogScreenView.SortingOptionDialogScreenView;
+import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.BackupFragmentScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.CheckListFragmentScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.ContactFragmentScreenView;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.EmailFragmentScreenView;
@@ -96,6 +97,11 @@ public class ViewFactory {
     public IAPScreenView getIAPScreenView(ViewGroup parent)
     {
         return new IAPScreenView(layoutInflater,parent);
+    }
+
+    public BackupFragmentScreenView getBackupFragmentScreenView(ViewGroup parent)
+    {
+        return new BackupFragmentScreenView(layoutInflater,parent);
     }
 
 }

@@ -9,9 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.controllers.fragmentController.BackupFragmentController;
+import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.BackupFragmentScreenView;
 
 public class BackupFragment extends BaseFragment 
 {
+
+    private BackupFragmentScreenView backupFragmentScreenView;
+    private BackupFragmentController backupFragmentController;
 
 
     public static BackupFragment newInstance() {
@@ -22,6 +27,13 @@ public class BackupFragment extends BaseFragment
         fragment.setArguments(args);
         return fragment;
     }
+
+    private void init(ViewGroup parent)
+    {
+        backupFragmentScreenView = getCompositionRoot().getViewFactory().getBackupFragmentScreenView(parent);
+        backupFragmentController = getCompositionRoot().getFragmentControllerFactory().getBackupFragmentController();
+        backupFragmentController.bindView(backupFragmentScreenView);
+    }
     
     @Override
     public void onAttach(Context context) {
@@ -29,25 +41,28 @@ public class BackupFragment extends BaseFragment
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.backup_fragment_layout,container,false);
-        return view;
+        init(container);
+        return backupFragmentScreenView.getRootView();
     }
 
     @Override
     public void onStart() {
         super.onStart();
+        backupFragmentController.onStart();
     }
 
     @Override
     public void onStop() {
         super.onStop();
+        backupFragmentController.onStop();
     }
 
     @Override

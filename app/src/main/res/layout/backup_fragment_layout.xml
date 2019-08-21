@@ -44,6 +44,7 @@
                     android:gravity="center"
                     android:layout_margin="8dp"
                     android:text="@string/backup"
+                    android:foreground="?attr/selectableItemBackground"
                     android:drawableTop="@drawable/restore"
                     android:drawablePadding="8dp"/>
 
@@ -55,6 +56,7 @@
                     android:textSize="16sp"
                     android:padding="8dp"
                     android:gravity="center"
+                    android:foreground="?attr/selectableItemBackground"
                     android:layout_margin="8dp"
                     android:text="@string/restore"
                     android:drawableTop="@drawable/restore"

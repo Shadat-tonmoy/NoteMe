@@ -25,6 +25,8 @@ public class EventTypes {
     public static final int LIFETIME_SUBSCRIPTION_CLICKED= 22;
     public static final int IAP_BACK_BUTTON_CLICKED= 23;
     public static final int IAP_DONE_BUTTON_CLICKED= 24;
+    public static final int BACKUP_TO_LOCAL_STORAGE_BUTTON_CLICKED= 25;
+    public static final int RESTORE_FROM_LOCAL_STORAGE_BUTTON_CLICKED= 26;
 
 
 }
