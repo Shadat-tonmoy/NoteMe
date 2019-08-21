@@ -106,7 +106,7 @@
     <string name="admob_app_id_test">ca-app-pub-3940256099942544~3347511713</string>
     <string name="admob_app_id_real">ca-app-pub-7505528330087753~8721763907</string>
 
-    <string name="admob_banner_ad_id">@string/admob_banner_ad_real</string>
+    <string name="admob_banner_ad_id">@string/admob_banner_ad_test</string>
     <string name="admob_banner_ad_test">ca-app-pub-3940256099942544/6300978111</string>
     <string name="admob_banner_ad_real">ca-app-pub-7505528330087753/5392467953</string>
 

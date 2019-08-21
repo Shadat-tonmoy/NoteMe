@@ -1,5 +1,7 @@
 package com.stcodesapp.noteit.constants;
 
+import com.stcodesapp.noteit.BuildConfig;
+
 public class Constants {
     public static final String UNNAMED = "Unnamed";
     public static final String SPACE = " ";
@@ -21,8 +23,11 @@ public class Constants {
     public static final String APP_DATABASE = "com_stcodesapp_noteit";
     public static final String ANDROID = "Android";
     public static final String JSON_ENCODER = "UTF-8";
-    public static final String FILE_DIRECTORY = "NoteIt/";
+    public static final String FILE_DIRECTORY = "com_stcodesapp_noteit/";
+    public static final String BACKUP_DIRECTORY = "backup";
+    public static final String BACKUP_FILE_NAME= "app_backup/";
     public static final String PDF_FILE_EXT = ".pdf";
+    public static final String JSON_FILE_EXT = ".json";
     public static final String MP3_FILE_EXT = ".mp3";
     public static final String JPG_FILE_EXT = ".jpg";
     public static final String DATE_FORMAT_FOR_IMAGE_NAME = "yyyyMMdd_HHmmss";

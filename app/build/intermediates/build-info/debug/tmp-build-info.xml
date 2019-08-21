@@ -6,22 +6,22 @@
     density="xhdpi"
     format="10"
     plugin-version="3.4.2"
-    timestamp="1566310854306"
+    timestamp="1566366465373"
     token="-1955091566506813364"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="8252" />
+        duration="5539" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="35" />
+        duration="823" />
     <task
         name="verifier"
-        duration="56" />
+        duration="178" />
 
     <artifact
         location="/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_"

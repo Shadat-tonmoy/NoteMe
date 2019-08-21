@@ -12,6 +12,7 @@ import com.itextpdf.text.html.simpleparser.HTMLWorker;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.draw.LineSeparator;
+import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.templates.HTMLTemplates;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.listeners.TestDocListener;
@@ -52,7 +53,7 @@ public class PDFCreationTasks {
             List<Contact> contactList = noteComponents.getChosenContacts();
             List<Email> emailList = noteComponents.getEmails();
 
-            File file = fileIOTasks.getFileForSaving("testFile");
+            File file = fileIOTasks.getFileForSaving(null,"testFile", Constants.PDF_FILE_EXT);
 
             PdfWriter.getInstance(document, new FileOutputStream(file));
 

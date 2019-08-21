@@ -6,7 +6,7 @@ import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllAudioSelectionTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllImageSelectionTasks;
-import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.BackupSelectionTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.BackupSavingTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.DialogManagementTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.IAPBillingTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.AdStrategyTrackingTask;
@@ -24,6 +24,7 @@ import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.RateUSPopupTrackingTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.CheckListActivityScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.IAPScreenManipulationTasks;
+import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.BackupFragmentScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.CheckListScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.ContactScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.EmailScreenManipulationTask;
@@ -228,8 +229,13 @@ public class TasksFactory {
         return new IAPScreenManipulationTasks(activity);
     }
 
-    public BackupSelectionTask getBackupSelectionTask()
+    public BackupSavingTask getBackupSavingTask()
     {
-        return new BackupSelectionTask(activity);
+        return new BackupSavingTask(activity,getFileIOTasks());
+    }
+
+    public BackupFragmentScreenManipulationTask getBackupFragmentScreenManipulationTask()
+    {
+        return new BackupFragmentScreenManipulationTask(activity);
     }
 }

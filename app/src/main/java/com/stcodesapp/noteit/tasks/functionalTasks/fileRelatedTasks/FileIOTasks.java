@@ -15,6 +15,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.common.Logger;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.constants.Tags;
@@ -242,21 +243,28 @@ public class FileIOTasks {
 
     }
 
-    public File getFileForSaving(String fileName)
+    public File getFileForSaving(String directoryName, String fileName,String extension)
     {
         if(isExternalStorageWritable())
         {
             File storage = activity.getExternalFilesDirs(Environment.MEDIA_MOUNTED)[0];
             File fileDirectory = new File(UtilityTasks.getStoragePath(storage.getAbsolutePath())+Constants.FILE_DIRECTORY);
+            if(directoryName!=null)
+                fileDirectory = new File(UtilityTasks.getStoragePath(storage.getAbsolutePath())+Constants.FILE_DIRECTORY+directoryName+"/");
             File directory = new File(fileDirectory.getAbsolutePath());
             if(!directory.exists())
-                directory.mkdirs();
+            {
+                boolean result = directory.mkdirs();
+                Logger.logMessage("ResultOf","CreatingDir "+result+" of "+directory.getAbsolutePath());
+            }
 
-            File file = new File(directory, fileName+ Constants.PDF_FILE_EXT);
+            File file = new File(directory, fileName+ extension);
             if(!file.exists()) {
                 try {
-                    file.createNewFile();
+                    boolean result  = file.createNewFile();
+                    Logger.logMessage("ResultOf","CreatingFile "+result);
                 } catch (IOException e) {
+                    Logger.logMessage("Exception",e.getMessage());
                     e.printStackTrace();
                 }
             }

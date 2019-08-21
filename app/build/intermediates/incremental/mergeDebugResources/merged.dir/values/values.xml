@@ -618,7 +618,7 @@
     <string name="admob_app_id">@string/admob_app_id_real</string>
     <string name="admob_app_id_real">ca-app-pub-7505528330087753~8721763907</string>
     <string name="admob_app_id_test">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="admob_banner_ad_id">@string/admob_banner_ad_real</string>
+    <string name="admob_banner_ad_id">@string/admob_banner_ad_test</string>
     <string name="admob_banner_ad_real">ca-app-pub-7505528330087753/5392467953</string>
     <string name="admob_banner_ad_test">ca-app-pub-3940256099942544/6300978111</string>
     <string name="admob_interstitial_ad_real">ca-app-pub-7505528330087753/5200896267</string>
@@ -650,7 +650,7 @@
     <string name="choose_color">Choose Color</string>
     <string name="clear_note">Clear Note?</string>
     <string name="clear_note_msg">Are you sure to clear all note?</string>
-    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">be18544f-1cef-4fdd-8576-5597e14db372</string>
+    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">aa941ddc-f7fd-4ce9-8363-b0528b8253bd</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
     <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>

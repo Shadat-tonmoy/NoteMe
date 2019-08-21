@@ -30,9 +30,6 @@ public class BackupFragmentScreenView extends BaseObservableScreenView<BackupFra
 
     private TextView backupToLocalStorageButton,backupToCloudStorageButton,restoreFromLocalStorageButton,restoreFromCloudStorageButton;
 
-
-
-
     public BackupFragmentScreenView(LayoutInflater layoutInflater, @Nullable ViewGroup parent)
     {
         setRootView(layoutInflater.inflate(R.layout.backup_fragment_layout,parent,false));
