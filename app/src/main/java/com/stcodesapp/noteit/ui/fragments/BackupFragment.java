@@ -34,7 +34,13 @@ public class BackupFragment extends BaseFragment
         backupFragmentController = getCompositionRoot().getFragmentControllerFactory().getBackupFragmentController();
         backupFragmentController.bindView(backupFragmentScreenView);
     }
-    
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        backupFragmentController.onRequestPermissionsResult(requestCode,permissions,grantResults);
+    }
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);

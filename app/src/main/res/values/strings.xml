@@ -158,6 +158,8 @@
     <string name="note_pad">Note Pad</string>
     <string name="local_storage_backup">Local Storage Backup</string>
     <string name="restore">Restore</string>
+    <string name="backup_wait_msg">Please wait until the backup progress is finished. This may take a while</string>
+    <string name="backup_done_msg">Backup Done Successfully!!!</string>
 
 
     <string-array name="sorting_choices">

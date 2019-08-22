@@ -11,8 +11,8 @@ import com.stcodesapp.noteit.constants.RequestCode;
 public class AppPermissionTrackingTasks {
 
     private Activity activity;
-    private final String WRITE_EXTERNAL_STORAGE = Manifest.permission.WRITE_EXTERNAL_STORAGE;
-    private final String READ_CONTACT = Manifest.permission.READ_CONTACTS;
+    private static final String WRITE_EXTERNAL_STORAGE = Manifest.permission.WRITE_EXTERNAL_STORAGE;
+    private static final String READ_CONTACT = Manifest.permission.READ_CONTACTS;
     private static final String READ_EXTERNAL_STORAGE = Manifest.permission.READ_EXTERNAL_STORAGE;
     private static final String ACCESS_CAMERA = Manifest.permission.CAMERA;
 
@@ -21,7 +21,7 @@ public class AppPermissionTrackingTasks {
         this.activity = activity;
     }
 
-    public boolean hasWriteExternalStoragePermission()
+    public static boolean hasWriteExternalStoragePermission(Activity activity)
     {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
         {
@@ -61,7 +61,7 @@ public class AppPermissionTrackingTasks {
         }
     }
 
-    public boolean hasContactReadPermission()
+    public static boolean hasContactReadPermission(Activity activity)
     {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
         {
@@ -82,7 +82,7 @@ public class AppPermissionTrackingTasks {
     }
 
 
-    public boolean hasCameraAccessPermission()
+    public static boolean hasCameraAccessPermission(Activity activity)
     {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
         {

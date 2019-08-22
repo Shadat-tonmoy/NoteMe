@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.factory.TasksFactory;
@@ -92,4 +93,6 @@ public class DialogManagementTask {
         });
         alertDialog.show();
     }
+
+
 }

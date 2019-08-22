@@ -1257,7 +1257,9 @@ id audio_title
 id auto
 id back_button
 id back_icon
+id backup_done_view
 id backup_menu
+id backup_progress_view
 id badge_holder
 id barrier
 id baseline
@@ -1345,6 +1347,7 @@ id direct
 id disableHome
 id divider
 id divider2
+id done_button
 id drawer_layout
 id edit_query
 id email_badge
@@ -1501,6 +1504,7 @@ id policy_webview
 id pro_close_btn
 id pro_continue_btn
 id pro_features
+id progressBar
 id progress_circular
 id progress_horizontal
 id progress_panel
@@ -1687,6 +1691,7 @@ layout audio_holder
 layout audio_option_bottom_sheet_layout
 layout audio_option_layout
 layout backup_fragment_layout
+layout backup_progress_dialog_layout
 layout check_list_container
 layout check_list_holder
 layout check_list_option_layout
@@ -1847,6 +1852,8 @@ string audio_inserted
 string audio_record_not_supported
 string back
 string backup
+string backup_done_msg
+string backup_wait_msg
 string bottom_sheet_behavior
 string call
 string camera_permission_is_required

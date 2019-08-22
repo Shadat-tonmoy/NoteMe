@@ -1,5 +1,6 @@
 package com.stcodesapp.noteit.controllers.activityController;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -77,7 +78,6 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     private NoteFieldScreenView noteFieldScreenView;
     private NoteFieldScreenManipulationTasks noteFieldScreenManipulationTasks;
     private FileIOTasks fileIOTasks;
-    private AppPermissionTrackingTasks appPermissionTrackingTasks;
     private VoiceInputTasks voiceInputTasks;
     private NoteComponents noteComponents;
     private boolean isUpdating = false,isRewarded = false;
@@ -85,13 +85,14 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
     private AdStrategyTrackingTask adStrategyTrackingTask;
     private IAPTrackingTasks iapTrackingTasks;
     private NoteFieldAdController noteFieldAdController;
+    private Activity activity;
 
-    public NoteFieldController(TasksFactory tasksFactory) {
+    public NoteFieldController(TasksFactory tasksFactory, Activity activity) {
         this.tasksFactory = tasksFactory;
+        this.activity = activity;
         activityNavigationTasks = tasksFactory.getActivityNavigationTasks();
         noteFieldScreenManipulationTasks = tasksFactory.getNoteFieldScreenManipulationTasks();
         fileIOTasks = tasksFactory.getFileIOTasks();
-        appPermissionTrackingTasks = tasksFactory.getAppPermissionTrackingTasks();
         voiceInputTasks = tasksFactory.getVoiceInputTasks();
         listeningTasks = tasksFactory.getListeningTasks();
         imageCapturingTask = tasksFactory.getImageCapturingTask();
@@ -274,7 +275,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
 
     private void startVoiceRecorder()
     {
-        if(appPermissionTrackingTasks.hasWriteExternalStoragePermission())
+        if(AppPermissionTrackingTasks.hasWriteExternalStoragePermission(activity))
         {
             VoiceRecordTask voiceRecordTask = tasksFactory.getVoiceRecordTask();
             voiceRecordTask.startVoiceRecorder();
@@ -688,7 +689,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
 
     private void executeReadingContact()
     {
-        if(appPermissionTrackingTasks.hasContactReadPermission())
+        if(AppPermissionTrackingTasks.hasContactReadPermission(activity))
         {
             fileIOTasks.openContactPicker();
         }

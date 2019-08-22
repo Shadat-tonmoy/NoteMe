@@ -634,6 +634,8 @@
     <string name="audio_record_not_supported">Sorry!! This device does not support to record audio</string>
     <string name="back">Back</string>
     <string name="backup">Backup</string>
+    <string name="backup_done_msg">Backup Done Successfully!!!</string>
+    <string name="backup_wait_msg">Please wait until the backup progress is finished. This may take a while</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="call">Call</string>
     <string name="camera_permission_is_required">Permission is required to capture image. Please allow permission and try again</string>
@@ -650,7 +652,7 @@
     <string name="choose_color">Choose Color</string>
     <string name="clear_note">Clear Note?</string>
     <string name="clear_note_msg">Are you sure to clear all note?</string>
-    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">aa941ddc-f7fd-4ce9-8363-b0528b8253bd</string>
+    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">cfe94b08-b154-4ae5-b606-429b7f49cc89</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
     <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>

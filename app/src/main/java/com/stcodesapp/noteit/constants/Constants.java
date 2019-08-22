@@ -23,9 +23,9 @@ public class Constants {
     public static final String APP_DATABASE = "com_stcodesapp_noteit";
     public static final String ANDROID = "Android";
     public static final String JSON_ENCODER = "UTF-8";
-    public static final String FILE_DIRECTORY = "com_stcodesapp_noteit/";
+    public static final String FILE_DIRECTORY = BuildConfig.APPLICATION_ID+"/";
     public static final String BACKUP_DIRECTORY = "backup";
-    public static final String BACKUP_FILE_NAME= "app_backup/";
+    public static final String BACKUP_FILE_NAME= "app_backup";
     public static final String PDF_FILE_EXT = ".pdf";
     public static final String JSON_FILE_EXT = ".json";
     public static final String MP3_FILE_EXT = ".mp3";
@@ -54,6 +54,8 @@ public class Constants {
     public static final String DOTS = "...";
     public static final int MAX_AUDIO_FILE_NAME_LENGTH = 25;
     public static final int MAX_NOTE_TEXT_LENGTH = 35;
+    public static final int LOCAL_STORAGE_BACKUP = 1;
+    public static final int CLOUD_STORAGE_BACKUP = 2;
     public static final int ZERO = 0;
     public static final String ZERO_STRING = "0";
     public static final int INVALID = -1;

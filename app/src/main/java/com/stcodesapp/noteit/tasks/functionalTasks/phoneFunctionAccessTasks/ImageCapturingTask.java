@@ -20,7 +20,6 @@ import java.util.Date;
 public class ImageCapturingTask {
 
     private Activity activity;
-    private AppPermissionTrackingTasks appPermissionTrackingTasks;
     private String capturedImagePath;
     private TasksFactory tasksFactory;
     private FileIOTasks fileIOTasks;
@@ -29,13 +28,12 @@ public class ImageCapturingTask {
     public ImageCapturingTask(Activity activity, TasksFactory tasksFactory) {
         this.activity = activity;
         this.tasksFactory = tasksFactory;
-        this.appPermissionTrackingTasks = tasksFactory.getAppPermissionTrackingTasks();
         this.fileIOTasks = tasksFactory.getFileIOTasks();
     }
 
     public void openCameraToTakeImage()
     {
-        if(appPermissionTrackingTasks.hasCameraAccessPermission())
+        if(AppPermissionTrackingTasks.hasCameraAccessPermission(activity))
         {
             openCamera();
         }

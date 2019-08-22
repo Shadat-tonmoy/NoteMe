@@ -22,6 +22,7 @@ import com.stcodesapp.noteit.constants.Tags;
 import com.stcodesapp.noteit.models.Audio;
 import com.stcodesapp.noteit.models.Contact;
 import com.stcodesapp.noteit.models.Image;
+import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.UtilityTasks;
 
 import java.io.File;
@@ -247,28 +248,33 @@ public class FileIOTasks {
     {
         if(isExternalStorageWritable())
         {
-            File storage = activity.getExternalFilesDirs(Environment.MEDIA_MOUNTED)[0];
-            File fileDirectory = new File(UtilityTasks.getStoragePath(storage.getAbsolutePath())+Constants.FILE_DIRECTORY);
-            if(directoryName!=null)
-                fileDirectory = new File(UtilityTasks.getStoragePath(storage.getAbsolutePath())+Constants.FILE_DIRECTORY+directoryName+"/");
-            File directory = new File(fileDirectory.getAbsolutePath());
-            if(!directory.exists())
+            if(AppPermissionTrackingTasks.hasWriteExternalStoragePermission(activity))
             {
-                boolean result = directory.mkdirs();
-                Logger.logMessage("ResultOf","CreatingDir "+result+" of "+directory.getAbsolutePath());
+                File storage = activity.getExternalFilesDirs(Environment.MEDIA_MOUNTED)[0];
+                File fileDirectory = new File(UtilityTasks.getStoragePath(storage.getAbsolutePath())+Constants.FILE_DIRECTORY);
+                if(directoryName!=null)
+                    fileDirectory = new File(UtilityTasks.getStoragePath(storage.getAbsolutePath())+Constants.FILE_DIRECTORY+directoryName+"/");
+                File directory = new File(fileDirectory.getAbsolutePath());
+                if(!directory.exists())
+                {
+                    boolean result = directory.mkdirs();
+                    Logger.logMessage("ResultOf","CreatingDir "+result+" of "+directory.getAbsolutePath());
+                }
+
+                File file = new File(directory, fileName+ extension);
+                Logger.logMessage("WillCreateFile",file.getAbsolutePath());
+                if(!file.exists()) {
+                    try {
+                        boolean result  = file.createNewFile();
+                        Logger.logMessage("ResultOf","CreatingFile "+result);
+                    } catch (IOException e) {
+                        Logger.logMessage("Exception",e.getMessage());
+                        e.printStackTrace();
+                    }
+                }
+                return file;
             }
 
-            File file = new File(directory, fileName+ extension);
-            if(!file.exists()) {
-                try {
-                    boolean result  = file.createNewFile();
-                    Logger.logMessage("ResultOf","CreatingFile "+result);
-                } catch (IOException e) {
-                    Logger.logMessage("Exception",e.getMessage());
-                    e.printStackTrace();
-                }
-            }
-            return file;
         }
         return null;
     }

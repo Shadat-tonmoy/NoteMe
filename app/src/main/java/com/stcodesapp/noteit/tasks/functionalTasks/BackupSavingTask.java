@@ -2,7 +2,6 @@ package com.stcodesapp.noteit.tasks.functionalTasks;
 
 import android.app.Activity;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -21,12 +20,12 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.List;
 
-public class BackupSavingTask extends AsyncTask<Void,Void,Backup>
+public class BackupSavingTask extends AsyncTask<Integer,Void,Void>
 {
 
     public interface Listener
     {
-        void onBackupElementsFetched(Backup backup);
+        void onBackupProcessFinished();
 
     }
 
@@ -48,22 +47,24 @@ public class BackupSavingTask extends AsyncTask<Void,Void,Backup>
     }
 
     @Override
-    protected Backup doInBackground(Void... voids)
+    protected Void doInBackground(Integer... backupTypes)
     {
-        return getBackupElements();
+        int backupType = backupTypes[0];
+        backupDatabase(backupType);
+        return null;
     }
 
     @Override
-    protected void onPostExecute(Backup backup) {
+    protected void onPostExecute(Void backup) {
         super.onPostExecute(backup);
-//        Logger.logMessage("Backup",backup.toString());
-        convertBackupToJSON(backup);
         if(listener!=null)
-            listener.onBackupElementsFetched(backup);
+        {
+            listener.onBackupProcessFinished();
+        }
 
     }
 
-    private Backup getBackupElements()
+    private Backup backupDatabase(int backupType)
     {
         List<Note> notes = noteDatabase.notesDao().getAllNoes();
         List<Contact> contacts = noteDatabase.contactDao().getAllContacts();
@@ -72,7 +73,12 @@ public class BackupSavingTask extends AsyncTask<Void,Void,Backup>
         List<Image> images = noteDatabase.imageDao().getAllImage();
         Backup backup = new Backup(notes,contacts,emails,audio,images);
         String backupJSON = convertBackupToJSON(backup);
-        writeJSONToFile(backupJSON);
+        if(backupType==Constants.LOCAL_STORAGE_BACKUP)
+            writeJSONToFile(backupJSON);
+        else
+        {
+            //store json into google drive
+        }
         return backup;
     }
 
@@ -98,7 +104,7 @@ public class BackupSavingTask extends AsyncTask<Void,Void,Backup>
     private boolean writeJSONToFile(String jsonString)
     {
 //        File file = fileIOTasks.getFileForSaving(Constants.BACKUP_DIRECTORY,Constants.BACKUP_FILE_NAME,Constants.JSON_FILE_EXT);
-        File file = fileIOTasks.getFileForSaving(null,Constants.BACKUP_FILE_NAME,Constants.JSON_FILE_EXT);
+        File file = fileIOTasks.getFileForSaving(Constants.BACKUP_DIRECTORY,Constants.BACKUP_FILE_NAME,Constants.JSON_FILE_EXT);
         try {
             FileWriter fileWriter = new FileWriter(file);
             fileWriter.write(jsonString);

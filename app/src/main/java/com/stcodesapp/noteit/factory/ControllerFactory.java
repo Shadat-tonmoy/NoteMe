@@ -41,7 +41,7 @@ public class ControllerFactory {
 
     public NoteFieldController getNoteFieldController()
     {
-        return new NoteFieldController(tasksFactory);
+        return new NoteFieldController(tasksFactory,activity);
     }
 
     public ManualContactController getManualContactController()
