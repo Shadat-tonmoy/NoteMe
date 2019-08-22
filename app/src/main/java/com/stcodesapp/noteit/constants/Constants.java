@@ -56,6 +56,8 @@ public class Constants {
     public static final int MAX_NOTE_TEXT_LENGTH = 35;
     public static final int LOCAL_STORAGE_BACKUP = 1;
     public static final int CLOUD_STORAGE_BACKUP = 2;
+    public static final int LOCAL_STORAGE_RESTORE = 1;
+    public static final int CLOUD_STORAGE_RESTORE= 2;
     public static final int ZERO = 0;
     public static final String ZERO_STRING = "0";
     public static final int INVALID = -1;

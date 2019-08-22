@@ -6,7 +6,8 @@ import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllAudioSelectionTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllImageSelectionTasks;
-import com.stcodesapp.noteit.tasks.functionalTasks.BackupSavingTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.dataBackupTasks.BackupRestoringTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.dataBackupTasks.BackupSavingTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.DialogManagementTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.IAPBillingTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.AdStrategyTrackingTask;
@@ -232,6 +233,11 @@ public class TasksFactory {
     public BackupSavingTask getBackupSavingTask()
     {
         return new BackupSavingTask(activity,getFileIOTasks());
+    }
+
+    public BackupRestoringTask getBackupRestoringTask()
+    {
+        return new BackupRestoringTask(activity,getFileIOTasks());
     }
 
     public BackupFragmentScreenManipulationTask getBackupFragmentScreenManipulationTask()

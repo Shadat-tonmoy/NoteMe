@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -535,7 +534,7 @@ public class NoteFieldScreenManipulationTasks {
             case CONTACT_READ_PERMISSION:
                 message = activity.getResources().getString(R.string.contact_permission_is_required);
                 break;
-            case IMAGE_READ_PERMISSION:
+            case READ_EXTERNAL_STORAGE_PERMISSION:
                 message = activity.getResources().getString(R.string.storage_permission_is_required);
                 break;
             case CAMERA_ACCESS_PERMISSION:

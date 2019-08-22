@@ -36,6 +36,9 @@ public class BackupFragmentScreenManipulationTask
             case WRITE_EXTERNAL_STORAGE:
                 message = activity.getResources().getString(R.string.write_storage_permission_is_required);
                 break;
+            case READ_EXTERNAL_STORAGE_PERMISSION:
+                message = activity.getResources().getString(R.string.write_storage_permission_is_required);
+                break;
         }
         Toast.makeText(activity, message, Toast.LENGTH_SHORT).show();
     }

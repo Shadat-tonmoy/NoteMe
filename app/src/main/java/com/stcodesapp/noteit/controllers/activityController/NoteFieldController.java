@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.MenuItem;
 
 import com.stcodesapp.noteit.R;
@@ -33,7 +32,6 @@ import com.stcodesapp.noteit.models.Email;
 import com.stcodesapp.noteit.models.Image;
 import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.models.NoteComponents;
-import com.stcodesapp.noteit.monetization.ads.RewardedVideoAd;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.NoteUpdateTask;
 import com.stcodesapp.noteit.tasks.databaseTasks.deletionTasks.singleDeletionTask.AudioDeleteTask;
@@ -371,7 +369,7 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
        {
            if(grantResults[0]==PackageManager.PERMISSION_GRANTED)
                noteFieldScreenManipulationTasks.addImageToFields();
-           else noteFieldScreenManipulationTasks.showPermissionRequiredMessage(PermissionType.IMAGE_READ_PERMISSION);
+           else noteFieldScreenManipulationTasks.showPermissionRequiredMessage(PermissionType.READ_EXTERNAL_STORAGE_PERMISSION);
        }
        else if(requestCode == RequestCode.OPEN_CAMERA_PERMISSION)
        {
