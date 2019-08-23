@@ -3,7 +3,6 @@ package com.stcodesapp.noteit.controllers.fragmentController;
 import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
-
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.PermissionType;
 import com.stcodesapp.noteit.constants.RequestCode;
@@ -15,7 +14,7 @@ import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.BackupFragmentScreenView;
 import com.stcodesapp.noteit.ui.views.screens.fragmentScreen.BackupFragmentScreen;
 
-public class BackupFragmentController implements BackupFragmentScreen.Listener, BackupSavingTask.Listener, BackupRestoringTask.Listener
+public class BackupFragmentController implements BackupFragmentScreen.Listener, BackupSavingTask.Listener, BackupRestoringTask.Listener, BackupFragmentScreenManipulationTask.Listener
 {
 
     private Activity activity;
@@ -63,7 +62,7 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
 
     private void executeBackupToLocalStorageTask(int backupType)
     {
-        backupFragmentScreenManipulationTask.showBackupProgressDialog();
+        backupFragmentScreenManipulationTask.showBackupProgressDialog(Constants.BACKUP);
         BackupSavingTask backupSavingTask = tasksFactory.getBackupSavingTask();
         backupSavingTask.setListener(this);
         backupSavingTask.execute(backupType);
@@ -71,7 +70,7 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
 
     private void executeBackupRestoreTask(int backupType)
     {
-        backupFragmentScreenManipulationTask.showBackupProgressDialog();
+        backupFragmentScreenManipulationTask.showBackupProgressDialog(Constants.RESTORE);
         BackupRestoringTask backupRestoringTask = tasksFactory.getBackupRestoringTask();
         backupRestoringTask.setListener(this);
         backupRestoringTask.execute(backupType);
@@ -91,10 +90,7 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
     @Override
     public void onRestoreFromLocalStorageClicked()
     {
-        if(AppPermissionTrackingTasks.hasReadExternalStoragePermission(activity))
-            executeBackupRestoreTask(Constants.LOCAL_STORAGE_RESTORE);
-
-
+        backupFragmentScreenManipulationTask.showBackupRestoreWarningDialog(this);
     }
 
     @Override
@@ -112,6 +108,18 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
     @Override
     public void onBackupRestoreFinished()
     {
+
+    }
+
+    @Override
+    public void onRestoreFromLocalStorageConfirmed()
+    {
+        if(AppPermissionTrackingTasks.hasReadExternalStoragePermission(activity))
+            executeBackupRestoreTask(Constants.LOCAL_STORAGE_RESTORE);
+    }
+
+    @Override
+    public void onRestoreFromCloudStorageConfirmed() {
 
     }
 }

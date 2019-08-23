@@ -652,7 +652,7 @@
     <string name="choose_color">Choose Color</string>
     <string name="clear_note">Clear Note?</string>
     <string name="clear_note_msg">Are you sure to clear all note?</string>
-    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">4ec771f0-3b96-4f7d-9cb6-bf0caf756aa6</string>
+    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">b1166d8d-ab23-44fb-857e-d9e32c0e8871</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
     <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>
@@ -768,6 +768,10 @@
     <string name="remove_all_note">Remove All Notes</string>
     <string name="removed_from_favorite">Note is removed from important</string>
     <string name="restore">Restore</string>
+    <string name="restore_done_msg">Backup Restored Successfully!!!</string>
+    <string name="restore_progress_text">Please wait while data is restored from backup file</string>
+    <string name="restore_warning_message">Restoring data from backup will erase all the currently saved data and overwrite them with your backup data. Are you sure to restore?</string>
+    <string name="restore_warning_title">Please Notice!!!</string>
     <string name="s1">Save image</string>
     <string name="s2">"Allow Ad to store image in Picture gallery?"</string>
     <string name="s3">Accept</string>

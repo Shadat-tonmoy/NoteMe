@@ -1144,6 +1144,7 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_suggestion
+drawable info_white
 drawable list_white
 drawable local_backup
 drawable mic_black
@@ -1257,8 +1258,10 @@ id audio_title
 id auto
 id back_button
 id back_icon
+id backup_done_text
 id backup_done_view
 id backup_menu
+id backup_progress_text
 id backup_progress_view
 id badge_holder
 id barrier
@@ -1514,6 +1517,10 @@ id rate_us_header
 id rate_us_message
 id record_audio_option
 id remove_image
+id restore_button
+id restore_warning_header
+id restore_warning_message
+id restore_warning_title
 id right
 id right_icon
 id right_side
@@ -1692,6 +1699,7 @@ layout audio_option_bottom_sheet_layout
 layout audio_option_layout
 layout backup_fragment_layout
 layout backup_progress_dialog_layout
+layout backup_restore_warning_layout
 layout check_list_container
 layout check_list_holder
 layout check_list_option_layout
@@ -1986,6 +1994,10 @@ string remove
 string remove_all_note
 string removed_from_favorite
 string restore
+string restore_done_msg
+string restore_progress_text
+string restore_warning_message
+string restore_warning_title
 string s1
 string s2
 string s3

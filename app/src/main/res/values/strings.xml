@@ -139,6 +139,8 @@
     <string name="record_audio">Record Audio</string>
     <string name="take_photo">Take Photo</string>
     <string name="love_note_it">Love Noteit?</string>
+    <string name="restore_warning_title">Please Notice!!!</string>
+    <string name="restore_warning_message">Restoring data from backup will erase all the currently saved data and overwrite them with your backup data. Are you sure to restore?</string>
 
     <string name="rate_us_message">Please rate us 5 - stars and good review. Your ratings and review will help us to grow and make the app even better</string>
     <string name="rate">Rate</string>
@@ -160,6 +162,8 @@
     <string name="restore">Restore</string>
     <string name="backup_wait_msg">Please wait until the backup progress is finished. This may take a while</string>
     <string name="backup_done_msg">Backup Done Successfully!!!</string>
+    <string name="restore_done_msg">Backup Restored Successfully!!!</string>
+    <string name="restore_progress_text">Please wait while data is restored from backup file</string>
 
 
     <string-array name="sorting_choices">

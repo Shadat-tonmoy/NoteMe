@@ -10,11 +10,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.PermissionType;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.BackupFragmentScreenView;
 
 public class BackupFragmentScreenManipulationTask
 {
+
+    public interface Listener{
+        void onRestoreFromLocalStorageConfirmed();
+
+        void onRestoreFromCloudStorageConfirmed();
+    }
 
     private Activity activity;
     private BackupFragmentScreenView backupFragmentScreenView;
@@ -43,7 +50,7 @@ public class BackupFragmentScreenManipulationTask
         Toast.makeText(activity, message, Toast.LENGTH_SHORT).show();
     }
 
-    public void showBackupProgressDialog()
+    public void showBackupProgressDialog(int backupProcessType )
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -51,12 +58,48 @@ public class BackupFragmentScreenManipulationTask
         TextView doneButton = view.findViewById(R.id.done_button);
         backupProgressView = view.findViewById(R.id.backup_progress_view);
         backupDoneView = view.findViewById(R.id.backup_done_view);
+        TextView progressText = view.findViewById(R.id.backup_progress_text);
+        TextView doneText = view.findViewById(R.id.backup_done_text);
+        if(backupProcessType == Constants.RESTORE)
+        {
+            progressText.setText(activity.getResources().getString(R.string.restore_progress_text));
+            doneText.setText(activity.getResources().getString(R.string.restore_done_msg));
+        }
+        
         builder.setView(view);
         final AlertDialog alertDialog = builder.create();
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 alertDialog.dismiss();
+
+            }
+        });
+        alertDialog.show();
+    }
+
+    public void showBackupRestoreWarningDialog(final Listener listener)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.backup_restore_warning_layout,null,false);
+        TextView restoreButton = view.findViewById(R.id.restore_button);
+        TextView noThanksButton = view.findViewById(R.id.no_thanks_button);
+        builder.setView(view);
+        final AlertDialog alertDialog = builder.create();
+        noThanksButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+
+            }
+        });
+
+        restoreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+                listener.onRestoreFromLocalStorageConfirmed();
 
             }
         });
