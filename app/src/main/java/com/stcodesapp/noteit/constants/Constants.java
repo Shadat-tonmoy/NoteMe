@@ -54,6 +54,8 @@ public class Constants {
     public static final String DOTS = "...";
     public static final int MAX_AUDIO_FILE_NAME_LENGTH = 25;
     public static final int MAX_NOTE_TEXT_LENGTH = 35;
+    public static final int LOCAL_STORAGE_PHONE = 1;
+    public static final int LOCAL_STORAGE_SD_CARD = 2;
     public static final int LOCAL_STORAGE_BACKUP = 1;
     public static final int CLOUD_STORAGE_BACKUP = 2;
     public static final int LOCAL_STORAGE_RESTORE = 1;

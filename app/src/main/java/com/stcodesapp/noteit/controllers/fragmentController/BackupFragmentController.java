@@ -3,6 +3,9 @@ package com.stcodesapp.noteit.controllers.fragmentController;
 import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
+
+import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.common.Logger;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.PermissionType;
 import com.stcodesapp.noteit.constants.RequestCode;
@@ -21,6 +24,7 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
     private TasksFactory tasksFactory;
     private BackupFragmentScreenView backupFragmentScreenView;
     private BackupFragmentScreenManipulationTask backupFragmentScreenManipulationTask;
+    private int localStorageOption = Constants.LOCAL_STORAGE_PHONE;
 
     public BackupFragmentController(Activity activity, TasksFactory tasksFactory) {
         this.activity = activity;
@@ -65,7 +69,7 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
         backupFragmentScreenManipulationTask.showBackupProgressDialog(Constants.BACKUP);
         BackupSavingTask backupSavingTask = tasksFactory.getBackupSavingTask();
         backupSavingTask.setListener(this);
-        backupSavingTask.execute(backupType);
+        backupSavingTask.execute(backupType,localStorageOption);
     }
 
     private void executeBackupRestoreTask(int backupType)
@@ -73,7 +77,7 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
         backupFragmentScreenManipulationTask.showBackupProgressDialog(Constants.RESTORE);
         BackupRestoringTask backupRestoringTask = tasksFactory.getBackupRestoringTask();
         backupRestoringTask.setListener(this);
-        backupRestoringTask.execute(backupType);
+        backupRestoringTask.execute(backupType,localStorageOption);
     }
 
     @Override
@@ -96,6 +100,21 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
     @Override
     public void onRestoreFromCloudStorageClicked() {
 
+    }
+
+    @Override
+    public void onLocalBackupStorageOptionSelected(int checkedID)
+    {
+        Logger.logMessage("StorageSelected",checkedID+" ");
+        switch (checkedID)
+        {
+            case R.id.phone_storage_option:
+                localStorageOption = Constants.LOCAL_STORAGE_PHONE;
+                break;
+            case R.id.sd_card_storage_option:
+                localStorageOption = Constants.LOCAL_STORAGE_SD_CARD;
+                break;
+        }
     }
 
     @Override

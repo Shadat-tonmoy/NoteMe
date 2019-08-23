@@ -2,9 +2,11 @@ package com.stcodesapp.noteit.tasks.functionalTasks.dataBackupTasks;
 
 import android.app.Activity;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.common.Logger;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.database.Backup;
@@ -50,7 +52,8 @@ public class BackupSavingTask extends AsyncTask<Integer,Void,Void>
     protected Void doInBackground(Integer... backupTypes)
     {
         int backupType = backupTypes[0];
-        backupDatabase(backupType);
+        int localStorageOption = backupTypes[1];
+        backupDatabase(backupType,localStorageOption);
         return null;
     }
 
@@ -64,7 +67,7 @@ public class BackupSavingTask extends AsyncTask<Integer,Void,Void>
 
     }
 
-    private Backup backupDatabase(int backupType)
+    private Backup backupDatabase(int backupType,int localStorageOption)
     {
         List<Note> notes = noteDatabase.notesDao().getAllNoes();
         List<Contact> contacts = noteDatabase.contactDao().getAllContacts();
@@ -74,7 +77,7 @@ public class BackupSavingTask extends AsyncTask<Integer,Void,Void>
         Backup backup = new Backup(notes,contacts,emails,audio,images);
         String backupJSON = convertBackupToJSON(backup);
         if(backupType==Constants.LOCAL_STORAGE_BACKUP)
-            writeJSONToFile(backupJSON);
+            writeJSONToFile(backupJSON,localStorageOption);
         else
         {
             //store json into google drive
@@ -101,10 +104,20 @@ public class BackupSavingTask extends AsyncTask<Integer,Void,Void>
         Logger.logMessage("Backup",backup.toString());
     }
 
-    private boolean writeJSONToFile(String jsonString)
+    private boolean writeJSONToFile(String jsonString, int localStorageOption)
     {
 //        File file = fileIOTasks.getFileForSaving(Constants.BACKUP_DIRECTORY,Constants.BACKUP_FILE_NAME,Constants.JSON_FILE_EXT);
         File file = fileIOTasks.getFileForSaving(Constants.BACKUP_DIRECTORY,Constants.BACKUP_FILE_NAME,Constants.JSON_FILE_EXT);
+        if(localStorageOption==Constants.LOCAL_STORAGE_SD_CARD)
+        {
+            if(fileIOTasks.isSDCardAvailable())
+                file = fileIOTasks.getFileForSavingInSDCard(Constants.BACKUP_DIRECTORY,Constants.BACKUP_FILE_NAME,Constants.JSON_FILE_EXT);
+            else
+            {
+                Toast.makeText(activity, activity.getString(R.string.sd_card_not_available), Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
         try {
             FileWriter fileWriter = new FileWriter(file);
             fileWriter.write(jsonString);

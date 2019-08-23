@@ -164,6 +164,10 @@
     <string name="backup_done_msg">Backup Done Successfully!!!</string>
     <string name="restore_done_msg">Backup Restored Successfully!!!</string>
     <string name="restore_progress_text">Please wait while data is restored from backup file</string>
+    <string name="phone_storage">Phone Storage</string>
+    <string name="sd_card_storage">SD Card</string>
+    <string name="storage_option_label">Storage to backup or restore</string>
+    <string name="sd_card_not_available">SD Card Not Available</string>
 
 
     <string-array name="sorting_choices">

@@ -14,6 +14,8 @@ public interface BackupFragmentScreen extends BaseObservableScreen<BackupFragmen
 
         void onRestoreFromCloudStorageClicked();
 
+        void onLocalBackupStorageOptionSelected(int checkedID);
+
     }
 
 

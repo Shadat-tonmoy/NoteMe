@@ -244,13 +244,66 @@ public class FileIOTasks {
 
     }
 
+    public boolean isSDCardAvailable()
+    {
+        File[] storages = activity.getExternalFilesDirs(Environment.MEDIA_MOUNTED);
+        return storages.length>1;
+    }
+
     public File getFileForSaving(String directoryName, String fileName,String extension)
     {
+        File[] storages = activity.getExternalFilesDirs(Environment.MEDIA_MOUNTED);
+        for(File storage:storages)
+        {
+            Logger.logMessage("Storage",storage.getAbsolutePath());
+        }
+
         if(isExternalStorageWritable())
         {
             if(AppPermissionTrackingTasks.hasWriteExternalStoragePermission(activity))
             {
                 File storage = activity.getExternalFilesDirs(Environment.MEDIA_MOUNTED)[0];
+                File fileDirectory = new File(UtilityTasks.getStoragePath(storage.getAbsolutePath())+Constants.FILE_DIRECTORY);
+                if(directoryName!=null)
+                    fileDirectory = new File(UtilityTasks.getStoragePath(storage.getAbsolutePath())+Constants.FILE_DIRECTORY+directoryName+"/");
+                File directory = new File(fileDirectory.getAbsolutePath());
+                if(!directory.exists())
+                {
+                    boolean result = directory.mkdirs();
+                    Logger.logMessage("ResultOf","CreatingDir "+result+" of "+directory.getAbsolutePath());
+                }
+
+                File file = new File(directory, fileName+ extension);
+                Logger.logMessage("WillCreateFile",file.getAbsolutePath());
+                if(!file.exists()) {
+                    try {
+                        boolean result  = file.createNewFile();
+                        Logger.logMessage("ResultOf","CreatingFile "+result);
+                    } catch (IOException e) {
+                        Logger.logMessage("Exception",e.getMessage());
+                        e.printStackTrace();
+                    }
+                }
+                return file;
+            }
+
+        }
+        return null;
+    }
+
+    public File getFileForSavingInSDCard(String directoryName, String fileName,String extension)
+    {
+        File[] storages = activity.getExternalFilesDirs(Environment.MEDIA_MOUNTED);
+        for(File storage:storages)
+        {
+            Logger.logMessage("Storage",storage.getAbsolutePath());
+        }
+
+        if(isExternalStorageWritable())
+        {
+            if(AppPermissionTrackingTasks.hasWriteExternalStoragePermission(activity))
+            {
+                File storage = activity.getExternalFilesDirs(Environment.MEDIA_MOUNTED)[1];
                 File fileDirectory = new File(UtilityTasks.getStoragePath(storage.getAbsolutePath())+Constants.FILE_DIRECTORY);
                 if(directoryName!=null)
                     fileDirectory = new File(UtilityTasks.getStoragePath(storage.getAbsolutePath())+Constants.FILE_DIRECTORY+directoryName+"/");

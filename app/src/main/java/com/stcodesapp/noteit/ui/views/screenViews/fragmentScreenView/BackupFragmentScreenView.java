@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdView;
@@ -29,6 +30,7 @@ public class BackupFragmentScreenView extends BaseObservableScreenView<BackupFra
 {
 
     private TextView backupToLocalStorageButton,backupToCloudStorageButton,restoreFromLocalStorageButton,restoreFromCloudStorageButton;
+    private RadioGroup storageOption;
 
     public BackupFragmentScreenView(LayoutInflater layoutInflater, @Nullable ViewGroup parent)
     {
@@ -42,6 +44,15 @@ public class BackupFragmentScreenView extends BaseObservableScreenView<BackupFra
     {
         setClickListener(backupToLocalStorageButton,EventTypes.BACKUP_TO_LOCAL_STORAGE_BUTTON_CLICKED);
         setClickListener(restoreFromLocalStorageButton,EventTypes.RESTORE_FROM_LOCAL_STORAGE_BUTTON_CLICKED);
+        storageOption.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                for(Listener listener:getListeners())
+                {
+                    listener.onLocalBackupStorageOptionSelected(checkedId);
+                }
+            }
+        });
 
     }
 
@@ -50,6 +61,7 @@ public class BackupFragmentScreenView extends BaseObservableScreenView<BackupFra
     {
         backupToLocalStorageButton = findViewById(R.id.local_backup_button);
         restoreFromLocalStorageButton = findViewById(R.id.local_restore_button);
+        storageOption = findViewById(R.id.storage_option_radio);
 
 
     }

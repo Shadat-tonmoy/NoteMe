@@ -928,6 +928,10 @@
         "source": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/drawable/star_border.xml"
     },
     {
+        "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable_local_backup_menu_bg.xml.flat",
+        "source": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/drawable/local_backup_menu_bg.xml"
+    },
+    {
         "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable_animated_person.webp.flat",
         "source": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/drawable/animated_person.webp"
     },
