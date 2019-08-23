@@ -22,12 +22,14 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.List;
 
-public class BackupSavingTask extends AsyncTask<Integer,Void,Void>
+public class BackupSavingTask extends AsyncTask<Integer,Void,Boolean>
 {
 
     public interface Listener
     {
         void onBackupProcessFinished();
+
+        void onBackupProcessFailed();
 
     }
 
@@ -49,25 +51,26 @@ public class BackupSavingTask extends AsyncTask<Integer,Void,Void>
     }
 
     @Override
-    protected Void doInBackground(Integer... backupTypes)
+    protected Boolean doInBackground(Integer... backupTypes)
     {
         int backupType = backupTypes[0];
         int localStorageOption = backupTypes[1];
-        backupDatabase(backupType,localStorageOption);
-        return null;
+        return backupDatabase(backupType,localStorageOption);
     }
 
     @Override
-    protected void onPostExecute(Void backup) {
-        super.onPostExecute(backup);
+    protected void onPostExecute(Boolean result) {
+        super.onPostExecute(result);
         if(listener!=null)
         {
-            listener.onBackupProcessFinished();
+            if(result)
+                listener.onBackupProcessFinished();
+            else listener.onBackupProcessFailed();
         }
 
     }
 
-    private Backup backupDatabase(int backupType,int localStorageOption)
+    private boolean backupDatabase(int backupType,int localStorageOption)
     {
         List<Note> notes = noteDatabase.notesDao().getAllNoes();
         List<Contact> contacts = noteDatabase.contactDao().getAllContacts();
@@ -77,12 +80,12 @@ public class BackupSavingTask extends AsyncTask<Integer,Void,Void>
         Backup backup = new Backup(notes,contacts,emails,audio,images);
         String backupJSON = convertBackupToJSON(backup);
         if(backupType==Constants.LOCAL_STORAGE_BACKUP)
-            writeJSONToFile(backupJSON,localStorageOption);
+            return writeJSONToFile(backupJSON,localStorageOption);
         else
         {
+            return false;
             //store json into google drive
         }
-        return backup;
     }
 
 

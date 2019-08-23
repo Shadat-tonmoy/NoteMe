@@ -168,6 +168,10 @@
     <string name="sd_card_storage">SD Card</string>
     <string name="storage_option_label">Storage to backup or restore</string>
     <string name="sd_card_not_available">SD Card Not Available</string>
+    <string name="backup_file_not_found">No Backup File Found!!!</string>
+    <string name="backup_restore_success_message">Backup Restored Successfully!!!</string>
+    <string name="backup_failed_msg">Backup Failed!!! May be you do not have enough storage left. Please try again</string>
+    <string name="restore_failed_msg">Backup Restore Failed!!! May be there is no backup file exists!! Please try again</string>
 
 
     <string-array name="sorting_choices">

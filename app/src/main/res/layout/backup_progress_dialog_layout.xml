@@ -55,7 +55,7 @@
         android:orientation="vertical">
 
         <ImageView
-
+            android:id="@+id/backup_done_image"
             android:layout_margin="16sp"
             android:src="@drawable/done_green"
             android:layout_width="match_parent"

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +27,8 @@ public class BackupFragmentScreenManipulationTask
     private Activity activity;
     private BackupFragmentScreenView backupFragmentScreenView;
     private LinearLayout backupProgressView, backupDoneView;
+    private TextView backupDoneText, backupProgressText;
+    private ImageView backupDoneImage;
 
     public BackupFragmentScreenManipulationTask(Activity activity) {
         this.activity = activity;
@@ -56,14 +59,15 @@ public class BackupFragmentScreenManipulationTask
         LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.backup_progress_dialog_layout,null,false);
         TextView doneButton = view.findViewById(R.id.done_button);
+        backupDoneImage = view.findViewById(R.id.backup_done_image);
         backupProgressView = view.findViewById(R.id.backup_progress_view);
         backupDoneView = view.findViewById(R.id.backup_done_view);
-        TextView progressText = view.findViewById(R.id.backup_progress_text);
-        TextView doneText = view.findViewById(R.id.backup_done_text);
+        backupProgressText = view.findViewById(R.id.backup_progress_text);
+        backupDoneText = view.findViewById(R.id.backup_done_text);
         if(backupProcessType == Constants.RESTORE)
         {
-            progressText.setText(activity.getResources().getString(R.string.restore_progress_text));
-            doneText.setText(activity.getResources().getString(R.string.restore_done_msg));
+            backupProgressText.setText(activity.getResources().getString(R.string.restore_progress_text));
+            backupDoneText.setText(activity.getResources().getString(R.string.restore_done_msg));
         }
         
         builder.setView(view);
@@ -110,5 +114,28 @@ public class BackupFragmentScreenManipulationTask
     {
         backupProgressView.setVisibility(View.GONE);
         backupDoneView.setVisibility(View.VISIBLE);
+    }
+
+    public void showBackupFailedView()
+    {
+        backupProgressView.setVisibility(View.GONE);
+        backupDoneView.setVisibility(View.VISIBLE);
+        backupDoneImage.setImageResource(R.drawable.warning_red);
+        backupDoneText.setText(activity.getResources().getString(R.string.backup_failed_msg));
+    }
+
+    public void showRestoreFailedView()
+    {
+        backupProgressView.setVisibility(View.GONE);
+        backupDoneView.setVisibility(View.VISIBLE);
+        backupDoneImage.setImageResource(R.drawable.warning_red);
+        backupDoneText.setText(activity.getResources().getString(R.string.restore_failed_msg));
+    }
+    
+    public void showRestoreDoneView()
+    {
+        backupProgressView.setVisibility(View.GONE);
+        backupDoneView.setVisibility(View.VISIBLE);
+        backupDoneText.setText(activity.getResources().getString(R.string.backup_restore_success_message));
     }
 }

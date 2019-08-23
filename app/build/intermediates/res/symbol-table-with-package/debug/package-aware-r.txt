@@ -1259,6 +1259,7 @@ id audio_title
 id auto
 id back_button
 id back_icon
+id backup_done_image
 id backup_done_text
 id backup_done_view
 id backup_menu
@@ -1865,6 +1866,9 @@ string audio_record_not_supported
 string back
 string backup
 string backup_done_msg
+string backup_failed_msg
+string backup_file_not_found
+string backup_restore_success_message
 string backup_wait_msg
 string bottom_sheet_behavior
 string call
@@ -2000,6 +2004,7 @@ string remove_all_note
 string removed_from_favorite
 string restore
 string restore_done_msg
+string restore_failed_msg
 string restore_progress_text
 string restore_warning_message
 string restore_warning_title

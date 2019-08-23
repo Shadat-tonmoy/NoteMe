@@ -2,11 +2,13 @@ package com.stcodesapp.noteit.tasks.functionalTasks.dataBackupTasks;
 
 import android.app.Activity;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
+import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.common.Logger;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.database.Backup;
@@ -27,12 +29,14 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class BackupRestoringTask extends AsyncTask<Integer,Void,Void>
+public class BackupRestoringTask extends AsyncTask<Integer,Void,Boolean>
 {
 
     public interface Listener
     {
         void onBackupRestoreFinished();
+
+        void onBackupRestoreFailed();
 
     }
 
@@ -54,29 +58,35 @@ public class BackupRestoringTask extends AsyncTask<Integer,Void,Void>
     }
 
     @Override
-    protected Void doInBackground(Integer... backupTypes)
+    protected Boolean doInBackground(Integer... backupTypes)
     {
         int backupType = backupTypes[0];
-        restoreDatabase(backupType);
-        return null;
+        int localStorageType = backupTypes[1];
+        return restoreDatabase(backupType,localStorageType);
+
     }
 
     @Override
-    protected void onPostExecute(Void backup) {
-        super.onPostExecute(backup);
+    protected void onPostExecute(Boolean result) {
+        super.onPostExecute(result);
         if(listener!=null)
         {
-            listener.onBackupRestoreFinished();
+            if(result)
+                listener.onBackupRestoreFinished();
+            else listener.onBackupRestoreFailed();
         }
 
     }
 
-    private void restoreDatabase(int backupType)
+    private boolean restoreDatabase(int backupType,int localStorageType)
     {
         if(backupType==Constants.LOCAL_STORAGE_RESTORE)
-            readJSONFile();
+        {
+            return readJSONFile(localStorageType);
+        }
         else
         {
+            return false;
             //store json into google drive
         }
     }
@@ -100,10 +110,18 @@ public class BackupRestoringTask extends AsyncTask<Integer,Void,Void>
         Logger.logMessage("Backup",backup.toString());
     }
 
-    private boolean readJSONFile()
+    private boolean readJSONFile(int localStorageType)
     {
-//        File file = fileIOTasks.getFileForSaving(Constants.BACKUP_DIRECTORY,Constants.BACKUP_FILE_NAME,Constants.JSON_FILE_EXT);
-        File file = fileIOTasks.getFileForSaving(Constants.BACKUP_DIRECTORY,Constants.BACKUP_FILE_NAME,Constants.JSON_FILE_EXT);
+        File file = fileIOTasks.getFileForReading(Constants.BACKUP_DIRECTORY,Constants.BACKUP_FILE_NAME,Constants.JSON_FILE_EXT);
+        if(localStorageType==Constants.LOCAL_STORAGE_SD_CARD)
+        {
+            file = fileIOTasks.getFileForReadingInSDCard(Constants.BACKUP_DIRECTORY,Constants.BACKUP_FILE_NAME,Constants.JSON_FILE_EXT);
+        }
+        if(file==null || !file.exists())
+        {
+//            Toast.makeText(activity, activity.getResources().getString(R.string.backup_file_not_found), Toast.LENGTH_LONG).show();
+            return false;
+        }
         try {
             Gson gson = new Gson();
             JsonReader jsonReader = new JsonReader(new FileReader(file));

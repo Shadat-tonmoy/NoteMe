@@ -291,6 +291,26 @@ public class FileIOTasks {
         return null;
     }
 
+
+    public File getFileForReading(String directoryName, String fileName,String extension)
+    {
+        if(isExternalStorageWritable())
+        {
+            if(AppPermissionTrackingTasks.hasWriteExternalStoragePermission(activity))
+            {
+                File storage = activity.getExternalFilesDirs(Environment.MEDIA_MOUNTED)[0];
+                File fileDirectory = new File(UtilityTasks.getStoragePath(storage.getAbsolutePath())+Constants.FILE_DIRECTORY);
+                if(directoryName!=null)
+                    fileDirectory = new File(UtilityTasks.getStoragePath(storage.getAbsolutePath())+Constants.FILE_DIRECTORY+directoryName+"/");
+                File directory = new File(fileDirectory.getAbsolutePath());
+                File file = new File(directory, fileName+ extension);
+                return file;
+            }
+
+        }
+        return null;
+    }
+
     public File getFileForSavingInSDCard(String directoryName, String fileName,String extension)
     {
         File[] storages = activity.getExternalFilesDirs(Environment.MEDIA_MOUNTED);
@@ -325,6 +345,25 @@ public class FileIOTasks {
                         e.printStackTrace();
                     }
                 }
+                return file;
+            }
+
+        }
+        return null;
+    }
+
+    public File getFileForReadingInSDCard(String directoryName, String fileName,String extension)
+    {
+        if(isExternalStorageWritable())
+        {
+            if(AppPermissionTrackingTasks.hasWriteExternalStoragePermission(activity))
+            {
+                File storage = activity.getExternalFilesDirs(Environment.MEDIA_MOUNTED)[1];
+                File fileDirectory = new File(UtilityTasks.getStoragePath(storage.getAbsolutePath())+Constants.FILE_DIRECTORY);
+                if(directoryName!=null)
+                    fileDirectory = new File(UtilityTasks.getStoragePath(storage.getAbsolutePath())+Constants.FILE_DIRECTORY+directoryName+"/");
+                File directory = new File(fileDirectory.getAbsolutePath());
+                File file = new File(directory, fileName+ extension);
                 return file;
             }
 

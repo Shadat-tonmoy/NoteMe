@@ -125,8 +125,22 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
     }
 
     @Override
+    public void onBackupProcessFailed()
+    {
+        backupFragmentScreenManipulationTask.showBackupFailedView();
+    }
+
+    @Override
     public void onBackupRestoreFinished()
     {
+        backupFragmentScreenManipulationTask.showRestoreDoneView();
+
+    }
+
+    @Override
+    public void onBackupRestoreFailed()
+    {
+        backupFragmentScreenManipulationTask.showRestoreFailedView();
 
     }
 
