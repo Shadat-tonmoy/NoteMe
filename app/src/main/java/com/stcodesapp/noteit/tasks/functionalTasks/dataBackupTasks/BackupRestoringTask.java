@@ -127,12 +127,38 @@ public class BackupRestoringTask extends AsyncTask<Integer,Void,Boolean>
             JsonReader jsonReader = new JsonReader(new FileReader(file));
             Backup backup = gson.fromJson(jsonReader,Backup.class);
             Logger.logMessage("BackupFromJSON",backup.toString());
+            clearExistingDB();
+            insertBackupData(backup);
             return true;
         }catch (Exception e)
         {
             Logger.logMessage("Exception",e.getMessage());
             return false;
         }
+    }
+
+    private void clearExistingDB()
+    {
+        NoteDatabase noteDatabase = NoteDatabase.getInstance(activity);
+        noteDatabase.clearAllTables();
+    }
+
+    private void insertBackupData(Backup backup)
+    {
+        NoteDatabase noteDatabase = NoteDatabase.getInstance(activity);
+        Note[] notes = backup.getNotes().toArray(new Note[0]);
+        Audio[] audios = backup.getAudio().toArray(new Audio[0]);
+        Contact[] contacts = backup.getContacts().toArray(new Contact[0]);
+        Email[] emails = backup.getEmails().toArray(new Email[0]);
+        Image[] images = backup.getImages().toArray(new Image[0]);
+        noteDatabase.notesDao().insertAllNote(notes);
+        noteDatabase.audioDao().insertAudio(audios);
+        noteDatabase.contactDao().insertContact(contacts);
+        noteDatabase.emailDao().insertEmails(emails);
+        noteDatabase.imageDao().insertImage(images);
+        Logger.logMessage("BackupElements",notes.length+" "+audios.length+" "+contacts.length+" "+emails.length+" "+images.length);
+
+
     }
 
     public void setListener(Listener listener) {

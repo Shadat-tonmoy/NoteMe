@@ -633,7 +633,7 @@
     <string name="audio_inserted">Audio Added!</string>
     <string name="audio_record_not_supported">Sorry!! This device does not support to record audio</string>
     <string name="back">Back</string>
-    <string name="backup">Backup</string>
+    <string name="backup">Backup and Restore</string>
     <string name="backup_done_msg">Backup Done Successfully!!!</string>
     <string name="backup_failed_msg">Backup Failed!!! May be you do not have enough storage left. Please try again</string>
     <string name="backup_file_not_found">No Backup File Found!!!</string>
@@ -655,7 +655,7 @@
     <string name="choose_color">Choose Color</string>
     <string name="clear_note">Clear Note?</string>
     <string name="clear_note_msg">Are you sure to clear all note?</string>
-    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">8abcee9a-299b-4de5-ad11-9ae58ce51863</string>
+    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">753311c4-4c04-4eb8-9220-4c65acc5e12d</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
     <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>

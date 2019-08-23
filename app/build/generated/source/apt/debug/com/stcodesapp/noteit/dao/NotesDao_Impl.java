@@ -134,6 +134,18 @@ public class NotesDao_Impl implements NotesDao {
   }
 
   @Override
+  public long[] insertAllNote(Note... note) {
+    __db.beginTransaction();
+    try {
+      long[] _result = __insertionAdapterOfNote.insertAndReturnIdsArray(note);
+      __db.setTransactionSuccessful();
+      return _result;
+    } finally {
+      __db.endTransaction();
+    }
+  }
+
+  @Override
   public void delete(Note note) {
     __db.beginTransaction();
     try {
