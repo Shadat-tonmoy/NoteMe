@@ -29,7 +29,7 @@ import java.util.List;
 public class BackupFragmentScreenView extends BaseObservableScreenView<BackupFragmentScreen.Listener> implements BackupFragmentScreen
 {
 
-    private TextView backupToLocalStorageButton,backupToCloudStorageButton,restoreFromLocalStorageButton,restoreFromCloudStorageButton;
+    private ConstraintLayout backupToLocalStorageButton,backupToCloudStorageButton,restoreFromLocalStorageButton,restoreFromCloudStorageButton;
     private RadioGroup storageOption;
 
     public BackupFragmentScreenView(LayoutInflater layoutInflater, @Nullable ViewGroup parent)

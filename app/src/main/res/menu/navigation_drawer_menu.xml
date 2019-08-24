@@ -29,7 +29,7 @@
         <item
             android:id="@+id/backup_menu"
             android:icon="@drawable/backup_black"
-            android:title="@string/backup" />
+            android:title="@string/backup_and_restore" />
     </group>
 
     <item android:title="@string/app_name">

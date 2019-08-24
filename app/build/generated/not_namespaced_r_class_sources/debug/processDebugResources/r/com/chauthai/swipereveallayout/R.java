@@ -21,11 +21,11 @@ public final class R {
         private id() {}
 
         public static final int bottom = 0x7f090042;
-        public static final int left = 0x7f0900d8;
-        public static final int normal = 0x7f090100;
-        public static final int right = 0x7f09013f;
-        public static final int same_level = 0x7f090144;
-        public static final int top = 0x7f09019d;
+        public static final int left = 0x7f0900d9;
+        public static final int normal = 0x7f090106;
+        public static final int right = 0x7f090146;
+        public static final int same_level = 0x7f09014b;
+        public static final int top = 0x7f0901a4;
     }
     public static final class styleable {
         private styleable() {}

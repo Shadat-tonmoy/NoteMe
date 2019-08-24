@@ -1,119 +1,311 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="?attr/actionBarSize"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.v7.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:cardElevation="4dp">
+        android:orientation="vertical">
 
-        <RelativeLayout
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:cardElevation="4dp">
 
-            <TextView
-                android:id="@+id/local_back_header"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/blaze_hole"
-                android:textColor="@color/white"
-                android:text="@string/local_storage_backup"
-                android:textSize="16sp"
-                android:padding="8dp"
-                android:drawableLeft="@drawable/local_backup"
-                android:drawablePadding="8dp"/>
-
-            <RadioGroup
-                android:id="@+id/storage_option_radio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_below="@id/local_back_header">
-
-                <RadioButton
-                    android:id="@+id/phone_storage_option"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:buttonTint="@color/blaze_hole"
-                    android:layout_height="wrap_content"
-                    android:text="@string/phone_storage"
-                    android:layout_margin="8dp"
-                    android:checked="true" />
-
-                <RadioButton
-                    android:id="@+id/sd_card_storage_option"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:buttonTint="@color/blaze_hole"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="@string/sd_card_storage" />
-
-            </RadioGroup>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_below="@id/storage_option_radio">
+                android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/local_backup_button"
+                    android:id="@+id/local_back_header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/blaze_hole"
+                    android:textColor="@color/white"
+                    android:text="@string/local_storage_backup"
                     android:textSize="16sp"
                     android:padding="8dp"
-                    android:gravity="center"
-                    android:layout_margin="8dp"
-                    android:text="@string/backup"
-                    android:textAlignment="textStart"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:drawableStart="@drawable/restore"
+                    android:drawableLeft="@drawable/local_backup"
                     android:drawablePadding="8dp"/>
 
+                <RadioGroup
+                    android:id="@+id/storage_option_radio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_below="@id/local_back_header">
+
+                    <RadioButton
+                        android:id="@+id/phone_storage_option"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/blaze_hole"
+                        android:layout_height="wrap_content"
+                        android:text="@string/phone_storage"
+                        android:layout_margin="8dp"
+                        android:checked="true" />
+
+                    <RadioButton
+                        android:id="@+id/sd_card_storage_option"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/blaze_hole"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="@string/sd_card_storage" />
+
+                </RadioGroup>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/storage_option_radio">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/local_backup_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:layout_margin="8dp">
+
+                        <ImageView
+                            android:id="@+id/local_backup_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:rotation="90"
+                            android:src="@drawable/restore"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/local_backup_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/backup_note"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            app:layout_constraintStart_toEndOf="@id/local_backup_icon"
+                            app:layout_constraintTop_toTopOf="@+id/local_backup_icon" />
+
+                        <TextView
+                            android:id="@+id/local_backup_desc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/backup_desc"
+                            app:layout_constraintBottom_toBottomOf="@+id/local_backup_icon"
+                            app:layout_constraintStart_toEndOf="@id/local_backup_icon"
+                            app:layout_constraintTop_toBottomOf="@id/local_backup_text" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                    <View
+                        android:id="@+id/divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="8dp"
+                        android:background="?android:attr/listDivider" />
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/local_restore_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:padding="8dp"
+                        android:foreground="?attr/selectableItemBackground">
+
+                        <ImageView
+                            android:id="@+id/local_restore_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/restore"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/local_restore_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/restore_note"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            app:layout_constraintStart_toEndOf="@id/local_restore_icon"
+                            app:layout_constraintTop_toTopOf="@+id/local_restore_icon" />
+
+                        <TextView
+                            android:id="@+id/restore_desc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/restore_desc"
+                            app:layout_constraintBottom_toBottomOf="@+id/local_restore_icon"
+                            app:layout_constraintStart_toEndOf="@id/local_restore_icon"
+                            app:layout_constraintTop_toBottomOf="@id/local_restore_text" />
+                    </android.support.constraint.ConstraintLayout>
+
+
+
+
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
+
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:cardElevation="4dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="180dp"
+                >
 
                 <TextView
-                    android:id="@+id/local_restore_button"
+                    android:id="@+id/cloud_backup_header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/blaze_hole"
+                    android:textColor="@color/white"
+                    android:text="@string/cloud_storage_backup"
                     android:textSize="16sp"
                     android:padding="8dp"
-                    android:gravity="center"
-                    android:textAlignment="textStart"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:layout_margin="8dp"
-                    android:text="@string/restore"
-                    android:drawableStart="@drawable/restore"
+                    android:drawableStart="@drawable/backup_black"
                     android:drawablePadding="8dp"/>
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Coming Soon..."
+                    android:layout_centerInParent="true"
+                    android:gravity="center"/>
 
-            </LinearLayout>
+                <!--<LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/cloud_backup_header">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/cloud_backup_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:layout_margin="8dp">
+
+                        <ImageView
+                            android:id="@+id/backup_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:rotation="90"
+                            android:src="@drawable/restore"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/backup_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/backup_note"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            app:layout_constraintStart_toEndOf="@id/backup_icon"
+                            app:layout_constraintTop_toTopOf="@+id/backup_icon" />
+
+                        <TextView
+                            android:id="@+id/backup_desc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/backup_desc"
+                            app:layout_constraintBottom_toBottomOf="@+id/backup_icon"
+                            app:layout_constraintStart_toEndOf="@id/backup_icon"
+                            app:layout_constraintTop_toBottomOf="@id/backup_text" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                    <View
+                        android:id="@+id/divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="8dp"
+                        android:background="?android:attr/listDivider" />
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/cloud_restore_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:padding="8dp"
+                        android:foreground="?attr/selectableItemBackground">
+
+                        <ImageView
+                            android:id="@+id/restore_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/restore"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/restore_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/restore_note"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            app:layout_constraintStart_toEndOf="@id/restore_icon"
+                            app:layout_constraintTop_toTopOf="@+id/restore_icon" />
+
+                        <TextView
+                            android:id="@+id/restore_desc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/restore_desc"
+                            app:layout_constraintBottom_toBottomOf="@+id/restore_icon"
+                            app:layout_constraintStart_toEndOf="@id/restore_icon"
+                            app:layout_constraintTop_toBottomOf="@id/restore_text" />
+                    </android.support.constraint.ConstraintLayout>
 
 
 
-        </RelativeLayout>
+
+                </LinearLayout>-->
 
 
 
-    </android.support.v7.widget.CardView>
-
-
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        app:cardElevation="4dp">
+            </RelativeLayout>
 
 
 
-    </android.support.v7.widget.CardView>
+        </android.support.v7.widget.CardView>
 
-</LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

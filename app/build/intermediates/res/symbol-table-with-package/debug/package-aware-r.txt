@@ -1304,6 +1304,7 @@ id chosen_image_container
 id chronometer
 id clip_horizontal
 id clip_vertical
+id cloud_backup_header
 id collapseActionView
 id color_grid
 id column
@@ -1434,7 +1435,12 @@ id list_item
 id loading_view
 id local_back_header
 id local_backup_button
+id local_backup_desc
+id local_backup_icon
+id local_backup_text
 id local_restore_button
+id local_restore_icon
+id local_restore_text
 id love_text
 id mainHolder
 id main_layout
@@ -1521,6 +1527,7 @@ id rate_us_message
 id record_audio_option
 id remove_image
 id restore_button
+id restore_desc
 id restore_warning_header
 id restore_warning_message
 id restore_warning_title
@@ -1865,9 +1872,12 @@ string audio_inserted
 string audio_record_not_supported
 string back
 string backup
+string backup_and_restore
+string backup_desc
 string backup_done_msg
 string backup_failed_msg
 string backup_file_not_found
+string backup_note
 string backup_restore_success_message
 string backup_wait_msg
 string bottom_sheet_behavior
@@ -1886,6 +1896,7 @@ string choose_background_color
 string choose_color
 string clear_note
 string clear_note_msg
+string cloud_storage_backup
 string com_crashlytics_android_build_id
 string common_google_play_services_enable_button
 string common_google_play_services_enable_text
@@ -2003,8 +2014,10 @@ string remove
 string remove_all_note
 string removed_from_favorite
 string restore
+string restore_desc
 string restore_done_msg
 string restore_failed_msg
+string restore_note
 string restore_progress_text
 string restore_warning_message
 string restore_warning_title
