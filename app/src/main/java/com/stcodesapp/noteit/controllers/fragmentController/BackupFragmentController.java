@@ -5,11 +5,16 @@ import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.common.CustomApplication;
 import com.stcodesapp.noteit.common.Logger;
+import com.stcodesapp.noteit.common.adController.FullScreenAdController;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.PermissionType;
 import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.factory.TasksFactory;
+import com.stcodesapp.noteit.monetization.ads.AdMob;
+import com.stcodesapp.noteit.tasks.functionalTasks.DialogManagementTask;
+import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.IAPTrackingTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.dataBackupTasks.BackupRestoringTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.dataBackupTasks.BackupSavingTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.BackupFragmentScreenManipulationTask;
@@ -17,29 +22,35 @@ import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.BackupFragmentScreenView;
 import com.stcodesapp.noteit.ui.views.screens.fragmentScreen.BackupFragmentScreen;
 
-public class BackupFragmentController implements BackupFragmentScreen.Listener, BackupSavingTask.Listener, BackupRestoringTask.Listener, BackupFragmentScreenManipulationTask.Listener
+public class BackupFragmentController implements BackupFragmentScreen.Listener, BackupSavingTask.Listener, BackupRestoringTask.Listener, BackupFragmentScreenManipulationTask.Listener, DialogManagementTask.DialogOptionListener, AdMob.Listener
 {
 
     private Activity activity;
     private TasksFactory tasksFactory;
     private BackupFragmentScreenView backupFragmentScreenView;
     private BackupFragmentScreenManipulationTask backupFragmentScreenManipulationTask;
-    private int localStorageOption = Constants.LOCAL_STORAGE_PHONE;
+    private int localStorageOption = Constants.LOCAL_STORAGE_PHONE,watchAdPurpose;
+    private IAPTrackingTasks iapTrackingTasks;
+    private FullScreenAdController fullScreenAdController;
 
     public BackupFragmentController(Activity activity, TasksFactory tasksFactory) {
         this.activity = activity;
         this.tasksFactory = tasksFactory;
         this.backupFragmentScreenManipulationTask = tasksFactory.getBackupFragmentScreenManipulationTask();
+        this.iapTrackingTasks = tasksFactory.getIAPTrackingTasks();
     }
 
     public void bindView(BackupFragmentScreenView backupFragmentScreenView)
     {
         this.backupFragmentScreenView = backupFragmentScreenView;
         this.backupFragmentScreenManipulationTask.bindView(backupFragmentScreenView);
+        this.backupFragmentScreenManipulationTask.loadBannerAd();
     }
 
     public void onStart()
     {
+        fullScreenAdController = ((CustomApplication)activity.getApplication()).getFullScreenAdController();
+        fullScreenAdController.getAdMob().setListener(this);
         backupFragmentScreenView.registerListener(this);
     }
 
@@ -83,7 +94,14 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
     @Override
     public void onBackupToLocalStorageClicked()
     {
-        executeBackupToLocalStorageTask(Constants.LOCAL_STORAGE_BACKUP);
+        /*executeBackupToLocalStorageTask(Constants.LOCAL_STORAGE_BACKUP);*/
+        if(iapTrackingTasks.isPaidUser())
+            executeBackupToLocalStorageTask(Constants.LOCAL_STORAGE_BACKUP);
+        else
+        {
+            backupFragmentScreenManipulationTask.showUpgradeDialog(this);
+            watchAdPurpose = Constants.LOCAL_STORAGE_BACKUP;
+        }
     }
 
     @Override
@@ -94,7 +112,13 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
     @Override
     public void onRestoreFromLocalStorageClicked()
     {
-        backupFragmentScreenManipulationTask.showBackupRestoreWarningDialog(this);
+        if(iapTrackingTasks.isPaidUser())
+            backupFragmentScreenManipulationTask.showBackupRestoreWarningDialog(this);
+        else
+        {
+            backupFragmentScreenManipulationTask.showUpgradeDialog(this);
+            watchAdPurpose = Constants.LOCAL_STORAGE_RESTORE;
+        }
     }
 
     @Override
@@ -153,6 +177,27 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
 
     @Override
     public void onRestoreFromCloudStorageConfirmed() {
+
+    }
+
+    @Override
+    public void onWatchAdClicked()
+    {
+        fullScreenAdController.showRewardedVideoAd();
+    }
+
+    @Override
+    public void onRewardedFromVideoAd()
+    {
+        switch (watchAdPurpose)
+        {
+            case Constants.LOCAL_STORAGE_BACKUP:
+                executeBackupToLocalStorageTask(Constants.LOCAL_STORAGE_BACKUP);
+                break;
+            case Constants.LOCAL_STORAGE_RESTORE:
+                backupFragmentScreenManipulationTask.showUpgradeDialog(this);
+                break;
+        }
 
     }
 }

@@ -58,8 +58,8 @@ public class Constants {
     public static final int LOCAL_STORAGE_SD_CARD = 2;
     public static final int LOCAL_STORAGE_BACKUP = 1;
     public static final int CLOUD_STORAGE_BACKUP = 2;
-    public static final int LOCAL_STORAGE_RESTORE = 1;
-    public static final int CLOUD_STORAGE_RESTORE= 2;
+    public static final int LOCAL_STORAGE_RESTORE = 3;
+    public static final int CLOUD_STORAGE_RESTORE= 4;
     public static final int BACKUP = 1;
     public static final int RESTORE = 2;
     public static final int ZERO = 0;

@@ -242,6 +242,6 @@ public class TasksFactory {
 
     public BackupFragmentScreenManipulationTask getBackupFragmentScreenManipulationTask()
     {
-        return new BackupFragmentScreenManipulationTask(activity);
+        return new BackupFragmentScreenManipulationTask(activity,this);
     }
 }

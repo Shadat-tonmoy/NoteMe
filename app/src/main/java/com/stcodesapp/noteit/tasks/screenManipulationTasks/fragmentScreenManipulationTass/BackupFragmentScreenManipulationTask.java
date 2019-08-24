@@ -13,6 +13,10 @@ import android.widget.Toast;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.PermissionType;
+import com.stcodesapp.noteit.factory.TasksFactory;
+import com.stcodesapp.noteit.monetization.ads.AdMob;
+import com.stcodesapp.noteit.monetization.ads.AdNetwork;
+import com.stcodesapp.noteit.tasks.functionalTasks.DialogManagementTask;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.BackupFragmentScreenView;
 
 public class BackupFragmentScreenManipulationTask
@@ -29,9 +33,11 @@ public class BackupFragmentScreenManipulationTask
     private LinearLayout backupProgressView, backupDoneView;
     private TextView backupDoneText, backupProgressText;
     private ImageView backupDoneImage;
+    private TasksFactory tasksFactory;
 
-    public BackupFragmentScreenManipulationTask(Activity activity) {
+    public BackupFragmentScreenManipulationTask(Activity activity,TasksFactory tasksFactory) {
         this.activity = activity;
+        this.tasksFactory = tasksFactory;
     }
 
     public void bindView(BackupFragmentScreenView backupFragmentScreenView) {
@@ -137,5 +143,17 @@ public class BackupFragmentScreenManipulationTask
         backupProgressView.setVisibility(View.GONE);
         backupDoneView.setVisibility(View.VISIBLE);
         backupDoneText.setText(activity.getResources().getString(R.string.backup_restore_success_message));
+    }
+
+    public void showUpgradeDialog(DialogManagementTask.DialogOptionListener dialogOptionListener) {
+        DialogManagementTask dialogManagementTask = tasksFactory.getDialogManagementTask();
+        dialogManagementTask.showUpgradeDialog(dialogOptionListener);
+    }
+
+    public void loadBannerAd()
+    {
+        AdNetwork adNetwork = new AdMob(backupFragmentScreenView.getAdMobBannerAdView(),activity);
+        adNetwork.loadBannerAd();
+
     }
 }

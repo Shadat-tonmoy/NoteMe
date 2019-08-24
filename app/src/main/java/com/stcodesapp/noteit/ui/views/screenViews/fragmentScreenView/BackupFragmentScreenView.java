@@ -31,6 +31,7 @@ public class BackupFragmentScreenView extends BaseObservableScreenView<BackupFra
 
     private ConstraintLayout backupToLocalStorageButton,backupToCloudStorageButton,restoreFromLocalStorageButton,restoreFromCloudStorageButton;
     private RadioGroup storageOption;
+    private AdView adMobBannerAdView;
 
     public BackupFragmentScreenView(LayoutInflater layoutInflater, @Nullable ViewGroup parent)
     {
@@ -62,6 +63,7 @@ public class BackupFragmentScreenView extends BaseObservableScreenView<BackupFra
         backupToLocalStorageButton = findViewById(R.id.local_backup_button);
         restoreFromLocalStorageButton = findViewById(R.id.local_restore_button);
         storageOption = findViewById(R.id.storage_option_radio);
+        adMobBannerAdView = findViewById(R.id.admob_banner_ad_view);
 
 
     }
@@ -88,5 +90,9 @@ public class BackupFragmentScreenView extends BaseObservableScreenView<BackupFra
             }
         });
 
+    }
+
+    public AdView getAdMobBannerAdView() {
+        return adMobBannerAdView;
     }
 }
