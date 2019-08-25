@@ -195,7 +195,7 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
                 executeBackupToLocalStorageTask(Constants.LOCAL_STORAGE_BACKUP);
                 break;
             case Constants.LOCAL_STORAGE_RESTORE:
-                backupFragmentScreenManipulationTask.showUpgradeDialog(this);
+                backupFragmentScreenManipulationTask.showBackupRestoreWarningDialog(this);
                 break;
         }
 
