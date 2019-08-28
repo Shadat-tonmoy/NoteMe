@@ -45,6 +45,8 @@ public class BackupFragmentScreenView extends BaseObservableScreenView<BackupFra
     {
         setClickListener(backupToLocalStorageButton,EventTypes.BACKUP_TO_LOCAL_STORAGE_BUTTON_CLICKED);
         setClickListener(restoreFromLocalStorageButton,EventTypes.RESTORE_FROM_LOCAL_STORAGE_BUTTON_CLICKED);
+        setClickListener(backupToCloudStorageButton,EventTypes.BACKUP_TO_CLOUD_STORAGE_BUTTON_CLICKED);
+        setClickListener(restoreFromCloudStorageButton,EventTypes.RESTORE_FROM_CLOUD_STORAGE_BUTTON_CLICKED);
         storageOption.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -62,6 +64,8 @@ public class BackupFragmentScreenView extends BaseObservableScreenView<BackupFra
     {
         backupToLocalStorageButton = findViewById(R.id.local_backup_button);
         restoreFromLocalStorageButton = findViewById(R.id.local_restore_button);
+        backupToCloudStorageButton = findViewById(R.id.cloud_backup_button);
+        restoreFromCloudStorageButton = findViewById(R.id.cloud_restore_button);
         storageOption = findViewById(R.id.storage_option_radio);
         adMobBannerAdView = findViewById(R.id.admob_banner_ad_view);
 
@@ -83,6 +87,12 @@ public class BackupFragmentScreenView extends BaseObservableScreenView<BackupFra
                             break;
                         case EventTypes.RESTORE_FROM_LOCAL_STORAGE_BUTTON_CLICKED:
                             listener.onRestoreFromLocalStorageClicked();
+                            break;
+                        case EventTypes.BACKUP_TO_CLOUD_STORAGE_BUTTON_CLICKED:
+                            listener.onBackupToCloudStorageClicked();
+                            break;
+                        case EventTypes.RESTORE_FROM_CLOUD_STORAGE_BUTTON_CLICKED:
+                            listener.onRestoreFromCloudStorageClicked();
                             break;
                     }
                 }

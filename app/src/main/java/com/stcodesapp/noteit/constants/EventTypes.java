@@ -27,6 +27,8 @@ public class EventTypes {
     public static final int IAP_DONE_BUTTON_CLICKED= 24;
     public static final int BACKUP_TO_LOCAL_STORAGE_BUTTON_CLICKED= 25;
     public static final int RESTORE_FROM_LOCAL_STORAGE_BUTTON_CLICKED= 26;
+    public static final int BACKUP_TO_CLOUD_STORAGE_BUTTON_CLICKED= 27;
+    public static final int RESTORE_FROM_CLOUD_STORAGE_BUTTON_CLICKED= 28;
 
 
 }

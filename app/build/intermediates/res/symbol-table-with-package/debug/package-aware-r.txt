@@ -1304,7 +1304,15 @@ id chosen_image_container
 id chronometer
 id clip_horizontal
 id clip_vertical
+id cloud_backup_button
+id cloud_backup_desc
 id cloud_backup_header
+id cloud_backup_icon
+id cloud_backup_text
+id cloud_restore_button
+id cloud_restore_desc
+id cloud_restore_icon
+id cloud_restore_text
 id collapseActionView
 id color_grid
 id column

@@ -1,7 +1,7 @@
-#Sun Aug 25 09:42:13 BDT 2019
-base.0=/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/dex/debug/mergeExtDexDebug/out
+#Wed Aug 28 11:29:49 BDT 2019
+base.0=/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/dex/debug/mergeProjectDexDebug/out
+base.1=/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex

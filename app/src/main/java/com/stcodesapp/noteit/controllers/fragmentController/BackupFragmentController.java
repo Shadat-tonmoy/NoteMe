@@ -3,7 +3,9 @@ package com.stcodesapp.noteit.controllers.fragmentController;
 import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
+import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.common.CustomApplication;
 import com.stcodesapp.noteit.common.Logger;
@@ -105,7 +107,12 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
     }
 
     @Override
-    public void onBackupToCloudStorageClicked() {
+    public void onBackupToCloudStorageClicked()
+    {
+        Toast.makeText(activity, "Backup to cloud", Toast.LENGTH_SHORT).show();
+        /*GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();*/
 
     }
 
@@ -122,7 +129,9 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
     }
 
     @Override
-    public void onRestoreFromCloudStorageClicked() {
+    public void onRestoreFromCloudStorageClicked()
+    {
+        Toast.makeText(activity, "Restore From Cloud", Toast.LENGTH_SHORT).show();
 
     }
 

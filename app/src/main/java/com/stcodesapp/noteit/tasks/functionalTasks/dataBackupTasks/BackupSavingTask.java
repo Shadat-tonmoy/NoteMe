@@ -117,7 +117,7 @@ public class BackupSavingTask extends AsyncTask<Integer,Void,Boolean>
                 file = fileIOTasks.getFileForSavingInSDCard(Constants.BACKUP_DIRECTORY,Constants.BACKUP_FILE_NAME,Constants.JSON_FILE_EXT);
             else
             {
-                Toast.makeText(activity, activity.getString(R.string.sd_card_not_available), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(activity, activity.getString(R.string.sd_card_not_available), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }

@@ -4,17 +4,7 @@
             "outputFile": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
             "map": [
                 {
-                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/ee3313a37ea2d72918318e725db9a4cc/res/values-land/values-land.xml",
-                    "from": {
-                        "startLines": "2,3,4",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "55,125,196",
-                        "endColumns": "69,70,67",
-                        "endOffsets": "120,191,259"
-                    }
-                },
-                {
-                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/708882e8d016472975939844641a0a49/res/values-land/values-land.xml",
+                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/8be73e0f0ca188f77f6aac7a613a9b9e/design-28.0.0/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -30,6 +20,16 @@
                         "endLines": "8",
                         "endColumns": "10",
                         "endOffsets": "431"
+                    }
+                },
+                {
+                    "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/449d4863e4cdcc39c101b5466d786323/appcompat-v7-28.0.0/res/values-land/values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,125,196",
+                        "endColumns": "69,70,67",
+                        "endOffsets": "120,191,259"
                     }
                 }
             ]

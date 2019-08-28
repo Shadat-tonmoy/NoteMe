@@ -202,14 +202,7 @@
                     android:drawableStart="@drawable/backup_black"
                     android:drawablePadding="8dp"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Coming Soon..."
-                    android:layout_centerInParent="true"
-                    android:gravity="center"/>
-
-                <!--<LinearLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -223,7 +216,7 @@
                         android:layout_margin="8dp">
 
                         <ImageView
-                            android:id="@+id/backup_icon"
+                            android:id="@+id/cloud_backup_icon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:rotation="90"
@@ -233,30 +226,30 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/backup_text"
+                            android:id="@+id/cloud_backup_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:text="@string/backup_note"
                             android:textColor="@color/black"
                             android:textSize="16sp"
-                            app:layout_constraintStart_toEndOf="@id/backup_icon"
-                            app:layout_constraintTop_toTopOf="@+id/backup_icon" />
+                            app:layout_constraintStart_toEndOf="@id/cloud_backup_icon"
+                            app:layout_constraintTop_toTopOf="@+id/cloud_backup_icon" />
 
                         <TextView
-                            android:id="@+id/backup_desc"
+                            android:id="@+id/cloud_backup_desc"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:text="@string/backup_desc"
-                            app:layout_constraintBottom_toBottomOf="@+id/backup_icon"
-                            app:layout_constraintStart_toEndOf="@id/backup_icon"
-                            app:layout_constraintTop_toBottomOf="@id/backup_text" />
+                            app:layout_constraintBottom_toBottomOf="@+id/cloud_backup_icon"
+                            app:layout_constraintStart_toEndOf="@id/cloud_backup_icon"
+                            app:layout_constraintTop_toBottomOf="@id/cloud_backup_icon" />
 
                     </android.support.constraint.ConstraintLayout>
 
                     <View
-                        android:id="@+id/divider"
+                        android:id="@+id/divider2"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_margin="8dp"
@@ -271,7 +264,7 @@
                         android:foreground="?attr/selectableItemBackground">
 
                         <ImageView
-                            android:id="@+id/restore_icon"
+                            android:id="@+id/cloud_restore_icon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/restore"
@@ -280,31 +273,31 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
-                            android:id="@+id/restore_text"
+                            android:id="@+id/cloud_restore_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:text="@string/restore_note"
                             android:textColor="@color/black"
                             android:textSize="16sp"
-                            app:layout_constraintStart_toEndOf="@id/restore_icon"
-                            app:layout_constraintTop_toTopOf="@+id/restore_icon" />
+                            app:layout_constraintStart_toEndOf="@id/cloud_restore_icon"
+                            app:layout_constraintTop_toTopOf="@+id/cloud_restore_icon" />
 
                         <TextView
-                            android:id="@+id/restore_desc"
+                            android:id="@+id/cloud_restore_desc"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:text="@string/restore_desc"
-                            app:layout_constraintBottom_toBottomOf="@+id/restore_icon"
-                            app:layout_constraintStart_toEndOf="@id/restore_icon"
-                            app:layout_constraintTop_toBottomOf="@id/restore_text" />
+                            app:layout_constraintBottom_toBottomOf="@+id/cloud_restore_icon"
+                            app:layout_constraintStart_toEndOf="@id/cloud_restore_icon"
+                            app:layout_constraintTop_toBottomOf="@id/cloud_restore_text" />
                     </android.support.constraint.ConstraintLayout>
 
 
 
 
-                </LinearLayout>-->
+                </LinearLayout>
 
 
 
