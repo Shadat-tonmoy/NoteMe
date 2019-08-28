@@ -1,10 +1,14 @@
 package com.stcodesapp.noteit.controllers.fragmentController;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.common.CustomApplication;
@@ -34,6 +38,8 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
     private int localStorageOption = Constants.LOCAL_STORAGE_PHONE,watchAdPurpose;
     private IAPTrackingTasks iapTrackingTasks;
     private FullScreenAdController fullScreenAdController;
+    private GoogleSignInClient googleSignInClient;
+    private boolean isAlreadySignedIn = false;
 
     public BackupFragmentController(Activity activity, TasksFactory tasksFactory) {
         this.activity = activity;
@@ -47,6 +53,20 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
         this.backupFragmentScreenView = backupFragmentScreenView;
         this.backupFragmentScreenManipulationTask.bindView(backupFragmentScreenView);
         this.backupFragmentScreenManipulationTask.loadBannerAd();
+    }
+
+
+    public void onCreate()
+    {
+        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+        googleSignInClient = GoogleSignIn.getClient(activity, googleSignInOptions);
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(activity);
+        if(account!=null)
+            isAlreadySignedIn = true;
+
+
     }
 
     public void onStart()
@@ -93,6 +113,12 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
         backupRestoringTask.execute(backupType,localStorageOption);
     }
 
+    private void startGoogleSignInFlow()
+    {
+        Intent signInIntent = googleSignInClient.getSignInIntent();
+        activity.startActivityForResult(signInIntent, RequestCode.GOOGLE_SIGN_IN_REQUEST);
+    }
+
     @Override
     public void onBackupToLocalStorageClicked()
     {
@@ -109,10 +135,15 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
     @Override
     public void onBackupToCloudStorageClicked()
     {
-        Toast.makeText(activity, "Backup to cloud", Toast.LENGTH_SHORT).show();
-        /*GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();*/
+        if(!isAlreadySignedIn)
+        {
+            startGoogleSignInFlow();
+        }
+        else
+        {
+            Toast.makeText(activity, "Backup to cloud", Toast.LENGTH_SHORT).show();
+        }
+
 
     }
 
@@ -131,7 +162,14 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
     @Override
     public void onRestoreFromCloudStorageClicked()
     {
-        Toast.makeText(activity, "Restore From Cloud", Toast.LENGTH_SHORT).show();
+        if(!isAlreadySignedIn)
+        {
+            startGoogleSignInFlow();
+        }
+        else
+        {
+            Toast.makeText(activity, "Restore From Cloud", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
@@ -209,4 +247,5 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
         }
 
     }
+
 }

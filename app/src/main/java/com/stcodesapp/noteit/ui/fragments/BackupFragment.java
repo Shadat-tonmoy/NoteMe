@@ -33,6 +33,7 @@ public class BackupFragment extends BaseFragment
         backupFragmentScreenView = getCompositionRoot().getViewFactory().getBackupFragmentScreenView(parent);
         backupFragmentController = getCompositionRoot().getFragmentControllerFactory().getBackupFragmentController();
         backupFragmentController.bindView(backupFragmentScreenView);
+        backupFragmentController.onCreate();
     }
 
     @Override
