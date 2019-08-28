@@ -10,6 +10,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.common.CustomApplication;
 import com.stcodesapp.noteit.common.Logger;
@@ -27,6 +29,8 @@ import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipul
 import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.BackupFragmentScreenView;
 import com.stcodesapp.noteit.ui.views.screens.fragmentScreen.BackupFragmentScreen;
+
+import static android.app.Activity.RESULT_OK;
 
 public class BackupFragmentController implements BackupFragmentScreen.Listener, BackupSavingTask.Listener, BackupRestoringTask.Listener, BackupFragmentScreenManipulationTask.Listener, DialogManagementTask.DialogOptionListener, AdMob.Listener
 {
@@ -94,6 +98,31 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
             if(grantResults[0]== PackageManager.PERMISSION_GRANTED)
                 executeBackupRestoreTask(Constants.LOCAL_STORAGE_RESTORE);
             else backupFragmentScreenManipulationTask.showPermissionRequiredMessage(PermissionType.READ_EXTERNAL_STORAGE_PERMISSION);
+        }
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        if (requestCode == RESULT_OK)
+        {
+            if(requestCode == RequestCode.GOOGLE_SIGN_IN_REQUEST)
+            {
+                Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+                handleSignInResult(task);
+            }
+        }
+    }
+
+    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
+        try
+        {
+
+            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+            Toast.makeText(activity, "Successfully SignedIn", Toast.LENGTH_SHORT).show();
+
+        } catch (ApiException e)
+        {
+            Toast.makeText(activity, "Google Sign In Failed", Toast.LENGTH_LONG).show();
         }
     }
 

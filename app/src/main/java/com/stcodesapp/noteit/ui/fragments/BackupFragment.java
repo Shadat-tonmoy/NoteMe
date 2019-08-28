@@ -1,6 +1,7 @@
 package com.stcodesapp.noteit.ui.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -40,6 +41,13 @@ public class BackupFragment extends BaseFragment
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         backupFragmentController.onRequestPermissionsResult(requestCode,permissions,grantResults);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        backupFragmentController.onActivityResult(requestCode, resultCode, data);
+
     }
 
     @Override
