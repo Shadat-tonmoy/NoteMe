@@ -615,10 +615,10 @@
     <string name="add_phone_no">Add Phone No</string>
     <string name="add_phone_number_manually">Add Phone Number Manually</string>
     <string name="added_to_favorite">Note is marked as important</string>
-    <string name="admob_app_id">@string/admob_app_id_real</string>
+    <string name="admob_app_id">@string/admob_app_id_test</string>
     <string name="admob_app_id_real">ca-app-pub-7505528330087753~8721763907</string>
     <string name="admob_app_id_test">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="admob_banner_ad_id">@string/admob_banner_ad_real</string>
+    <string name="admob_banner_ad_id">@string/admob_banner_ad_test</string>
     <string name="admob_banner_ad_real">ca-app-pub-7505528330087753/5392467953</string>
     <string name="admob_banner_ad_test">ca-app-pub-3940256099942544/6300978111</string>
     <string name="admob_interstitial_ad_real">ca-app-pub-7505528330087753/5200896267</string>
@@ -659,7 +659,7 @@
     <string name="clear_note">Clear Note?</string>
     <string name="clear_note_msg">Are you sure to clear all note?</string>
     <string name="cloud_storage_backup">Cloud Storage Backup</string>
-    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">5bbead7f-f4a7-4575-91e9-f77a450fa108</string>
+    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">f3f9f4ae-e3ff-4070-9f97-8cf204581e98</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
     <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>
@@ -711,6 +711,7 @@
     <string name="google_api_key" translatable="false">AIzaSyCjhgDobl6v8Y9QrDe0LXYw92k_7xQ3ZaE</string>
     <string name="google_app_id" translatable="false">1:166760414832:android:64e092846638ec57</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCjhgDobl6v8Y9QrDe0LXYw92k_7xQ3ZaE</string>
+    <string name="google_sign_in_server_client_id">166760414832-3kr6bpjs6a7rgt9hbfuouvgvs8ha9q0b.apps.googleusercontent.com</string>
     <string name="google_storage_bucket" translatable="false">noteitapp-2443e.appspot.com</string>
     <string name="got_it">Got It!</string>
     <string name="hi_there">Hi There!</string>

@@ -6,6 +6,7 @@ import com.stcodesapp.noteit.models.NoteComponents;
 import com.stcodesapp.noteit.tasks.databaseTasks.DatabaseTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllAudioSelectionTasks;
 import com.stcodesapp.noteit.tasks.databaseTasks.selectionTasks.AllImageSelectionTasks;
+import com.stcodesapp.noteit.tasks.functionalTasks.dataBackupTasks.BackupConvertionTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.dataBackupTasks.BackupRestoringTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.dataBackupTasks.BackupSavingTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.DialogManagementTask;
@@ -23,6 +24,7 @@ import com.stcodesapp.noteit.tasks.functionalTasks.phoneFunctionAccessTasks.Voic
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.RateUSPopupTrackingTasks;
+import com.stcodesapp.noteit.tasks.networkingTasks.GoogleDriveAPITask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.CheckListActivityScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.IAPScreenManipulationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.BackupFragmentScreenManipulationTask;
@@ -243,5 +245,15 @@ public class TasksFactory {
     public BackupFragmentScreenManipulationTask getBackupFragmentScreenManipulationTask()
     {
         return new BackupFragmentScreenManipulationTask(activity,this);
+    }
+
+    public GoogleDriveAPITask getGoogleDriveAPITask()
+    {
+        return new GoogleDriveAPITask(activity,getBackupConvertionTask());
+    }
+
+    public BackupConvertionTask getBackupConvertionTask()
+    {
+        return new BackupConvertionTask(activity);
     }
 }

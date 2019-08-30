@@ -2,6 +2,8 @@ package com.stcodesapp.noteit.constants;
 
 import com.stcodesapp.noteit.BuildConfig;
 
+import java.util.UUID;
+
 public class Constants {
     public static final String UNNAMED = "Unnamed";
     public static final String SPACE = " ";
@@ -24,6 +26,8 @@ public class Constants {
     public static final String ANDROID = "Android";
     public static final String JSON_ENCODER = "UTF-8";
     public static final String FILE_DIRECTORY = BuildConfig.APPLICATION_ID+"/";
+    public static final String CLOUD_BACKUP_FILE_NAME = APP_DATABASE+"_backup.json";
+    public static final String CLOUD_BACKUP_FILE_ID = APP_DATABASE;
     public static final String BACKUP_DIRECTORY = "backup";
     public static final String BACKUP_FILE_NAME= "app_backup";
     public static final String PDF_FILE_EXT = ".pdf";
@@ -40,6 +44,7 @@ public class Constants {
     public static final String PRIVACY_POLICY_URL = "https://sites.google.com/view/stcodesapp/noteit";
     public static final String TEXT_TYPE = "text/plain";
     public static final String SHARE_SUBJECT = "Subject Here";
+    public static final String TEMP_DIR_NAME = "/temp/";
     public static final String SHARE_VIA= "Subject Via";
     public static final String IMAGE= "IMAGE_";
     public static final String UNDERSCORE= "_";

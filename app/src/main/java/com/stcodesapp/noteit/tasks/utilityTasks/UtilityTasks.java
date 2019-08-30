@@ -12,6 +12,8 @@ import com.stcodesapp.noteit.BuildConfig;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.constants.Constants;
 
+import java.io.File;
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Random;
 
@@ -142,6 +144,20 @@ public class UtilityTasks {
             return activity.getResources().getString(R.string.admob_app_id_test);
         }
         else return activity.getResources().getString(R.string.admob_app_id_real);
+    }
+
+    public static String getTempDirectoryPath(Activity activity)
+    {
+        String tempDirPath = activity.getApplication().getFilesDir().getAbsolutePath()+Constants.TEMP_DIR_NAME;
+        File tempDir = new File(tempDirPath);
+        if(!tempDir.exists())
+        {
+            boolean result = tempDir.mkdirs();
+            if(!result)
+                return null;
+        }
+        return tempDir.getAbsolutePath();
+
     }
 
 }

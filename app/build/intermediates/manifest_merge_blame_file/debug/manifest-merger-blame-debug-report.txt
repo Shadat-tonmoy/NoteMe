@@ -71,286 +71,287 @@
 35-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:21:9-54
 36        android:supportsRtl="true"
 36-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:22:9-35
-37        android:theme="@style/AppTheme" >
-37-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:23:9-40
-38        <activity
-38-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:24:9-26:61
-39            android:name="com.stcodesapp.noteit.ui.activities.ManualEmailActivity"
-39-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:24:19-68
-40            android:screenOrientation="portrait"
-40-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:26:13-49
-41            android:windowSoftInputMode="adjustResize" />
-41-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:25:13-55
-42        <activity
-42-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:27:9-30:61
-43            android:name="com.stcodesapp.noteit.ui.activities.ManualContactActivity"
-43-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:28:13-64
-44            android:screenOrientation="portrait"
-44-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:30:13-49
-45            android:windowSoftInputMode="adjustResize" />
-45-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:29:13-55
-46        <activity
-46-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:31:9-35:20
-47            android:name="com.stcodesapp.noteit.ui.activities.NoteFieldActivity"
-47-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:32:13-60
-48            android:screenOrientation="portrait"
-48-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:34:13-49
-49            android:windowSoftInputMode="stateHidden" >
-49-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:33:13-54
-50        </activity>
-51        <activity
-51-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:38:9-41:71
-52            android:name="com.stcodesapp.noteit.ui.activities.CheckListActivity"
-52-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:39:13-60
-53            android:screenOrientation="portrait"
-53-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:40:13-49
-54            android:windowSoftInputMode="stateVisible|adjustResize" />
-54-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:41:13-68
-55        <activity
-55-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:43:9-47:15
-56            android:name="com.stcodesapp.noteit.ui.activities.PrivacyPolicyActivity"
-56-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:44:13-64
-57            android:screenOrientation="portrait"
-57-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:46:13-49
-58            android:theme="@style/AppTheme.Transparent" />
-58-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:45:13-56
-59        <activity
-59-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:48:9-52:15
-60            android:name="com.stcodesapp.noteit.ui.activities.InAppPurchaseActivity"
-60-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:49:13-64
-61            android:screenOrientation="portrait"
-61-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:51:13-49
-62            android:theme="@style/AppTheme.Transparent" />
-62-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:50:13-56
-63        <activity
-63-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:53:9-62:20
-64            android:name="com.stcodesapp.noteit.ui.activities.MainActivity"
-64-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:54:13-55
-65            android:screenOrientation="portrait"
-65-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:56:13-49
-66            android:theme="@style/AppTheme.TransparentActionBar" >
-66-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:55:13-65
-67            <intent-filter>
-67-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:57:13-61:29
-68                <action android:name="android.intent.action.MAIN" />
-68-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:58:17-69
-68-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:58:25-66
-69
-70                <category android:name="android.intent.category.LAUNCHER" />
-70-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:60:17-77
-70-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:60:27-74
-71            </intent-filter>
-72        </activity>
-73
-74        <provider
-75            android:name="android.support.v4.content.FileProvider"
-75-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:65:13-67
-76            android:authorities="com.stcodesapp.noteit.provider"
-76-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:66:13-60
-77            android:exported="false"
-77-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:67:13-37
-78            android:grantUriPermissions="true" >
-78-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:68:13-47
-79            <meta-data
-79-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:69:13-71:58
-80                android:name="android.support.FILE_PROVIDER_PATHS"
-80-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:70:17-67
-81                android:resource="@xml/provider_paths" />
-81-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:71:17-55
-82        </provider>
-83
-84        <meta-data
-84-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:73:9-75:72
-85            android:name="io.fabric.ApiKey"
-85-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:74:13-44
-86            android:value="54ef3251610aae18b3915503cdd2ff250fdebb52" />
-86-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:75:13-69
-87
-88        <activity
-88-->[com.android.billingclient:billing:1.2] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f729848add296a57515de8b307e49e47/billing-1.2/AndroidManifest.xml:13:9-16:75
-89            android:name="com.android.billingclient.api.ProxyBillingActivity"
-89-->[com.android.billingclient:billing:1.2] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f729848add296a57515de8b307e49e47/billing-1.2/AndroidManifest.xml:14:13-78
-90            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-90-->[com.android.billingclient:billing:1.2] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f729848add296a57515de8b307e49e47/billing-1.2/AndroidManifest.xml:15:13-96
-91            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-91-->[com.android.billingclient:billing:1.2] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f729848add296a57515de8b307e49e47/billing-1.2/AndroidManifest.xml:16:13-72
-92
-93        <provider
-93-->[com.crashlytics.sdk.android:crashlytics:2.9.9] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/aa37db4623109f29404388ff7ae20f8d/crashlytics-2.9.9/AndroidManifest.xml:12:9-16:38
-94            android:name="com.crashlytics.android.CrashlyticsInitProvider"
-94-->[com.crashlytics.sdk.android:crashlytics:2.9.9] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/aa37db4623109f29404388ff7ae20f8d/crashlytics-2.9.9/AndroidManifest.xml:13:13-75
-95            android:authorities="com.stcodesapp.noteit.crashlyticsinitprovider"
-95-->[com.crashlytics.sdk.android:crashlytics:2.9.9] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/aa37db4623109f29404388ff7ae20f8d/crashlytics-2.9.9/AndroidManifest.xml:14:13-75
-96            android:exported="false"
-96-->[com.crashlytics.sdk.android:crashlytics:2.9.9] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/aa37db4623109f29404388ff7ae20f8d/crashlytics-2.9.9/AndroidManifest.xml:15:13-37
-97            android:initOrder="90" />
-97-->[com.crashlytics.sdk.android:crashlytics:2.9.9] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/aa37db4623109f29404388ff7ae20f8d/crashlytics-2.9.9/AndroidManifest.xml:16:13-35
-98
-99        <activity
-99-->[com.google.android.gms:play-services-auth:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a32e0484eb94e656d38d259d8b2390f8/play-services-auth-15.0.0/AndroidManifest.xml:23:9-27:75
-100            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
-100-->[com.google.android.gms:play-services-auth:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a32e0484eb94e656d38d259d8b2390f8/play-services-auth-15.0.0/AndroidManifest.xml:24:13-93
-101            android:excludeFromRecents="true"
-101-->[com.google.android.gms:play-services-auth:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a32e0484eb94e656d38d259d8b2390f8/play-services-auth-15.0.0/AndroidManifest.xml:25:13-46
-102            android:exported="false"
-102-->[com.google.android.gms:play-services-auth:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a32e0484eb94e656d38d259d8b2390f8/play-services-auth-15.0.0/AndroidManifest.xml:26:13-37
-103            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-103-->[com.google.android.gms:play-services-auth:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a32e0484eb94e656d38d259d8b2390f8/play-services-auth-15.0.0/AndroidManifest.xml:27:13-72
-104        <!--
-105            Service handling Google Sign-In user revocation. For apps that do not integrate with
-106            Google Sign-In, this service will never be started.
-107        -->
-108        <service
-108-->[com.google.android.gms:play-services-auth:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a32e0484eb94e656d38d259d8b2390f8/play-services-auth-15.0.0/AndroidManifest.xml:33:9-36:110
-109            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
-109-->[com.google.android.gms:play-services-auth:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a32e0484eb94e656d38d259d8b2390f8/play-services-auth-15.0.0/AndroidManifest.xml:34:13-89
-110            android:exported="true"
-110-->[com.google.android.gms:play-services-auth:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a32e0484eb94e656d38d259d8b2390f8/play-services-auth-15.0.0/AndroidManifest.xml:35:13-36
-111            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
-111-->[com.google.android.gms:play-services-auth:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a32e0484eb94e656d38d259d8b2390f8/play-services-auth-15.0.0/AndroidManifest.xml:36:13-107
-112        <activity
-112-->[com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8158cf15896c322174390f5bb6754587/play-services-ads-lite-15.0.0/AndroidManifest.xml:29:9-33:64
-113            android:name="com.google.android.gms.ads.AdActivity"
-113-->[com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8158cf15896c322174390f5bb6754587/play-services-ads-lite-15.0.0/AndroidManifest.xml:30:13-65
-114            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-114-->[com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8158cf15896c322174390f5bb6754587/play-services-ads-lite-15.0.0/AndroidManifest.xml:31:13-122
-115            android:exported="false"
-115-->[com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8158cf15896c322174390f5bb6754587/play-services-ads-lite-15.0.0/AndroidManifest.xml:32:13-37
-116            android:theme="@android:style/Theme.Translucent" />
-116-->[com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8158cf15896c322174390f5bb6754587/play-services-ads-lite-15.0.0/AndroidManifest.xml:33:13-61
-117
-118        <service
-118-->[com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a3b2f03918fc799d6dfef06890d23c9f/firebase-measurement-connector-impl-17.0.5/AndroidManifest.xml:27:9-31:19
-119            android:name="com.google.firebase.components.ComponentDiscoveryService"
-119-->[com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a3b2f03918fc799d6dfef06890d23c9f/firebase-measurement-connector-impl-17.0.5/AndroidManifest.xml:27:18-89
-120            android:exported="false" >
-120-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:31:13-37
-121            <meta-data
-121-->[com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a3b2f03918fc799d6dfef06890d23c9f/firebase-measurement-connector-impl-17.0.5/AndroidManifest.xml:28:13-30:85
-122                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
-122-->[com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a3b2f03918fc799d6dfef06890d23c9f/firebase-measurement-connector-impl-17.0.5/AndroidManifest.xml:29:17-139
-123                android:value="com.google.firebase.components.ComponentRegistrar" />
-123-->[com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a3b2f03918fc799d6dfef06890d23c9f/firebase-measurement-connector-impl-17.0.5/AndroidManifest.xml:30:17-82
-124            <meta-data
-124-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:32:13-34:85
-125                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
-125-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:33:17-96
-126                android:value="com.google.firebase.components.ComponentRegistrar" />
-126-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:34:17-82
-127        </service>
-128
-129        <receiver
-129-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:29:9-33:20
-130            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
-130-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:30:13-85
-131            android:enabled="true"
-131-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:31:13-35
-132            android:exported="false" >
-132-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:32:13-37
-133        </receiver>
-134        <receiver
-134-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:34:9-42:20
-135            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
-135-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:35:13-100
-136            android:enabled="true"
-136-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:36:13-35
-137            android:exported="true"
-137-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:37:13-36
-138            android:permission="android.permission.INSTALL_PACKAGES" >
-138-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:38:13-69
-139            <intent-filter>
-139-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:39:13-41:29
-140                <action android:name="com.android.vending.INSTALL_REFERRER" />
-140-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:40:17-79
-140-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:40:25-76
-141            </intent-filter>
-142        </receiver>
-143
-144        <service
-144-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:44:9-47:40
-145            android:name="com.google.android.gms.measurement.AppMeasurementService"
-145-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:45:13-84
-146            android:enabled="true"
-146-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:46:13-35
-147            android:exported="false" />
-147-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:47:13-37
-148        <service
-148-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:48:9-52:72
-149            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
-149-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:49:13-87
-150            android:enabled="true"
-150-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:50:13-35
-151            android:exported="false"
-151-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:51:13-37
-152            android:permission="android.permission.BIND_JOB_SERVICE" />
-152-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:52:13-69
-153
-154        <receiver
-154-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:37:9-44:20
-155            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-155-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:38:13-78
-156            android:exported="true"
-156-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:39:13-36
-157            android:permission="com.google.android.c2dm.permission.SEND" >
-157-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:40:13-73
-158            <intent-filter>
-158-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:41:13-43:29
-159                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-159-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:42:17-81
-159-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:42:25-78
-160            </intent-filter>
-161        </receiver>
-162        <!--
-163             FirebaseInstanceIdService performs security checks at runtime,
-164             no need for explicit permissions despite exported="true"
-165        -->
-166        <service
-166-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:50:9-56:19
-167            android:name="com.google.firebase.iid.FirebaseInstanceIdService"
-167-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:51:13-77
-168            android:exported="true" >
-168-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:52:13-36
-169            <intent-filter android:priority="-500" >
-169-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:53:13-55:29
-169-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:53:28-51
-170                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-170-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:54:17-80
-170-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:54:25-77
-171            </intent-filter>
-172        </service>
-173
-174        <activity
-174-->[com.google.android.gms:play-services-base:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/905f520e3b4353513b518ac6975298bf/play-services-base-16.0.1/AndroidManifest.xml:23:9-26:75
-175            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-175-->[com.google.android.gms:play-services-base:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/905f520e3b4353513b518ac6975298bf/play-services-base-16.0.1/AndroidManifest.xml:24:13-79
-176            android:exported="false"
-176-->[com.google.android.gms:play-services-base:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/905f520e3b4353513b518ac6975298bf/play-services-base-16.0.1/AndroidManifest.xml:25:13-37
-177            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-177-->[com.google.android.gms:play-services-base:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/905f520e3b4353513b518ac6975298bf/play-services-base-16.0.1/AndroidManifest.xml:26:13-72
-178
-179        <provider
-179-->[com.google.firebase:firebase-common:16.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/1edb80c36a775f50fafc27b7bc2afcd4/firebase-common-16.0.3/AndroidManifest.xml:10:9-14:39
-180            android:name="com.google.firebase.provider.FirebaseInitProvider"
-180-->[com.google.firebase:firebase-common:16.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/1edb80c36a775f50fafc27b7bc2afcd4/firebase-common-16.0.3/AndroidManifest.xml:11:13-77
-181            android:authorities="com.stcodesapp.noteit.firebaseinitprovider"
-181-->[com.google.firebase:firebase-common:16.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/1edb80c36a775f50fafc27b7bc2afcd4/firebase-common-16.0.3/AndroidManifest.xml:12:13-72
-182            android:exported="false"
-182-->[com.google.firebase:firebase-common:16.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/1edb80c36a775f50fafc27b7bc2afcd4/firebase-common-16.0.3/AndroidManifest.xml:13:13-37
-183            android:initOrder="100" />
-183-->[com.google.firebase:firebase-common:16.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/1edb80c36a775f50fafc27b7bc2afcd4/firebase-common-16.0.3/AndroidManifest.xml:14:13-36
-184
-185        <meta-data
-185-->[com.google.android.gms:play-services-basement:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/cb8b212d42b13f70ebe9046778523884/play-services-basement-16.0.1/AndroidManifest.xml:23:9-25:69
-186            android:name="com.google.android.gms.version"
-186-->[com.google.android.gms:play-services-basement:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/cb8b212d42b13f70ebe9046778523884/play-services-basement-16.0.1/AndroidManifest.xml:24:13-58
-187            android:value="@integer/google_play_services_version" />
-187-->[com.google.android.gms:play-services-basement:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/cb8b212d42b13f70ebe9046778523884/play-services-basement-16.0.1/AndroidManifest.xml:25:13-66
-188        <meta-data
-188-->[com.android.support:support-v4:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/2f9be50ee036f759ed5174866a288801/support-v4-26.1.0/AndroidManifest.xml:26:9-28:38
-189            android:name="android.support.VERSION"
-189-->[com.android.support:support-v4:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/2f9be50ee036f759ed5174866a288801/support-v4-26.1.0/AndroidManifest.xml:27:13-51
-190            android:value="26.1.0" />
-190-->[com.android.support:support-v4:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/2f9be50ee036f759ed5174866a288801/support-v4-26.1.0/AndroidManifest.xml:28:13-35
-191    </application>
-192
-193</manifest>
+37        android:testOnly="true"
+38        android:theme="@style/AppTheme" >
+38-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:23:9-40
+39        <activity
+39-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:24:9-26:61
+40            android:name="com.stcodesapp.noteit.ui.activities.ManualEmailActivity"
+40-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:24:19-68
+41            android:screenOrientation="portrait"
+41-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:26:13-49
+42            android:windowSoftInputMode="adjustResize" />
+42-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:25:13-55
+43        <activity
+43-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:27:9-30:61
+44            android:name="com.stcodesapp.noteit.ui.activities.ManualContactActivity"
+44-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:28:13-64
+45            android:screenOrientation="portrait"
+45-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:30:13-49
+46            android:windowSoftInputMode="adjustResize" />
+46-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:29:13-55
+47        <activity
+47-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:31:9-35:20
+48            android:name="com.stcodesapp.noteit.ui.activities.NoteFieldActivity"
+48-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:32:13-60
+49            android:screenOrientation="portrait"
+49-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:34:13-49
+50            android:windowSoftInputMode="stateHidden" >
+50-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:33:13-54
+51        </activity>
+52        <activity
+52-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:38:9-41:71
+53            android:name="com.stcodesapp.noteit.ui.activities.CheckListActivity"
+53-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:39:13-60
+54            android:screenOrientation="portrait"
+54-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:40:13-49
+55            android:windowSoftInputMode="stateVisible|adjustResize" />
+55-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:41:13-68
+56        <activity
+56-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:43:9-47:15
+57            android:name="com.stcodesapp.noteit.ui.activities.PrivacyPolicyActivity"
+57-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:44:13-64
+58            android:screenOrientation="portrait"
+58-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:46:13-49
+59            android:theme="@style/AppTheme.Transparent" />
+59-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:45:13-56
+60        <activity
+60-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:48:9-52:15
+61            android:name="com.stcodesapp.noteit.ui.activities.InAppPurchaseActivity"
+61-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:49:13-64
+62            android:screenOrientation="portrait"
+62-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:51:13-49
+63            android:theme="@style/AppTheme.Transparent" />
+63-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:50:13-56
+64        <activity
+64-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:53:9-62:20
+65            android:name="com.stcodesapp.noteit.ui.activities.MainActivity"
+65-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:54:13-55
+66            android:screenOrientation="portrait"
+66-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:56:13-49
+67            android:theme="@style/AppTheme.TransparentActionBar" >
+67-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:55:13-65
+68            <intent-filter>
+68-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:57:13-61:29
+69                <action android:name="android.intent.action.MAIN" />
+69-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:58:17-69
+69-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:58:25-66
+70
+71                <category android:name="android.intent.category.LAUNCHER" />
+71-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:60:17-77
+71-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:60:27-74
+72            </intent-filter>
+73        </activity>
+74
+75        <provider
+76            android:name="android.support.v4.content.FileProvider"
+76-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:65:13-67
+77            android:authorities="com.stcodesapp.noteit.provider"
+77-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:66:13-60
+78            android:exported="false"
+78-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:67:13-37
+79            android:grantUriPermissions="true" >
+79-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:68:13-47
+80            <meta-data
+80-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:69:13-71:58
+81                android:name="android.support.FILE_PROVIDER_PATHS"
+81-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:70:17-67
+82                android:resource="@xml/provider_paths" />
+82-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:71:17-55
+83        </provider>
+84
+85        <meta-data
+85-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:73:9-75:72
+86            android:name="io.fabric.ApiKey"
+86-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:74:13-44
+87            android:value="54ef3251610aae18b3915503cdd2ff250fdebb52" />
+87-->/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/AndroidManifest.xml:75:13-69
+88
+89        <activity
+89-->[com.android.billingclient:billing:1.2] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f729848add296a57515de8b307e49e47/billing-1.2/AndroidManifest.xml:13:9-16:75
+90            android:name="com.android.billingclient.api.ProxyBillingActivity"
+90-->[com.android.billingclient:billing:1.2] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f729848add296a57515de8b307e49e47/billing-1.2/AndroidManifest.xml:14:13-78
+91            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+91-->[com.android.billingclient:billing:1.2] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f729848add296a57515de8b307e49e47/billing-1.2/AndroidManifest.xml:15:13-96
+92            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+92-->[com.android.billingclient:billing:1.2] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/f729848add296a57515de8b307e49e47/billing-1.2/AndroidManifest.xml:16:13-72
+93
+94        <provider
+94-->[com.crashlytics.sdk.android:crashlytics:2.9.9] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/aa37db4623109f29404388ff7ae20f8d/crashlytics-2.9.9/AndroidManifest.xml:12:9-16:38
+95            android:name="com.crashlytics.android.CrashlyticsInitProvider"
+95-->[com.crashlytics.sdk.android:crashlytics:2.9.9] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/aa37db4623109f29404388ff7ae20f8d/crashlytics-2.9.9/AndroidManifest.xml:13:13-75
+96            android:authorities="com.stcodesapp.noteit.crashlyticsinitprovider"
+96-->[com.crashlytics.sdk.android:crashlytics:2.9.9] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/aa37db4623109f29404388ff7ae20f8d/crashlytics-2.9.9/AndroidManifest.xml:14:13-75
+97            android:exported="false"
+97-->[com.crashlytics.sdk.android:crashlytics:2.9.9] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/aa37db4623109f29404388ff7ae20f8d/crashlytics-2.9.9/AndroidManifest.xml:15:13-37
+98            android:initOrder="90" />
+98-->[com.crashlytics.sdk.android:crashlytics:2.9.9] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/aa37db4623109f29404388ff7ae20f8d/crashlytics-2.9.9/AndroidManifest.xml:16:13-35
+99
+100        <activity
+100-->[com.google.android.gms:play-services-auth:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a32e0484eb94e656d38d259d8b2390f8/play-services-auth-15.0.0/AndroidManifest.xml:23:9-27:75
+101            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+101-->[com.google.android.gms:play-services-auth:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a32e0484eb94e656d38d259d8b2390f8/play-services-auth-15.0.0/AndroidManifest.xml:24:13-93
+102            android:excludeFromRecents="true"
+102-->[com.google.android.gms:play-services-auth:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a32e0484eb94e656d38d259d8b2390f8/play-services-auth-15.0.0/AndroidManifest.xml:25:13-46
+103            android:exported="false"
+103-->[com.google.android.gms:play-services-auth:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a32e0484eb94e656d38d259d8b2390f8/play-services-auth-15.0.0/AndroidManifest.xml:26:13-37
+104            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+104-->[com.google.android.gms:play-services-auth:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a32e0484eb94e656d38d259d8b2390f8/play-services-auth-15.0.0/AndroidManifest.xml:27:13-72
+105        <!--
+106            Service handling Google Sign-In user revocation. For apps that do not integrate with
+107            Google Sign-In, this service will never be started.
+108        -->
+109        <service
+109-->[com.google.android.gms:play-services-auth:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a32e0484eb94e656d38d259d8b2390f8/play-services-auth-15.0.0/AndroidManifest.xml:33:9-36:110
+110            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+110-->[com.google.android.gms:play-services-auth:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a32e0484eb94e656d38d259d8b2390f8/play-services-auth-15.0.0/AndroidManifest.xml:34:13-89
+111            android:exported="true"
+111-->[com.google.android.gms:play-services-auth:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a32e0484eb94e656d38d259d8b2390f8/play-services-auth-15.0.0/AndroidManifest.xml:35:13-36
+112            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+112-->[com.google.android.gms:play-services-auth:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a32e0484eb94e656d38d259d8b2390f8/play-services-auth-15.0.0/AndroidManifest.xml:36:13-107
+113        <activity
+113-->[com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8158cf15896c322174390f5bb6754587/play-services-ads-lite-15.0.0/AndroidManifest.xml:29:9-33:64
+114            android:name="com.google.android.gms.ads.AdActivity"
+114-->[com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8158cf15896c322174390f5bb6754587/play-services-ads-lite-15.0.0/AndroidManifest.xml:30:13-65
+115            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+115-->[com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8158cf15896c322174390f5bb6754587/play-services-ads-lite-15.0.0/AndroidManifest.xml:31:13-122
+116            android:exported="false"
+116-->[com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8158cf15896c322174390f5bb6754587/play-services-ads-lite-15.0.0/AndroidManifest.xml:32:13-37
+117            android:theme="@android:style/Theme.Translucent" />
+117-->[com.google.android.gms:play-services-ads-lite:15.0.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/8158cf15896c322174390f5bb6754587/play-services-ads-lite-15.0.0/AndroidManifest.xml:33:13-61
+118
+119        <service
+119-->[com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a3b2f03918fc799d6dfef06890d23c9f/firebase-measurement-connector-impl-17.0.5/AndroidManifest.xml:27:9-31:19
+120            android:name="com.google.firebase.components.ComponentDiscoveryService"
+120-->[com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a3b2f03918fc799d6dfef06890d23c9f/firebase-measurement-connector-impl-17.0.5/AndroidManifest.xml:27:18-89
+121            android:exported="false" >
+121-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:31:13-37
+122            <meta-data
+122-->[com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a3b2f03918fc799d6dfef06890d23c9f/firebase-measurement-connector-impl-17.0.5/AndroidManifest.xml:28:13-30:85
+123                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+123-->[com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a3b2f03918fc799d6dfef06890d23c9f/firebase-measurement-connector-impl-17.0.5/AndroidManifest.xml:29:17-139
+124                android:value="com.google.firebase.components.ComponentRegistrar" />
+124-->[com.google.firebase:firebase-measurement-connector-impl:17.0.5] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/a3b2f03918fc799d6dfef06890d23c9f/firebase-measurement-connector-impl-17.0.5/AndroidManifest.xml:30:17-82
+125            <meta-data
+125-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:32:13-34:85
+126                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+126-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:33:17-96
+127                android:value="com.google.firebase.components.ComponentRegistrar" />
+127-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:34:17-82
+128        </service>
+129
+130        <receiver
+130-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:29:9-33:20
+131            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+131-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:30:13-85
+132            android:enabled="true"
+132-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:31:13-35
+133            android:exported="false" >
+133-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:32:13-37
+134        </receiver>
+135        <receiver
+135-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:34:9-42:20
+136            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+136-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:35:13-100
+137            android:enabled="true"
+137-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:36:13-35
+138            android:exported="true"
+138-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:37:13-36
+139            android:permission="android.permission.INSTALL_PACKAGES" >
+139-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:38:13-69
+140            <intent-filter>
+140-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:39:13-41:29
+141                <action android:name="com.android.vending.INSTALL_REFERRER" />
+141-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:40:17-79
+141-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:40:25-76
+142            </intent-filter>
+143        </receiver>
+144
+145        <service
+145-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:44:9-47:40
+146            android:name="com.google.android.gms.measurement.AppMeasurementService"
+146-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:45:13-84
+147            android:enabled="true"
+147-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:46:13-35
+148            android:exported="false" />
+148-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:47:13-37
+149        <service
+149-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:48:9-52:72
+150            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+150-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:49:13-87
+151            android:enabled="true"
+151-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:50:13-35
+152            android:exported="false"
+152-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:51:13-37
+153            android:permission="android.permission.BIND_JOB_SERVICE" />
+153-->[com.google.firebase:firebase-analytics:16.3.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/3326952eff7eb4701d99e9c8daf9862e/firebase-analytics-16.3.0/AndroidManifest.xml:52:13-69
+154
+155        <receiver
+155-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:37:9-44:20
+156            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+156-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:38:13-78
+157            android:exported="true"
+157-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:39:13-36
+158            android:permission="com.google.android.c2dm.permission.SEND" >
+158-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:40:13-73
+159            <intent-filter>
+159-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:41:13-43:29
+160                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+160-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:42:17-81
+160-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:42:25-78
+161            </intent-filter>
+162        </receiver>
+163        <!--
+164             FirebaseInstanceIdService performs security checks at runtime,
+165             no need for explicit permissions despite exported="true"
+166        -->
+167        <service
+167-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:50:9-56:19
+168            android:name="com.google.firebase.iid.FirebaseInstanceIdService"
+168-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:51:13-77
+169            android:exported="true" >
+169-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:52:13-36
+170            <intent-filter android:priority="-500" >
+170-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:53:13-55:29
+170-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:53:28-51
+171                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+171-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:54:17-80
+171-->[com.google.firebase:firebase-iid:17.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/6260d58252a72194f60b38eb500e5169/firebase-iid-17.0.3/AndroidManifest.xml:54:25-77
+172            </intent-filter>
+173        </service>
+174
+175        <activity
+175-->[com.google.android.gms:play-services-base:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/905f520e3b4353513b518ac6975298bf/play-services-base-16.0.1/AndroidManifest.xml:23:9-26:75
+176            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+176-->[com.google.android.gms:play-services-base:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/905f520e3b4353513b518ac6975298bf/play-services-base-16.0.1/AndroidManifest.xml:24:13-79
+177            android:exported="false"
+177-->[com.google.android.gms:play-services-base:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/905f520e3b4353513b518ac6975298bf/play-services-base-16.0.1/AndroidManifest.xml:25:13-37
+178            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+178-->[com.google.android.gms:play-services-base:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/905f520e3b4353513b518ac6975298bf/play-services-base-16.0.1/AndroidManifest.xml:26:13-72
+179
+180        <provider
+180-->[com.google.firebase:firebase-common:16.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/1edb80c36a775f50fafc27b7bc2afcd4/firebase-common-16.0.3/AndroidManifest.xml:10:9-14:39
+181            android:name="com.google.firebase.provider.FirebaseInitProvider"
+181-->[com.google.firebase:firebase-common:16.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/1edb80c36a775f50fafc27b7bc2afcd4/firebase-common-16.0.3/AndroidManifest.xml:11:13-77
+182            android:authorities="com.stcodesapp.noteit.firebaseinitprovider"
+182-->[com.google.firebase:firebase-common:16.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/1edb80c36a775f50fafc27b7bc2afcd4/firebase-common-16.0.3/AndroidManifest.xml:12:13-72
+183            android:exported="false"
+183-->[com.google.firebase:firebase-common:16.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/1edb80c36a775f50fafc27b7bc2afcd4/firebase-common-16.0.3/AndroidManifest.xml:13:13-37
+184            android:initOrder="100" />
+184-->[com.google.firebase:firebase-common:16.0.3] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/1edb80c36a775f50fafc27b7bc2afcd4/firebase-common-16.0.3/AndroidManifest.xml:14:13-36
+185
+186        <meta-data
+186-->[com.google.android.gms:play-services-basement:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/cb8b212d42b13f70ebe9046778523884/play-services-basement-16.0.1/AndroidManifest.xml:23:9-25:69
+187            android:name="com.google.android.gms.version"
+187-->[com.google.android.gms:play-services-basement:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/cb8b212d42b13f70ebe9046778523884/play-services-basement-16.0.1/AndroidManifest.xml:24:13-58
+188            android:value="@integer/google_play_services_version" />
+188-->[com.google.android.gms:play-services-basement:16.0.1] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/cb8b212d42b13f70ebe9046778523884/play-services-basement-16.0.1/AndroidManifest.xml:25:13-66
+189        <meta-data
+189-->[com.android.support:support-v4:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/2f9be50ee036f759ed5174866a288801/support-v4-26.1.0/AndroidManifest.xml:26:9-28:38
+190            android:name="android.support.VERSION"
+190-->[com.android.support:support-v4:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/2f9be50ee036f759ed5174866a288801/support-v4-26.1.0/AndroidManifest.xml:27:13-51
+191            android:value="26.1.0" />
+191-->[com.android.support:support-v4:26.1.0] /home/shadat/android/.gradle/caches/transforms-2/files-2.1/2f9be50ee036f759ed5174866a288801/support-v4-26.1.0/AndroidManifest.xml:28:13-35
+192    </application>
+193
+194</manifest>

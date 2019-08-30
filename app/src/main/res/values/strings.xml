@@ -102,11 +102,11 @@
     <!--ad_related_ids-->
 
     <!--admob-->
-    <string name="admob_app_id">@string/admob_app_id_real</string>
+    <string name="admob_app_id">@string/admob_app_id_test</string>
     <string name="admob_app_id_test">ca-app-pub-3940256099942544~3347511713</string>
     <string name="admob_app_id_real">ca-app-pub-7505528330087753~8721763907</string>
 
-    <string name="admob_banner_ad_id">@string/admob_banner_ad_real</string>
+    <string name="admob_banner_ad_id">@string/admob_banner_ad_test</string>
     <string name="admob_banner_ad_test">ca-app-pub-3940256099942544/6300978111</string>
     <string name="admob_banner_ad_real">ca-app-pub-7505528330087753/5392467953</string>
 
@@ -178,6 +178,7 @@
     <string name="restore_failed_msg">Backup Restore Failed!!! May be there is no backup file exists!! Please try again</string>
     <string name="backup_desc">Backup Data to Phone/SD Card</string>
     <string name="restore_desc">Restore Data from Phone/SD Card</string>
+    <string name="google_sign_in_server_client_id">166760414832-3kr6bpjs6a7rgt9hbfuouvgvs8ha9q0b.apps.googleusercontent.com</string>
 
 
     <string-array name="sorting_choices">

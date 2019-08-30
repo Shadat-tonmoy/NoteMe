@@ -21,4 +21,5 @@ public class RequestCode {
     public static final int OPEN_CAMERA_PERMISSION = 15;
     public static final int OPEN_CAMERA_TO_TAKE_IMAGE = 16;
     public static final int GOOGLE_SIGN_IN_REQUEST = 17;
+    public static final int REQUEST_AUTHORIZATION_FOR_GOOGLE_DRIVE = 18;
 }

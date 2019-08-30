@@ -12,6 +12,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.google.api.client.extensions.android.http.AndroidHttp;
+import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
+import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecoverableAuthIOException;
+import com.google.api.client.json.gson.GsonFactory;
+import com.google.api.services.drive.Drive;
+import com.google.api.services.drive.DriveScopes;
 import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.common.CustomApplication;
 import com.stcodesapp.noteit.common.Logger;
@@ -25,10 +31,13 @@ import com.stcodesapp.noteit.tasks.functionalTasks.DialogManagementTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.IAPTrackingTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.dataBackupTasks.BackupRestoringTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.dataBackupTasks.BackupSavingTask;
+import com.stcodesapp.noteit.tasks.networkingTasks.GoogleDriveAPITask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.BackupFragmentScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
 import com.stcodesapp.noteit.ui.views.screenViews.fragmentScreenView.BackupFragmentScreenView;
 import com.stcodesapp.noteit.ui.views.screens.fragmentScreen.BackupFragmentScreen;
+
+import java.util.Collections;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -43,7 +52,9 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
     private IAPTrackingTasks iapTrackingTasks;
     private FullScreenAdController fullScreenAdController;
     private GoogleSignInClient googleSignInClient;
+    private GoogleSignInAccount googleSignInAccount;
     private boolean isAlreadySignedIn = false;
+    private Drive driveService;
 
     public BackupFragmentController(Activity activity, TasksFactory tasksFactory) {
         this.activity = activity;
@@ -64,11 +75,15 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
     {
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
+                .requestIdToken(activity.getResources().getString(R.string.google_sign_in_server_client_id))
                 .build();
         googleSignInClient = GoogleSignIn.getClient(activity, googleSignInOptions);
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(activity);
-        if(account!=null)
+        googleSignInAccount = GoogleSignIn.getLastSignedInAccount(activity);
+        if(googleSignInAccount!=null)
+        {
             isAlreadySignedIn = true;
+            setupGoogleDriveCredentials();
+        }
 
 
     }
@@ -103,12 +118,17 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
 
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-        if (requestCode == RESULT_OK)
+        Logger.logMessage("onActivityResult",requestCode+" "+resultCode);
+        if (resultCode == RESULT_OK)
         {
             if(requestCode == RequestCode.GOOGLE_SIGN_IN_REQUEST)
             {
                 Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
                 handleSignInResult(task);
+            }
+            else if(requestCode == RequestCode.REQUEST_AUTHORIZATION_FOR_GOOGLE_DRIVE)
+            {
+                testGoogleDriveAPI();
             }
         }
     }
@@ -116,13 +136,14 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try
         {
-
-            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            Toast.makeText(activity, "Successfully SignedIn", Toast.LENGTH_SHORT).show();
-
-        } catch (ApiException e)
+            googleSignInAccount = completedTask.getResult(ApiException.class);
+            setupGoogleDriveCredentials();
+            testGoogleDriveAPI();
+        } catch (Exception e)
         {
-            Toast.makeText(activity, "Google Sign In Failed", Toast.LENGTH_LONG).show();
+            Logger.logMessage("Exception","inHandleSignInResult");
+
+
         }
     }
 
@@ -148,6 +169,30 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
         activity.startActivityForResult(signInIntent, RequestCode.GOOGLE_SIGN_IN_REQUEST);
     }
 
+    private void setupGoogleDriveCredentials()
+    {
+        GoogleAccountCredential credential =
+                GoogleAccountCredential.usingOAuth2(
+                        activity, Collections.singleton(DriveScopes.DRIVE));
+        credential.setSelectedAccount(googleSignInAccount.getAccount());
+        driveService =
+                new Drive.Builder(
+                        AndroidHttp.newCompatibleTransport(),
+                        new GsonFactory(),
+                        credential)
+                        .setApplicationName("Drive API Migration")
+                        .build();
+    }
+
+    private void testGoogleDriveAPI()
+    {
+        Logger.logMessage("GoogleUser",googleSignInAccount.getEmail());
+        GoogleDriveAPITask googleDriveAPITask = tasksFactory.getGoogleDriveAPITask();
+        googleDriveAPITask.setDriveService(driveService);
+        googleDriveAPITask.execute();
+//        googleDriveAPITask.test();
+    }
+
     @Override
     public void onBackupToLocalStorageClicked()
     {
@@ -170,6 +215,7 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
         }
         else
         {
+            testGoogleDriveAPI();
             Toast.makeText(activity, "Backup to cloud", Toast.LENGTH_SHORT).show();
         }
 
@@ -197,7 +243,7 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
         }
         else
         {
-            Toast.makeText(activity, "Restore From Cloud", Toast.LENGTH_SHORT).show();
+
         }
 
     }

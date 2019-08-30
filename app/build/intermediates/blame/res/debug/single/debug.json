@@ -4,16 +4,16 @@
         "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/81a159d489cd16489cea1bb901cd6000/materialsearchview-1.4.0/res/drawable-mdpi/ic_action_voice_search_inverted.png"
     },
     {
-        "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/layout_upgrade_to_pro_popup_dialog.xml.flat",
-        "source": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/layout/upgrade_to_pro_popup_dialog.xml"
+        "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/animator_mtrl_fab_transformation_sheet_expand_spec.xml.flat",
+        "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/8be73e0f0ca188f77f6aac7a613a9b9e/design-28.0.0/res/animator/mtrl_fab_transformation_sheet_expand_spec.xml"
     },
     {
         "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/layout_phone_no_option_bottom_sheet_layout.xml.flat",
         "source": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/layout/phone_no_option_bottom_sheet_layout.xml"
     },
     {
-        "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/animator_mtrl_fab_transformation_sheet_expand_spec.xml.flat",
-        "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/8be73e0f0ca188f77f6aac7a613a9b9e/design-28.0.0/res/animator/mtrl_fab_transformation_sheet_expand_spec.xml"
+        "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/layout_upgrade_to_pro_popup_dialog.xml.flat",
+        "source": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/layout/upgrade_to_pro_popup_dialog.xml"
     },
     {
         "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/color_mtrl_btn_stroke_color_selector.xml.flat",
