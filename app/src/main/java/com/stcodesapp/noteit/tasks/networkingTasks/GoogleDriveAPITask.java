@@ -29,6 +29,7 @@ import com.stcodesapp.noteit.database.Backup;
 import com.stcodesapp.noteit.tasks.functionalTasks.dataBackupTasks.BackupConvertionTask;
 import com.stcodesapp.noteit.tasks.utilityTasks.UtilityTasks;
 
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -76,79 +77,55 @@ public class GoogleDriveAPITask extends AsyncTask<Void,Void,Void>
         super.onPostExecute(aVoid);
     }
 
-    /**
-     * Creates an authorized Credential object.
-     * @param HTTP_TRANSPORT The network HTTP Transport.
-     * @return An authorized Credential object.
-     * @throws IOException If the credentials.json file cannot be found.
-     */
-    private Credential getCredentials(final NetHttpTransport HTTP_TRANSPORT) throws IOException {
-        // Load client secrets.
-//        InputStream in = GoogleDriveAPITask.class.getResourceAsStream(CREDENTIALS_FILE_PATH);
-        InputStream in = activity.getAssets().open(CREDENTIALS_FILE_PATH);
-        if (in == null) {
-            throw new FileNotFoundException("Resource not found: " + CREDENTIALS_FILE_PATH);
-        }
-        GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 
-        // Build flow and trigger user authorization request.
-        GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
-                HTTP_TRANSPORT, JSON_FACTORY, clientSecrets, SCOPES)
-                .setDataStoreFactory(new FileDataStoreFactory(new java.io.File(UtilityTasks.getTempDirectoryPath(activity))))
-                .setAccessType("offline")
-                .build();
-        LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8888).build();
-        return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
-    }
-
-    public void test()
-    {
-        try
-        {
-            final NetHttpTransport HTTP_TRANSPORT =  new com.google.api.client.http.javanet.NetHttpTransport();
-
-            Drive service = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
-                    .setApplicationName(APPLICATION_NAME)
-                    .build();
-
-            // Print the names and IDs for up to 10 files.
-            FileList result = service.files().list()
-                    .setPageSize(10)
-                    .setFields("nextPageToken, files(id, name)")
-                    .execute();
-            List<File> files = result.getFiles();
-            if (files == null || files.isEmpty()) {
-                System.out.println("No files found.");
-            } else {
-                System.out.println("Files:");
-                for (File file : files) {
-                    System.out.printf("%s (%s)\n", file.getName(), file.getId());
-                }
-            }
-
-        }catch (Exception e)
-        {
-            Logger.logMessage("ExceptionInAPI",e+" ");
-        }
-
-    }
-
-    public void queryFiles()
+    public String  queryFiles()
     {
         try {
-            /*Drive.Files files = driveService.files();
-            Drive.Files.List list = files.list();*/
             FileList fileList = driveService.files().list().setSpaces("drive").execute();
             List<File> files = fileList.getFiles();
-            Logger.logMessage("Files",fileList+" size "+files.size());
+            for(File file:files)
+            {
+                if(file.getName().equals(Constants.CLOUD_BACKUP_FILE_NAME))
+                {
+                   return file.getId();
+                }
+            }
         }catch (UserRecoverableAuthIOException e)
         {
-            Logger.logMessage("ExecptionInAPI",e+" ");
             activity.startActivityForResult(e.getIntent(), RequestCode.REQUEST_AUTHORIZATION_FOR_GOOGLE_DRIVE);
 
         }catch (Exception e)
         {
             Logger.logMessage("ExecptionInAPI2",e+" ");
+        }
+        return Constants.EMPTY_STRING;
+    }
+
+    public void readFile()
+    {
+        final String fileID = queryFiles();
+        if(!fileID.equals(Constants.EMPTY_STRING))
+        {
+            try
+            {
+                InputStream inputStream = driveService.files().get(fileID).executeMediaAsInputStream();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+                StringBuilder stringBuilder = new StringBuilder();
+                String line;
+
+                while ((line = reader.readLine()) != null) {
+                    stringBuilder.append(line);
+                }
+                String contents = stringBuilder.toString();
+                Logger.logMessage("BackupContent",contents);
+            }catch (Exception e)
+            {
+
+            }
+        }
+        else
+        {
+            Logger.logMessage("BackupFile","Not Found");
         }
     }
 
@@ -181,7 +158,6 @@ public class GoogleDriveAPITask extends AsyncTask<Void,Void,Void>
             File metadata = new File()
                     .setParents(Collections.singletonList("root"))
                     .setMimeType("text/plain")
-                    .setId(Constants.CLOUD_BACKUP_FILE_ID)
                     .setName(Constants.CLOUD_BACKUP_FILE_NAME);
 
             File googleFile = driveService.files().create(metadata).execute();
