@@ -24,6 +24,7 @@ import com.google.api.services.drive.model.File;
 import com.google.api.services.drive.model.FileList;
 import com.stcodesapp.noteit.common.Logger;
 import com.stcodesapp.noteit.constants.Constants;
+import com.stcodesapp.noteit.constants.EventTypes;
 import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.database.Backup;
 import com.stcodesapp.noteit.tasks.functionalTasks.dataBackupTasks.BackupConvertionTask;
@@ -38,8 +39,22 @@ import java.security.GeneralSecurityException;
 import java.util.Collections;
 import java.util.List;
 
-public class GoogleDriveAPITask extends AsyncTask<Void,Void,Void>
+public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Void>
 {
+
+    public interface BackupToCloudListener
+    {
+        void onBackupToCloudSuccess();
+
+        void onBackupToCloudFailed();
+    }
+
+    public interface RestoreFromCloudListener
+    {
+        void onRestoreFromCloudSuccess();
+
+        void onRestoreFromCloudFailed();
+    }
 
     private Activity activity;
     private static final String APPLICATION_NAME = "Google Drive API Java Quickstart";
@@ -47,6 +62,8 @@ public class GoogleDriveAPITask extends AsyncTask<Void,Void,Void>
     private static final String TOKENS_DIRECTORY_PATH = "tokens";
     private Drive driveService;
     private BackupConvertionTask backupConvertionTask;
+    private BackupToCloudListener backupToCloudListener;
+    private RestoreFromCloudListener restoreFromCloudListener;
 
     /**
      * Global instance of the scopes required by this quickstart.
@@ -67,8 +84,18 @@ public class GoogleDriveAPITask extends AsyncTask<Void,Void,Void>
     }
 
     @Override
-    protected Void doInBackground(Void... voids) {
-        saveBackupFile();
+    protected Void doInBackground(Integer... driveEventTypes)
+    {
+        int driveEventType = driveEventTypes[0];
+        switch (driveEventType)
+        {
+            case EventTypes.BACKUP_TO_CLOUD_STORAGE_BUTTON_CLICKED:
+                saveBackupFile();
+                break;
+            case EventTypes.RESTORE_FROM_CLOUD_STORAGE_BUTTON_CLICKED:
+                readFile();
+                break;
+        }
         return null;
     }
 
@@ -143,7 +170,13 @@ public class GoogleDriveAPITask extends AsyncTask<Void,Void,Void>
             driveService.files().update(fileId, metadata, contentStream).execute();
             Logger.logMessage("SavedSuccess",backupContent);
 
-        }catch (Exception e)
+        }
+        catch (UserRecoverableAuthIOException e)
+        {
+            activity.startActivityForResult(e.getIntent(), RequestCode.REQUEST_AUTHORIZATION_FOR_GOOGLE_DRIVE);
+
+        }
+        catch (Exception e)
         {
             Logger.logMessage("ExceptionInSavingFile",e+" ");
 
@@ -166,7 +199,13 @@ public class GoogleDriveAPITask extends AsyncTask<Void,Void,Void>
             }
             return googleFile.getId();
 
-        }catch (Exception e)
+        }
+        catch (UserRecoverableAuthIOException e)
+        {
+            activity.startActivityForResult(e.getIntent(), RequestCode.REQUEST_AUTHORIZATION_FOR_GOOGLE_DRIVE);
+
+        }
+        catch (Exception e)
         {
             Logger.logMessage("ExceptionInCreatingFile",e+" ");
         }
@@ -177,5 +216,13 @@ public class GoogleDriveAPITask extends AsyncTask<Void,Void,Void>
 
     public void setDriveService(Drive driveService) {
         this.driveService = driveService;
+    }
+
+    public void setBackupToCloudListener(BackupToCloudListener backupToCloudListener) {
+        this.backupToCloudListener = backupToCloudListener;
+    }
+
+    public void setRestoreFromCloudListener(RestoreFromCloudListener restoreFromCloudListener) {
+        this.restoreFromCloudListener = restoreFromCloudListener;
     }
 }

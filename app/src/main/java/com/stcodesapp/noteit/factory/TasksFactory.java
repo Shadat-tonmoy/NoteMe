@@ -25,6 +25,7 @@ import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.FragmentNavigationTasks;
 import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.RateUSPopupTrackingTasks;
 import com.stcodesapp.noteit.tasks.networkingTasks.GoogleDriveAPITask;
+import com.stcodesapp.noteit.tasks.networkingTasks.GoogleSignInHandlingTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.CheckListActivityScreenManipulationTask;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.IAPScreenManipulationTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.BackupFragmentScreenManipulationTask;
@@ -255,5 +256,10 @@ public class TasksFactory {
     public BackupConvertionTask getBackupConvertionTask()
     {
         return new BackupConvertionTask(activity);
+    }
+
+    public GoogleSignInHandlingTask getGoogleSignInHandlingTask()
+    {
+        return new GoogleSignInHandlingTask(activity);
     }
 }
