@@ -1306,6 +1306,9 @@ id clip_horizontal
 id clip_vertical
 id cloud_backup_button
 id cloud_backup_desc
+id cloud_backup_done_header
+id cloud_backup_done_message
+id cloud_backup_done_title
 id cloud_backup_header
 id cloud_backup_icon
 id cloud_backup_text
@@ -1404,6 +1407,7 @@ id forever
 id frame_content
 id ghost_view
 id gone
+id got_it_button
 id group_divider
 id groups
 id half_yearly_price
@@ -1726,6 +1730,7 @@ layout check_list_option_layout
 layout checklist_fragment_screen
 layout checklist_item_option_layout
 layout checklist_sceen_view
+layout cloud_backup_done_popup_dialog
 layout color_pallete_layout
 layout contact_badge
 layout contact_container
@@ -1886,6 +1891,7 @@ string backup_done_msg
 string backup_failed_msg
 string backup_file_not_found
 string backup_note
+string backup_progress_message
 string backup_restore_success_message
 string backup_wait_msg
 string bottom_sheet_behavior
@@ -1904,6 +1910,8 @@ string choose_background_color
 string choose_color
 string clear_note
 string clear_note_msg
+string cloud_backup_done_message
+string cloud_backup_done_title
 string cloud_storage_backup
 string com_crashlytics_android_build_id
 string common_google_play_services_enable_button
@@ -2027,6 +2035,7 @@ string restore_desc
 string restore_done_msg
 string restore_failed_msg
 string restore_note
+string restore_progress_message
 string restore_progress_text
 string restore_warning_message
 string restore_warning_title

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.stcodesapp.noteit.R;
+import com.stcodesapp.noteit.constants.EventTypes;
 import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.tasks.functionalTasks.behaviorTrackingTasks.RateUSPopupTrackingTasks;
 import com.stcodesapp.noteit.tasks.navigationTasks.ActivityNavigationTasks;
@@ -88,6 +89,27 @@ public class DialogManagementTask {
             @Override
             public void onClick(View v) {
                 activityNavigationTasks.toProVersionScreen();
+                alertDialog.dismiss();
+            }
+        });
+        alertDialog.show();
+    }
+
+
+    public static void showBackupToCloudDoneDialog(Activity activity,int cloudBackupEventType) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(activity);
+        LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.cloud_backup_done_popup_dialog,null,false);
+        if(cloudBackupEventType== EventTypes.RESTORE_FROM_CLOUD_STORAGE_BUTTON_CLICKED)
+        {
+            //change dialog ui here
+        }
+        TextView gotItButton = view.findViewById(R.id.got_it_button);
+        alertDialogBuilder.setView(view);
+        final AlertDialog alertDialog = alertDialogBuilder.create();
+        gotItButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 alertDialog.dismiss();
             }
         });

@@ -1,6 +1,7 @@
 package com.stcodesapp.noteit.tasks.networkingTasks;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
@@ -22,11 +23,13 @@ import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.DriveScopes;
 import com.google.api.services.drive.model.File;
 import com.google.api.services.drive.model.FileList;
+import com.stcodesapp.noteit.R;
 import com.stcodesapp.noteit.common.Logger;
 import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.EventTypes;
 import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.database.Backup;
+import com.stcodesapp.noteit.tasks.functionalTasks.DialogManagementTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.dataBackupTasks.BackupConvertionTask;
 import com.stcodesapp.noteit.tasks.utilityTasks.UtilityTasks;
 
@@ -57,20 +60,12 @@ public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Void>
     }
 
     private Activity activity;
-    private static final String APPLICATION_NAME = "Google Drive API Java Quickstart";
-    private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
-    private static final String TOKENS_DIRECTORY_PATH = "tokens";
     private Drive driveService;
     private BackupConvertionTask backupConvertionTask;
     private BackupToCloudListener backupToCloudListener;
     private RestoreFromCloudListener restoreFromCloudListener;
-
-    /**
-     * Global instance of the scopes required by this quickstart.
-     * If modifying these scopes, delete your previously saved tokens/ folder.
-     */
-    private static List<String> SCOPES = Collections.singletonList(DriveScopes.DRIVE_METADATA_READONLY);
-    private static final String CREDENTIALS_FILE_PATH = "credentials.json";
+    private ProgressDialog progressDialog;
+    private int driveEventType;
 
     public GoogleDriveAPITask(Activity activity, BackupConvertionTask backupConvertionTask)
     {
@@ -81,12 +76,14 @@ public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Void>
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
+        showProgressDialog();
     }
 
     @Override
     protected Void doInBackground(Integer... driveEventTypes)
     {
         int driveEventType = driveEventTypes[0];
+        this.driveEventType = driveEventType;
         switch (driveEventType)
         {
             case EventTypes.BACKUP_TO_CLOUD_STORAGE_BUTTON_CLICKED:
@@ -102,6 +99,8 @@ public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Void>
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
+        hideProgressDialog();
+        DialogManagementTask.showBackupToCloudDoneDialog(activity,driveEventType);
     }
 
 
@@ -225,4 +224,23 @@ public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Void>
     public void setRestoreFromCloudListener(RestoreFromCloudListener restoreFromCloudListener) {
         this.restoreFromCloudListener = restoreFromCloudListener;
     }
+    
+    private void showProgressDialog()
+    {
+        progressDialog = new ProgressDialog(activity);
+        progressDialog.setCancelable(false);
+        String message = activity.getResources().getString(R.string.backup_progress_message);
+        if(driveEventType == EventTypes.RESTORE_FROM_CLOUD_STORAGE_BUTTON_CLICKED)
+            message = activity.getResources().getString(R.string.restore_progress_message);
+        progressDialog.setMessage(message);
+        progressDialog.show();
+    }
+
+    private void hideProgressDialog()
+    {
+        if(progressDialog!=null && progressDialog.isShowing())
+            progressDialog.dismiss();
+    }
+    
+    
 }
