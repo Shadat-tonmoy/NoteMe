@@ -157,8 +157,6 @@ public class BackupRestoringTask extends AsyncTask<Integer,Void,Boolean>
         noteDatabase.emailDao().insertEmails(emails);
         noteDatabase.imageDao().insertImage(images);
         Logger.logMessage("BackupElements",notes.length+" "+audios.length+" "+contacts.length+" "+emails.length+" "+images.length);
-
-
     }
 
     public void setListener(Listener listener) {

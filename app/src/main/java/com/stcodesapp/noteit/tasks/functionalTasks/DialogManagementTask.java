@@ -96,7 +96,7 @@ public class DialogManagementTask {
     }
 
 
-    public static void showBackupToCloudDoneDialog(Activity activity,int cloudBackupEventType) {
+    public static void showBackupToCloudDoneDialog(Activity activity,int cloudBackupEventType, boolean isSuccess) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(activity);
         LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.cloud_backup_done_popup_dialog,null,false);

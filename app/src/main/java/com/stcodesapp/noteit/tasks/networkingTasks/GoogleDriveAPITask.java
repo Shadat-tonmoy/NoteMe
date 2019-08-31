@@ -29,6 +29,12 @@ import com.stcodesapp.noteit.constants.Constants;
 import com.stcodesapp.noteit.constants.EventTypes;
 import com.stcodesapp.noteit.constants.RequestCode;
 import com.stcodesapp.noteit.database.Backup;
+import com.stcodesapp.noteit.database.NoteDatabase;
+import com.stcodesapp.noteit.models.Audio;
+import com.stcodesapp.noteit.models.Contact;
+import com.stcodesapp.noteit.models.Email;
+import com.stcodesapp.noteit.models.Image;
+import com.stcodesapp.noteit.models.Note;
 import com.stcodesapp.noteit.tasks.functionalTasks.DialogManagementTask;
 import com.stcodesapp.noteit.tasks.functionalTasks.dataBackupTasks.BackupConvertionTask;
 import com.stcodesapp.noteit.tasks.utilityTasks.UtilityTasks;
@@ -42,7 +48,7 @@ import java.security.GeneralSecurityException;
 import java.util.Collections;
 import java.util.List;
 
-public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Void>
+public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Boolean>
 {
 
     public interface BackupToCloudListener
@@ -80,27 +86,46 @@ public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Void>
     }
 
     @Override
-    protected Void doInBackground(Integer... driveEventTypes)
+    protected Boolean doInBackground(Integer... driveEventTypes)
     {
         int driveEventType = driveEventTypes[0];
         this.driveEventType = driveEventType;
         switch (driveEventType)
         {
             case EventTypes.BACKUP_TO_CLOUD_STORAGE_BUTTON_CLICKED:
-                saveBackupFile();
-                break;
+                return saveBackupFile();
             case EventTypes.RESTORE_FROM_CLOUD_STORAGE_BUTTON_CLICKED:
-                readFile();
-                break;
+                return readFile();
         }
         return null;
     }
 
     @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
+    protected void onPostExecute(Boolean result) {
+        super.onPostExecute(result);
         hideProgressDialog();
-        DialogManagementTask.showBackupToCloudDoneDialog(activity,driveEventType);
+
+        switch (driveEventType)
+        {
+            case EventTypes.BACKUP_TO_CLOUD_STORAGE_BUTTON_CLICKED:
+            {
+                if(backupToCloudListener!=null)
+                {
+                    if(result)
+                        backupToCloudListener.onBackupToCloudSuccess();
+                    else backupToCloudListener.onBackupToCloudFailed();
+                }
+            }
+            case EventTypes.RESTORE_FROM_CLOUD_STORAGE_BUTTON_CLICKED:
+            {
+                if(restoreFromCloudListener!=null)
+                {
+                    if(result)
+                        restoreFromCloudListener.onRestoreFromCloudSuccess();
+                    else restoreFromCloudListener.onRestoreFromCloudFailed();
+                }
+            }
+        }
     }
 
 
@@ -127,7 +152,7 @@ public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Void>
         return Constants.EMPTY_STRING;
     }
 
-    public void readFile()
+    public boolean readFile()
     {
         final String fileID = queryFiles();
         if(!fileID.equals(Constants.EMPTY_STRING))
@@ -143,19 +168,25 @@ public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Void>
                     stringBuilder.append(line);
                 }
                 String contents = stringBuilder.toString();
+                Backup backup = backupConvertionTask.getBackupFromJSON(contents);
+                clearExistingDB();
+                insertBackupData(backup);
                 Logger.logMessage("BackupContent",contents);
+                return true;
             }catch (Exception e)
             {
+                return false;
 
             }
         }
         else
         {
             Logger.logMessage("BackupFile","Not Found");
+            return false;
         }
     }
 
-    public void saveBackupFile()
+    public boolean saveBackupFile()
     {
         try
         {
@@ -168,6 +199,7 @@ public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Void>
             File file = new File().setName(Constants.CLOUD_BACKUP_FILE_NAME);
             driveService.files().update(fileId, metadata, contentStream).execute();
             Logger.logMessage("SavedSuccess",backupContent);
+            return true;
 
         }
         catch (UserRecoverableAuthIOException e)
@@ -178,8 +210,10 @@ public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Void>
         catch (Exception e)
         {
             Logger.logMessage("ExceptionInSavingFile",e+" ");
+            return false;
 
         }
+        return false;
 
     }
 
@@ -240,6 +274,28 @@ public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Void>
     {
         if(progressDialog!=null && progressDialog.isShowing())
             progressDialog.dismiss();
+    }
+
+    private void clearExistingDB()
+    {
+        NoteDatabase noteDatabase = NoteDatabase.getInstance(activity);
+        noteDatabase.clearAllTables();
+    }
+
+    private void insertBackupData(Backup backup)
+    {
+        NoteDatabase noteDatabase = NoteDatabase.getInstance(activity);
+        Note[] notes = backup.getNotes().toArray(new Note[0]);
+        Audio[] audios = backup.getAudio().toArray(new Audio[0]);
+        Contact[] contacts = backup.getContacts().toArray(new Contact[0]);
+        Email[] emails = backup.getEmails().toArray(new Email[0]);
+        Image[] images = backup.getImages().toArray(new Image[0]);
+        noteDatabase.notesDao().insertAllNote(notes);
+        noteDatabase.audioDao().insertAudio(audios);
+        noteDatabase.contactDao().insertContact(contacts);
+        noteDatabase.emailDao().insertEmails(emails);
+        noteDatabase.imageDao().insertImage(images);
+        Logger.logMessage("BackupElements",notes.length+" "+audios.length+" "+contacts.length+" "+emails.length+" "+images.length);
     }
     
     

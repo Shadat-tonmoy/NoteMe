@@ -42,7 +42,7 @@ import com.stcodesapp.noteit.ui.views.screens.fragmentScreen.BackupFragmentScree
 
 import static android.app.Activity.RESULT_OK;
 
-public class BackupFragmentController implements BackupFragmentScreen.Listener, BackupSavingTask.Listener, BackupRestoringTask.Listener, BackupFragmentScreenManipulationTask.Listener, DialogManagementTask.DialogOptionListener, AdMob.Listener, GoogleDriveAPITask.BackupToCloudListener
+public class BackupFragmentController implements BackupFragmentScreen.Listener, BackupSavingTask.Listener, BackupRestoringTask.Listener, BackupFragmentScreenManipulationTask.Listener, DialogManagementTask.DialogOptionListener, AdMob.Listener, GoogleDriveAPITask.BackupToCloudListener, GoogleDriveAPITask.RestoreFromCloudListener
 {
 
     private Activity activity;
@@ -105,7 +105,6 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
 
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-        Logger.logMessage("onActivityResult",requestCode+" "+resultCode);
         if (resultCode == RESULT_OK)
         {
             if(requestCode == RequestCode.GOOGLE_SIGN_IN_REQUEST)
@@ -116,12 +115,16 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
                 {
                     if(cloudBackupOption == EventTypes.BACKUP_TO_CLOUD_STORAGE_BUTTON_CLICKED)
                         executeBackupToCloudTask();
+                    else if(cloudBackupOption == EventTypes.RESTORE_FROM_CLOUD_STORAGE_BUTTON_CLICKED)
+                        executeRestoreFromCloudTask();
                 }
             }
             else if(requestCode == RequestCode.REQUEST_AUTHORIZATION_FOR_GOOGLE_DRIVE)
             {
                 if(cloudBackupOption == EventTypes.BACKUP_TO_CLOUD_STORAGE_BUTTON_CLICKED)
                     executeBackupToCloudTask();
+                else if(cloudBackupOption == EventTypes.RESTORE_FROM_CLOUD_STORAGE_BUTTON_CLICKED)
+                    executeRestoreFromCloudTask();
                 /*testGoogleDriveAPI();*/
             }
         }
@@ -164,6 +167,44 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
         googleDriveAPITask.execute(EventTypes.BACKUP_TO_CLOUD_STORAGE_BUTTON_CLICKED);
     }
 
+
+    private void executeRestoreFromCloudFlow()
+    {
+        if(!googleSignInHandlingTask.isAlreadySignedIn())
+        {
+            googleSignInHandlingTask.startGoogleSignInFlow();
+            cloudBackupOption = EventTypes.RESTORE_FROM_CLOUD_STORAGE_BUTTON_CLICKED;
+        }
+        else
+        {
+            executeRestoreFromCloudTask();
+        }
+    }
+
+
+
+    private void executeRestoreFromCloudTask()
+    {
+        GoogleDriveAPITask googleDriveAPITask = tasksFactory.getGoogleDriveAPITask();
+        googleDriveAPITask.setDriveService(googleSignInHandlingTask.getDriveService());
+        googleDriveAPITask.setRestoreFromCloudListener(this);
+        googleDriveAPITask.execute(EventTypes.RESTORE_FROM_CLOUD_STORAGE_BUTTON_CLICKED);
+    }
+
+
+    @Override
+    public void onRestoreFromCloudSuccess()
+    {
+        DialogManagementTask.showBackupToCloudDoneDialog(activity,cloudBackupOption,true);
+    }
+
+    @Override
+    public void onRestoreFromCloudFailed()
+    {
+        DialogManagementTask.showBackupToCloudDoneDialog(activity,cloudBackupOption,false);
+    }
+
+
     @Override
     public void onBackupToLocalStorageClicked()
     {
@@ -187,12 +228,13 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
     @Override
     public void onBackupToCloudSuccess()
     {
-
+        DialogManagementTask.showBackupToCloudDoneDialog(activity,cloudBackupOption,true);
     }
 
     @Override
     public void onBackupToCloudFailed()
     {
+        DialogManagementTask.showBackupToCloudDoneDialog(activity,cloudBackupOption,false);
 
     }
 
@@ -211,15 +253,7 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
     @Override
     public void onRestoreFromCloudStorageClicked()
     {
-        /*if(!isAlreadySignedIn)
-        {
-            startGoogleSignInFlow();
-        }
-        else
-        {
-
-        }*/
-
+        executeRestoreFromCloudFlow();
     }
 
     @Override
@@ -296,4 +330,5 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
         }
 
     }
+
 }
