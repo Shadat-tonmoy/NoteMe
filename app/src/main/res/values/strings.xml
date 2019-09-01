@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Notepad - Contact, Email, Image Audio Note</string>
+    <string name="app_name">Notepad App for Android with Contact,Image,Audio</string>
     <string name="drawer_open">Drawer Open</string>
     <string name="drawer_close">Drawer Close</string>
     <string name="pro_version">Pro Version</string>
@@ -177,12 +177,23 @@
     <string name="backup_failed_msg">Backup Failed!!! May be you do not have enough storage left. Please try again</string>
     <string name="restore_failed_msg">Backup Restore Failed!!! May be there is no backup file exists!! Please try again</string>
     <string name="backup_desc">Backup Data to Phone/SD Card</string>
+    <string name="cloud_backup_desc">Backup Data to Your Google Drive</string>
     <string name="restore_desc">Restore Data from Phone/SD Card</string>
+    <string name="cloud_restore_desc">Restore Data from Your Google Drive</string>
     <string name="google_sign_in_server_client_id">166760414832-3kr6bpjs6a7rgt9hbfuouvgvs8ha9q0b.apps.googleusercontent.com</string>
     <string name="backup_progress_message">Please wait. Backup is in progress. This may take a while</string>
     <string name="restore_progress_message">Please wait. Backup is restoring. This may take a while</string>
     <string name="cloud_backup_done_title">Data Backup Done Successfully!!!</string>
+    <string name="cloud_restore_done_title">Backup Data is Restored Successfully!!!</string>
+
+    <string name="cloud_backup_failed_title">Data Backup Failed!!!</string>
+    <string name="cloud_restore_failed_title">Data Restoring Failed!!!</string>
+
     <string name="cloud_backup_done_message">Note Data is successfully backed up to your google drive. You can restore it anytime you want.\n<b>Caution!! Backup file is saved in your Google Drive. Please don\'t delete the file, otherwise all the backup data will be lost</b></string>
+    <string name="cloud_restore_done_message">Note Data is restored successfully from your google drive. All the existing data has been replaced with the back up data.</string>
+
+    <string name="cloud_backup_failed_message">Cloud Backup Failed!! <b>Please check that you have an active internet connection, or you are logged in with your Gmail and try again</b></string>
+    <string name="cloud_restore_failed_message">Backup Restore Failed. <b>May be your internet connection is not active or there was no backup file found for this app in your Google Drive.</b></string>
 
 
     <string-array name="sorting_choices">

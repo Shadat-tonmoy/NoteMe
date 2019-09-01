@@ -627,7 +627,7 @@
     <string name="admob_rewarded_video_ad_test">ca-app-pub-3940256099942544/5224354917</string>
     <string name="already_paid">You have already subscribed to us. Please try again when your subscription is finished</string>
     <string name="app_desc">Create Note With More Then Text</string>
-    <string name="app_name">Notepad - Contact, Email, Image Audio Note</string>
+    <string name="app_name">Notepad App for Android with Contact,Image,Audio</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="audio">Audio</string>
     <string name="audio_inserted">Audio Added!</string>
@@ -659,10 +659,18 @@
     <string name="choose_color">Choose Color</string>
     <string name="clear_note">Clear Note?</string>
     <string name="clear_note_msg">Are you sure to clear all note?</string>
+    <string name="cloud_backup_desc">Backup Data to Your Google Drive</string>
     <string name="cloud_backup_done_message">Note Data is successfully backed up to your google drive. You can restore it anytime you want.\n<b>Caution!! Backup file is saved in your Google Drive. Please don\'t delete the file, otherwise all the backup data will be lost</b></string>
     <string name="cloud_backup_done_title">Data Backup Done Successfully!!!</string>
+    <string name="cloud_backup_failed_message">Cloud Backup Failed!! <b>Please check that you have an active internet connection, or you are logged in with your Gmail and try again</b></string>
+    <string name="cloud_backup_failed_title">Data Backup Failed!!!</string>
+    <string name="cloud_restore_desc">Restore Data from Your Google Drive</string>
+    <string name="cloud_restore_done_message">Note Data is restored successfully from your google drive. All the existing data has been replaced with the back up data.</string>
+    <string name="cloud_restore_done_title">Backup Data is Restored Successfully!!!</string>
+    <string name="cloud_restore_failed_message">Backup Restore Failed. <b>May be your internet connection is not active or there was no backup file found for this app in your Google Drive.</b></string>
+    <string name="cloud_restore_failed_title">Data Restoring Failed!!!</string>
     <string name="cloud_storage_backup">Cloud Storage Backup</string>
-    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">015dbac9-4451-457f-820b-c9cb5fb44622</string>
+    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">ae2ae871-6569-4dba-b232-629fba3e95ea</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
     <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>

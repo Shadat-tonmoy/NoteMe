@@ -161,6 +161,7 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
 
     private void executeBackupToCloudTask()
     {
+        cloudBackupOption = EventTypes.BACKUP_TO_CLOUD_STORAGE_BUTTON_CLICKED;
         GoogleDriveAPITask googleDriveAPITask = tasksFactory.getGoogleDriveAPITask();
         googleDriveAPITask.setDriveService(googleSignInHandlingTask.getDriveService());
         googleDriveAPITask.setBackupToCloudListener(this);
@@ -188,6 +189,7 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
         GoogleDriveAPITask googleDriveAPITask = tasksFactory.getGoogleDriveAPITask();
         googleDriveAPITask.setDriveService(googleSignInHandlingTask.getDriveService());
         googleDriveAPITask.setRestoreFromCloudListener(this);
+        cloudBackupOption = EventTypes.RESTORE_FROM_CLOUD_STORAGE_BUTTON_CLICKED;
         googleDriveAPITask.execute(EventTypes.RESTORE_FROM_CLOUD_STORAGE_BUTTON_CLICKED);
     }
 
@@ -199,9 +201,10 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
     }
 
     @Override
-    public void onRestoreFromCloudFailed()
+    public void onRestoreFromCloudFailed(boolean showDialog)
     {
-        DialogManagementTask.showBackupToCloudDoneDialog(activity,cloudBackupOption,false);
+        if(showDialog)
+            DialogManagementTask.showBackupToCloudDoneDialog(activity,cloudBackupOption,false);
     }
 
 
@@ -232,9 +235,10 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
     }
 
     @Override
-    public void onBackupToCloudFailed()
+    public void onBackupToCloudFailed(boolean showDialog)
     {
-        DialogManagementTask.showBackupToCloudDoneDialog(activity,cloudBackupOption,false);
+        if(showDialog)
+            DialogManagementTask.showBackupToCloudDoneDialog(activity,cloudBackupOption,false);
 
     }
 

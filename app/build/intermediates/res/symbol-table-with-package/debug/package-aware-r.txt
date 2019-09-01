@@ -1090,6 +1090,7 @@ drawable backup_black
 drawable call_black
 drawable check_list_black
 drawable close_black
+drawable close_white
 drawable color_cursor_white
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
@@ -1307,6 +1308,7 @@ id clip_vertical
 id cloud_backup_button
 id cloud_backup_desc
 id cloud_backup_done_header
+id cloud_backup_done_icon
 id cloud_backup_done_message
 id cloud_backup_done_title
 id cloud_backup_header
@@ -1910,8 +1912,16 @@ string choose_background_color
 string choose_color
 string clear_note
 string clear_note_msg
+string cloud_backup_desc
 string cloud_backup_done_message
 string cloud_backup_done_title
+string cloud_backup_failed_message
+string cloud_backup_failed_title
+string cloud_restore_desc
+string cloud_restore_done_message
+string cloud_restore_done_title
+string cloud_restore_failed_message
+string cloud_restore_failed_title
 string cloud_storage_backup
 string com_crashlytics_android_build_id
 string common_google_play_services_enable_button

@@ -55,14 +55,14 @@ public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Boolean>
     {
         void onBackupToCloudSuccess();
 
-        void onBackupToCloudFailed();
+        void onBackupToCloudFailed(boolean showDialog);
     }
 
     public interface RestoreFromCloudListener
     {
         void onRestoreFromCloudSuccess();
 
-        void onRestoreFromCloudFailed();
+        void onRestoreFromCloudFailed(boolean showDialog);
     }
 
     private Activity activity;
@@ -72,6 +72,7 @@ public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Boolean>
     private RestoreFromCloudListener restoreFromCloudListener;
     private ProgressDialog progressDialog;
     private int driveEventType;
+    private boolean showFailedDialog = true;
 
     public GoogleDriveAPITask(Activity activity, BackupConvertionTask backupConvertionTask)
     {
@@ -113,7 +114,7 @@ public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Boolean>
                 {
                     if(result)
                         backupToCloudListener.onBackupToCloudSuccess();
-                    else backupToCloudListener.onBackupToCloudFailed();
+                    else backupToCloudListener.onBackupToCloudFailed(showFailedDialog);
                 }
             }
             case EventTypes.RESTORE_FROM_CLOUD_STORAGE_BUTTON_CLICKED:
@@ -122,7 +123,7 @@ public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Boolean>
                 {
                     if(result)
                         restoreFromCloudListener.onRestoreFromCloudSuccess();
-                    else restoreFromCloudListener.onRestoreFromCloudFailed();
+                    else restoreFromCloudListener.onRestoreFromCloudFailed(showFailedDialog);
                 }
             }
         }
@@ -144,6 +145,7 @@ public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Boolean>
         }catch (UserRecoverableAuthIOException e)
         {
             activity.startActivityForResult(e.getIntent(), RequestCode.REQUEST_AUTHORIZATION_FOR_GOOGLE_DRIVE);
+            showFailedDialog = false;
 
         }catch (Exception e)
         {
@@ -190,7 +192,9 @@ public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Boolean>
     {
         try
         {
-            String fileId = createBackupFile();
+            String fileId = queryFiles();
+            if(fileId.equals(Constants.EMPTY_STRING))
+                fileId = createBackupFile();
             String backupContent = backupConvertionTask.getJSONFromBackup();
             File metadata = new File().setName(Constants.CLOUD_BACKUP_FILE_NAME);
             // Convert content to an AbstractInputStreamContent instance.
@@ -205,7 +209,7 @@ public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Boolean>
         catch (UserRecoverableAuthIOException e)
         {
             activity.startActivityForResult(e.getIntent(), RequestCode.REQUEST_AUTHORIZATION_FOR_GOOGLE_DRIVE);
-
+            showFailedDialog = false;
         }
         catch (Exception e)
         {
@@ -235,7 +239,8 @@ public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Boolean>
         }
         catch (UserRecoverableAuthIOException e)
         {
-            activity.startActivityForResult(e.getIntent(), RequestCode.REQUEST_AUTHORIZATION_FOR_GOOGLE_DRIVE);
+//            activity.startActivityForResult(e.getIntent(), RequestCode.REQUEST_AUTHORIZATION_FOR_GOOGLE_DRIVE);
+            showFailedDialog = false;
 
         }
         catch (Exception e)

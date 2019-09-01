@@ -2428,6 +2428,10 @@
         "source": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/drawable-hdpi/rate.png"
     },
     {
+        "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable_close_white.xml.flat",
+        "source": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/drawable/close_white.xml"
+    },
+    {
         "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-mdpi_share.png.flat",
         "source": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/drawable-mdpi/share.png"
     },
