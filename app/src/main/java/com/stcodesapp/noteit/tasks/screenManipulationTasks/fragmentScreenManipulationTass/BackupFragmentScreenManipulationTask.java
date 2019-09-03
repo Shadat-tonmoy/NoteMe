@@ -88,7 +88,7 @@ public class BackupFragmentScreenManipulationTask
         alertDialog.show();
     }
 
-    public void showBackupRestoreWarningDialog(final Listener listener)
+    public void showBackupRestoreWarningDialog(final Listener listener, final int restoreOption)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -109,7 +109,16 @@ public class BackupFragmentScreenManipulationTask
             @Override
             public void onClick(View v) {
                 alertDialog.dismiss();
-                listener.onRestoreFromLocalStorageConfirmed();
+                switch (restoreOption)
+                {
+                    case Constants.LOCAL_STORAGE_RESTORE:
+                        listener.onRestoreFromLocalStorageConfirmed();
+                        break;
+                    case Constants.CLOUD_STORAGE_RESTORE:
+                        listener.onRestoreFromCloudStorageConfirmed();
+                        break;
+                }
+
 
             }
         });

@@ -223,7 +223,15 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
     @Override
     public void onBackupToCloudStorageClicked()
     {
-        executeBackupToCloudFlow();
+
+        if(iapTrackingTasks.isPaidUser())
+            executeBackupToCloudFlow();
+        else
+        {
+            backupFragmentScreenManipulationTask.showUpgradeDialog(this);
+            watchAdPurpose = Constants.CLOUD_STORAGE_BACKUP;
+        }
+
     }
 
 
@@ -246,7 +254,7 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
     public void onRestoreFromLocalStorageClicked()
     {
         if(iapTrackingTasks.isPaidUser())
-            backupFragmentScreenManipulationTask.showBackupRestoreWarningDialog(this);
+            backupFragmentScreenManipulationTask.showBackupRestoreWarningDialog(this,Constants.LOCAL_STORAGE_RESTORE);
         else
         {
             backupFragmentScreenManipulationTask.showUpgradeDialog(this);
@@ -257,7 +265,16 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
     @Override
     public void onRestoreFromCloudStorageClicked()
     {
-        executeRestoreFromCloudFlow();
+        if(iapTrackingTasks.isPaidUser())
+        {
+            backupFragmentScreenManipulationTask.showBackupRestoreWarningDialog(this,Constants.CLOUD_STORAGE_RESTORE);
+        }
+        else
+        {
+            backupFragmentScreenManipulationTask.showUpgradeDialog(this);
+            watchAdPurpose = Constants.CLOUD_STORAGE_RESTORE;
+        }
+
     }
 
     @Override
@@ -311,6 +328,7 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
 
     @Override
     public void onRestoreFromCloudStorageConfirmed() {
+        executeRestoreFromCloudFlow();
 
     }
 
@@ -329,7 +347,13 @@ public class BackupFragmentController implements BackupFragmentScreen.Listener, 
                 executeBackupToLocalStorageTask(Constants.LOCAL_STORAGE_BACKUP);
                 break;
             case Constants.LOCAL_STORAGE_RESTORE:
-                backupFragmentScreenManipulationTask.showBackupRestoreWarningDialog(this);
+                backupFragmentScreenManipulationTask.showBackupRestoreWarningDialog(this,Constants.LOCAL_STORAGE_RESTORE);
+                break;
+            case Constants.CLOUD_STORAGE_BACKUP:
+                executeBackupToCloudFlow();
+                break;
+            case Constants.CLOUD_STORAGE_RESTORE:
+                backupFragmentScreenManipulationTask.showBackupRestoreWarningDialog(this,Constants.CLOUD_STORAGE_RESTORE);
                 break;
         }
 
