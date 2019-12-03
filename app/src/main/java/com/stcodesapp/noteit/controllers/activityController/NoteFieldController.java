@@ -147,6 +147,12 @@ public class NoteFieldController implements NoteFieldScreen.Listener,ColorPallat
                 activityNavigationTasks.closeScreen();
             }
         }
+        if(!iapTrackingTasks.isPaidUser())
+        {
+            noteFieldAdController.showRewardedVideoAd();
+            noteFieldAdController.setListener(this);
+        }
+
     }
 
 

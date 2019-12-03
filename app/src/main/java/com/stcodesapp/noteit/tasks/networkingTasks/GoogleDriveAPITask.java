@@ -72,12 +72,13 @@ public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Boolean>
     private RestoreFromCloudListener restoreFromCloudListener;
     private ProgressDialog progressDialog;
     private int driveEventType;
-    private boolean showFailedDialog = true;
+    private boolean showFailedDialog = true,drivePermissionExceptionCaught = false;
 
     public GoogleDriveAPITask(Activity activity, BackupConvertionTask backupConvertionTask)
     {
         this.activity = activity;
         this.backupConvertionTask = backupConvertionTask;
+        this.drivePermissionExceptionCaught = false;
     }
 
     @Override
@@ -144,7 +145,11 @@ public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Boolean>
             }
         }catch (UserRecoverableAuthIOException e)
         {
-            activity.startActivityForResult(e.getIntent(), RequestCode.REQUEST_AUTHORIZATION_FOR_GOOGLE_DRIVE);
+            if(!drivePermissionExceptionCaught)
+            {
+                activity.startActivityForResult(e.getIntent(), RequestCode.REQUEST_AUTHORIZATION_FOR_GOOGLE_DRIVE);
+                drivePermissionExceptionCaught = true;
+            }
             showFailedDialog = false;
 
         }catch (Exception e)
@@ -208,7 +213,11 @@ public class GoogleDriveAPITask extends AsyncTask<Integer,Void,Boolean>
         }
         catch (UserRecoverableAuthIOException e)
         {
-            activity.startActivityForResult(e.getIntent(), RequestCode.REQUEST_AUTHORIZATION_FOR_GOOGLE_DRIVE);
+            if(!drivePermissionExceptionCaught)
+            {
+                activity.startActivityForResult(e.getIntent(), RequestCode.REQUEST_AUTHORIZATION_FOR_GOOGLE_DRIVE);
+                drivePermissionExceptionCaught = true;
+            }
             showFailedDialog = false;
         }
         catch (Exception e)
