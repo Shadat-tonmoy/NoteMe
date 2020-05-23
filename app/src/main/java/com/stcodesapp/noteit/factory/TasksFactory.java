@@ -40,6 +40,7 @@ import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipul
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.fragmentScreenManipulationTass.SortingDialogManipulationTask;
 import com.stcodesapp.noteit.tasks.utilityTasks.AppPermissionTrackingTasks;
 import com.stcodesapp.noteit.tasks.utilityTasks.ClipboardTasks;
+import com.stcodesapp.noteit.tasks.utilityTasks.InfoThroughWebViewDialogShowingTask;
 import com.stcodesapp.noteit.tasks.utilityTasks.SharingTasks;
 
 public class TasksFactory {
@@ -261,5 +262,10 @@ public class TasksFactory {
     public GoogleSignInHandlingTask getGoogleSignInHandlingTask()
     {
         return new GoogleSignInHandlingTask(activity);
+    }
+
+    public InfoThroughWebViewDialogShowingTask getInfoThroughWebViewDialogShowingTask()
+    {
+        return new InfoThroughWebViewDialogShowingTask(activity);
     }
 }

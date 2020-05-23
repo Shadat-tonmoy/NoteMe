@@ -9,6 +9,7 @@ import com.stcodesapp.noteit.factory.TasksFactory;
 import com.stcodesapp.noteit.models.ProductDetail;
 import com.stcodesapp.noteit.tasks.functionalTasks.IAPBillingTasks;
 import com.stcodesapp.noteit.tasks.screenManipulationTasks.activityScreenManipulationTasks.IAPScreenManipulationTasks;
+import com.stcodesapp.noteit.tasks.utilityTasks.InfoThroughWebViewDialogShowingTask;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.IAPScreenView;
 import com.stcodesapp.noteit.ui.views.screens.activityScreen.IAPScreen;
 
@@ -121,5 +122,14 @@ public class IAPActivityController implements IAPScreen.Listener, IAPBillingTask
             iapBillingTasks.fetchAllProduct();
         }
 
+    }
+
+
+
+    @Override
+    public void onWhyUpgradeButtonClicked()
+    {
+        InfoThroughWebViewDialogShowingTask infoThroughWebViewDialogShowingTask = tasksFactory.getInfoThroughWebViewDialogShowingTask();
+        infoThroughWebViewDialogShowingTask.showWhyUpgradeDialog();
     }
 }

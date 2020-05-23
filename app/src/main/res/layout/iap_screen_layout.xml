@@ -311,6 +311,22 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/pro_continue_btn"/>
 
+
+            <TextView
+                android:id="@+id/why_upgrade_button"
+                style="@style/pro_period_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/iap_transparent_button_bg"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="@string/why_upgrade"
+                android:textColor="@color/pumpkin"
+                android:textStyle="bold"
+                android:layout_margin="@dimen/defaultMargin"
+                app:layout_constraintEnd_toEndOf="@+id/iap_description_view"
+                app:layout_constraintStart_toStartOf="@+id/iap_description_view"
+                app:layout_constraintTop_toBottomOf="@id/iap_description_view" />
+
         </android.support.constraint.ConstraintLayout>
 
     </ScrollView>
@@ -352,6 +368,7 @@
             android:padding="8dp"
             android:foreground="?attr/selectableItemBackground"
             android:gravity="center"/>
+
 
 
 

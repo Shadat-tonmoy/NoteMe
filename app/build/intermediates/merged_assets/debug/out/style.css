@@ -1,0 +1,76 @@
+	.fa{
+		font-size: 3em !important; 
+		color: white;
+	}
+	.w3-card{
+		margin: 0.5em;
+		position: relative;
+	}
+	.w3-card p{
+		padding: 0.5em;
+		color: #757575;
+		text-align: justify;
+
+	}
+
+	.w3-card span{
+		padding: 0.5em;
+		color: black;
+		font-weight: bold;
+
+	}
+	.headerBG{
+		background-image: url('b_2.webp');
+		min-height: 200px;
+		background-repeat: no-repeat;
+	}
+	.overlay {
+	  position: absolute; /* Sit on top of the page content */
+	  width: 100%; /* Full width (cover the whole page) */
+	  height: 200px;
+	  top: 0; 
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  background-color: rgba(0,0,0,0.65); /* Black background with opacity */
+	  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+	  cursor: pointer; /* Add a pointer on hover */
+	}
+	.desHeader{
+		    position: absolute;
+		    z-index: 10;
+		    margin: auto;
+		    width: 100%;
+		    top: 15%;
+	}
+	.desHeader h3{
+		color: white;
+	}
+	.w3-card ul li span{
+		margin-left: 0px;
+
+	}
+	.w3-card ul li{
+		list-style: none;
+	}
+	.w3-card ul{
+		margin: 0px;
+	}
+	.blackIcon{
+		color: black !important;
+		font-size: 1.5em !important;
+		padding: 8px;
+	}
+	.redIcon{
+		color: red !important;
+		font-size: 1.5em !important;
+		padding: 8px;
+	}
+	.greenIcon{
+		color: green !important;
+		font-size: 1.5em !important;
+		padding: 8px;
+	}
+	table{
+	    width:auto !important;
+	}

@@ -1093,6 +1093,7 @@ drawable back_white
 drawable backup_black
 drawable call_black
 drawable check_list_black
+drawable clear_white
 drawable close_black
 drawable close_white
 drawable color_cursor_white
@@ -1138,6 +1139,7 @@ drawable folder_image
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable home_gray
+drawable iap_transparent_button_bg
 drawable ic_action_action_search
 drawable ic_action_navigation_arrow_back
 drawable ic_action_navigation_arrow_back_inverted
@@ -1309,6 +1311,7 @@ id chosen_image_container
 id chronometer
 id clip_horizontal
 id clip_vertical
+id close_button
 id cloud_backup_button
 id cloud_backup_desc
 id cloud_backup_done_header
@@ -1435,6 +1438,7 @@ id imageView
 id imageView3
 id important_menu
 id info
+id info_view
 id invisible
 id italic
 id item_touch_helper_previous_elevation
@@ -1668,6 +1672,7 @@ id visible
 id watch_add_button
 id why_message
 id why_text
+id why_upgrade_button
 id wide
 id withText
 id wrap
@@ -1771,6 +1776,7 @@ layout iap_screen_layout
 layout image_container
 layout image_holder
 layout image_option_bottom_sheet_layout
+layout info_through_web_view_layout
 layout main_activity_layout
 layout manual_contact_screen
 layout manual_email_screen

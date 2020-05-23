@@ -4,16 +4,16 @@
         "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/81a159d489cd16489cea1bb901cd6000/materialsearchview-1.4.0/res/drawable-mdpi/ic_action_voice_search_inverted.png"
     },
     {
-        "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/animator_mtrl_fab_transformation_sheet_expand_spec.xml.flat",
-        "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/8be73e0f0ca188f77f6aac7a613a9b9e/design-28.0.0/res/animator/mtrl_fab_transformation_sheet_expand_spec.xml"
+        "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/layout_upgrade_to_pro_popup_dialog.xml.flat",
+        "source": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/layout/upgrade_to_pro_popup_dialog.xml"
     },
     {
         "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/layout_phone_no_option_bottom_sheet_layout.xml.flat",
         "source": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/layout/phone_no_option_bottom_sheet_layout.xml"
     },
     {
-        "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/layout_upgrade_to_pro_popup_dialog.xml.flat",
-        "source": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/layout/upgrade_to_pro_popup_dialog.xml"
+        "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/animator_mtrl_fab_transformation_sheet_expand_spec.xml.flat",
+        "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/8be73e0f0ca188f77f6aac7a613a9b9e/design-28.0.0/res/animator/mtrl_fab_transformation_sheet_expand_spec.xml"
     },
     {
         "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/color_mtrl_btn_stroke_color_selector.xml.flat",
@@ -294,6 +294,10 @@
     {
         "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_design_ic_visibility_off.png.flat",
         "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/8be73e0f0ca188f77f6aac7a613a9b9e/design-28.0.0/res/drawable-hdpi-v4/design_ic_visibility_off.png"
+    },
+    {
+        "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/layout_info_through_web_view_layout.xml.flat",
+        "source": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/layout/info_through_web_view_layout.xml"
     },
     {
         "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
@@ -2664,6 +2668,10 @@
         "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/449d4863e4cdcc39c101b5466d786323/appcompat-v7-28.0.0/res/drawable-mdpi-v4/abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
+        "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-mdpi_iap_transparent_button_bg.xml.flat",
+        "source": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/drawable-mdpi/iap_transparent_button_bg.xml"
+    },
+    {
         "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_black_48dp.png.flat",
         "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/449d4863e4cdcc39c101b5466d786323/appcompat-v7-28.0.0/res/drawable-xxxhdpi-v4/abc_ic_star_black_48dp.png"
     },
@@ -2786,6 +2794,10 @@
     {
         "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
         "source": "/home/shadat/android/.gradle/caches/transforms-2/files-2.1/449d4863e4cdcc39c101b5466d786323/appcompat-v7-28.0.0/res/drawable-xhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable-mdpi_clear_white.xml.flat",
+        "source": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/src/main/res/drawable-mdpi/clear_white.xml"
     },
     {
         "merged": "/mnt/Data/STCodesApp/Projects/NoteItApp/app/build/intermediates/res/merged/debug/drawable_abc_list_selector_background_transition_holo_light.xml.flat",

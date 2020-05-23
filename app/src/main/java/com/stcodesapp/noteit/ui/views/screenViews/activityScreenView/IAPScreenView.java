@@ -41,6 +41,7 @@ public class IAPScreenView extends BaseObservableScreenView<IAPScreen.Listener> 
         setClickListener(backIcon,EventTypes.IAP_BACK_BUTTON_CLICKED);
         setClickListener(closeButton,EventTypes.IAP_BACK_BUTTON_CLICKED);
         setClickListener(backButton,EventTypes.IAP_BACK_BUTTON_CLICKED);
+        setClickListener(whyUpgradeButton,EventTypes.WHY_UPGRADE_BUTTON_CLICKED);
 
     }
 
@@ -63,6 +64,7 @@ public class IAPScreenView extends BaseObservableScreenView<IAPScreen.Listener> 
         successLayout = findViewById(R.id.success_layout);
         iapPackageLayout = findViewById(R.id.iap_pack_layout);
         iapDescriptionTextView = findViewById(R.id.iap_description_view);
+        whyUpgradeButton = findViewById(R.id.why_upgrade_button);
     }
 
     private void setClickListener(View view, final int eventType)
@@ -92,6 +94,9 @@ public class IAPScreenView extends BaseObservableScreenView<IAPScreen.Listener> 
                             break;
                         case EventTypes.IAP_DONE_BUTTON_CLICKED:
                             listener.onDoneButtonClicked();
+                            break;
+                        case EventTypes.WHY_UPGRADE_BUTTON_CLICKED:
+                            listener.onWhyUpgradeButtonClicked();
                             break;
 
                     }

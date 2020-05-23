@@ -18,5 +18,7 @@ public interface IAPScreen extends BaseObservableScreen<IAPScreen.Listener> {
 
         void onDoneButtonClicked();
 
+        void onWhyUpgradeButtonClicked();
+
     }
 }

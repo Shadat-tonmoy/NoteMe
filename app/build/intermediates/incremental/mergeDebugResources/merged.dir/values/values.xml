@@ -674,7 +674,7 @@
     <string name="cloud_restore_failed_message">Backup Restore Failed. <b>May be your internet connection is not active or there was no backup file found for this app in your Google Drive.</b></string>
     <string name="cloud_restore_failed_title">Data Restoring Failed!!!</string>
     <string name="cloud_storage_backup">Cloud Storage Backup</string>
-    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">dd09194c-cf59-408c-8577-20852aa6d4f1</string>
+    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">05fa1e2c-64a8-4e86-8dd0-c0d4dec3350c</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
     <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>
@@ -849,7 +849,7 @@
     <item name="android:windowExitAnimation">@anim/design_bottom_sheet_slide_out</item>
   </style>
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
+        
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>

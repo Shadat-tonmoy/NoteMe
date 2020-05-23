@@ -31,4 +31,5 @@ public class EventTypes {
     public static final int RESTORE_FROM_CLOUD_STORAGE_BUTTON_CLICKED= 28;
 
 
+    public static final int WHY_UPGRADE_BUTTON_CLICKED = 29;
 }
