@@ -860,6 +860,8 @@ dimen compat_button_padding_vertical_material
 dimen compat_control_corner_material
 dimen compat_notification_large_icon_max_height
 dimen compat_notification_large_icon_max_width
+dimen defaultMargin
+dimen defaultMargin2x
 dimen design_appbar_elevation
 dimen design_bottom_navigation_active_item_max_width
 dimen design_bottom_navigation_active_item_min_width
@@ -917,6 +919,7 @@ dimen hint_alpha_material_light
 dimen hint_pressed_alpha_material_dark
 dimen hint_pressed_alpha_material_light
 dimen homeScreenBottomPadding
+dimen iap_scrren_header_height
 dimen item_touch_helper_max_drag_scroll_per_frame
 dimen item_touch_helper_swipe_escape_max_velocity
 dimen item_touch_helper_swipe_escape_velocity
@@ -984,6 +987,7 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+dimen pro_icon_dimension
 dimen search_icon_padding
 dimen search_view_text_padding
 dimen tab_item_padding
@@ -1420,6 +1424,7 @@ id hi_there
 id home
 id homeAsUp
 id home_menu
+id iap_description_view
 id iap_pack_layout
 id icon
 id icon_group
@@ -1978,6 +1983,7 @@ string google_crash_reporting_api_key
 string google_sign_in_server_client_id
 string google_storage_bucket
 string got_it
+string half_yearly_subs_desc
 string hi_there
 string hide_bottom_view_on_scroll_behavior
 string home
@@ -1985,8 +1991,10 @@ string image_inserted
 string important
 string life_time
 string life_time_price
+string lifetime_subs_desc
 string local_storage_backup
 string love_note_it
+string monthly_subs_desc
 string mtrl_chip_close_icon_content_description
 string name
 string new_item_added
@@ -2084,6 +2092,7 @@ string watch_ad
 string why_msg
 string why_upgrade
 string write_storage_permission_is_required
+string yearly_subs_desc
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

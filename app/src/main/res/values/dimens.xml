@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="note_element_label_padding">4dp</dimen>
+
+    <dimen name="iap_scrren_header_height">170dp</dimen>
+    <dimen name="defaultMargin2x">16dp</dimen>
+    <dimen name="defaultMargin">8dp</dimen>
+    <dimen name="pro_icon_dimension">40dp</dimen>
 </resources>

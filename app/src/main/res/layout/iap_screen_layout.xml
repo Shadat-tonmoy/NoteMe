@@ -12,7 +12,7 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/header_container"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="@dimen/iap_scrren_header_height"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -32,9 +32,9 @@
             android:id="@+id/back_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginStart="16dp"
-            android:padding="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="@dimen/defaultMargin2x"
+            android:padding="@dimen/defaultMargin"
             android:src="@drawable/back_white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -52,8 +52,8 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="@dimen/pro_icon_dimension"
+            android:layout_height="@dimen/pro_icon_dimension"
             android:src="@drawable/premium"
             app:layout_constraintBottom_toTopOf="@+id/pro_features"
             app:layout_constraintEnd_toEndOf="@+id/header_text"
@@ -293,10 +293,23 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:padding="8dp"
+                android:visibility="gone"
                 android:text="@string/no_thanks"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/pro_continue_btn" />
+
+            <TextView
+                android:id="@+id/iap_description_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/pro_period_style"
+                android:textSize="10sp"
+                android:layout_margin="@dimen/defaultMargin2x"
+                android:text="@string/monthly_subs_desc"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pro_continue_btn"/>
 
         </android.support.constraint.ConstraintLayout>
 

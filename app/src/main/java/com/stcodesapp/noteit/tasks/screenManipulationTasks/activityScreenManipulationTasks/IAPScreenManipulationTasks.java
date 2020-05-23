@@ -13,14 +13,20 @@ import com.stcodesapp.noteit.constants.IAPTypes;
 import com.stcodesapp.noteit.models.ProductDetail;
 import com.stcodesapp.noteit.ui.views.screenViews.activityScreenView.IAPScreenView;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class IAPScreenManipulationTasks {
 
     private IAPScreenView iapScreenView;
     private Activity activity;
+    private Map<String,String> productWisePriceMap;
 
 
     public IAPScreenManipulationTasks(Activity activity) {
         this.activity = activity;
+        this.productWisePriceMap = new HashMap<>();
+        initDefaultPriceMap();
 
     }
 
@@ -45,6 +51,7 @@ public class IAPScreenManipulationTasks {
     {
         clearAllForeground();
         iapScreenView.getMonthlySubsBtn().setForeground(activity.getResources().getDrawable(R.drawable.selected_package_fg));
+        iapScreenView.getIapDescriptionTextView().setText(activity.getResources().getString(R.string.monthly_subs_desc,productWisePriceMap.get(IAPIDs.MONTHLY_SUBS)));
         setChildTextColor(iapScreenView.getMonthlySubsBtn(),activity.getResources().getColor(R.color.pumpkin));
     }
 
@@ -52,6 +59,7 @@ public class IAPScreenManipulationTasks {
     {
         clearAllForeground();
         iapScreenView.getHalfYearlySubsBtn().setForeground(activity.getResources().getDrawable(R.drawable.selected_package_fg));
+        iapScreenView.getIapDescriptionTextView().setText(activity.getResources().getString(R.string.half_yearly_subs_desc,productWisePriceMap.get(IAPIDs.HALF_YEARLY_SUBS)));
         setChildTextColor(iapScreenView.getHalfYearlySubsBtn(),activity.getResources().getColor(R.color.pumpkin));
     }
 
@@ -59,6 +67,7 @@ public class IAPScreenManipulationTasks {
     {
         clearAllForeground();
         iapScreenView.getYearlySubsBtn().setForeground(activity.getResources().getDrawable(R.drawable.selected_package_fg));
+        iapScreenView.getIapDescriptionTextView().setText(activity.getResources().getString(R.string.yearly_subs_desc,productWisePriceMap.get(IAPIDs.YEARLY_SUBS)));
         setChildTextColor(iapScreenView.getYearlySubsBtn(),activity.getResources().getColor(R.color.pumpkin));
     }
 
@@ -66,6 +75,7 @@ public class IAPScreenManipulationTasks {
     {
         clearAllForeground();
         iapScreenView.getLifeTimeSubsBtn().setForeground(activity.getResources().getDrawable(R.drawable.selected_package_fg));
+        iapScreenView.getIapDescriptionTextView().setText(activity.getResources().getString(R.string.lifetime_subs_desc,productWisePriceMap.get(IAPIDs.LIFE_TIME_PURCHASE)));
         setChildTextColor(iapScreenView.getLifeTimeSubsBtn(),activity.getResources().getColor(R.color.pumpkin));
     }
 
@@ -73,6 +83,7 @@ public class IAPScreenManipulationTasks {
     {
         String iapID = productDetail.getProductId();
         String price = productDetail.getProductPrice();
+        productWisePriceMap.put(iapID,price);
         switch (iapID)
         {
             case IAPIDs.MONTHLY_SUBS:
@@ -88,6 +99,7 @@ public class IAPScreenManipulationTasks {
                 iapScreenView.getLifeTimePrice().setText(price);
                 break;
         }
+        setHalfYearlyForeground();
     }
 
 
@@ -136,5 +148,15 @@ public class IAPScreenManipulationTasks {
     public void hideSuccessMessage()
     {
         iapScreenView.getSuccessLayout().setVisibility(View.GONE);
+    }
+
+
+
+    private void initDefaultPriceMap()
+    {
+        productWisePriceMap.put(IAPIDs.MONTHLY_SUBS,activity.getResources().getString(R.string.one_month_price));
+        productWisePriceMap.put(IAPIDs.HALF_YEARLY_SUBS,activity.getResources().getString(R.string.six_month_price));
+        productWisePriceMap.put(IAPIDs.YEARLY_SUBS,activity.getResources().getString(R.string.one_year_price));
+        productWisePriceMap.put(IAPIDs.LIFE_TIME_PURCHASE,activity.getResources().getString(R.string.life_time_price));
     }
 }

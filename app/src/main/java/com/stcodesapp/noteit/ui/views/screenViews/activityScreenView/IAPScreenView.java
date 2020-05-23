@@ -18,7 +18,7 @@ import com.stcodesapp.noteit.ui.views.screens.activityScreen.IAPScreen;
 public class IAPScreenView extends BaseObservableScreenView<IAPScreen.Listener> implements IAPScreen {
 
     private CardView monthlySubsBtn, halfYearlySubsBtn, yearlySubsBtn, lifeTimeSubsBtn;
-    private TextView doneButton,closeButton,monthlyPrice,halfYearlyPrice,yearlyPrice,lifeTimePrice,successText,backButton;
+    private TextView doneButton,closeButton,monthlyPrice,halfYearlyPrice,yearlyPrice,lifeTimePrice,successText,backButton,iapDescriptionTextView,whyUpgradeButton,privacyPolicyButton;;
     private ImageView backIcon,successImage;
     private LinearLayout successLayout;
     private ConstraintLayout iapPackageLayout;
@@ -62,6 +62,7 @@ public class IAPScreenView extends BaseObservableScreenView<IAPScreen.Listener> 
         successImage = findViewById(R.id.success_image);
         successLayout = findViewById(R.id.success_layout);
         iapPackageLayout = findViewById(R.id.iap_pack_layout);
+        iapDescriptionTextView = findViewById(R.id.iap_description_view);
     }
 
     private void setClickListener(View view, final int eventType)
@@ -146,5 +147,9 @@ public class IAPScreenView extends BaseObservableScreenView<IAPScreen.Listener> 
 
     public ConstraintLayout getIapPackageLayout() {
         return iapPackageLayout;
+    }
+
+    public TextView getIapDescriptionTextView() {
+        return iapDescriptionTextView;
     }
 }

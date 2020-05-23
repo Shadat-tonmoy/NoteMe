@@ -59,18 +59,18 @@
     <style name="pro_header_style">
         <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:padding">16dp</item>
-        <item name="android:layout_margin">8dp</item>
+        <item name="android:padding">@dimen/defaultMargin2x</item>
+        <item name="android:layout_marginTop">24dp</item>
     </style>
 
 
     <style name="pro_features_style">
         <item name="android:textColor">@color/white</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:padding">16dp</item>
-        <item name="android:layout_margin">8dp</item>
+        <item name="android:padding">@dimen/defaultMargin</item>
+        <item name="android:layout_margin">@dimen/defaultMargin</item>
     </style>
 
     <style name="pro_period_style">
@@ -78,11 +78,13 @@
         <item name="android:padding">8dp</item>
         <item name="android:layout_margin">8dp</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
     <style name="pro_price_style">
         <item name="android:textAlignment">center</item>
         <item name="android:padding">8dp</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
 

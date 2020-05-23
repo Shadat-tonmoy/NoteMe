@@ -201,5 +201,10 @@
         <item>Descending</item>
     </string-array>
 
+    <string name="monthly_subs_desc">You will be charged %s each month after subscribing. If you wish you can cancel the subscription any time.</string>
+    <string name="half_yearly_subs_desc">You will be charged %s each six months after subscribing. If you wish you can cancel the subscription any time.</string>
+    <string name="yearly_subs_desc">You will be charged %s each year after subscribing. If you wish you can cancel the subscription any time.</string>
+    <string name="lifetime_subs_desc">You will be charged %s only one time. After this you will never be charged and you will get premium access for lifetime.</string>
+
 
 </resources>

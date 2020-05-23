@@ -12,12 +12,12 @@ public final class R {
     public static final class string {
         private string() {}
 
-        public static final int s1 = 0x7f0f00e5;
-        public static final int s2 = 0x7f0f00e6;
-        public static final int s3 = 0x7f0f00e7;
-        public static final int s4 = 0x7f0f00e8;
-        public static final int s5 = 0x7f0f00e9;
-        public static final int s6 = 0x7f0f00ea;
-        public static final int s7 = 0x7f0f00eb;
+        public static final int s1 = 0x7f0f00e8;
+        public static final int s2 = 0x7f0f00e9;
+        public static final int s3 = 0x7f0f00ea;
+        public static final int s4 = 0x7f0f00eb;
+        public static final int s5 = 0x7f0f00ec;
+        public static final int s6 = 0x7f0f00ed;
+        public static final int s7 = 0x7f0f00ee;
     }
 }

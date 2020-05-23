@@ -378,6 +378,8 @@
     <dimen name="compat_control_corner_material">2dp</dimen>
     <dimen name="compat_notification_large_icon_max_height">320dp</dimen>
     <dimen name="compat_notification_large_icon_max_width">320dp</dimen>
+    <dimen name="defaultMargin">8dp</dimen>
+    <dimen name="defaultMargin2x">16dp</dimen>
     <dimen name="design_appbar_elevation">4dp</dimen>
     <dimen name="design_bottom_navigation_active_item_max_width">168dp</dimen>
     <dimen name="design_bottom_navigation_active_item_min_width">96dp</dimen>
@@ -435,6 +437,7 @@
     <item format="float" name="hint_pressed_alpha_material_dark" type="dimen">0.70</item>
     <item format="float" name="hint_pressed_alpha_material_light" type="dimen">0.54</item>
     <dimen name="homeScreenBottomPadding">150dp</dimen>
+    <dimen name="iap_scrren_header_height">170dp</dimen>
     <dimen name="item_touch_helper_max_drag_scroll_per_frame">20dp</dimen>
     <dimen name="item_touch_helper_swipe_escape_max_velocity">800dp</dimen>
     <dimen name="item_touch_helper_swipe_escape_velocity">120dp</dimen>
@@ -502,6 +505,7 @@
     <dimen name="notification_subtext_size">13sp</dimen>
     <dimen name="notification_top_pad">10dp</dimen>
     <dimen name="notification_top_pad_large_text">5dp</dimen>
+    <dimen name="pro_icon_dimension">40dp</dimen>
     <dimen name="search_icon_padding">12dp</dimen>
     <dimen name="search_view_text_padding">65dp</dimen>
     <dimen name="tab_item_padding">5dp</dimen>
@@ -670,7 +674,7 @@
     <string name="cloud_restore_failed_message">Backup Restore Failed. <b>May be your internet connection is not active or there was no backup file found for this app in your Google Drive.</b></string>
     <string name="cloud_restore_failed_title">Data Restoring Failed!!!</string>
     <string name="cloud_storage_backup">Cloud Storage Backup</string>
-    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">206a7604-fc49-4e86-be22-8a81d5b75918</string>
+    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">dd09194c-cf59-408c-8577-20852aa6d4f1</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
     <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>
@@ -725,6 +729,7 @@
     <string name="google_sign_in_server_client_id">166760414832-3kr6bpjs6a7rgt9hbfuouvgvs8ha9q0b.apps.googleusercontent.com</string>
     <string name="google_storage_bucket" translatable="false">noteitapp-2443e.appspot.com</string>
     <string name="got_it">Got It!</string>
+    <string name="half_yearly_subs_desc">You will be charged %s each six months after subscribing. If you wish you can cancel the subscription any time.</string>
     <string name="hi_there">Hi There!</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">android.support.design.behavior.HideBottomViewOnScrollBehavior</string>
     <string name="home">Home</string>
@@ -732,8 +737,10 @@
     <string name="important">Importants</string>
     <string name="life_time">Life\nTime</string>
     <string name="life_time_price">6.99$</string>
+    <string name="lifetime_subs_desc">You will be charged %s only one time. After this you will never be charged and you will get premium access for lifetime.</string>
     <string name="local_storage_backup">Local Storage Backup</string>
     <string name="love_note_it">Love Noteit?</string>
+    <string name="monthly_subs_desc">You will be charged %s each month after subscribing. If you wish you can cancel the subscription any time.</string>
     <string name="mtrl_chip_close_icon_content_description">Remove %1$s</string>
     <string name="name">Name</string>
     <string name="new_item_added">New Item Added!</string>
@@ -831,6 +838,7 @@
     <string name="why_msg">We developers really work hard to provide you the best content. Please support us by spending some little bucks so that we can make it even better</string>
     <string name="why_upgrade">Why Upgrade?</string>
     <string name="write_storage_permission_is_required">Permission is required to write file on storage. Please allow permission and try again</string>
+    <string name="yearly_subs_desc">You will be charged %s each year after subscribing. If you wish you can cancel the subscription any time.</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
@@ -841,7 +849,7 @@
     <item name="android:windowExitAnimation">@anim/design_bottom_sheet_slide_out</item>
   </style>
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        
+        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -3228,26 +3236,28 @@
     <style name="pro_features_style">
         <item name="android:textColor">@color/white</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:padding">16dp</item>
-        <item name="android:layout_margin">8dp</item>
+        <item name="android:padding">@dimen/defaultMargin</item>
+        <item name="android:layout_margin">@dimen/defaultMargin</item>
     </style>
     <style name="pro_header_style">
         <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:padding">16dp</item>
-        <item name="android:layout_margin">8dp</item>
+        <item name="android:padding">@dimen/defaultMargin2x</item>
+        <item name="android:layout_marginTop">24dp</item>
     </style>
     <style name="pro_period_style">
         <item name="android:textAlignment">center</item>
         <item name="android:padding">8dp</item>
         <item name="android:layout_margin">8dp</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
     </style>
     <style name="pro_price_style">
         <item name="android:textAlignment">center</item>
         <item name="android:padding">8dp</item>
+        <item name="android:textSize">12sp</item>
     </style>
     <style name="sorting_option_spinner_style">
         <item name="android:textSize">16sp</item>
